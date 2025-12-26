@@ -3203,8 +3203,7 @@ send_to_pager_color("^x&Y]-=-}--------------------------&w\n\r\n\r",ch );
     if ( first_admin )
     {
 	if ( !ch )
-	    fprintf( whoout, "\n\r&R----------------------------{-=-[ 
-&W Singulars &R]-=-}-----------------------------\n\r\n\r" );
+	    fprintf( whoout, "\n\r&R----------------------------{-=-[ &W Singulars &R]-=-}-----------------------------\n\r\n\r" );
 	else {
 		set_char_color(AT_RED,ch);
 		set_pager_color(AT_RED,ch);
@@ -3217,7 +3216,8 @@ send_to_pager_color("^x&Y]-=-}--------------------------&w\n\r\n\r",ch );
 		send_to_pager_color("&R]-=-}-----------------------------&w\n\r\n\r", ch );
 		set_char_color(AT_GREEN,ch);
 		set_pager_color(AT_GREEN,ch);
-    }}
+    }
+    }
     for ( cur_who = first_admin; cur_who; cur_who = next_who )
     {
 	if ( !ch )
