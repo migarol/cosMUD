@@ -13,7 +13,7 @@ NOCRYPT =
 #SOLARIS_LINK = -lnsl -lsocket
  
 # Uncomment the line below if you are getting undefined crypt errors
-NEED_CRYPT = -lcrypt
+NEED_CRYPT = -lcurl -lcrypt
  
 DBUGFLG = -DREQUESTS
 
@@ -27,7 +27,7 @@ I3 = -DI3 -DI3SMAUG
 C_FLAGS = $(OPT_FLAG) -g3 -O -Wall $(I3) $(PROF) $(NOCRYPT) $(DBUGFLG) -DSMAUG $(SOLARIS_FLAG)
 L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
  
-O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
+O_FILES = act_comm.o act_info.o ai_god.o act_move.o act_obj.o act_wiz.o arena.o \
           axsmaug.o ban.o bank.o base64.o boards.o build.o clans.o comm.o \
           comments.o const.o db.o deity.o fight.o grub.o handler.o hashstr.o \
           hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \
@@ -39,7 +39,7 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \
           imc-interp.o imc-mail.o imc-mercbase.o imc-util.o imc-version.o \
  
-C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
+C_FILES = act_comm.c act_info.c ai_god.c act_move.c act_obj.c act_wiz.c arena.c \
           axsmaug.c ban.c bank.c base64.c boards.c build.c clans.c comm.c \
           comments.c const.c db.c deity.c fight.c grub.c handler.c hashstr.c \
           hiscores.c hskelter.c i3.c ibuild.c ident.c imm_host.c immscore.c \

@@ -61,6 +61,7 @@ DECLARE_SPEC_FUN(	spec_janitor		);
 DECLARE_SPEC_FUN(	spec_mayor		);
 DECLARE_SPEC_FUN(	spec_poison		);
 DECLARE_SPEC_FUN(	spec_thief		);
+DECLARE_SPEC_FUN(	spec_ai_god		);
 
 
 
@@ -87,6 +88,7 @@ SPEC_FUN *spec_lookup( const char *name )
     if ( !str_cmp( name, "spec_mayor"		  ) ) return spec_mayor;
     if ( !str_cmp( name, "spec_poison"		  ) ) return spec_poison;
     if ( !str_cmp( name, "spec_thief"		  ) ) return spec_thief;
+    if ( !str_cmp( name, "spec_ai_god"		  ) ) return spec_ai_god;
     return 0;
 }
 
@@ -113,6 +115,7 @@ char *lookup_spec( SPEC_FUN *special )
     if ( special == spec_mayor		)	return "spec_mayor";
     if ( special == spec_poison		)	return "spec_poison";
     if ( special == spec_thief		)	return "spec_thief";
+    if ( special == spec_ai_god		)	return "spec_ai_god";
     return "";
 }
 
