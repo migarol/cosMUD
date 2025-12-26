@@ -6,3 +6,7 @@ shutdown.txt
 ../system/bugs.txt
 ../system/WEBWIZ
 ../system/WIZLIST
+
+# System directory runtime files
+../system/WEBWIZ
+../system/WIZLIST
