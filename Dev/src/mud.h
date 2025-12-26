@@ -5323,6 +5323,37 @@ void    auction_update  args( ( void ) );
 void	remove_portal	args( ( OBJ_DATA *portal ) );
 void	weather_update	args( ( void ) );
 
+/* living_world.c */
+void	init_living_world	args( ( void ) );
+void	update_living_world	args( ( void ) );
+void	update_npc_memory	args( ( CHAR_DATA *mob, CHAR_DATA *ch, char *action, int rep_change ) );
+char *	get_npc_greeting	args( ( CHAR_DATA *mob, CHAR_DATA *ch ) );
+int	get_daynight_combat_modifier	args( ( CHAR_DATA *ch ) );
+bool	can_mob_spawn_now	args( ( MOB_INDEX_DATA *mob ) );
+int	get_vision_modifier	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *room ) );
+bool	is_night_time		args( ( void ) );
+bool	is_twilight		args( ( void ) );
+void	check_world_events	args( ( void ) );
+
+/* npc_ai.c */
+typedef struct npc_memory_data NPC_MEMORY;
+struct npc_memory_data
+{
+    char player_name[50];
+    int reputation;        /* -100 (hated) to +100 (loved) */
+    time_t last_interaction;
+    char last_action[256];
+    int times_killed_by;   /* How many times this player killed NPC */
+    int times_helped;      /* How many times player helped NPC */
+    NPC_MEMORY *next;
+};
+
+void	init_npc_ai		args( ( void ) );
+char *	npc_ai_talk		args( ( CHAR_DATA *mob, CHAR_DATA *ch, char *message ) );
+void	do_ai_talk		args( ( CHAR_DATA *ch, char *argument, CHAR_DATA *mob ) );
+bool	spec_ai_npc		args( ( CHAR_DATA *ch ) );
+NPC_MEMORY * load_npc_memory	args( ( int mob_vnum, char *player_name ) );
+
 /* hashstr.c */
 char *	str_alloc	args( ( char *str ) );
 char *	quick_link	args( ( char *str ) );

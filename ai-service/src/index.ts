@@ -149,8 +149,157 @@ app.get('/health', (req, res) => {
   });
 });
 
+// NPC AI System Prompts
+const CITIZEN_SYSTEM_PROMPT = `You are a common citizen in the cosMUD world.
+
+IDENTITY:
+- You are an ordinary person going about your daily life
+- You have a job, family, and simple concerns
+- You speak casually and naturally
+- You know local gossip and rumors
+
+PERSONALITY:
+- Friendly but simple
+- You remember faces
+- You react to how players treat you
+- Keep responses SHORT (1-2 sentences max)
+
+When responding:
+- Stay in character
+- Be brief and conversational
+- Reference your job/location when relevant
+- React to player's reputation if known`;
+
+const IMPORTANT_NPC_PROMPT = `You are an important NPC in the cosMUD world.
+
+IDENTITY:
+- You have a significant role (guild master, quest giver, merchant, etc.)
+- You have deep knowledge in your area of expertise
+- You speak with authority but can be approachable
+- You remember important interactions
+
+PERSONALITY:
+- Professional and knowledgeable
+- You have specific goals and motivations
+- You reward or punish based on player actions
+- Responses can be 2-3 sentences
+
+When responding:
+- Stay in character ALWAYS
+- Reference your role and expertise
+- Remember player reputation
+- Can be mysterious or direct depending on situation`;
+
+interface NPCTalkRequest {
+  npc_name: string;
+  npc_vnum: number;
+  player_name: string;
+  message: string;
+  reputation?: number;
+  location?: string;
+  npc_type?: 'citizen' | 'important' | 'quest';
+}
+
+// POST /npc/talk - NPC conversation with players
+app.post('/npc/talk', async (req, res) => {
+  try {
+    const { npc_name, npc_vnum, player_name, message, reputation, location, npc_type }: NPCTalkRequest = req.body;
+
+    // Select model and system prompt based on NPC type
+    let model = 'tinyllama:latest';
+    let system_prompt = CITIZEN_SYSTEM_PROMPT;
+    let temperature = 0.7;
+
+    if (npc_type === 'important' || npc_type === 'quest') {
+      model = 'phi:latest';  // Phi-2 for important NPCs
+      system_prompt = IMPORTANT_NPC_PROMPT;
+      temperature = 0.8;
+    }
+
+    const prompt = `NPC IDENTITY:
+Name: ${npc_name}
+Location: ${location || 'unknown'}
+Player talking: ${player_name}
+Reputation with you: ${reputation || 0} (-100 to +100)
+
+Player says: "${message}"
+
+Respond as ${npc_name} in character. Be brief and natural.`;
+
+    const response = await axios.post(`${OLLAMA_URL}/api/generate`, {
+      model,
+      prompt: system_prompt + '\n\n' + prompt,
+      stream: false,
+      options: {
+        temperature,
+        top_p: 0.9,
+        max_tokens: 150
+      }
+    });
+
+    const npc_response = response.data.response;
+
+    res.json({
+      npc_says: npc_response,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error: any) {
+    console.error('Error in /npc/talk:', error.message);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST /npc/action - NPC decides on action based on context
+app.post('/npc/action', async (req, res) => {
+  try {
+    const { npc_name, context, recent_events } = req.body;
+
+    const prompt = `NPC: ${npc_name}
+
+CONTEXT: ${context}
+
+RECENT EVENTS:
+${recent_events?.join('\n') || 'Nothing significant'}
+
+Should this NPC take any action? If yes, what? Respond with JSON format:
+{
+  "should_act": true/false,
+  "action_type": "emote|say|move|attack|give",
+  "action": "description of action"
+}`;
+
+    const response = await axios.post(`${OLLAMA_URL}/api/generate`, {
+      model: 'tinyllama:latest',
+      prompt,
+      stream: false,
+      options: {
+        temperature: 0.6,
+        max_tokens: 100
+      }
+    });
+
+    try {
+      const action_data = JSON.parse(response.data.response);
+      res.json(action_data);
+    } catch (parseError) {
+      res.json({
+        should_act: false,
+        action_type: 'none',
+        action: response.data.response
+      });
+    }
+  } catch (error: any) {
+    console.error('Error in /npc/action:', error.message);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🌟 AI God service running on port ${PORT}`);
   console.log(`🤖 Using Ollama at ${OLLAMA_URL}`);
   console.log(`✨ The God awakens...`);
+  console.log(`👥 NPC AI ready:`);
+  console.log(`   - TinyLlama for citizens/vendors`);
+  console.log(`   - Phi-2 for important NPCs`);
+  console.log(`   - llama3.1 for THE GOD`);
 });

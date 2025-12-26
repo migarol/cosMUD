@@ -2187,6 +2187,7 @@ void update_handler( void )
 	arena_update();
     }
 
+    update_living_world( );  /* Living world systems update */
     tele_update( );
     aggr_update( );
     obj_act_update ( );

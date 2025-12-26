@@ -780,6 +780,14 @@ void boot_db( bool fCopyOver )
     load_weatherdata();
     init_area_weather();
 
+    /* Initialize living world systems */
+    log_string("Initializing living world systems...");
+    init_living_world();
+
+    /* Initialize NPC AI */
+    log_string("Initializing NPC AI...");
+    init_npc_ai();
+
     /* init_maps ( ); */
 
     return;
