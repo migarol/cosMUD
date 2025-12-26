@@ -3126,9 +3126,22 @@ void do_oinvoke( CHAR_DATA *ch, char *argument )
 	send_to_char( "Syntax: oinvoke <vnum> <level>.\n\r", ch );
 	return;
     }
-    if ( arg2[0] == '\0' )
+    
+	if ( arg2[0] == '\0' )
     {
-	level = 0;
+	obj = get_obj_world( ch, arg1 );
+    	
+	if ( ( obj = get_obj_world( ch, arg1 ) ) == NULL )
+    
+	{
+        send_to_char( "Nothing like that in hell, earth, or heaven.\n\r", ch );
+        return;
+        }
+	if ( obj->level == NULL )
+		level = 0;
+	else 
+	level = obj->level;
+		/*	level = 0; */
     }
     else
     {
@@ -3161,7 +3174,8 @@ void do_oinvoke( CHAR_DATA *ch, char *argument )
 		vnum = pObjIndex->vnum;
 		break;
 	    }
-	if ( vnum == -1 )
+	/* if ( vnum == -1 ) */
+		if ( vnum == -1 )
 	{
 	    send_to_char( "No such object exists.\n\r", ch );
 	    return;
@@ -3170,7 +3184,7 @@ void do_oinvoke( CHAR_DATA *ch, char *argument )
     else
 	vnum = atoi( arg1 );
 
-    if ( get_trust(ch) < LEVEL_DEMI )
+	if ( get_trust(ch) < LEVEL_DEMI )
     {
 	AREA_DATA *pArea;
 
@@ -6241,11 +6255,11 @@ void do_cset( CHAR_DATA *ch, char *argument )
 	    sysdata.read_all_mail, sysdata.read_mail_free, sysdata.write_mail_free );
     pager_printf_color(ch, "  &wTake all mail: &W%d  &wIMC mail board vnum: &W%d &wIMC Min. Read Level: &W%d\n\r",
 	    sysdata.take_others_mail, sysdata.imc_mail_vnum, sysdata.imc_mail_level);
-	pager_printf_color(ch, "\n\r&wPfile autocleanup status: &W%s  &wDays before purging newbies: &W%d\n\r",
+/*	pager_printf_color(ch, "\n\r&wPfile autocleanup status: &W%s  &wDays before purging newbies: &W%d\n\r",
 	    sysdata.CLEANPFILES ? "On" : "Off",
 	    sysdata.newbie_purge );
     pager_printf_color(ch, "&wDays before purging regular players: &W%d\n\r",
-	    sysdata.regular_purge );
+	    sysdata.regular_purge ); */
     pager_printf_color(ch, "&WChannels:\n\r  &wStaff: &W%d   &wThink: &W%d   &wLog: &W%d   &wBuild: &W%d\n\r",
  	    sysdata.staff_level, sysdata.think_level, sysdata.log_level, 
 	    sysdata.build_level);
@@ -6297,7 +6311,7 @@ void do_cset( CHAR_DATA *ch, char *argument )
      return;
   }
 
-  if ( !str_cmp( arg, "pfiles" ) )
+ /* if ( !str_cmp( arg, "pfiles" ) )
     {
 
       sysdata.CLEANPFILES = !sysdata.CLEANPFILES;
@@ -6307,7 +6321,7 @@ void do_cset( CHAR_DATA *ch, char *argument )
       else
 	   send_to_char( "Pfile autocleanup disabled.\n\r", ch );
       return;
-    }
+    } */
 
   if (!str_cmp(arg, "save"))
   {
@@ -6369,7 +6383,7 @@ void do_cset( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  if ( !str_cmp(arg, "newbie_purge"))
+/*  if ( !str_cmp(arg, "newbie_purge"))
   {
     if ( level < 1 )
     {
@@ -6393,7 +6407,7 @@ void do_cset( CHAR_DATA *ch, char *argument )
     sysdata.regular_purge = level;
     send_to_char( "Ok.\n\r", ch );
     return;
-  }
+  } */
 
   if ( !str_prefix (arg, "checkimmhost" ) )
     {
@@ -7614,8 +7628,7 @@ void do_showclass( CHAR_DATA *ch, char *argument )
 	send_to_char( "No such class.\n\r", ch );
 	return;
     }
-    pager_printf_color( ch, "&wCLASS: &W%s\n\r&wPrime Attribute: &W%-14s
-&wWeapon: &W%-5d      &wGuild: &W%-5d\n\r",
+    pager_printf_color( ch, "&wCLASS: &W%s\n\r&wPrime Attribute: &W%-14s &wWeapon: &W%-5d      &wGuild: &W%-5d\n\r",
 	class->who_name, affect_loc_name(class->attr_prime), class->weapon, class->guild );
     pager_printf_color( ch, "&wMax Skill Adept: &W%-3d             &wThac0 : &W%-5d     &wThac32: &W%d\n\r",
 	class->skill_adept, class->thac0_00, class->thac0_32 );

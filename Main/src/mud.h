@@ -300,7 +300,7 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define LEVEL_LOG		    LEVEL_LESSER
 #define LEVEL_HIGOD		    LEVEL_GOD
 #include "bank.h"
-#include "pfiles.h"
+/* #include "pfiles.h" */
 
 #define	SECONDS_PER_TICK			 70
 
@@ -312,10 +312,10 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define PULSE_AUCTION				 (9 * PULSE_PER_SECOND)
 
 
-/* 
+/*
  * Stuff for area versions --Shaddai
  */
-int     area_version;
+extern int     area_version;
 #define HAS_SPELL_INDEX     -1
 #define AREA_VERSION_WRITE 1
 
@@ -731,9 +731,11 @@ typedef enum {
   CON_CONFIRM_NEW_NAME,
   CON_GET_NEW_PASSWORD,
   CON_CONFIRM_NEW_PASSWORD,
-  CON_GET_NEW_SPECIES,		/* species snip 5/28/02 */
+ /* CON_GET_NEW_SPECIES,		* species snip 5/28/02 */
+  CON_MENU,
   CON_GET_NEW_SEX,
   CON_GET_NEW_CLASS,
+  CON_GET_STATS,
   CON_READ_MOTD,
   CON_GET_NEW_RACE,
   CON_GET_EMULATION,
@@ -786,6 +788,7 @@ struct	descriptor_data
     char *		host;
     int			port;
     int			descriptor;
+	int			check; /* Menu structure for stuff like that. */
     sh_int		connected;
     sh_int		idle;
     sh_int		lines;
@@ -1086,7 +1089,7 @@ struct	mob_prog_data
     char *	 comlist;
 };
 
-bool	MOBtrigger;
+extern bool	MOBtrigger;
 
 /*
  * Per-class stuff.
@@ -1098,6 +1101,7 @@ struct	class_type
     int		alignment;		/* Alignment -- Scion */
     int		weapon;			/* First weapon			*/
     int		guild;			/* Vnum of guild room		*/
+	sh_int	nanny;
     sh_int	skill_adept;		/* Maximum skill level		*/
     sh_int	thac0_00;		/* Thac0 for level  0		*/
     sh_int	thac0_32;		/* Thac0 for level 32		*/
@@ -1113,6 +1117,7 @@ struct	race_type
     char 	race_name	[16];	/* Race name			*/
     EXT_BV	affected;		/* Default affect bitvectors	*/
     sh_int	species;		/* species snip 5/28/02 */
+	sh_int	nanny;
 	sh_int	str_plus;		/* Str bonus/penalty		*/
     sh_int	dex_plus;		/* Dex      "			*/
     sh_int	wis_plus;		/* Wis      "			*/
@@ -1289,9 +1294,10 @@ struct	deity_data
     int		susceptnum;
     int		elementnum;
     int		affectednum;
-    int	        objstat;
+    int		objstat;
 	int		deityobj;
 	int		avatar;
+	int		derecall;
 };
 
 
@@ -2177,6 +2183,10 @@ struct timer_data
 #define AFLAG_NOPKILL               BV00
 #define AFLAG_FREEKILL		    BV01
 #define AFLAG_NOTELEPORT	    BV02
+#define AFLAG_HIDDEN				BV03
+#define AFLAG_NOSUMMON			BV04
+#define AFLAG_DENYSUMMON		BV05
+#define AFLAG_NONPCTELE			BV06
 
 /*
  * Prototype for a mob.
@@ -2867,9 +2877,10 @@ struct	system_data
     bool	all_pkill_mode; /* Cronel pkill mode */
     int		scount;	/* Amount of socials in MUD */
     int		ccount; /* Amount of commands in MUD */
-	sh_int  newbie_purge; /* Level to auto-purge newbies at - Fellon */
-    sh_int  regular_purge; /* Level to purge normal players at - Fellon */
-    bool CLEANPFILES; /* Should the mud clean up pfiles daily? - Fellon */
+/*  sh_int  newbie_purge;   Level to auto-purge newbies at - Fellon 
+    sh_int  regular_purge;    Level to purge normal players at - Fellon 
+      bool CLEANPFILES;     Should the mud clean up pfiles daily? - Fellon 
+*/
 };
 
 
@@ -3756,7 +3767,7 @@ extern char *   preg;
 
 extern char *	target_name;
 extern char *	ranged_target_name;
-extern	int	numobjsloaded;
+extern	long int	numobjsloaded;	/* changed Marten */
 extern	int	nummobsloaded;
 extern	int	physicalobjects;
 extern 	int	last_pkroom;
@@ -4330,6 +4341,7 @@ DECLARE_DO_FUN(	do_wizlock	);
 DECLARE_DO_FUN( do_worth        ); 
 DECLARE_DO_FUN(	do_yell		);
 DECLARE_DO_FUN(	do_zap		);
+DECLARE_DO_FUN(	do_zlist		);
 DECLARE_DO_FUN( do_zones	);
 /* mob prog stuff */
 DECLARE_DO_FUN( do_mp_close_passage );
@@ -4792,6 +4804,11 @@ void	save_deity	args( ( DEITY_DATA *deity ) );
 
 /* comm.c */
 char *color_align( char *argument, int size, int align );
+	void    show_menu_to	args( ( DESCRIPTOR_DATA *d ) ); /* Main */
+	void    show_amenu_to   args( ( DESCRIPTOR_DATA *d ) ); /* Attributes */
+	void    show_rmenu_to   args( ( DESCRIPTOR_DATA *d ) ); /* Race */
+	void    show_smenu_to   args( ( DESCRIPTOR_DATA *d ) ); /* Sex */
+	void    show_cmenu_to   args( ( DESCRIPTOR_DATA *d ) ); /* Class */
 const char *const_color_align( const char *argument, int size, int align );
 int color_str_len( char *argument );
 int const_color_str_len( const char *argument );
@@ -5713,3 +5730,9 @@ void Win32_Exit(int exit_code);
 
 #define send_to_char send_to_char_color
 #define send_to_pager send_to_pager_color
+
+/* Adding Nanny Menu checks for new characters */
+#define CHECK_RACE		1
+#define CHECK_CLASS		2
+#define CHECK_SEX		4
+#define CHECK_STATS		8

@@ -1824,9 +1824,9 @@ void do_time( CHAR_DATA *ch, char *argument )
 	(char *) ctime( &current_time ),
 	reboot_time
 	);
-	if( sysdata.CLEANPFILES )
+/*	if( sysdata.CLEANPFILES )
 	ch_printf( ch, "Next pfile cleanup is scheduled for: %s\n\r", (char *)ctime( &new_pfile_time_t ) );
-
+*/
     return;
 }
 
@@ -3036,7 +3036,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 
     if ( ch )
     {
-        send_to_pager( "\n\r&Y                               Visitors on SDFmud 2.4.5\n\r\n\r", ch );	 set_char_color(AT_ORANGE, ch);
+        send_to_pager( "\n\r&Y                               Visitors on SDFmud 2.4.7\n\r\n\r", ch );	 set_char_color(AT_ORANGE, ch);
 	set_pager_color(AT_ORANGE, ch);
 	send_to_pager_color( "&O-----------------------------{-=-[ ",ch);
 	set_char_color(AT_WHITE, ch);
@@ -3203,8 +3203,7 @@ send_to_pager_color("^x&Y]-=-}--------------------------&w\n\r\n\r",ch );
     if ( first_admin )
     {
 	if ( !ch )
-	    fprintf( whoout, "\n\r&R----------------------------{-=-[ 
-&W Singulars &R]-=-}-----------------------------\n\r\n\r" );
+	    fprintf( whoout, "\n\r&R----------------------------{-=-[ &W Singulars &R]-=-}-----------------------------\n\r\n\r" );
 	else {
 		set_char_color(AT_RED,ch);
 		set_pager_color(AT_RED,ch);
@@ -3217,7 +3216,8 @@ send_to_pager_color("^x&Y]-=-}--------------------------&w\n\r\n\r",ch );
 		send_to_pager_color("&R]-=-}-----------------------------&w\n\r\n\r", ch );
 		set_char_color(AT_GREEN,ch);
 		set_pager_color(AT_GREEN,ch);
-    }}
+    }
+    }
     for ( cur_who = first_admin; cur_who; cur_who = next_who )
     {
 	if ( !ch )
@@ -3350,7 +3350,8 @@ void do_where( CHAR_DATA *ch, char *argument )
     set_pager_color( AT_PERSON, ch );
     if ( arg[0] == '\0' )
     {
-        pager_printf( ch, "\n\rPlayers near you in %s:\n\r", ch->in_room->area->name );
+        pager_printf( ch, "\n\rPlayers near you in %s {%d - %d}:\n\r", ch->in_room->area->name,
+			ch->in_room->area->low_soft_range, ch->in_room->area->hi_soft_range);
 	found = FALSE;
 	for ( d = first_descriptor; d; d = d->next )
 	    if ( (d->connected == CON_PLAYING || d->connected == CON_EDITING )
@@ -3730,12 +3731,13 @@ void do_password( CHAR_DATA *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
+    char arg3[MAX_INPUT_LENGTH];
     char *pArg;
     char *pwdnew;
     char *p;
     char cEnd;
-
-    if ( IS_NPC(ch) )
+    
+	if ( IS_NPC(ch) )
 	return;
 
     /*
@@ -3780,25 +3782,46 @@ void do_password( CHAR_DATA *ch, char *argument )
     }
     *pArg = '\0';
 
-    if ( arg1[0] == '\0' || arg2[0] == '\0' )
+
+	pArg = arg3;
+    while ( isspace(*argument) )
+	argument++;
+
+    cEnd = ' ';
+    if ( *argument == '\'' || *argument == '"' )
+	cEnd = *argument++;
+
+    while ( *argument != '\0' )
     {
-	send_to_char( "Syntax: password <new> <again>.\n\r", ch );
+	if ( *argument == cEnd )
+	{
+	    argument++;
+	    break;
+	}
+	*pArg++ = *argument++;
+    }
+    *pArg = '\0';
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' )
+    {
+	send_to_char( "Syntax: password <new> <new confirm> <old confirm>.\n\r", ch );
 	return;
     }
 
-/*
-    if ( strcmp( crypt( arg1, ch->pcdata->pwd ), ch->pcdata->pwd ) )
-    {
+	if (strcmp( crypt( arg3, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+	{
 	WAIT_STATE( ch, 40 );
-	send_to_char( "Wrong password.  Wait 10 seconds.\n\r", ch );
+	send_to_char( "Your old password dosn't match. Wait 10 seconds.\n\r", ch );
 	return;
-    }
-*/
-
-/* This should stop all the mistyped password problems --Shaddai */
-    if ( strcmp( arg1, arg2 ))
+	}
+        else
+        {
+	send_to_char( "Elvis loves you.\n\r", ch);
+	}
+	
+	if ( strcmp( arg1, arg2 ))
     {
-	send_to_char("Passwords don't match try again.\n\r", ch );
+	send_to_char("New Password don't match try again.\n\r", ch );
 	return;
     }
     if ( strlen(arg2) < 5 )
@@ -4435,7 +4458,7 @@ void do_areas( CHAR_DATA *ch, char *argument )
 */
 
 /*
- * New do_areas, written by Fireblade, last modified - 4/27/97
+ * New do_areas, written by Fireblade, last modified - 10/05/2002 by Chimerus
  *
  *   Syntax: area            ->      lists areas in alphanumeric order
  *           area <a>        ->      lists areas with soft max less than
@@ -4443,6 +4466,7 @@ void do_areas( CHAR_DATA *ch, char *argument )
  *           area <a> <b>    ->      lists areas with soft max bewteen
  *                                                    numbers a and b
  *           area old        ->      list areas in order loaded
+ *	 Modifications:	Shows ALL and NONE.
  *
  */
 void do_areas( CHAR_DATA *ch, char *argument )
@@ -4453,12 +4477,25 @@ void do_areas( CHAR_DATA *ch, char *argument )
     char *header_string2 = "------------------+-----------------"
                                     "---------------------+----"
                                     "---------+-----------\n\r";
-    char *print_string = "&c%-17s&w | &C%-36s&w | &Y%4d - %-4d&w | &R%3d - "
+    char *print_string1 = "&c%-17s&w | &C%-36s&w | &Y%4d - %-4d&w | &R%3d - "
+                                    "%-3d&w \n\r";
+
+	char *print_string2 = "&c%-17s&w | &C%-36s&w |     &YALL   &w  |    &RNONE\n\r";
+
+	char *print_string3 = "&c%-17s&w | &C%-36s&w | &Y%4d - %-4d&w |    &RNONE\n\r";
+
+	char *print_string4 = "&c%-17s&w | &C%-36s&w |     &YALL   &w  | &R%3d - "
                                     "%-3d&w \n\r";
  
+	char *print_string5 = "&c%-17s&w | &C%-36s&w |    &YGUILD  &w  |    &RNONE\n\r";
+
+	char *print_string6 = "&c%-17s&w | &C%-36s&w |    &YGUILD  &w  | &R%3d - "
+                                    "%-3d&w \n\r";
+
     AREA_DATA *pArea;
     int lower_bound = 0;
     int upper_bound = MAX_LEVEL + 1;
+	int area_string;
     /* make sure is to init. > max area level */
     char arg[MAX_STRING_LENGTH];
    
@@ -4475,13 +4512,76 @@ void do_areas( CHAR_DATA *ch, char *argument )
           send_to_pager(header_string2, ch);
           for (pArea = first_area; pArea;pArea = pArea->next)
           {   
-            pager_printf(ch, print_string,
-              pArea->author, pArea->name,
-              pArea->low_soft_range,
-              pArea->hi_soft_range,
-              pArea->low_hard_range,
-              pArea->hi_hard_range);
-          }  
+		if (!IS_SET(pArea->flags, AFLAG_HIDDEN))
+		{
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 116)
+			&& !(pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 0;
+		else
+		if ((pArea->low_hard_range == 0 && pArea->hi_hard_range == 116)
+			&& !(pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& !(pArea->low_soft_range == 0 && pArea->hi_soft_range == 116))
+			area_string = 1;
+		else
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 116)
+			&& (pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 2;
+		else
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& !(pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 3;
+		else
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& (pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 4;
+		else
+			area_string = 5;
+
+				switch ( area_string )
+				{
+				case 0:
+					pager_printf(ch, print_string4,
+					pArea->author, pArea->name,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+
+				case 1:
+					pager_printf(ch, print_string3,
+					pArea->author, pArea->name,
+					pArea->low_soft_range,
+					pArea->hi_soft_range);
+					break;
+
+				case 2:
+					pager_printf(ch, print_string2,
+					pArea->author, pArea->name);
+					break;
+
+				case 3:
+					pager_printf(ch, print_string6,
+					pArea->author, pArea->name,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+
+				case 4:
+					pager_printf(ch, print_string5,
+					pArea->author, pArea->name);
+					break;
+
+				case 5 :
+					pager_printf(ch, print_string1,
+					pArea->author, pArea->name,
+					pArea->low_soft_range,
+					pArea->hi_soft_range,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+				}
+			}
+
+		  }  
           return;
         }
         else
@@ -4531,12 +4631,175 @@ void do_areas( CHAR_DATA *ch, char *argument )
       if (pArea->hi_soft_range >= lower_bound
       &&  pArea->low_soft_range <= upper_bound)
       {
+		if (!IS_SET(pArea->flags, AFLAG_HIDDEN))
+		{
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 116)
+			&& !(pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 0;
+		else
+		if ((pArea->low_hard_range == 0 && pArea->hi_hard_range == 116)
+			&& !(pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& !(pArea->low_soft_range == 0 && pArea->hi_soft_range == 116))
+			area_string = 1;
+		else
+		if ( (pArea->low_soft_range == 0 && pArea->hi_soft_range == 116)
+			&& (pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 2;
+		else
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& !(pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 3;
+		else
+		if ((pArea->low_soft_range == 0 && pArea->hi_soft_range == 0)
+			&& (pArea->low_hard_range == 0 && pArea->hi_hard_range == 116))
+			area_string = 4;
+		else
+			area_string = 5;
+
+			switch ( area_string )
+			{
+				case 0:
+					pager_printf(ch, print_string4,
+					pArea->author, pArea->name,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+
+				case 1:
+					pager_printf(ch, print_string3,
+					pArea->author, pArea->name,
+					pArea->low_soft_range,
+					pArea->hi_soft_range);
+					break;
+
+				case 2:
+					pager_printf(ch, print_string2,
+					pArea->author, pArea->name);
+					break;
+
+				case 3:
+					pager_printf(ch, print_string6,
+					pArea->author, pArea->name,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+
+				case 4:
+					pager_printf(ch, print_string5,
+					pArea->author, pArea->name);
+					break;
+
+				case 5 :
+					pager_printf(ch, print_string1,
+					pArea->author, pArea->name,
+					pArea->low_soft_range,
+					pArea->hi_soft_range,
+					pArea->low_hard_range,
+					pArea->hi_hard_range);
+					break;
+			}
+		}
+		 }
+    }
+    return;
+}
+
+
+void do_zlist( CHAR_DATA *ch, char *argument )
+{
+    char *header_string1 = "\n\r   &WFilename&w       |             &CArea&w"
+                                    "                     | "
+                                    "&YRecommended&w |  &cRoom Vnums&w\n\r";
+    char *header_string2 = "------------------+-----------------"
+                                    "---------------------+----"
+                                    "---------+-----------\n\r";
+    char *print_string = "&W%-17s&w | &C%-36s&w | &Y%4d - %-4d&w | &c%5d - "
+                                    "%-5d&w \n\r";
+ 
+    AREA_DATA *pArea;
+    int lower_bound = 0;
+    int upper_bound = MAX_LEVEL + 1;
+    /* make sure is to init. > max area level */
+    char arg[MAX_STRING_LENGTH];
+   
+    argument = one_argument(argument,arg);
+        
+    if(arg[0] != '\0')
+    {
+      if(!is_number(arg))
+      {
+        if(!strcmp(arg,"old"))
+        {
+          set_pager_color( AT_PLAIN, ch );
+          send_to_pager(header_string1, ch);
+          send_to_pager(header_string2, ch);
+          for (pArea = first_area; pArea;pArea = pArea->next)
+          {   
+            pager_printf(ch, print_string,
+				(pArea->filename ? pArea->filename : "(invalid)"),
+				pArea->name,
+				pArea->low_soft_range,
+				pArea->hi_soft_range,
+				pArea->low_r_vnum,
+				pArea->hi_r_vnum);
+
+          }  
+          return;
+        }
+        else
+        {
+          send_to_char("Zlist may only be followed by numbers, or 'old'.\n\r", ch);
+          return;
+        }
+      }
+                                 
+      upper_bound = atoi(arg);
+      lower_bound = upper_bound;
+                                                
+      argument = one_argument(argument,arg);
+                                                
+      if(arg[0] != '\0')
+      {
+        if(!is_number(arg))
+        {
+          send_to_char("Zlist may only be followed by numbers.\n\r", ch);
+          return;
+        }
+                                
+        upper_bound = atoi(arg);
+                 
+        argument = one_argument(argument,arg);
+        if(arg[0] != '\0')
+        {
+          send_to_char("Only two level numbers allowed.\n\r",ch);
+          return;
+        }
+      }
+    }
+                         
+    if(lower_bound > upper_bound)
+    {
+      int swap = lower_bound;
+      lower_bound = upper_bound;
+      upper_bound = swap;
+    }
+ 
+    set_pager_color( AT_PLAIN, ch );
+    send_to_pager(header_string1, ch);
+    send_to_pager(header_string2, ch);
+                                
+    for (pArea = first_area_name; pArea; pArea = pArea->next_sort_name)
+    {
+      if (pArea->hi_soft_range >= lower_bound
+      &&  pArea->low_soft_range <= upper_bound)
+      {
         pager_printf(ch, print_string,
-          pArea->author, pArea->name,
+          (pArea->filename ? pArea->filename : "(invalid)"),
+		  pArea->name,
           pArea->low_soft_range,
           pArea->hi_soft_range,
-          pArea->low_hard_range,
-          pArea->hi_hard_range);
+          pArea->low_r_vnum,
+          pArea->hi_r_vnum);
       }
     }
     return;

@@ -32,7 +32,7 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           comments.o const.o db.o deity.o fight.o grub.o handler.o hashstr.o \
           hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \
           interp.o locker.o magic.o makeobjs.o medit.o misc.o motd.o \
-          mpxset.o mud_comm.o mud_prog.o oedit.o planes.o player.o \
+          mpxset.o mud_comm.o mud_prog.o oedit.o pfiles.o planes.o player.o \
           polymorph.o redit.o requests.o reset.o save.o services.o \
           shops.o skills.o special.o stat_obj.o suicide.o tables.o \
           track.o update.o websvr.o minilzo.o \
@@ -44,14 +44,14 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
           comments.c const.c db.c deity.c fight.c grub.c handler.c hashstr.c \
           hiscores.c hskelter.c i3.c ibuild.c ident.c imm_host.c immscore.c \
           interp.c locker.c magic.c makeobjs.c medit.c misc.c motd.c \
-          mpxset.c mud_comm.c mud_prog.c oedit.c planes.c player.c \
+          mpxset.c mud_comm.c mud_prog.c oedit.c pfiles.c planes.c player.c \
           polymorph.c redit.c requests.c reset.c save.c services.c \
           shops.c skills.c special.c stat_obj.c suicide.c tables.c \
           track.c update.c websvr.c minilzo.c \
           ice.c icec.c icec-mercbase.c imc.c imc-config.c imc-events.c \
           imc-interp.c imc-mail.c imc-mercbase.c imc-util.c imc-version.c \
  
-H_FILES = bank.h bet.h mud.h olc.h ice.h icec.h icec-mercbase.h imc.h \
+H_FILES = bank.h bet.h mud.h olc.h pfiles.h ice.h icec.h icec-mercbase.h imc.h \
           imc-config.h imc-mercbase.h imc-mercdefs.h lzoconf.h minilzo.h \
  
 all:
@@ -59,7 +59,7 @@ all:
  
 rmexe: $(O_FILES)
 	rm -f rmexe
-	$(CC) $(L_FLAGS) -o rmexe $(O_FILES) $(DMALLOC)
+	$(CC) $(OPT_FLAG) $(PROF) -o rmexe $(O_FILES) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
 	chmod g+w rmexe
 	chmod a+x rmexe
 	chmod g+w $(O_FILES)

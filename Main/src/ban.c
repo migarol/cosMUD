@@ -1290,10 +1290,13 @@ void dispose_ban ( BAN_DATA *pban , int type)
         return;
   }
 
-  UNLINK( pban,
-    (type==BAN_SITE)?first_ban:(type==BAN_CLASS)?first_ban_class:first_ban_race,
-    (type==BAN_SITE)?last_ban:(type==BAN_CLASS)?last_ban_class:last_ban_race,
-    next, prev );
+  if ( type == BAN_SITE )
+    UNLINK( pban, first_ban, last_ban, next, prev );
+  else if ( type == BAN_CLASS )
+    UNLINK( pban, first_ban_class, last_ban_class, next, prev );
+  else
+    UNLINK( pban, first_ban_race, last_ban_race, next, prev );
+
   free_ban( pban );
   return;
 }

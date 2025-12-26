@@ -36,6 +36,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "mud.h"
+#include "pfiles.h"
 #include "imc-mercbase.h"
 #include "icec-mercbase.h"
 

@@ -92,6 +92,7 @@ unsigned long imc_sequencenumber;	  /* sequence# for outgoing packets */
 char *imc_name;			      /* our IMC name */
 unsigned short imc_port;              /* our port; 0=disabled */
 unsigned long imc_bind;               /* IP to bind to */
+int (*imc_recv_hook)(const imc_packet *p, int bcast) = NULL; /* packet hook */
 
 /* imc flag/state tables */
 
@@ -633,7 +634,7 @@ static void do_send(imc_connect *c, const char *line)
 /*  try to read a line from the input buffer, NULL if none ready
  *  all lines are \n\r terminated in theory, but take other combinations
  */
-static const char *getline(char *buffer)
+static const char *imc_getline(char *buffer)
 {
   int i;
   char *buf=imc_getsbuf(IMC_PACKET_LENGTH);
@@ -1663,7 +1664,7 @@ void imc_idle_select(fd_set *read, fd_set *write, fd_set *exc, time_t now)
     while (c->state!=IMC_CLOSED &&
 //	   (c->spamtime1>=0 || c->spamcounter1<=IMC_SPAM1MAX) &&
 //	   (c->spamtime2>=0 || c->spamcounter2<=IMC_SPAM2MAX) &&
-	   (command = getline(c->inbuf)) != NULL)
+	   (command = imc_getline(c->inbuf)) != NULL)
     {
       if (strlen(command) > imc_stats.max_pkt)
 	imc_stats.max_pkt=strlen(command);

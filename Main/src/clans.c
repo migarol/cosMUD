@@ -31,7 +31,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-/* #include <stdlib.h> */
+ /* #include <stdlib.h> */
 #include <time.h>
 #include "mud.h"
 
@@ -1110,9 +1110,8 @@ void do_induct( CHAR_DATA *ch, char *argument )
     if ( clan->clan_type != CLAN_ORDER && clan->clan_type != CLAN_GUILD )
       SET_BIT(victim->speaks, LANG_CLAN);
 
-/*    if ( clan->clan_type != CLAN_NOKILL && clan->clan_type != CLAN_ORDER
-    &&   clan->clan_type != CLAN_GUILD )
-      SET_BIT( victim->pcdata->flags, PCFLAG_DEADLY ); -- Scion */
+/*    if ( clan->clan_type != CLAN_NOKILL &&   clan->clan_type != CLAN_GUILD )
+      SET_BIT( victim->pcdata->flags, PCFLAG_DEADLY );  Fellon */
 
     if ( clan->clan_type != CLAN_GUILD && clan->clan_type != CLAN_ORDER
     &&   clan->clan_type != CLAN_NOKILL )
@@ -1193,12 +1192,12 @@ void do_council_induct( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-/*    if ( victim->level < LEVEL_NEOPHYTE )
+    if ( victim->level < LEVEL_NEOPHYTE )
     {
 	send_to_char( "This player is not worthy of joining any council yet.\n\r", ch );
 	return;
     }
-*/
+
 
 
     if ( council != ch->pcdata->council
@@ -2169,8 +2168,7 @@ void do_orders( CHAR_DATA *ch, char *argument )
 	if ( !count )
 	  send_to_char( "There are no Orders currently formed.\n\r", ch );
 	else
-	  send_to_char( "___________________________________________________________________________\n\r\n\rUse 
-'orders <order>' for more detailed information.\n\r", ch );
+	  send_to_char( "___________________________________________________________________________\n\r\n\rUse 'orders <order>' for more detailed information.\n\r", ch );
 	return;
     }
 
@@ -2711,8 +2709,7 @@ void show_members( CHAR_DATA *ch, char *argument, char *format )
      CLAN_DATA	*clan;
 
 
-     for( members_list = first_member_list; members_list; members_list 
-= members_list->next )
+     for( members_list = first_member_list; members_list; members_list = members_list->next )
      {
          if( !str_cmp( members_list->name, argument ) )
              break;
@@ -2727,16 +2724,13 @@ void show_members( CHAR_DATA *ch, char *argument, char *format )
          return;
 
     pager_printf( ch, "\n\rMembers of %s\n\r", clan->name );
-    pager_printf( ch, 
-"------------------------------------------------------------\n\r" );
+    pager_printf( ch, "------------------------------------------------------------\n\r" );
     pager_printf( ch, "Leader: %s\n\r", clan->leader );
     pager_printf( ch, "Number1: %s\n\r", clan->number1 );
     pager_printf( ch, "Number2: %s\n\r", clan->number2 );
     pager_printf( ch, "Deity: %s\n\r", clan->deity );
-    pager_printf( ch, 
-"------------------------------------------------------------\n\r" );
-    pager_printf( ch, "Lvl  Name                 Class  Kills   Deaths 
-Since\n\r\n\r" );
+    pager_printf( ch, "------------------------------------------------------------\n\r" );
+    pager_printf( ch, "Lvl  Name                 Class  Kills   Deaths Since\n\r\n\r" );
 
      if( format[0] != '\0' )
      {
@@ -2753,8 +2747,7 @@ Since\n\r\n\r" );
              sort->member = members_list->first_member;
              LINK( sort, first_member, last_member, next, prev );
 
-             for( member = members_list->first_member->next; member; 
-member = member->next )
+             for( member = members_list->first_member->next; member; member = member->next )
              {
                  insert = NULL;
                  for( sort = first_member; sort; sort = sort->next )
@@ -2765,8 +2758,7 @@ member = member->next )
                          {
                              CREATE( insert, MS_DATA, 1 );
                              insert->member = member;
-                             INSERT( insert, sort, first_member, next, prev 
-);
+                             INSERT( insert, sort, first_member, next, prev );
                              break;
                          }
                      }
@@ -2776,20 +2768,17 @@ member = member->next )
                          {
                              CREATE( insert, MS_DATA, 1 );
                              insert->member = member;
-                             INSERT( insert, sort, first_member, next, prev 
-);
+                             INSERT( insert, sort, first_member, next, prev );
                              break;
                          }
                      }
                      else if( !str_cmp( format, "alpha" ))
                      {
-                         if( strcmp( member->name, sort->member->name ) < 0 
-)
+                         if( strcmp( member->name, sort->member->name ) < 0 )
                          {
                              CREATE( insert, MS_DATA, 1 );
                              insert->member = member;
-                             INSERT( insert, sort, first_member, next, prev 
-);
+                             INSERT( insert, sort, first_member, next, prev );
                              break;
                          }
                      }
@@ -2818,8 +2807,7 @@ class_table[sort->member->class]->who_name,
 
          }
 
-         for( member = members_list->first_member; member; member = 
-member->next )
+         for( member = members_list->first_member; member; member = member->next )
              if( !str_prefix( format, member->name ) )
                  pager_printf( ch, "[%2d] %-12s %13s %6d %8d %10s\n\r",
                                member->level,
@@ -2833,21 +2821,15 @@ member->next )
      else
      {
 
-         for( member = members_list->first_member; member; member = 
-member->next )
-             if( str_cmp( member->name, clan->leader ) && str_cmp( 
-member->name, clan->number1 )
+         for( member = members_list->first_member; member; member = member->next )
+             if( str_cmp( member->name, clan->leader ) && str_cmp( member->name, clan->number1 )
                  && str_cmp( member->name, clan->number2 ) )
-                 pager_printf( ch, "[%2d] %-12s %13s %6d  %7d 
-%10s\n\r", member->level,
-                               capitalize(member->name), 
-class_table[member->class]->who_name,
-                               member->kills, member->deaths, member->since 
-);
+                 pager_printf( ch, "[%2d] %-12s %13s %6d  %7d %10s\n\r", member->level,
+                               capitalize(member->name), class_table[member->class]->who_name,
+                               member->kills, member->deaths, member->since );
      }
 
-             pager_printf( ch, 
-"------------------------------------------------------------\n\r" );
+             pager_printf( ch, "------------------------------------------------------------\n\r" );
 
 
 }
@@ -2860,8 +2842,7 @@ void remove_member( CHAR_DATA *ch )
     if( !ch->pcdata )
         return;
 
-    for( members_list = first_member_list; members_list; members_list 
-= members_list->next )
+    for( members_list = first_member_list; members_list; members_list = members_list->next )
     {
         if( !str_cmp( members_list->name, ch->pcdata->clan_name ) )
             break;
@@ -2870,13 +2851,11 @@ void remove_member( CHAR_DATA *ch )
     if( !members_list )
         return;
 
-    for( member = members_list->first_member; member; member = member->next 
-)
+    for( member = members_list->first_member; member; member = member->next )
     {
         if( !str_cmp( member->name, ch->name ) )
         {
-            UNLINK( member, members_list->first_member, 
-members_list->last_member, next, prev );
+            UNLINK( member, members_list->first_member, members_list->last_member, next, prev );
             STRFREE( member->name );
             STRFREE( member->since );
             DISPOSE( member );
@@ -2902,6 +2881,7 @@ void do_roster( CHAR_DATA *ch, char *argument )
      return;
 
 }
+
 void do_members( CHAR_DATA *ch, char *argument )
 {
 
@@ -2919,9 +2899,8 @@ void do_members( CHAR_DATA *ch, char *argument )
          if( !str_cmp( argument, "all" ) )
          {
              MEMBER_LIST *members_list;
-             for( members_list = first_member_list; members_list; 
-members_list = members_list->next )
-                 show_members( ch, members_list->name, NULL );
+             for( members_list = first_member_list; members_list; members_list = members_list->next ) 
+             show_members( ch, members_list->name, NULL );
              return;
          }
 
@@ -2935,8 +2914,7 @@ members_list = members_list->next )
 
          CREATE( members_list, MEMBER_LIST, 1 );
          members_list->name = STRALLOC( argument );
-         LINK( members_list, first_member_list, last_member_list, next, prev 
-);
+         LINK( members_list, first_member_list, last_member_list, next, prev );
          save_member_list( members_list );
          ch_printf( ch, "Member lists \"%s\" created.\n\r", argument );
          return;
@@ -2947,8 +2925,7 @@ members_list = members_list->next )
          MEMBER_LIST *members_list;
          MEMBER_DATA *member;
 
-         for( members_list = first_member_list; members_list; 
-members_list = members_list->next )
+         for( members_list = first_member_list; members_list; members_list = members_list->next )
              if( !str_cmp( argument, members_list->name ) )
              {
                  while( members_list->first_member )
@@ -2956,17 +2933,14 @@ members_list = members_list->next )
                      member = members_list->first_member;
                      STRFREE( member->name );
                      STRFREE( member->since );
-                     UNLINK( member, members_list->first_member, 
-members_list->last_member, next, prev );
+                     UNLINK( member, members_list->first_member, members_list->last_member, next, prev );
                      DISPOSE( member );
                  }
 
                  STRFREE( members_list->name );
-                 UNLINK( members_list, first_member_list, 
-last_member_list, next, prev );
+                 UNLINK( members_list, first_member_list, last_member_list, next, prev );
                  DISPOSE( members_list );
-                 ch_printf( ch, "Member list \"%s\" destroyed.\n\r", 
-argument );
+                 ch_printf( ch, "Member list \"%s\" destroyed.\n\r", argument );
                  return;
              }
          send_to_char( "No such list.\n\r", ch );
@@ -3003,12 +2977,9 @@ void save_member_list( MEMBER_LIST *members_list )
      }
 
      fprintf( fp, "Name          %s~\n", members_list->name );
-     for( member = members_list->first_member; member; member = member->next 
-)
-         fprintf( fp, "Member        %s %s %d %d %d %d\n", 
-member->name, member->since,
-                  member->kills, member->deaths, member->level, 
-member->class );
+     for( member = members_list->first_member; member; member = member->next )
+         fprintf( fp, "Member        %s %s %d %d %d %d\n", member->name, member->since,
+                  member->kills, member->deaths, member->level, member->class );
      fprintf( fp, "End\n\n" );
      fclose( fp );
 
@@ -3052,15 +3023,13 @@ bool load_member_list( char *filename )
              member->deaths = fread_number( fp );
              member->level = fread_number( fp );
              member->class = fread_number( fp );
-             LINK( member, members_list->first_member, 
-members_list->last_member, next, prev );
+             LINK( member, members_list->first_member, members_list->last_member, next, prev );
              continue;
          }
          else
          if( !str_cmp( word, "End" ) )
          {
-             LINK( members_list, first_member_list, last_member_list, 
-next, prev );
+             LINK( members_list, first_member_list, last_member_list, next, prev );
              fclose( fp );
              return TRUE;
          }
@@ -3082,12 +3051,10 @@ void update_member( CHAR_DATA *ch )
      if( IS_NPC( ch ) || !ch->pcdata->clan )
          return;
 
-     for( members_list = first_member_list; members_list; members_list 
-= members_list->next )
+     for( members_list = first_member_list; members_list; members_list = members_list->next )
          if( !str_cmp( members_list->name, ch->pcdata->clan_name ) )
          {
-             for( member = members_list->first_member; member; member 
-= member->next )
+             for( member = members_list->first_member; member; member = member->next )
                  if ( !str_cmp( member->name, ch->name ) )
                  {
                      if( ch->pcdata->clan->clan_type == CLAN_PLAIN )
@@ -3114,8 +3081,7 @@ void update_member( CHAR_DATA *ch )
                  member->name = STRALLOC( ch->name );
                  member->level = ch->level;
                  member->class = ch->class;
-                 sprintf( buf, "[%02d|%02d|%04d]", t->tm_mon+1, 
-t->tm_mday, t->tm_year+1900 );
+                 sprintf( buf, "[%02d|%02d|%04d]", t->tm_mon+1, t->tm_mday, t->tm_year+1900 );
                  member->since = STRALLOC( buf );
                  if( ch->pcdata->clan->clan_type == CLAN_PLAIN )
                  {
@@ -3127,8 +3093,7 @@ t->tm_mday, t->tm_year+1900 );
                      member->kills = ch->pcdata->mkills;
                      member->deaths = ch->pcdata->mdeaths;
                  }
-                 LINK( member, members_list->first_member, 
-members_list->last_member, next, prev );
+                 LINK( member, members_list->first_member, members_list->last_member, next, prev );
                  save_member_list( members_list );
 
              }

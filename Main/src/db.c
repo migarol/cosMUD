@@ -113,9 +113,10 @@ int			max_vector;
 int			cur_qobjs;
 int			cur_qchars;
 int			nummobsloaded;
-int			numobjsloaded;
+long			numobjsloaded;	/*changed Marten */
 int			physicalobjects;
 int 			last_pkroom;
+int			area_version;	/* area version global */
 
 MAP_INDEX_DATA  *       first_map;	/* maps */
 
@@ -6369,9 +6370,9 @@ void save_sysdata( SYSTEM_DATA sys )
         fprintf( fp, "NoTake         %d\n", sys.level_getobjnotake      );
 	fprintf( fp, "Socials	     %d\n", sys.scount			);
 	fprintf( fp, "Commands	     %d\n", sys.ccount			);
-	fprintf( fp, "Newbie_purge	%d\n", sys.newbie_purge	);
+/*	fprintf( fp, "Newbie_purge	%d\n", sys.newbie_purge	);
 	fprintf( fp, "Regular_purge	%d\n", sys.regular_purge	);
-	fprintf( fp, "Autopurge		%d\n", sys.CLEANPFILES	);
+	fprintf( fp, "Autopurge		%d\n", sys.CLEANPFILES	); */
 	fprintf( fp, "End\n\n"						);
 	fprintf( fp, "#END\n"						);
     }
@@ -6399,9 +6400,9 @@ void fread_sysdata( SYSTEM_DATA *sys, FILE *fp )
 	    fMatch = TRUE;
 	    fread_to_eol( fp );
 	    break;
-	case 'A':
+/*	case 'A':
 		KEY( "Autopurge",		sys->CLEANPFILES, fread_number( fp ) );
-	    break;
+	    break; */
 	case 'B':
             KEY( "Bashpvp",     sys->bash_plr_vs_plr, fread_number( fp ) );
             KEY( "Bashnontank", sys->bash_nontank,    fread_number( fp ) );
@@ -6472,8 +6473,8 @@ void fread_sysdata( SYSTEM_DATA *sys, FILE *fp )
 	    break;
 
 	case 'N':
-            KEY( "Nameresolving",  sys->NO_NAME_RESOLVING, fread_number( fp ) );
-			KEY( "Newbie_purge",	sys->newbie_purge, fread_number( fp ) );
+/*            KEY( "Nameresolving",  sys->NO_NAME_RESOLVING, fread_number( fp ) );
+			KEY( "Newbie_purge",	sys->newbie_purge, fread_number( fp ) ); */
             KEY( "NoTake",         sys->level_getobjnotake,fread_number( fp ) );
 	    break;
 
@@ -6487,11 +6488,11 @@ void fread_sysdata( SYSTEM_DATA *sys, FILE *fp )
 	    KEY( "Protoflag",	   sys->level_modify_proto, fread_number( fp ) );
 	    break;
 
-	case 'R':
+/*	case 'R':
 	    KEY( "Readallmail",	   sys->read_all_mail,	fread_number( fp ) );
 	    KEY( "Readmailfree",   sys->read_mail_free,	fread_number( fp ) );
 		KEY( "Regular_purge",	sys->regular_purge, fread_number( fp ) );
-	    break;
+	    break; */
 
 	case 'S':
 	    KEY( "Stunplrvsplr",   sys->stun_plr_vs_plr, fread_number( fp ) );

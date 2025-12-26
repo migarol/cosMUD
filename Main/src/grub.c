@@ -1621,15 +1621,15 @@ return;
 }
 
 display_limit = atoi(arg1);
-pager_printf(ch, "      Vnum      Wear Layer   Description \n\r");
+pager_printf(ch, "      Vnum      Wear           Layer   Description \\n\\r");
 for (hash = 0; hash < MAX_KEY_HASH; hash++) /* loop thru obj_index_hash */
   if ( obj_index_hash[hash] )
      for (pObj=obj_index_hash[hash]; pObj; pObj=pObj->next)
          if (pObj->layers > 0)
          {
             if (++cou <= display_limit)
-            pager_printf(ch, "%4d %5d %9d %5d   %s\n\r",
-              cou, pObj->vnum, pObj->wear_flags, pObj->layers,
+            pager_printf(ch, "%4d %8d %-15s %5d   %s\n\r",
+              cou, pObj->vnum, flag_string(pObj->wear_flags,w_flags), pObj->layers,
               pObj->short_descr);
           }
 }

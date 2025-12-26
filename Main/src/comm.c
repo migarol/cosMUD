@@ -131,16 +131,30 @@ int		    control2;		/* Controlling descriptor #2	*/
 int		    conclient;		/* MUDClient controlling desc	*/
 int		    conjava;		/* JavaMUD controlling desc	*/
 int		    newdesc;		/* New descriptor		*/
+int dstr; /* Roller Str */
+int dint; /* Roller Int */
+int dwiz; /* Roller Wiz */
+int dcha; /* Roller Cha */
+int ddex; /* Roller Dex */
+int dcon; /* Roller Con */
+int dlck; /* Roller Lck */
 fd_set		    in_set;		/* Set of desc's for reading	*/
 fd_set		    out_set;		/* Set of desc's for writing	*/
 fd_set		    exc_set;		/* Set of desc's with errors	*/
 int 		    maxdesc;
 char *		    alarm_section = "(unknown)";
-char *  const   species_name    [MAX_SPECIES] =
+bool		    MOBtrigger;		/* MOB trigger flag */
+
+char *	const	attrib_name		[8]	=
+{
+"Strength", "Dexterity", "Wisdom", "Inteligence", "Constitution", "Charisma", "Luck"
+};
+
+/* char *  const   species_name    [MAX_SPECIES] =
 {
 "Dwarves", "Elves", "Humans", "Dragons", "Undead", "Crossbreeds",
 "Halflings", "Gnomes", "Sylvan", "Lycanthrope", "Planer", "Goblinoid"
-};
+}; */
 
 /*
  * OS-dependent local functions.
@@ -236,7 +250,7 @@ int port;
     reboot_check(mktime(new_boot_time));
     /* Set reboot time string for do_time */
     get_reboot_string();
-	init_pfile_scan_time(); /* Pfile autocleanup initializer - Fellon */
+	/*init_pfile_scan_time();  Pfile autocleanup initializer - Fellon */
 
 	/*
      * Reserve two channels for our use.
@@ -1583,6 +1597,228 @@ void show_title( DESCRIPTOR_DATA *d )
 }
 
 /*
+ * Menu Code for Nanny. Added by Fellon and Zebeid
+ */
+void show_menu_to( DESCRIPTOR_DATA *d )
+{
+   CHAR_DATA *ch = d->character;
+   char buf[MAX_STRING_LENGTH];
+   char menu[MAX_STRING_LENGTH];
+   
+   sprintf( menu, "\n\rCharacter Creation Menu.\n\r\n\r" );
+   strcat( menu, "Options:\n\r" );
+   
+   sprintf( buf, "        1. Set Gender.       Currently:%s\n\r", 
+      !IS_SET( d->check, CHECK_SEX ) ? "Not Set." :
+      ch->sex == SEX_NEUTRAL ? "Neutral." :
+      ch->sex == SEX_MALE    ? "Male." : "Female." );
+   strcat( menu, buf );
+
+   sprintf( buf, "        2. Set Race.         Currently:%s\n\r",
+      !IS_SET( d->check, CHECK_RACE ) ? "Not Set." : race_table[ch->race]->race_name );
+   strcat( menu, buf );
+   
+   strcat( menu, "        3. Roll Attributes.  Currently:" );
+   if ( IS_SET( d->check, CHECK_STATS ) )
+	  /* sprintf( buf, "\n\r	Elvis says its all good fucker!\n\r" ); */
+      sprintf( buf, " Str:%d. Int:%d. Wis:%d. Dex:%d. Con:%d. Cha:%d. Lck:%d.\n\r", dstr, dint, dwiz, ddex, dcon, dcha, dlck );
+   else
+      sprintf( buf, "Not Set.\n\r" );
+       
+
+   strcat( menu, buf );
+   
+   sprintf( buf, "        4. Set Class.  Currently:%s\n\r",
+       !IS_SET( d->check, CHECK_CLASS ) ? "Not Set." : class_table[ch->class]->who_name );
+         strcat( menu, buf );
+   
+   strcat( menu, "        5. Exit Creation Process.\n\r" );
+   
+   strcat( menu, "\n\rPlease Select 1-5: " );
+   write_to_buffer( d, menu, 0 );
+   return;
+}
+
+void show_smenu_to( DESCRIPTOR_DATA *d )
+{
+   CHAR_DATA *ch = d->character;
+   char buf[MAX_STRING_LENGTH];
+   char menu[MAX_STRING_LENGTH];
+
+   sprintf( menu, "\n\rCharacter Creation: Gender.\n\r\n\r" );
+   
+   strcat( menu, "Please Select:\n\r" );
+   strcat( menu, "              M : Male.\n\r" );
+   strcat( menu, "              F : Female.\n\r" );
+   strcat( menu, "              N : Neutral.\n\r\n\r" );
+   
+   if ( IS_SET( d->check, CHECK_SEX ) )
+      sprintf( buf, "Current Choice: %s\n\r",
+         ch->sex == SEX_NEUTRAL ? "Neutral." :
+         ch->sex == SEX_MALE ? "Male." : "Female." );
+   else
+      sprintf( buf, "No Current Selection.\n\r" );
+    
+   strcat( menu, buf );
+   strcat( menu, "\n\rPlease Select M/F/N: " );
+   
+   write_to_buffer( d, menu, 0 );
+   return;
+}
+
+void show_rmenu_to( DESCRIPTOR_DATA *d )
+{
+   char menu[MAX_STRING_LENGTH];
+   char buf[MAX_STRING_LENGTH];
+   int iRace;
+   
+   sprintf( menu, "\n\rCharacter Creation: Race.\n\r\n\r" );
+   strcat( menu, "Notes: a) Race determines what classes you can be in.\n\r" );
+   strcat( menu, "       b) Each Race will soon have seperate hometowns.\n\r" );
+   strcat( menu, "       c) Race determines your attributes.\n\r\n\r" );
+  strcat( menu, "       Name        Str Int Wis Dex Con Cha Lck\n\r" );
+   strcat( menu, "---------------    --- --- --- --- --- --- ---\n\r" );
+   
+   for ( iRace = 0; iRace < MAX_RACE; iRace++ )
+   {
+
+	 if (race_table[iRace]->race_name && (race_table[iRace]->nanny == 1) 
+		  && race_table[iRace]->race_name[0] != '\0'
+		  && str_cmp(race_table[iRace]->race_name,"unused") )
+	 {
+      sprintf( buf, "%-15s  ", race_table[iRace]->race_name );
+      strcat( menu, buf );
+
+       sprintf( buf, "  %3d %3d %3d %3d %3d %3d %3d\n\r",
+                race_table[iRace]->str_plus, /* Changed these to resort pointers */
+                race_table[iRace]->int_plus,
+                race_table[iRace]->wis_plus,
+                race_table[iRace]->dex_plus,
+                race_table[iRace]->con_plus,
+				race_table[iRace]->cha_plus,
+				race_table[iRace]->lck_plus );
+      strcat( menu, buf );
+	 }
+   }
+   
+   strcat( menu, "\n\rPlease Select Your Race (Abr): " );
+   write_to_buffer( d, menu, 0 );
+   return;
+}    
+
+void show_amenu_to( DESCRIPTOR_DATA *d )
+{
+   /* CHAR_DATA *ch = d->character; */
+   char buf[MAX_STRING_LENGTH]; 
+   char menu[MAX_STRING_LENGTH];
+   /* Make the 'rolls', set ch->max_*, and display */
+   if ( !IS_SET( d->check, CHECK_RACE ) )
+   {
+     sprintf( menu, "\n\rThis does not work.\n\r" );
+     write_to_buffer( d, menu, 0 );
+     d->connected = CON_MENU;
+     show_menu_to( d );
+     return;
+   } 
+	
+   for ( ; ; )
+   {
+	dstr = NULL;
+	dint = NULL;
+	dwiz = NULL;
+	ddex = NULL;
+	dcon = NULL;
+	dcha = NULL;
+	dlck = NULL;
+	  dstr = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  dint = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  dwiz = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  ddex = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  dcon = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  dcha = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  dlck = URANGE( 7, ( number_range( 7, 16 ) ), 16 );
+	  
+		/* ch->pcdata->perm_str = UMIN( 16, APPLY_STR );
+      ch->pcdata->perm_int = UMIN( 22, ( race_table[ch->race]->int_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_int = UMIN( 22, ch->pcdata->perm_int );
+      ch->pcdata->perm_dex = UMIN( 22, ( race_table[ch->race]->dex_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_dex = UMIN( 22, ch->pcdata->perm_dex );
+      ch->pcdata->perm_con = UMIN( 22, ( race_table[ch->race]->con_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_con = UMIN( 22, ch->pcdata->perm_con );
+      ch->pcdata->perm_wis = UMIN( 22, ( race_table[ch->race]->wis_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_wis = UMIN( 22, ch->pcdata->perm_wis );
+	  ch->pcdata->perm_cha = UMIN( 22, ( race_table[ch->race]->cha_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_cha = UMIN( 22, ch->pcdata->perm_cha );
+	  ch->pcdata->perm_lck = UMIN( 22, ( race_table[ch->race]->lck_plus + number_range( -3, 3 ) ) );
+      ch->pcdata->perm_lck = UMIN( 22, ch->pcdata->perm_lck ); */
+   
+       if ( ( dstr + dint + dwiz + ddex + dcon ) < 91 ) 
+         break;  /* Prevent 'super' characters! */  
+    }
+   
+   sprintf( menu, "\n\rCharacter Creation: Attributes.\n\r\n\r" );
+   strcat( menu, "This option rolls a new set of Base attributes.\n\r" );
+   strcat( menu, "Race and Class can modify your stats! So be careful how you choose.\n\r" );
+   strcat( menu, "Current Attributes:  (Just Rolled)\n\r" );
+   
+   sprintf( buf, "Base_Str:%d.  Base_Int:%d.  Base_Wis:%d.  Base_Dex:%d.  Base_Con:%d.  Base_Cha:%d.   Base_Lck:%d.\n\r",
+      dstr, dint, dwiz, ddex, dcon, dcha, dlck );
+   strcat( menu, buf );
+   strcat( menu, "\n\rPlease Select: (A)ccept, return to menu, (H)help stats, or (R)eroll: " );
+   
+   write_to_buffer( d, menu, 0 );
+   return;
+} 
+
+void show_ahelp_menu_to( DESCRIPTOR_DATA *d )
+{
+
+   char menu[MAX_STRING_LENGTH];
+   sprintf( menu, "%s", "" );
+   strcat( menu, "Str affects items you can wear and weight you can carry, and your hitroll and damroll.\n\r" );
+   strcat( menu, "Int affects your mana gain, how many Npcs you can control effectively, and spell success.\n\r" );
+   strcat( menu, "Wis affects how many practices you get, your mana, and your saving against spells.\n\r" );
+   strcat( menu, "Dex affects your ac, how many items you can carry, and your ability to dodge.\n\r" );
+   strcat( menu, "Con affects how many hitpoints you gain per level.\n\r" );
+   strcat( menu, "Cha affects how people percieve you.\n\r" );
+   strcat( menu, "Lck affects random events in the world.\n\r" );
+   strcat( menu, "\n\rPlease Select: (A)ccept, return to menu, (H)help stats, or (R)eroll: " );
+   
+   write_to_buffer( d, menu, 0 );
+   return;
+}
+
+void show_cmenu_to( DESCRIPTOR_DATA *d)
+{
+   char menu[MAX_STRING_LENGTH];
+   char buf[MAX_STRING_LENGTH];
+   int iClass;
+   
+   sprintf( menu, "Character Creation: Class Order.\n\r\n\r" );
+   strcat( menu, "This option allows you to select your class.\n\r" );
+   strcat( menu, "Each Class has its own special set of skills,\n\r" );
+   strcat( menu, "and spells. As you progress in the level of \n\r" );
+   strcat( menu, "your class you might find hidden skills. \n\r" );
+   strcat( menu, "Choose your Class wisley, as it defines who you are.\n\r" );
+   strcat( menu, "Prime Atr    Name\n\r" );
+   strcat( menu, "---------    ----\n\r" );
+   
+   for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
+   {
+	 if ( class_table[iClass]->nanny == 1 )
+	 {
+      sprintf( buf, "%3d    %-10s\n\r", class_table[iClass]->attr_prime, class_table[iClass]->who_name );
+      strcat( menu, buf );
+	 }
+   }
+   strcat( menu, "\n\rClass: " );
+   write_to_buffer( d, menu, 0 );
+   return;
+}
+
+/* End Menu lists */
+
+/*
  * Deal with sockets that haven't logged in yet.
  */
 void nanny( DESCRIPTOR_DATA *d, char *argument )
@@ -1598,7 +1834,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     int iClass;
     int iRace;
     int value;
-    int iSpec;
+/*    int iSpec; */
     bool fOld, chk;
 
     while ( isspace(*argument) )
@@ -1930,133 +2166,99 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    return;
 	}
 
-	write_to_buffer( d, "\n\rYou may choose from the following species, or type help [species] to learn more:\n\r[", 0 );
-	buf[0] = '\0';
-	for ( iSpec = 0; iSpec < MAX_SPECIES; iSpec++ )
-	{
-		if (iSpec <= 11)	/* change this number to MAX_SPECIES - 1 to include all your species */ 
-
-		{
-            if ( iSpec > 0 )
-			{
-           
-				if ( strlen(buf)+strlen(species_name[iSpec]) > 77 )
-				{
-					strcat( buf, "\n\r" );
-					write_to_buffer( d, buf, 0 );
-					buf[0] = '\0';
-				}
-		else
-		   strcat( buf, " " );
-			}
-			strcat( buf, species_name[iSpec] );
-		}
-    }
-	strcat( buf, "]\n\r: " );
-	write_to_buffer( d, buf, 0 );
-	d->connected = CON_GET_NEW_SPECIES;
-	break;
-
-case CON_GET_NEW_SPECIES:
-	argument = one_argument(argument, arg);
-        if (!str_cmp( arg, "help") )
-	{
-          for ( iSpec = 0; iSpec < MAX_SPECIES; iSpec++ )
-	  {
+	
+	/* New nanny menu addedby Fellon and Zebeid*/
+	  write_to_buffer( d, echo_on_str, 0 );
+        show_menu_to(d);
+        d->connected = CON_MENU;
+        break;
  
-	    if ( toupper(argument[0]) == toupper(species_name[iSpec][0])
-	    &&  !str_prefix( argument, species_name[iSpec]) && iSpec < 12)		/* change to iSpec < MAX_SPECIES */
-	    {
-	      do_help(ch, argument);
-      	      write_to_buffer( d, "Please choose a species: ", 0);
-	      return;
-	    }
-	  }
-   	  write_to_buffer( d, "No help on that topic.  Please choose a species: ", 0 );
-	  return;
+case CON_MENU:
+    
+	if ( d->connected == CON_MENU )
+    {
+       int number;
+       
+       if ( !is_number( argument ) )
+       {
+          write_to_buffer( d, "\n\rPlease Enter A Number.\n\r", 0 );
+          show_menu_to( d );
+          return;
+       }
+       number = atoi( argument );
+       if ( number < 1 && number > 5 )
+       {
+          write_to_buffer( d, "\n\rPlease Enter A Number Between 1 And 5.\n\r", 0 );
+          show_menu_to( d );
+          return;
+       }
+	
+	 switch ( number )
+       {
+       case 1:
+		  show_smenu_to( d );
+          d->connected = CON_GET_NEW_SEX;
+          break;
+       case 2:
+		  show_rmenu_to( d );
+          d->connected = CON_GET_NEW_RACE;
+          break;
+       case 3:
+		  show_amenu_to( d );
+           d->connected = CON_GET_STATS;
+          break;
+       case 4:
+		  show_cmenu_to( d );
+          d->connected = CON_GET_NEW_CLASS;
+          break;
+       case 5:
+          if ( !IS_SET( d->check, CHECK_SEX )   || !IS_SET( d->check, CHECK_CLASS )
+         || !IS_SET( d->check, CHECK_STATS ) || !IS_SET( d->check, CHECK_RACE ) )
+			{
+             write_to_buffer( d, "ALL Options Must Be Selected First.\n\r", 0 );
+             show_menu_to( d );
+             return;
+			}
+		  else
+			{
+			write_to_buffer( d, "\n\rWould you like ANSI or no color support, (A/N)? ", 0 );
+			d->connected = CON_GET_WANT_RIPANSI;
+			break;
+			}		 
+		}
 	}
+	break;
 	
 
-	for ( iSpec = 0; iSpec < MAX_SPECIES; iSpec++ )
-	{
-	    if ( toupper(arg[0]) == toupper(species_name[iSpec][0])
-	    &&   !str_prefix( arg, species_name[iSpec] ) && iSpec <= 11)	/* change to iSpec <= (MAX_SPECIES - 1) */
-	    {
-		ch->species = iSpec;
-		break;
-	    }
-	}
+case CON_GET_NEW_RACE:
 
-    if ( iSpec == MAX_SPECIES
-    ||  !species_name[iSpec] || species_name[iSpec][0] == '\0'
-    ||   !str_cmp(species_name[iSpec],"unused") || iSpec >= 12	/* change to iSpec >= MAX_SPECIES */
-       )
-	{
-	    write_to_buffer( d,
-		"That's not a species.\n\rWhat IS your species? ", 0 );
-	    return;
-	}
-  
-	write_to_buffer( d, "\n\rYou may choose from the following races, or type help [race] to learn more:\n\r[", 0 );
-	buf[0] = '\0';
-	for ( iRace = 0; iRace < MAX_RACE; iRace++ )
-	{
-	  if (race_table[iRace]->race_name && (race_table[iRace]->species == ch->species) 
-		  && race_table[iRace]->race_name[0] != '\0'
-		  && str_cmp(race_table[iRace]->race_name,"unused") )
-	  {
-            if ( iRace > 0 )
-	    {
-		if (iRace == 30)
-                if (iRace == 53)
-		iRace++;
-		if ( strlen(buf)+strlen(race_table[iRace]->race_name) > 77 )
-		{
-		   strcat( buf, "\n\r" );
-		   write_to_buffer( d, buf, 0 );
-		   buf[0] = '\0';
-		}
-		else
-		   strcat( buf, " " );
-	    }
-	    strcat( buf, race_table[iRace]->race_name );
-          }
-        }
-	strcat( buf, "]\n\r: " );
-	write_to_buffer( d, buf, 0 );
-	d->connected = CON_GET_NEW_RACE;
-	break;
+		argument = one_argument(argument, arg);
 
-    case CON_GET_NEW_RACE:
-	argument = one_argument(argument, arg);
-        if (!str_cmp( arg, "help") )
-        {
-          for ( iRace = 0; iRace < MAX_RACE; iRace++ )
-	  { 
-		if (iRace == 30)
-		if (iRace == 53)
-                iRace++;
-	    if ( toupper(argument[0]) == toupper(race_table[iRace]->race_name[0]) 
-			&& (race_table[iRace]->species == ch->species)
+   if (!str_cmp( arg, "help") )
+    {
+       for ( iRace = 0; iRace < MAX_RACE; iRace++ )
+		{ 
+			
+			if ( toupper(argument[0]) == toupper(race_table[iRace]->race_name[0]) 
+			&& (race_table[iRace]->nanny == 1 )
 			&&  !str_prefix( argument, race_table[iRace]->race_name) )
-	    {
-	      do_help(ch, argument);
-      	      write_to_buffer( d, "Please choose a race: ", 0);
-	      return;
-	    }
-	  }
+			{
+				do_help(ch, argument);
+      			write_to_buffer( d, "Please choose a race: ", 0);
+				return;
+			}
+	
    	  write_to_buffer( d, "No help on that topic.  Please choose a race: ", 0 );
 	  return;
+		}
 	}
-	
 
 	for ( iRace = 0; iRace < MAX_RACE; iRace++ )
 	{
-		if (iRace == 30)
-		if (iRace == 53)
-                iRace++;
+		
 	    if ( toupper(arg[0]) == toupper(race_table[iRace]->race_name[0])
-	    &&   !str_prefix( arg, race_table[iRace]->race_name ) )
+	    &&   !str_prefix( arg, race_table[iRace]->race_name ) 
+		&&	race_table[iRace]->nanny == 1 )
 	    {
 		ch->race = iRace;
 		break;
@@ -2066,99 +2268,106 @@ case CON_GET_NEW_SPECIES:
     if ( iRace == MAX_RACE
     ||  !race_table[iRace]->race_name || race_table[iRace]->race_name[0] == '\0'
     ||   !str_cmp(race_table[iRace]->race_name,"unused")
-       )
-	{
+	||  race_table[iRace]->nanny != 1)
+		{
 	    write_to_buffer( d,
 		"That's not a race.\n\rWhat IS your race? ", 0 );
 	    return;
-	}
-        if ( check_bans( ch, BAN_RACE ) )
+		}
+
+    if ( check_bans( ch, BAN_RACE ) )
         {
           write_to_buffer (d,
             "That race is not currently available.\n\rWhat is your race? ", 0);
           return;
         }
 
-	write_to_buffer( d, echo_on_str, 0 );
-	write_to_buffer( d, "\n\rWhat is your sex (M/F/N)? ", 0 );
-	d->connected = CON_GET_NEW_SEX;
-	break;
+	if ( !IS_SET( d->check, CHECK_RACE ) )
+	   SET_BIT( d->check, CHECK_RACE );
+	show_menu_to( d );
+	d->connected = CON_MENU;
+	return;
 
-    case CON_GET_NEW_SEX:
+
+case CON_GET_NEW_SEX:
+	
 	switch ( argument[0] )
-	{
-	case 'm': case 'M': ch->sex = SEX_MALE;    break;
-	case 'f': case 'F': ch->sex = SEX_FEMALE;  break;
-	case 'n': case 'N': ch->sex = SEX_NEUTRAL; break;
-	default:
-	    write_to_buffer( d, "That's not a sex.\n\rWhat IS your sex? ", 0 );
-	    return;
-	}
-
-	write_to_buffer( d, "\n\rSelect a class, or type help [class] to learn more about that class.\n\r[", 0 );
-	buf[0] = '\0';
-
-	for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
-	{
-	  if (!IS_SET(race_table[ch->race]->class_restriction, 1 << iClass))
-	    {
-
-	    if ( iClass > 0 )
-	    {
-		if (iClass == 4)
-		   iClass++;
-		if ( strlen(buf)+strlen(class_table[iClass]->who_name) > 77 )
 		{
-		   strcat( buf, "\n\r" );
-		   write_to_buffer( d, buf, 0 );
-		   buf[0] = '\0';
+		case 'm': case 'M': ch->sex = SEX_MALE;    break;
+		case 'f': case 'F': ch->sex = SEX_FEMALE;  break;
+		case 'n': case 'N': ch->sex = SEX_NEUTRAL; break;
+		default:
+			write_to_buffer( d, "That's not a sex.\n\rWhat IS your sex? ", 0 );
+	    return;
 		}
-		else
-		   strcat( buf, " " );
-	    }
-	    strcat( buf, class_table[iClass]->who_name );
-	   }
-	}
-	strcat( buf, "]\n\r: " );
-	write_to_buffer( d, buf, 0 );
-	d->connected = CON_GET_NEW_CLASS;
-	break;
+	write_to_buffer( d, "\n\r\n\r", 0 );
+        if ( !IS_SET( d->check, CHECK_SEX ) )
+           SET_BIT( d->check, CHECK_SEX );
+        d->connected = CON_MENU;
+        show_menu_to( d );
+        return;
+	 
+case CON_GET_STATS:
+    {
+       switch( argument[0] )
+       {
+          case 'A' : case 'a' : 
+             if ( !IS_SET( d->check, CHECK_STATS ) )
+                SET_BIT( d->check, CHECK_STATS );
+             d->connected = CON_MENU;
+             show_menu_to( d );
+             break;
+          case 'R' : case 'r' :
+             show_amenu_to( d );
+             break; 
+          case 'H' : case 'h' :
+             show_ahelp_menu_to( d );
+             break;
+          default :
+             write_to_buffer( d, "Enter A or R, or H for stat help:", 0 );
+             break;
+       }
+       return;
+    }
 
-    case CON_GET_NEW_CLASS:
+
+
+case CON_GET_NEW_CLASS:
+
 	argument = one_argument(argument, arg);
 
-        if (!str_cmp(arg, "help"))
-        {
-        
-	for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
+    if (!str_cmp(arg, "help"))
 	{
-	  if (iClass == 4)
-		iClass++;
-          if ( toupper(argument[0]) == toupper(class_table[iClass]->who_name[0])
-	  &&   !str_prefix( argument, class_table[iClass]->who_name ) )
-	  {
-	    do_help(ch, argument);
-	    write_to_buffer( d, "Please choose a class: ", 0 );
-            return;
-	  }
-        }  
+        
+		for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
+		{
+			
+			if ( toupper(argument[0]) == toupper(class_table[iClass]->who_name[0])
+			&&   !str_prefix( argument, class_table[iClass]->who_name )
+			&& class_table[iClass]->nanny == 1)
+			{
+				do_help(ch, argument);
+				write_to_buffer( d, "Please choose a class: ", 0 );
+				return;
+			}
+		}  
 	write_to_buffer( d, "No such help topic.  Please choose a class: ", 0 );
 	return;
 	}
 
 	for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
 	{
-	    if (iClass == 4)
-		iClass++;
 	    if ( toupper(arg[0]) == toupper(class_table[iClass]->who_name[0])
-	    &&   !str_prefix( arg, class_table[iClass]->who_name ) )
+	    &&   !str_prefix( arg, class_table[iClass]->who_name )
+		&& class_table[iClass]->nanny == 1 )
 	    {
 		ch->class =  iClass;
 		break;
 	    }
 	}
 
-        if ( iClass == MAX_CLASS || class_table[iClass]->who_name[0] =='\0' || IS_SET(race_table[ch->race]->class_restriction, 1 << iClass))
+     if ( iClass == MAX_CLASS || class_table[iClass]->who_name[0] =='\0' 
+		 || class_table[iClass]->nanny != 1)
         {
             write_to_buffer( d, "That's not a class. \n\rWhat IS your class? ", 0 );
             return;
@@ -2170,10 +2379,17 @@ case CON_GET_NEW_SPECIES:
              "That class is not currently avaiable.\n\rWhat IS your class? ",0);
          return;
         }
+		d->connected = CON_MENU;
+        if ( !IS_SET( d->check, CHECK_CLASS ) )
+           SET_BIT( d->check, CHECK_CLASS );
+        show_menu_to( d );
+        return;
+	
+	
 
-	write_to_buffer( d, "\n\rWould you like ANSI or no color support, (A/N)? ", 0 );
+/*	write_to_buffer( d, "\n\rWould you like ANSI or no color support, (A/N)? ", 0 );
 	d->connected = CON_GET_WANT_RIPANSI;
-        break;
+        break; */
 
     case CON_GET_WANT_RIPANSI:
 	switch ( argument[0] )
@@ -2326,15 +2542,31 @@ case CON_GET_NEW_SPECIES:
 
 	    ch->pcdata->clan_name = STRALLOC( "" );
 	    ch->pcdata->clan	  = NULL;
+
+		ch->perm_str	 = dstr;
+	    ch->perm_int	 = dint;
+	    ch->perm_wis	 = dwiz;
+	    ch->perm_dex	 = ddex;
+	    ch->perm_con	 = dcon;
+	    ch->perm_cha	 = dcha;
+	    ch->perm_lck	 = dlck;
+
 	    switch ( class_table[ch->class]->attr_prime )
 	    {
-	    case APPLY_STR: ch->perm_str = 16; break;
+	    case APPLY_STR: ch->perm_str = dstr + 1; break;
+	    case APPLY_INT: ch->perm_int = dint + 1; break;
+	    case APPLY_WIS: ch->perm_wis = dwiz + 1; break;
+	    case APPLY_DEX: ch->perm_dex = ddex + 1; break;
+	    case APPLY_CON: ch->perm_con = dcon + 1; break;
+	    case APPLY_CHA: ch->perm_cha = dcha + 1; break;
+	    case APPLY_LCK: ch->perm_lck = dlck + 1; break;
+		/* case APPLY_STR: ch->perm_str = 16; break;
 	    case APPLY_INT: ch->perm_int = 16; break;
 	    case APPLY_WIS: ch->perm_wis = 16; break;
 	    case APPLY_DEX: ch->perm_dex = 16; break;
 	    case APPLY_CON: ch->perm_con = 16; break;
 	    case APPLY_CHA: ch->perm_cha = 16; break;
-	    case APPLY_LCK: ch->perm_lck = 16; break;
+	    case APPLY_LCK: ch->perm_lck = 16; break; */
 	    }
 
 	    ch->perm_str	 += race_table[ch->race]->str_plus;
@@ -2351,7 +2583,7 @@ case CON_GET_NEW_SPECIES:
 						    fucked (if the MUD is misguided enough to allow that combo) */
             ch->alignment	 += (race_table[ch->race]->alignment + class_table[ch->class]->alignment) / 2;
             ch->attacks              = race_table[ch->race]->attacks;
-            ch->defenses             = race_table[ch->race]->defenses;
+            ch->defenses            = race_table[ch->race]->defenses;
 	    ch->saving_poison_death  	= race_table[ch->race]->saving_poison_death;
 	    ch->saving_wand  		= race_table[ch->race]->saving_wand;
 	    ch->saving_para_petri  	= race_table[ch->race]->saving_para_petri;
@@ -2382,7 +2614,7 @@ case CON_GET_NEW_SPECIES:
             /* ch->resist           += race_table[ch->race]->resist;    drats */
             /* ch->susceptible     += race_table[ch->race]->suscept;    drats */
 
-	    name_stamp_stats( ch );
+	   /* name_stamp_stats( ch ); */
 
 	    ch->level	= 1;
 	    ch->exp	= 0;
@@ -2518,7 +2750,10 @@ info does not show */
 #ifdef I3
    I3_char_login( ch );
 #endif
-    SET_BIT(ch->pcdata->flags,PCFLAG_IMMPROOF);
+    /* SET_BIT(ch->pcdata->flags,PCFLAG_IMMPROOF); */
+    
+    /* this might work out better --Prage */
+    REMOVE_BIT(ch->pcdata->flags, PCFLAG_IMMPROOF);
 
     if ( !ch->was_in_room && ch->in_room == get_room_index( ROOM_VNUM_TEMPLE ))
       	ch->was_in_room = get_room_index( ROOM_VNUM_TEMPLE );
@@ -2534,6 +2769,7 @@ info does not show */
     }
 
     return;
+
 }
 
 bool is_reserved_name( char *name )
