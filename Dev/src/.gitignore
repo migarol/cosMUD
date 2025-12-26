@@ -1,3 +1,8 @@
 *.o
 rmexe
 area.lst
+shutdown.txt
+../system/boot.txt
+../system/bugs.txt
+../system/WEBWIZ
+../system/WIZLIST
