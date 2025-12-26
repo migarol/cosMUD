@@ -39,7 +39,6 @@ static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, voi
 char *build_world_state_json(CHAR_DATA *god)
 {
     static char json[MAX_STRING_LENGTH * 4];
-    CHAR_DATA *ch;
     DESCRIPTOR_DATA *d;
     int player_count = 0;
     char player_list[MAX_STRING_LENGTH] = "";
@@ -60,14 +59,8 @@ char *build_world_state_json(CHAR_DATA *god)
     sprintf(time_str, "Hour %d of Day %d, Month %d, Year %d",
             time_info.hour, time_info.day, time_info.month, time_info.year);
 
-    sprintf(weather_str, "%s, %s",
-            weather_info.sky == SKY_CLOUDLESS ? "Clear skies" :
-            weather_info.sky == SKY_CLOUDY ? "Cloudy" :
-            weather_info.sky == SKY_RAINING ? "Raining" : "Lightning storm",
-            weather_info.temp_curr < 20 ? "Cold" :
-            weather_info.temp_curr < 40 ? "Cool" :
-            weather_info.temp_curr < 60 ? "Mild" :
-            weather_info.temp_curr < 80 ? "Warm" : "Hot");
+    sprintf(weather_str, "Temp: %d, Precip: %d, Wind: %d",
+            weather_info.temp, weather_info.precip, weather_info.wind);
 
     /* Build JSON */
     sprintf(json,
