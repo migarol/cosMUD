@@ -312,10 +312,10 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define PULSE_AUCTION				 (9 * PULSE_PER_SECOND)
 
 
-/* 
+/*
  * Stuff for area versions --Shaddai
  */
-int     area_version;
+extern int     area_version;
 #define HAS_SPELL_INDEX     -1
 #define AREA_VERSION_WRITE 1
 
@@ -1089,7 +1089,7 @@ struct	mob_prog_data
     char *	 comlist;
 };
 
-bool	MOBtrigger;
+extern bool	MOBtrigger;
 
 /*
  * Per-class stuff.

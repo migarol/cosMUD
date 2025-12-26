@@ -59,7 +59,7 @@ all:
  
 rmexe: $(O_FILES)
 	rm -f rmexe
-	$(CC) $(L_FLAGS) -o rmexe $(O_FILES) $(DMALLOC)
+	$(CC) $(OPT_FLAG) $(PROF) -o rmexe $(O_FILES) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
 	chmod g+w rmexe
 	chmod a+x rmexe
 	chmod g+w $(O_FILES)

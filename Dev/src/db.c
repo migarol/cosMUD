@@ -116,6 +116,7 @@ int			nummobsloaded;
 long			numobjsloaded;	/*changed Marten */
 int			physicalobjects;
 int 			last_pkroom;
+int			area_version;	/* area version global */
 
 MAP_INDEX_DATA  *       first_map;	/* maps */
 
