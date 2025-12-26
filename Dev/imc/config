@@ -1,0 +1,20 @@
+# IMC2 Configuration File
+# Network name
+Name         CosMUD~
+
+# Server info
+Server       *
+
+# Port (0 = disabled)
+Port         0
+
+# Email
+Email        admin@cosmud.local~
+
+# Minimum level to use IMC
+Minlevel     1
+
+# Autoconnect (0 = no, 1 = yes)
+Autoconnect  0
+
+#END
