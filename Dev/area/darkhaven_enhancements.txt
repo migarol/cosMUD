@@ -1,0 +1,521 @@
+================================================================================
+DARKHAVEN ENHANCEMENTS - New Objects, Books, and Interactive Items
+Based on cosMUD History and Lore
+================================================================================
+
+SECTION 1: LIBRARY BOOKS (Add to #OBJECTS section before #ROOMS)
+Place these in Library room #21128 via #RESETS
+
+#21500
+book history darkhaven~
+the History of Darkhaven~
+A leather-bound tome titled "The History of Darkhaven" rests on a shelf.~
+~
+35 526336 16385
+50 0 0 0
+1 50000 5000
+E
+book history pages~
+THE HISTORY OF DARKHAVEN
+Written by Arch-Mage Rennard, Year 512
+
+Darkhaven stands as a beacon of civilization in these troubled lands. Founded
+centuries ago by refugees fleeing the Cataclysm of the Three Moons, our city
+has endured countless threats - from orc hordes to dragon raids, from planar
+incursions to internal strife.
+
+But none tested us more than the NINJA INVASION of May, Year 502.
+
+They came in the night, sixty to seventy shadow warriors led by the infamous
+Snake Eyes. Our RDAF defenders fought valiantly alongside the Rangers Guild.
+The battle raged for three days. Many fell, but Darkhaven held.
+
+Since then, an uneasy peace has settled. The OOC faction grows in power,
+and rumors of Argon's infiltration tactics concern the Council. The Drow
+Empire to the south plots in darkness, their Spider Queen Lolth ever hungry
+for surface elf blood.
+
+Yet we endure. We adapt. We survive.
+
+For Darkhaven is not merely stone and mortar - it is the will of free people
+refusing to bow to tyranny.
+
+May these words guide future generations.
+
+- Rennard, First Mage of the Tower
+~
+A
+3 3
+
+#21501
+tome drow lolth spider~
+Tome of the Spider Queen~
+A sinister black tome bound in spider silk lies here, radiating malevolence.~
+~
+35 526336 20481
+45 0 0 0
+1 40000 4000
+E
+tome pages text~
+THE SPIDER QUEEN'S DOMAIN
+Forbidden Knowledge - Read at Your Peril
+
+Lolth, Demon Queen of Spiders, rules the Drow with an iron fist. Her domains
+are Spiders, Drow, Chaos, and Evil. She despises all surface-dwelling elves
+with an eternal hatred that burns hotter than a thousand suns.
+
+Only female Drow may worship her and gain her favor. She delights in watching
+her followers fight for her attention, granting power to the most ruthless and
+cunning. Betrayal, assassination, and intrigue please her dark heart.
+
+Her followers say she created the Drow race itself, twisting them from their
+surface kin in ages past. Whether this is truth or propaganda, none can say.
+
+What IS certain: cross the Spider Queen and face a fate worse than death.
+Her webs extend far beyond the Underdark. Her agents walk among us.
+
+Trust no one.
+
+[The rest of the pages appear blank, but you feel watched...]
+~
+A
+26 -700
+
+#21502
+scroll ninja invasion~
+a yellowed scroll~
+A yellowed scroll tied with red ribbon lies here, its edges frayed.~
+~
+35 526336 16385
+30 0 0 0
+1 10000 1000
+E
+scroll text~
+EMERGENCY DECREE - MAY 15, YEAR 502
+Issued by the Darkhaven Council
+
+CITIZENS OF DARKHAVEN:
+
+At midnight last, our city came under ATTACK by forces unknown. Witnesses
+report 60-70 ninja warriors led by one called "Snake Eyes" infiltrating our
+defenses with preternatural stealth.
+
+The RDAF has mobilized. The Rangers Guild stands with us. All able-bodied
+citizens are hereby conscripted to defend the walls.
+
+REMAIN INDOORS unless fighting. TRUST NO SHADOWS. Report suspicious
+activity to the nearest guard immediately.
+
+May the gods protect us all.
+
+By order of the Council,
+Sealed this day
+
+[Below, in hasty scrawl]:
+"They're in the Guild Hall! They killed Icingdale while I fought Snake Eye!
+Fled to recall, HE FOLLOWED ME IN. Nowhere is safe. There are too many.
+May Shaundakul guide our souls..." - Nezuke, final entry
+~
+
+#21503
+journal rdaf classified~
+RDAF Classified Journal~
+A leather journal marked "RDAF - CLASSIFIED" sits here.~
+~
+35 526336 16385
+40 0 0 0
+1 30000 3000
+E
+journal pages~
+RDAF INTELLIGENCE BRIEF - CLASSIFIED
+Subject: OOC Infiltration Threat
+Agent: Athmoz
+
+Recent intelligence suggests the OOC faction is recruiting new PK characters
+at an alarming rate. Their leader, Argon, appears to be orchestrating a
+systematic infiltration of our ranks.
+
+Recommendation: Increase vetting protocols. Watch for:
+- New recruits with unusual combat skills
+- Characters asking probing questions about RDAF operations
+- Suspicious activity near our outpost (vnum 100006)
+
+This is not paranoia. This is COLD WAR.
+
+Stay vigilant. Trust, but verify.
+
+For Darkhaven.
+
+- Commander Aella, RDAF
+~
+
+#21504
+book shaundakul exploration~
+The Wayfarer's Codex~
+A well-traveled book bound in weathered leather rests here.~
+~
+35 526336 16385
+35 0 0 0
+1 20000 2000
+E
+book codex pages~
+THE WAYFARER'S CODEX
+Prayers and Practices of Shaundakul, Rider of the Winds
+
+Shaundakul, the god of travel and exploration, watches over those who seek
+the unknown. Wherever people search for what is lost and that which is hidden,
+Shaundakul is there.
+
+His followers are adventurers, cartographers, treasure hunters, and wanderers.
+He has no natural enemies, though he dislikes Vampires for their static,
+parasitic nature. Paladins are not permitted in his faith - their rigid codes
+conflict with the freedom of the road.
+
+To honor Shaundakul:
+- Never refuse to help a lost traveler
+- Map your journeys and share your knowledge
+- Seek the hidden and forgotten places
+- Travel light, but carry tales
+
+The wind is always at your back, Wayfarer.
+~
+
+#21505
+book ancient prophecy~
+Prophecies of the Ancients~
+A mysterious tome with constantly shifting text lies here.~
+~
+35 526336 16417
+60 0 0 0
+1 100000 10000
+E
+book prophecy pages text~
+PROPHECIES OF THE ANCIENTS
+Translated from the Elder Tongue
+
+When shadow warriors darken the haven's gates, [CHECK - Ninja Invasion, 502]
+And spider silk weaves through noble halls,
+The alliance of forest and order shall hold the line, [CHECK - RDAF+Rangers]
+But beware the serpent that wears a friend's face. [???]
+
+In the age when the GOD awakens to see all,
+And memories linger in the minds of the simple folk,
+The world itself shall breathe with new life,
+As day and night dance their eternal cycle.
+
+Three systems of power shall emerge:
+The watchers who remember every slight,
+The events that shake the foundations,
+The rhythm of sun and moon.
+
+[The text shifts and changes before your eyes...]
+
+And when clans war for territory and honor,
+When guards patrol lands claimed by blood,
+When alliances form and crumble like sand,
+Then shall the TRUE age of heroes begin.
+
+Seek the secrets hidden in plain sight.
+The fountain knows. The statue sees. The tome speaks.
+
+[The final page is blank, waiting to be written...]
+~
+A
+3 5
+A
+26 16777216
+
+#21506
+note secret hidden~
+a crumpled note~
+A small crumpled note has been tucked behind some books.~
+~
+35 526336 16385
+1 0 0 0
+1 100 10
+E
+note text~
+For those clever enough to find this:
+
+The fountain in the square holds more than water.
+The statue's eyes follow the sun.
+The library floor, three paces north of center, sounds hollow.
+Behind the cathedral altar, shadows linger longer than they should.
+
+Speak "mists" in the wrong place, and you'll find yourself elsewhere.
+
+Knowledge is power. Secrets are survival.
+
+- A Friend in the Shadows
+~
+
+================================================================================
+SECTION 2: INTERACTIVE OBJECTS
+================================================================================
+
+#21507
+fountain darkhaven square~
+the Fountain of Memories~
+A beautiful marble fountain bubbles peacefully in the square's center.~
+~
+15 526336 16385
+0 100 0 0
+1 0 0
+E
+fountain water basin~
+This exquisite fountain depicts three entwined figures: a warrior, a mage,
+and a ranger, representing the alliance that saved Darkhaven during the
+Ninja Invasion. Crystal-clear water flows from their outstretched hands.
+
+If you look closely at the water, you can see faint images of past events
+swirling in the currents...
+
+[Drink from this fountain to receive a blessing of memory.]
+~
+E
+water images visions~
+The water shows fleeting images:
+- Ninja warriors scaling walls under moonlight
+- Snake Eyes, his blade dripping crimson
+- Rangers and RDAF soldiers fighting back-to-back
+- A council meeting, voices raised in argument
+- Lolth's eight-eyed gaze from deep below
+- The wind-touched symbol of Shaundakul
+
+The visions fade, but the memories remain.
+~
+
+#21508
+statue founder darkhaven~
+the Statue of the Founders~
+A majestic statue of Darkhaven's founders stands here.~
+~
+15 526336 16385
+0 0 0 0
+1 0 0
+E
+statue founders plaque~
+This statue depicts three figures:
+
+LORD RENNARD - First Mage, Founder of the Tower of Sorcery
+CAPTAIN AELLA - Founder of the RDAF, Defender of the Realm
+MASTER HUNTSMAN - Founder of the Rangers Guild
+
+Their faces are stern but noble, eyes cast toward the horizon as if
+watching for threats unseen. At the base, a plaque reads:
+
+"They came with nothing but hope.
+ They built with courage and unity.
+ They left us a legacy worth defending.
+
+ FOR DARKHAVEN."
+
+[Something about the statue's eyes seems... aware.]
+~
+
+#21509
+gem hidden secret~
+a glowing amber gem~
+A small amber gem pulses with inner light.~
+~
+25 526336 1
+50 0 0 0
+1 75000 7500
+E
+gem amber~
+This amber gem seems to contain a frozen moment in time. Within its depths,
+you can see a tiny figure - a ninja warrior, forever trapped mid-strike.
+
+Perhaps a trophy from the great battle? Or a warning?
+
+The gem whispers: "Secrets have weight. Carry this knowledge carefully."
+~
+A
+3 5
+A
+4 5
+
+================================================================================
+SECTION 3: ENHANCED NPC DESCRIPTIONS & PROGRAMS
+================================================================================
+
+For Healer/Priestess (#21000), add this mob program:
+
+> rand_prog 10~
+mpecho The priestess whispers a prayer, and soft light fills the cathedral.
+~
+|
+> speech_prog ninja invasion battle~
+say Ah, you wish to know of that dark time? *sadness crosses her face*
+say Many fell in those three days. I tended the wounded day and night.
+say The Rangers and RDAF fought as one. Without their unity, we would have fallen.
+emote touches a pendant at her neck
+say This belonged to a ranger who died saving children. I wear it to remember.
+say Remember them. Honor their sacrifice.
+~
+|
+
+For Wizard Shopkeeper (#21001), add:
+
+> speech_prog magic tower sorcery~
+say The Tower of Sorcery holds knowledge dating back to the Cataclysm!
+say Rennard himself founded our order. His library contains... *trails off mysteriously*
+say Let's just say some tomes are locked for good reason.
+emote taps his nose knowingly
+~
+|
+
+For Blacksmith (#21002), add:
+
+> rand_prog 5~
+mpecho The rhythmic CLANG CLANG CLANG of hammer on anvil rings out.
+~
+|
+> speech_prog rdaf weapons armor~
+say Aye, I forge weapons for the RDAF. Best steel in the realm!
+say Commander Aella herself commissioned her blade from my forge.
+say *lowers voice* Between you and me, I've been adding extra wards lately.
+say Rumor has it the OOC is up to something. Best to be prepared.
+~
+|
+
+================================================================================
+SECTION 4: NEW ROOMS (Add to #ROOMS section)
+================================================================================
+
+#21350
+Darkhaven Tavern - The Wandering Wayfarer~
+The smell of ale, roasted meat, and tobacco fills this cozy tavern. Wooden
+tables and benches are scattered throughout the common room, most occupied
+by off-duty soldiers, merchants, and adventurers sharing tales of the road.
+A massive fireplace dominates the western wall, its flames crackling merrily.
+Above the bar hangs a sign: "The Wandering Wayfarer - Est. 487".
+
+A burly barkeep polishes mugs behind the counter, while a bard strums a lute
+in the corner. This is a place of warmth, camaraderie, and gossip - the true
+heart of any city.
+~
+0 1048584 0
+D0
+A wooden door leads out to the street.
+~
+door wooden~
+1 -1 21040
+D5
+A narrow staircase leads down to the cellar.
+~
+~
+0 -1 21351
+E
+sign~
+THE WANDERING WAYFARER
+Est. Year 487
+
+"All Are Welcome Who Walk in Peace"
+
+Ale - 5 gold
+Wine - 10 gold
+Mead - 8 gold
+Meal - 12 gold
+
+NO FIGHTING. NO MAGIC. NO EXCEPTIONS.
+(Violators will be ejected by Grok the Bouncer)
+~
+E
+fireplace fire~
+The fire crackles warmly, casting dancing shadows on the walls. Someone has
+carved words into the mantle: "Those who fell at the gates - never forgotten."
+~
+> rand_prog 8~
+mpecho Someone at the bar loudly proclaims, "I'm telling you, Argon is planning something!"
+mpecho Another patron replies, "You're paranoid. The OOC wouldn't dare attack Darkhaven."
+mpecho A ranger in the corner mutters, "That's what they said before the ninjas came..."
+~
+|
+S
+
+#21351
+The Tavern Cellar~
+Dusty wine racks line the stone walls of this cool cellar. Barrels of ale
+and mead are stacked neatly in the corners. The ceiling is low, supported by
+thick wooden beams.
+
+In the far corner, you notice the stones of the wall don't quite match...
+~
+0 5242880 0
+D4
+The staircase leads back up to the tavern.
+~
+~
+0 -1 21350
+E
+wall stones corner~
+These stones look newer than the rest. Upon closer inspection, you notice
+they're not mortared in place - they can be moved!
+
+[Search carefully to reveal a hidden passage...]
+~
+> speech_prog open secret passage~
+mpecho With a grinding noise, the false wall swings open!
+mpat 21351 mposet exit down flags 0
+mpat 21351 mposet exit down room 21352
+say Quickly! Inside before someone sees!
+~
+|
+S
+
+#21352
+Secret Meeting Room~
+This small hidden chamber has clearly been used recently. A table in the
+center holds maps of Darkhaven marked with strategic positions. Empty wine
+bottles and bread crumbs suggest regular meetings.
+
+On the table, papers bear the seal of the RDAF... and disturbingly, some
+also bear the symbol of the OOC.
+
+Someone is playing both sides.
+~
+0 5243392 0
+D4
+The passage leads back to the cellar.
+~
+~
+0 -1 21351
+E
+maps papers~
+RDAF patrol routes. OOC meeting locations. Guard schedules.
+
+This is an spy's cache.
+
+At the bottom, a note: "Phase 2 complete. Infiltration successful. Await
+further orders. - A"
+
+A... Argon? Athmoz? Aella?!
+
+The implications are staggering.
+~
+S
+
+================================================================================
+END OF ENHANCEMENTS
+================================================================================
+
+INSTALLATION NOTES:
+1. Add new objects (#21500-21509) to the #OBJECTS section
+2. Add new rooms (#21350-21352) to the #ROOMS section
+3. Update #RESETS to place books in library (#21128)
+4. Add mob programs to existing NPCs
+5. Update room #21000 (Darkhaven Square) to reference fountain
+6. Update room #21040 to add exit to tavern
+
+RESETS to add:
+O 0 21500 1 21128  (History book in library)
+O 0 21501 1 21128  (Lolth tome in library)
+O 0 21502 1 21128  (Ninja scroll in library)
+O 0 21503 1 21128  (RDAF journal in library)
+O 0 21504 1 21128  (Shaundakul book in library)
+O 0 21505 1 21128  (Prophecy book in library)
+O 0 21506 1 21128  (Secret note - hidden)
+O 0 21507 1 21000  (Fountain in square)
+O 0 21508 1 21000  (Statue in square)
+O 0 21509 1 21352  (Hidden gem in secret room)
