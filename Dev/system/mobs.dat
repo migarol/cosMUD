@@ -1031,21 +1031,7 @@ EndMobile
 
 #MOBILE
 Vnum	10303
-Room	10381
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10301
-Room	10368
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10301
-Room	10377
+Room	10375
 Position 12
 Flags 65
 EndMobile
@@ -1058,43 +1044,29 @@ Flags 65
 EndMobile
 
 #MOBILE
-Vnum	10302
-Room	10379
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10302
-Room	10370
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10303
-Room	10375
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10302
-Room	10381
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	10302
-Room	10374
+Vnum	10301
+Room	10386
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10301
-Room	10383
+Room	10384
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	10302
+Room	10376
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	10302
+Room	10366
 Position 12
 Flags 65
 EndMobile
@@ -1107,8 +1079,36 @@ Flags 65
 EndMobile
 
 #MOBILE
+Vnum	10302
+Room	10374
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	10302
+Room	10381
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	10301
+Room	10384
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
 Vnum	10303
-Room	10379
+Room	10363
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	10303
+Room	10380
 Position 12
 Flags 65
 EndMobile
@@ -1281,21 +1281,21 @@ EndMobile
 
 #MOBILE
 Vnum	10396
-Room	10396
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	10396
-Room	10396
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	10396
 Room	10395
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	10396
+Room	10397
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	10396
+Room	10394
 Position 12
 Flags 33
 EndMobile
@@ -1481,14 +1481,14 @@ EndMobile
 
 #MOBILE
 Vnum	10406
-Room	10418
+Room	10417
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	10407
-Room	10420
+Room	10417
 Position 12
 Flags 101
 EndMobile
@@ -1502,49 +1502,49 @@ EndMobile
 
 #MOBILE
 Vnum	10409
-Room	10411
+Room	10422
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	10410
-Room	10407
+Room	10422
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10411
-Room	10419
+Room	10414
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10412
-Room	10408
+Room	10417
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10413
-Room	10420
+Room	10424
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10414
-Room	10426
+Room	10410
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10415
-Room	10408
+Room	10421
 Position 12
 Flags 65
 EndMobile
@@ -1558,28 +1558,28 @@ EndMobile
 
 #MOBILE
 Vnum	10417
-Room	10427
+Room	10411
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10418
-Room	10416
+Room	10406
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10419
-Room	10425
+Room	10427
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	10420
-Room	10408
+Room	10409
 Position 12
 Flags 65
 EndMobile
@@ -1691,14 +1691,14 @@ EndMobile
 
 #MOBILE
 Vnum	21045
-Room	21006
+Room	21034
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21005
+Room	21034
 Position 12
 Flags 65
 #OBJECT
@@ -1766,7 +1766,7 @@ EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21024
+Room	21068
 Position 12
 Flags 65
 #OBJECT
@@ -1827,7 +1827,7 @@ EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21021
+Room	21016
 Position 12
 Flags 65
 #OBJECT
@@ -1888,7 +1888,7 @@ EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21029
+Room	21033
 Position 12
 Flags 65
 #OBJECT
@@ -1949,7 +1949,7 @@ EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21037
+Room	21017
 Position 12
 Flags 65
 #OBJECT
@@ -2010,7 +2010,7 @@ EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21000
+Room	21015
 Position 12
 Flags 65
 #OBJECT
@@ -2132,14 +2132,14 @@ EndMobile
 
 #MOBILE
 Vnum	21045
-Room	21061
+Room	21042
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21037
-Room	21017
+Room	21024
 Position 12
 Flags 65
 #OBJECT
@@ -2464,7 +2464,7 @@ EndMobile
 
 #MOBILE
 Vnum	21052
-Room	21021
+Room	21042
 Position 12
 Flags 65
 #OBJECT
@@ -2477,7 +2477,7 @@ EndMobile
 
 #MOBILE
 Vnum	21052
-Room	21053
+Room	21027
 Position 12
 Flags 65
 #OBJECT
@@ -2490,7 +2490,7 @@ EndMobile
 
 #MOBILE
 Vnum	21052
-Room	21063
+Room	21047
 Position 12
 Flags 65
 #OBJECT
@@ -3032,7 +3032,7 @@ EndMobile
 
 #MOBILE
 Vnum	21061
-Room	21111
+Room	21109
 Position 12
 Flags 65
 #OBJECT
@@ -3696,7 +3696,7 @@ EndMobile
 
 #MOBILE
 Vnum	21071
-Room	21333
+Room	21332
 Position 12
 Flags 65
 #OBJECT
@@ -3814,21 +3814,21 @@ EndMobile
 
 #MOBILE
 Vnum	21081
-Room	21062
+Room	21057
 Position 12
 Flags 67108929
 EndMobile
 
 #MOBILE
 Vnum	21081
-Room	21339
+Room	21058
 Position 12
 Flags 67108929
 EndMobile
 
 #MOBILE
 Vnum	21081
-Room	21041
+Room	21038
 Position 12
 Flags 67108929
 EndMobile
@@ -3910,14 +3910,7 @@ EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21076
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	21435
-Room	21121
+Room	21078
 Position 12
 Flags 65
 EndMobile
@@ -3938,42 +3931,49 @@ EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21110
+Room	21117
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21106
+Room	21109
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21093
+Room	21105
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21097
+Room	21091
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21094
+Room	21095
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21094
+Room	21098
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21096
 Position 12
 Flags 65
 EndMobile
@@ -3987,28 +3987,28 @@ EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21078
+Room	21082
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21117
+Room	21118
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21114
+Room	21115
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21124
+Room	21123
 Position 12
 Flags 65
 EndMobile
@@ -4022,14 +4022,14 @@ EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21093
+Room	21090
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	21435
-Room	21095
+Room	21098
 Position 12
 Flags 65
 EndMobile
@@ -4377,7 +4377,7 @@ EndMobile
 
 #MOBILE
 Vnum	802
-Room	812
+Room	813
 Position 12
 Flags 97
 #OBJECT
@@ -4447,9 +4447,35 @@ EndMobile
 
 #MOBILE
 Vnum	804
-Room	820
+Room	812
 Position 12
 Flags 193
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	826
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        9
+Values       12 3 12 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	831
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        9
+Values       12 3 12 11 0 0
+End
+
 EndMobile
 
 #MOBILE
@@ -4459,7 +4485,7 @@ Position 12
 Flags 69
 #OBJECT
 Vnum         807
-Level        9
+Level        10
 Values       12 3 12 11 0 0
 End
 
@@ -4479,34 +4505,8 @@ End
 EndMobile
 
 #MOBILE
-Vnum	805
-Room	814
-Position 12
-Flags 69
-#OBJECT
-Vnum         807
-Level        10
-Values       12 3 12 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	805
-Room	833
-Position 12
-Flags 69
-#OBJECT
-Vnum         807
-Level        9
-Values       12 3 12 11 0 0
-End
-
-EndMobile
-
-#MOBILE
 Vnum	808
-Room	822
+Room	827
 Position 12
 Flags 65
 #OBJECT
@@ -4537,7 +4537,7 @@ EndMobile
 
 #MOBILE
 Vnum	810
-Room	819
+Room	824
 Position 12
 Flags 193
 #OBJECT
@@ -4550,7 +4550,7 @@ EndMobile
 
 #MOBILE
 Vnum	810
-Room	835
+Room	836
 Position 12
 Flags 193
 #OBJECT
@@ -4760,7 +4760,7 @@ EndMobile
 
 #MOBILE
 Vnum	808
-Room	852
+Room	856
 Position 12
 Flags 65
 #OBJECT
@@ -4791,7 +4791,7 @@ EndMobile
 
 #MOBILE
 Vnum	811
-Room	852
+Room	858
 Position 12
 Flags 101
 #OBJECT
@@ -4804,7 +4804,7 @@ EndMobile
 
 #MOBILE
 Vnum	811
-Room	854
+Room	853
 Position 12
 Flags 101
 #OBJECT
@@ -4817,7 +4817,7 @@ EndMobile
 
 #MOBILE
 Vnum	811
-Room	858
+Room	855
 Position 12
 Flags 101
 #OBJECT
@@ -4830,7 +4830,7 @@ EndMobile
 
 #MOBILE
 Vnum	811
-Room	863
+Room	861
 Position 12
 Flags 101
 #OBJECT
@@ -4843,7 +4843,7 @@ EndMobile
 
 #MOBILE
 Vnum	811
-Room	854
+Room	857
 Position 12
 Flags 101
 #OBJECT
@@ -4950,7 +4950,7 @@ EndMobile
 
 #MOBILE
 Vnum	812
-Room	875
+Room	874
 Position 12
 Flags 97
 #OBJECT
@@ -5167,7 +5167,7 @@ EndMobile
 
 #MOBILE
 Vnum	3400
-Room	3425
+Room	3418
 Position 12
 Flags 33
 #OBJECT
@@ -5180,7 +5180,20 @@ EndMobile
 
 #MOBILE
 Vnum	3400
-Room	3447
+Room	3448
+Position 12
+Flags 33
+#OBJECT
+Vnum         3421
+Level        1
+Values       12 2 6 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3400
+Room	3419
 Position 12
 Flags 33
 #OBJECT
@@ -5205,19 +5218,6 @@ End
 EndMobile
 
 #MOBILE
-Vnum	3400
-Room	3414
-Position 12
-Flags 33
-#OBJECT
-Vnum         3421
-Level        1
-Values       12 2 6 3 0 0
-End
-
-EndMobile
-
-#MOBILE
 Vnum	3401
 Room	3414
 Position 12
@@ -5268,28 +5268,28 @@ EndMobile
 
 #MOBILE
 Vnum	3402
-Room	3435
+Room	3446
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	3402
-Room	3450
+Room	3459
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	3402
-Room	3463
+Room	3453
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	3402
-Room	3427
+Room	3437
 Position 12
 Flags 33
 EndMobile
@@ -5345,7 +5345,7 @@ EndMobile
 
 #MOBILE
 Vnum	3406
-Room	3465
+Room	3466
 Position 12
 Flags 33
 #OBJECT
@@ -5358,7 +5358,7 @@ EndMobile
 
 #MOBILE
 Vnum	3406
-Room	3469
+Room	3467
 Position 12
 Flags 33
 #OBJECT
@@ -5371,7 +5371,7 @@ EndMobile
 
 #MOBILE
 Vnum	3406
-Room	3452
+Room	3455
 Position 12
 Flags 33
 #OBJECT
@@ -5384,7 +5384,7 @@ EndMobile
 
 #MOBILE
 Vnum	3407
-Room	3464
+Room	3463
 Position 12
 Flags 97
 #OBJECT
@@ -5397,7 +5397,7 @@ EndMobile
 
 #MOBILE
 Vnum	3407
-Room	3466
+Room	3469
 Position 12
 Flags 97
 #OBJECT
@@ -5410,7 +5410,7 @@ EndMobile
 
 #MOBILE
 Vnum	3407
-Room	3456
+Room	3453
 Position 12
 Flags 97
 #OBJECT
@@ -5423,7 +5423,7 @@ EndMobile
 
 #MOBILE
 Vnum	3407
-Room	3408
+Room	3457
 Position 12
 Flags 97
 #OBJECT
@@ -5436,7 +5436,7 @@ EndMobile
 
 #MOBILE
 Vnum	3407
-Room	3451
+Room	3462
 Position 12
 Flags 97
 #OBJECT
@@ -5468,28 +5468,28 @@ EndMobile
 
 #MOBILE
 Vnum	3409
-Room	3447
+Room	3448
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3409
-Room	3443
+Room	3442
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3409
-Room	3431
+Room	3445
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3409
-Room	3413
+Room	3418
 Position 12
 Flags 37
 EndMobile
@@ -5515,7 +5515,7 @@ EndMobile
 
 #MOBILE
 Vnum	3413
-Room	3437
+Room	3412
 Position 12
 Flags 5
 #OBJECT
@@ -5528,7 +5528,7 @@ EndMobile
 
 #MOBILE
 Vnum	3413
-Room	3417
+Room	3427
 Position 12
 Flags 5
 #OBJECT
@@ -5541,7 +5541,7 @@ EndMobile
 
 #MOBILE
 Vnum	3413
-Room	3454
+Room	3456
 Position 12
 Flags 5
 #OBJECT
@@ -5554,7 +5554,7 @@ EndMobile
 
 #MOBILE
 Vnum	3413
-Room	3419
+Room	3413
 Position 12
 Flags 5
 #OBJECT
@@ -5567,7 +5567,7 @@ EndMobile
 
 #MOBILE
 Vnum	3413
-Room	3446
+Room	3440
 Position 12
 Flags 5
 #OBJECT
@@ -5600,28 +5600,28 @@ EndMobile
 
 #MOBILE
 Vnum	3416
-Room	3436
+Room	3447
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3416
-Room	3444
+Room	3448
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3416
-Room	3444
+Room	3442
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	3416
-Room	3415
+Room	3418
 Position 12
 Flags 37
 EndMobile
@@ -5660,7 +5660,7 @@ EndMobile
 
 #MOBILE
 Vnum	6600
-Room	6605
+Room	6607
 Position 12
 Flags 69
 #OBJECT
@@ -5673,7 +5673,7 @@ EndMobile
 
 #MOBILE
 Vnum	6600
-Room	6606
+Room	6633
 Position 12
 Flags 69
 #OBJECT
@@ -5686,7 +5686,7 @@ EndMobile
 
 #MOBILE
 Vnum	6600
-Room	6611
+Room	6639
 Position 12
 Flags 69
 #OBJECT
@@ -5699,7 +5699,7 @@ EndMobile
 
 #MOBILE
 Vnum	6601
-Room	6608
+Room	6603
 Position 12
 Flags 69
 #OBJECT
@@ -5731,7 +5731,7 @@ EndMobile
 
 #MOBILE
 Vnum	6602
-Room	6602
+Room	6637
 Position 12
 Flags 69
 #OBJECT
@@ -5744,7 +5744,7 @@ EndMobile
 
 #MOBILE
 Vnum	6602
-Room	6626
+Room	6602
 Position 12
 Flags 69
 #OBJECT
@@ -5757,28 +5757,28 @@ EndMobile
 
 #MOBILE
 Vnum	6603
-Room	6611
+Room	6637
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	6603
-Room	6633
+Room	6639
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	6604
-Room	6604
+Room	6637
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	6604
-Room	6636
+Room	6626
 Position 12
 Flags 69
 EndMobile
@@ -5798,7 +5798,7 @@ EndMobile
 
 #MOBILE
 Vnum	6605
-Room	6633
+Room	6605
 Position 12
 Flags 65
 #OBJECT
@@ -5811,7 +5811,7 @@ EndMobile
 
 #MOBILE
 Vnum	6606
-Room	6610
+Room	6639
 Position 12
 Flags 65
 #OBJECT
@@ -5830,7 +5830,7 @@ EndMobile
 
 #MOBILE
 Vnum	6606
-Room	6638
+Room	6602
 Position 12
 Flags 65
 #OBJECT
@@ -5946,7 +5946,14 @@ EndMobile
 
 #MOBILE
 Vnum	6501
-Room	6505
+Room	6508
+Position 12
+Flags 2113
+EndMobile
+
+#MOBILE
+Vnum	6501
+Room	6500
 Position 12
 Flags 2113
 EndMobile
@@ -5954,13 +5961,6 @@ EndMobile
 #MOBILE
 Vnum	6501
 Room	6503
-Position 12
-Flags 2113
-EndMobile
-
-#MOBILE
-Vnum	6501
-Room	6540
 Position 12
 Flags 2113
 EndMobile
@@ -6035,14 +6035,14 @@ EndMobile
 
 #MOBILE
 Vnum	6505
-Room	6514
+Room	6521
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	6506
-Room	6522
+Room	6509
 Position 12
 Flags 65
 EndMobile
@@ -6265,14 +6265,14 @@ EndMobile
 
 #MOBILE
 Vnum	6513
-Room	6529
+Room	6528
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	6513
-Room	6531
+Room	6528
 Position 12
 Flags 65
 EndMobile
@@ -6328,7 +6328,7 @@ EndMobile
 
 #MOBILE
 Vnum	9802
-Room	9891
+Room	9889
 Position 12
 Flags 97
 #OBJECT
@@ -6373,7 +6373,7 @@ EndMobile
 
 #MOBILE
 Vnum	9802
-Room	9856
+Room	9855
 Position 12
 Flags 97
 #OBJECT
@@ -6392,7 +6392,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9860
+Room	9859
 Position 12
 Flags 65
 #OBJECT
@@ -6405,7 +6405,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9856
+Room	9857
 Position 12
 Flags 65
 #OBJECT
@@ -6424,7 +6424,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9856
+Room	9854
 Position 12
 Flags 65
 #OBJECT
@@ -6450,7 +6450,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9860
+Room	9859
 Position 12
 Flags 65
 #OBJECT
@@ -6488,7 +6488,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9855
+Room	9854
 Position 12
 Flags 65
 #OBJECT
@@ -6507,7 +6507,7 @@ EndMobile
 
 #MOBILE
 Vnum	9802
-Room	9854
+Room	9857
 Position 12
 Flags 97
 #OBJECT
@@ -6526,7 +6526,7 @@ EndMobile
 
 #MOBILE
 Vnum	9801
-Room	9861
+Room	9855
 Position 12
 Flags 65
 #OBJECT
@@ -6558,7 +6558,7 @@ EndMobile
 
 #MOBILE
 Vnum	9863
-Room	9864
+Room	9863
 Position 12
 Flags 65
 #OBJECT
@@ -6642,7 +6642,7 @@ EndMobile
 
 #MOBILE
 Vnum	9811
-Room	9872
+Room	9874
 Position 12
 Flags 65
 EndMobile
@@ -6696,7 +6696,7 @@ EndMobile
 
 #MOBILE
 Vnum	9810
-Room	9877
+Room	9853
 Position 12
 Flags 69
 EndMobile
@@ -6992,14 +6992,14 @@ EndMobile
 
 #MOBILE
 Vnum	24817
-Room	24851
+Room	24850
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	24816
-Room	24851
+Room	24855
 Position 12
 Flags 65
 EndMobile
@@ -7713,14 +7713,7 @@ EndMobile
 
 #MOBILE
 Vnum	3604
-Room	3610
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	3604
-Room	3614
+Room	3612
 Position 12
 Flags 97
 EndMobile
@@ -7734,14 +7727,21 @@ EndMobile
 
 #MOBILE
 Vnum	3604
-Room	3638
+Room	3613
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	3604
+Room	3602
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	8900
-Room	8907
+Room	8906
 Position 12
 Flags 193
 #OBJECT
@@ -7775,7 +7775,7 @@ EndMobile
 
 #MOBILE
 Vnum	8901
-Room	8907
+Room	8906
 Position 12
 Flags 193
 #OBJECT
@@ -7808,7 +7808,7 @@ EndMobile
 
 #MOBILE
 Vnum	8902
-Room	8902
+Room	8908
 Position 12
 Flags 193
 #OBJECT
@@ -7836,7 +7836,7 @@ EndMobile
 
 #MOBILE
 Vnum	8903
-Room	8905
+Room	8901
 Position 12
 Flags 193
 #OBJECT
@@ -7864,42 +7864,42 @@ EndMobile
 
 #MOBILE
 Vnum	8904
-Room	8907
+Room	8905
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	8905
-Room	8902
+Room	8906
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	8906
-Room	8906
+Room	8905
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	8907
-Room	8906
+Room	8902
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	8907
-Room	8906
+Room	8908
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	8908
-Room	8906
+Room	8905
 Position 12
 Flags 225
 EndMobile
@@ -7935,7 +7935,7 @@ EndMobile
 
 #MOBILE
 Vnum	8910
-Room	8911
+Room	8914
 Position 12
 Flags 193
 #OBJECT
@@ -7994,7 +7994,7 @@ EndMobile
 
 #MOBILE
 Vnum	6000
-Room	6009
+Room	6020
 Position 12
 Flags 65
 #OBJECT
@@ -8026,77 +8026,77 @@ EndMobile
 
 #MOBILE
 Vnum	6005
-Room	6020
+Room	6023
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	6100
-Room	6116
+Room	6123
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6100
-Room	6113
+Room	6126
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6101
-Room	6136
+Room	6142
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6101
-Room	6144
+Room	6128
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6102
-Room	6130
+Room	6128
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6102
-Room	6102
+Room	6107
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6102
-Room	6103
+Room	6150
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6102
-Room	6118
+Room	6120
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6103
-Room	6108
+Room	6101
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	6103
-Room	6115
+Room	6104
 Position 12
 Flags 97
 EndMobile
@@ -8110,7 +8110,7 @@ EndMobile
 
 #MOBILE
 Vnum	6103
-Room	6120
+Room	6106
 Position 12
 Flags 97
 EndMobile
@@ -8145,7 +8145,7 @@ EndMobile
 
 #MOBILE
 Vnum	6115
-Room	6015
+Room	6007
 Position 12
 Flags 149
 #OBJECT
@@ -8310,7 +8310,7 @@ EndMobile
 
 #MOBILE
 Vnum	2408
-Room	2434
+Room	2440
 Position 12
 Flags 65
 EndMobile
@@ -8347,14 +8347,14 @@ EndMobile
 
 #MOBILE
 Vnum	2471
-Room	2442
+Room	2441
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	2408
-Room	2448
+Room	2468
 Position 12
 Flags 65
 EndMobile
@@ -8380,14 +8380,14 @@ EndMobile
 
 #MOBILE
 Vnum	2455
-Room	2457
+Room	2482
 Position 12
 Flags 262145
 EndMobile
 
 #MOBILE
 Vnum	2455
-Room	2483
+Room	2486
 Position 12
 Flags 262145
 EndMobile
@@ -8512,7 +8512,7 @@ EndMobile
 
 #MOBILE
 Vnum	2412
-Room	2440
+Room	2491
 Position 12
 Flags 65
 EndMobile
@@ -8526,21 +8526,21 @@ EndMobile
 
 #MOBILE
 Vnum	2471
-Room	2470
+Room	2447
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	2412
-Room	2476
+Room	2472
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	2412
-Room	2479
+Room	2477
 Position 12
 Flags 65
 EndMobile
@@ -8554,7 +8554,7 @@ EndMobile
 
 #MOBILE
 Vnum	2471
-Room	2473
+Room	2491
 Position 12
 Flags 65
 EndMobile
@@ -8568,7 +8568,7 @@ EndMobile
 
 #MOBILE
 Vnum	3500
-Room	3522
+Room	3523
 Position 12
 Flags 69
 #OBJECT
@@ -8581,7 +8581,7 @@ EndMobile
 
 #MOBILE
 Vnum	3500
-Room	3521
+Room	3522
 Position 12
 Flags 69
 #OBJECT
@@ -8594,42 +8594,42 @@ EndMobile
 
 #MOBILE
 Vnum	3501
-Room	3517
+Room	3522
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	3501
-Room	3510
+Room	3584
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	3501
-Room	3509
+Room	3551
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	3501
-Room	3519
+Room	3581
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	3501
-Room	3512
+Room	3516
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	3506
-Room	3530
+Room	3556
 Position 12
 Flags 97
 #OBJECT
@@ -8688,7 +8688,7 @@ EndMobile
 
 #MOBILE
 Vnum	3506
-Room	3552
+Room	3530
 Position 12
 Flags 97
 #OBJECT
@@ -8701,7 +8701,7 @@ EndMobile
 
 #MOBILE
 Vnum	3505
-Room	3557
+Room	3562
 Position 12
 Flags 97
 #OBJECT
@@ -8720,7 +8720,7 @@ EndMobile
 
 #MOBILE
 Vnum	3505
-Room	3559
+Room	3560
 Position 12
 Flags 97
 #OBJECT
@@ -8752,14 +8752,14 @@ EndMobile
 
 #MOBILE
 Vnum	2070
-Room	2089
+Room	2078
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	2071
-Room	2072
+Room	2076
 Position 12
 Flags 65
 EndMobile
@@ -8838,14 +8838,14 @@ EndMobile
 
 #MOBILE
 Vnum	7002
-Room	7059
+Room	7060
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7002
-Room	3516
+Room	3514
 Position 12
 Flags 33
 EndMobile
@@ -8859,6 +8859,13 @@ EndMobile
 
 #MOBILE
 Vnum	7003
+Room	7059
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7003
 Room	7047
 Position 12
 Flags 33
@@ -8866,41 +8873,27 @@ EndMobile
 
 #MOBILE
 Vnum	7003
-Room	7038
+Room	7052
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7003
-Room	7061
+Room	7045
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7003
-Room	7055
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	7003
-Room	7062
+Room	7065
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7004
-Room	7102
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	7005
 Room	7017
 Position 12
 Flags 1
@@ -8908,7 +8901,14 @@ EndMobile
 
 #MOBILE
 Vnum	7005
-Room	7104
+Room	7010
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	7005
+Room	7004
 Position 12
 Flags 1
 EndMobile
@@ -8922,7 +8922,7 @@ EndMobile
 
 #MOBILE
 Vnum	7002
-Room	7104
+Room	7103
 Position 12
 Flags 33
 EndMobile
@@ -8943,21 +8943,21 @@ EndMobile
 
 #MOBILE
 Vnum	7006
-Room	7401
+Room	7408
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7006
-Room	7401
+Room	7406
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	7006
-Room	7008
+Room	7007
 Position 12
 Flags 33
 EndMobile
@@ -8983,7 +8983,7 @@ EndMobile
 
 #MOBILE
 Vnum	7201
-Room	7207
+Room	7202
 Position 12
 Flags 37
 #OBJECT
@@ -8996,7 +8996,7 @@ EndMobile
 
 #MOBILE
 Vnum	7202
-Room	7202
+Room	7204
 Position 12
 Flags 37
 #OBJECT
@@ -9022,7 +9022,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7213
+Room	7210
 Position 12
 Flags 101
 #OBJECT
@@ -9035,25 +9035,12 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7212
+Room	7209
 Position 12
 Flags 101
 #OBJECT
 Vnum         7211
 Level        4
-Values       12 2 8 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	7203
-Room	7211
-Position 12
-Flags 101
-#OBJECT
-Vnum         7211
-Level        5
 Values       12 2 8 11 0 0
 End
 
@@ -9065,6 +9052,19 @@ Room	7215
 Position 12
 Flags 101
 #OBJECT
+Vnum         7211
+Level        5
+Values       12 2 8 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	7203
+Room	7209
+Position 12
+Flags 101
+#OBJECT
 Vnum         7208
 Level        3
 Values       0 0 120 0 0 0
@@ -9080,7 +9080,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7217
+Room	7215
 Position 12
 Flags 101
 #OBJECT
@@ -9099,7 +9099,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7221
+Room	7220
 Position 12
 Flags 101
 #OBJECT
@@ -9118,7 +9118,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7222
+Room	7220
 Position 12
 Flags 101
 #OBJECT
@@ -9137,7 +9137,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7223
+Room	7129
 Position 12
 Flags 101
 #OBJECT
@@ -9150,7 +9150,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7231
+Room	7234
 Position 12
 Flags 101
 #OBJECT
@@ -9169,7 +9169,7 @@ EndMobile
 
 #MOBILE
 Vnum	7203
-Room	7234
+Room	7232
 Position 12
 Flags 101
 #OBJECT
@@ -9312,7 +9312,7 @@ EndMobile
 
 #MOBILE
 Vnum	7041
-Room	7443
+Room	7442
 Position 12
 Flags 33
 EndMobile
@@ -9326,7 +9326,7 @@ EndMobile
 
 #MOBILE
 Vnum	7044
-Room	7402
+Room	7009
 Position 12
 Flags 33
 EndMobile
@@ -9347,7 +9347,7 @@ EndMobile
 
 #MOBILE
 Vnum	7010
-Room	7431
+Room	7426
 Position 12
 Flags 133
 EndMobile
@@ -9375,7 +9375,7 @@ EndMobile
 
 #MOBILE
 Vnum	7008
-Room	7403
+Room	7104
 Position 12
 Flags 65
 EndMobile
@@ -9499,7 +9499,7 @@ EndMobile
 
 #MOBILE
 Vnum	1504
-Room	1506
+Room	1511
 Position 12
 Flags 1
 #OBJECT
@@ -9515,7 +9515,7 @@ EndMobile
 
 #MOBILE
 Vnum	1532
-Room	1505
+Room	1506
 Position 12
 Flags 1
 #OBJECT
@@ -9544,7 +9544,7 @@ EndMobile
 
 #MOBILE
 Vnum	1532
-Room	1507
+Room	1510
 Position 12
 Flags 1
 #OBJECT
@@ -9570,7 +9570,7 @@ EndMobile
 
 #MOBILE
 Vnum	1531
-Room	1508
+Room	1514
 Position 12
 Flags 1
 #OBJECT
@@ -9586,7 +9586,7 @@ EndMobile
 
 #MOBILE
 Vnum	1531
-Room	1510
+Room	1507
 Position 12
 Flags 1
 #OBJECT
@@ -9602,7 +9602,7 @@ EndMobile
 
 #MOBILE
 Vnum	1503
-Room	1508
+Room	1514
 Position 12
 Flags 1
 #OBJECT
@@ -9653,35 +9653,35 @@ EndMobile
 
 #MOBILE
 Vnum	1510
-Room	1515
+Room	1517
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	1511
-Room	1518
+Room	1517
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	1509
-Room	1516
+Room	1517
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	1510
-Room	1518
+Room	1515
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	1509
-Room	1516
+Room	1515
 Position 12
 Flags 5
 EndMobile
@@ -9695,7 +9695,7 @@ EndMobile
 
 #MOBILE
 Vnum	1537
-Room	1537
+Room	1526
 Position 12
 Flags 1
 #OBJECT
@@ -9709,7 +9709,7 @@ EndMobile
 
 #MOBILE
 Vnum	1537
-Room	1528
+Room	1526
 Position 12
 Flags 1
 #OBJECT
@@ -9723,7 +9723,7 @@ EndMobile
 
 #MOBILE
 Vnum	1502
-Room	1525
+Room	1524
 Position 12
 Flags 1
 #OBJECT
@@ -9736,7 +9736,7 @@ EndMobile
 
 #MOBILE
 Vnum	1502
-Room	1521
+Room	1524
 Position 12
 Flags 1
 #OBJECT
@@ -9775,7 +9775,7 @@ EndMobile
 
 #MOBILE
 Vnum	1538
-Room	1525
+Room	1533
 Position 12
 Flags 1
 #OBJECT
@@ -9788,7 +9788,7 @@ EndMobile
 
 #MOBILE
 Vnum	1536
-Room	1521
+Room	1534
 Position 12
 Flags 5
 #OBJECT
@@ -9801,7 +9801,7 @@ EndMobile
 
 #MOBILE
 Vnum	1538
-Room	1524
+Room	1530
 Position 12
 Flags 1
 #OBJECT
@@ -9814,7 +9814,7 @@ EndMobile
 
 #MOBILE
 Vnum	1538
-Room	1525
+Room	1533
 Position 12
 Flags 1
 #OBJECT
@@ -9853,7 +9853,7 @@ EndMobile
 
 #MOBILE
 Vnum	1536
-Room	1527
+Room	1536
 Position 12
 Flags 5
 #OBJECT
@@ -9866,7 +9866,7 @@ EndMobile
 
 #MOBILE
 Vnum	1533
-Room	1531
+Room	1535
 Position 12
 Flags 5
 #OBJECT
@@ -9879,7 +9879,7 @@ EndMobile
 
 #MOBILE
 Vnum	1502
-Room	1528
+Room	1527
 Position 12
 Flags 1
 #OBJECT
@@ -9892,7 +9892,7 @@ EndMobile
 
 #MOBILE
 Vnum	1502
-Room	1525
+Room	1534
 Position 12
 Flags 1
 #OBJECT
@@ -9905,7 +9905,7 @@ EndMobile
 
 #MOBILE
 Vnum	1533
-Room	1534
+Room	1532
 Position 12
 Flags 5
 #OBJECT
@@ -9918,7 +9918,7 @@ EndMobile
 
 #MOBILE
 Vnum	1533
-Room	1532
+Room	1533
 Position 12
 Flags 5
 #OBJECT
@@ -9931,7 +9931,7 @@ EndMobile
 
 #MOBILE
 Vnum	1501
-Room	1527
+Room	1520
 Position 12
 Flags 1
 #OBJECT
@@ -9944,7 +9944,7 @@ EndMobile
 
 #MOBILE
 Vnum	1501
-Room	1520
+Room	1526
 Position 12
 Flags 1
 #OBJECT
@@ -9957,7 +9957,7 @@ EndMobile
 
 #MOBILE
 Vnum	1501
-Room	1520
+Room	1521
 Position 12
 Flags 1
 #OBJECT
@@ -9970,7 +9970,7 @@ EndMobile
 
 #MOBILE
 Vnum	1537
-Room	1521
+Room	1537
 Position 12
 Flags 1
 #OBJECT
@@ -9984,7 +9984,7 @@ EndMobile
 
 #MOBILE
 Vnum	1537
-Room	1521
+Room	1528
 Position 12
 Flags 1
 #OBJECT
@@ -9998,7 +9998,7 @@ EndMobile
 
 #MOBILE
 Vnum	1537
-Room	1537
+Room	1538
 Position 12
 Flags 1
 #OBJECT
@@ -10012,7 +10012,7 @@ EndMobile
 
 #MOBILE
 Vnum	1508
-Room	1542
+Room	1543
 Position 12
 Flags 5
 #OBJECT
@@ -10025,7 +10025,7 @@ EndMobile
 
 #MOBILE
 Vnum	1508
-Room	1541
+Room	1544
 Position 12
 Flags 5
 #OBJECT
@@ -10058,7 +10058,7 @@ EndMobile
 
 #MOBILE
 Vnum	1508
-Room	1544
+Room	1540
 Position 12
 Flags 5
 #OBJECT
@@ -10092,7 +10092,7 @@ EndMobile
 
 #MOBILE
 Vnum	1524
-Room	1556
+Room	1553
 Position 12
 Flags 5
 EndMobile
@@ -10106,7 +10106,14 @@ EndMobile
 
 #MOBILE
 Vnum	1513
-Room	1572
+Room	1570
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	1513
+Room	1563
 Position 12
 Flags 33
 EndMobile
@@ -10119,15 +10126,8 @@ Flags 33
 EndMobile
 
 #MOBILE
-Vnum	1513
-Room	1570
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
 Vnum	1520
-Room	1564
+Room	1569
 Position 12
 Flags 5
 #OBJECT
@@ -10139,7 +10139,7 @@ EndMobile
 
 #MOBILE
 Vnum	1520
-Room	1565
+Room	1564
 Position 12
 Flags 5
 EndMobile
@@ -10162,26 +10162,14 @@ EndMobile
 
 #MOBILE
 Vnum	1520
-Room	1563
+Room	1569
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	1520
-Room	1563
-Position 12
-Flags 5
-#OBJECT
-Vnum         1597
-Level        4
-End
-
-EndMobile
-
-#MOBILE
-Vnum	1520
-Room	1571
+Room	1565
 Position 12
 Flags 5
 #OBJECT
@@ -10194,6 +10182,18 @@ EndMobile
 #MOBILE
 Vnum	1520
 Room	1572
+Position 12
+Flags 5
+#OBJECT
+Vnum         1597
+Level        4
+End
+
+EndMobile
+
+#MOBILE
+Vnum	1520
+Room	1564
 Position 12
 Flags 5
 EndMobile
@@ -10400,14 +10400,14 @@ EndMobile
 
 #MOBILE
 Vnum	1515
-Room	1581
+Room	1594
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	1515
-Room	1597
+Room	1598
 Position 12
 Flags 37
 EndMobile
@@ -10428,13 +10428,6 @@ EndMobile
 
 #MOBILE
 Vnum	1549
-Room	1588
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	1549
 Room	1587
 Position 12
 Flags 33
@@ -10443,6 +10436,13 @@ EndMobile
 #MOBILE
 Vnum	1549
 Room	1588
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	1549
+Room	1587
 Position 12
 Flags 33
 EndMobile
@@ -10505,14 +10505,14 @@ EndMobile
 
 #MOBILE
 Vnum	1515
-Room	1594
+Room	1599
 Position 12
 Flags 37
 EndMobile
 
 #MOBILE
 Vnum	1515
-Room	1598
+Room	1593
 Position 12
 Flags 37
 EndMobile
@@ -10595,7 +10595,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2103
+Room	2102
 Position 12
 Flags 193
 #OBJECT
@@ -10626,7 +10626,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2121
+Room	2122
 Position 12
 Flags 69
 #OBJECT
@@ -10645,7 +10645,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2104
+Room	2118
 Position 12
 Flags 69
 #OBJECT
@@ -10664,7 +10664,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2106
+Room	2124
 Position 12
 Flags 193
 #OBJECT
@@ -10695,7 +10695,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2105
+Room	2104
 Position 12
 Flags 69
 #OBJECT
@@ -10714,7 +10714,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2112
+Room	2125
 Position 12
 Flags 193
 #OBJECT
@@ -10776,7 +10776,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2102
+Room	2115
 Position 12
 Flags 193
 #OBJECT
@@ -10807,7 +10807,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2107
+Room	2103
 Position 12
 Flags 69
 #OBJECT
@@ -10826,7 +10826,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2112
+Room	2113
 Position 12
 Flags 69
 #OBJECT
@@ -10845,7 +10845,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2134
+Room	2129
 Position 12
 Flags 69
 #OBJECT
@@ -10877,7 +10877,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2157
+Room	2169
 Position 12
 Flags 69
 #OBJECT
@@ -10896,7 +10896,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2132
+Room	2127
 Position 12
 Flags 69
 #OBJECT
@@ -10915,7 +10915,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2137
+Room	2136
 Position 12
 Flags 193
 #OBJECT
@@ -10979,7 +10979,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2138
+Room	2161
 Position 12
 Flags 69
 #OBJECT
@@ -10998,7 +10998,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2146
+Room	2150
 Position 12
 Flags 69
 #OBJECT
@@ -11017,7 +11017,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2149
+Room	2138
 Position 12
 Flags 193
 #OBJECT
@@ -11048,7 +11048,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2150
+Room	2166
 Position 12
 Flags 193
 #OBJECT
@@ -11079,7 +11079,7 @@ EndMobile
 
 #MOBILE
 Vnum	2102
-Room	2139
+Room	2137
 Position 12
 Flags 69
 #OBJECT
@@ -11138,7 +11138,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2155
+Room	2156
 Position 12
 Flags 193
 #OBJECT
@@ -11238,7 +11238,7 @@ EndMobile
 
 #MOBILE
 Vnum	2107
-Room	2143
+Room	2144
 Position 12
 Flags 193
 #OBJECT
@@ -11288,7 +11288,7 @@ EndMobile
 
 #MOBILE
 Vnum	2101
-Room	2103
+Room	2120
 Position 12
 Flags 69
 #OBJECT
@@ -11307,7 +11307,7 @@ EndMobile
 
 #MOBILE
 Vnum	2101
-Room	2113
+Room	2119
 Position 12
 Flags 69
 #OBJECT
@@ -11326,7 +11326,7 @@ EndMobile
 
 #MOBILE
 Vnum	2101
-Room	2119
+Room	2115
 Position 12
 Flags 69
 #OBJECT
@@ -11345,7 +11345,7 @@ EndMobile
 
 #MOBILE
 Vnum	2101
-Room	2137
+Room	2144
 Position 12
 Flags 69
 #OBJECT
@@ -11358,7 +11358,7 @@ EndMobile
 
 #MOBILE
 Vnum	2110
-Room	2139
+Room	2149
 Position 12
 Flags 69
 #OBJECT
@@ -11396,7 +11396,7 @@ EndMobile
 
 #MOBILE
 Vnum	2110
-Room	2171
+Room	2109
 Position 12
 Flags 69
 #OBJECT
@@ -11415,7 +11415,7 @@ EndMobile
 
 #MOBILE
 Vnum	2110
-Room	2110
+Room	2116
 Position 12
 Flags 69
 #OBJECT
@@ -11434,7 +11434,7 @@ EndMobile
 
 #MOBILE
 Vnum	2002020
-Room	2002005
+Room	2002010
 Position 12
 Flags 65
 #OBJECT
@@ -11447,7 +11447,7 @@ EndMobile
 
 #MOBILE
 Vnum	2002001
-Room	2002003
+Room	2002001
 Position 12
 Flags 65
 #OBJECT
@@ -11481,7 +11481,7 @@ EndMobile
 
 #MOBILE
 Vnum	600
-Room	28014
+Room	667
 Position 12
 Flags 5
 #OBJECT
@@ -11579,7 +11579,7 @@ EndMobile
 
 #MOBILE
 Vnum	617
-Room	28006
+Room	28003
 Position 12
 Flags 129
 EndMobile
@@ -11739,7 +11739,7 @@ EndMobile
 
 #MOBILE
 Vnum	600
-Room	608
+Room	620
 Position 12
 Flags 5
 #OBJECT
@@ -11839,7 +11839,7 @@ EndMobile
 
 #MOBILE
 Vnum	618
-Room	603
+Room	633
 Position 12
 Flags 129
 EndMobile
@@ -11914,21 +11914,21 @@ EndMobile
 
 #MOBILE
 Vnum	615
-Room	618
+Room	668
 Position 12
 Flags 161
 EndMobile
 
 #MOBILE
 Vnum	615
-Room	623
+Room	621
 Position 12
 Flags 161
 EndMobile
 
 #MOBILE
 Vnum	615
-Room	622
+Room	620
 Position 12
 Flags 161
 EndMobile
@@ -11942,14 +11942,14 @@ EndMobile
 
 #MOBILE
 Vnum	613
-Room	618
+Room	624
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	613
-Room	624
+Room	622
 Position 12
 Flags 1
 EndMobile
@@ -11991,7 +11991,7 @@ EndMobile
 
 #MOBILE
 Vnum	621
-Room	627
+Room	628
 Position 12
 Flags 129
 #OBJECT
@@ -12004,7 +12004,7 @@ EndMobile
 
 #MOBILE
 Vnum	621
-Room	630
+Room	631
 Position 12
 Flags 129
 #OBJECT
@@ -12017,14 +12017,14 @@ EndMobile
 
 #MOBILE
 Vnum	620
-Room	635
+Room	636
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	600
-Room	652
+Room	659
 Position 12
 Flags 5
 #OBJECT
@@ -12062,7 +12062,7 @@ EndMobile
 
 #MOBILE
 Vnum	600
-Room	642
+Room	632
 Position 12
 Flags 5
 #OBJECT
@@ -12106,7 +12106,7 @@ EndMobile
 
 #MOBILE
 Vnum	600
-Room	648
+Room	655
 Position 12
 Flags 5
 #OBJECT
@@ -12137,14 +12137,14 @@ EndMobile
 
 #MOBILE
 Vnum	617
-Room	657
+Room	652
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	600
-Room	642
+Room	652
 Position 12
 Flags 5
 #OBJECT
@@ -12175,42 +12175,42 @@ EndMobile
 
 #MOBILE
 Vnum	617
-Room	663
+Room	664
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	620
-Room	659
+Room	660
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	619
-Room	656
+Room	657
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	619
-Room	661
+Room	660
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	618
-Room	699
+Room	671
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	600
-Room	674
+Room	677
 Position 12
 Flags 5
 #OBJECT
@@ -12241,7 +12241,7 @@ EndMobile
 
 #MOBILE
 Vnum	602
-Room	678
+Room	670
 Position 12
 Flags 65
 #OBJECT
@@ -12333,21 +12333,21 @@ EndMobile
 
 #MOBILE
 Vnum	625
-Room	672
+Room	673
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	625
-Room	675
+Room	678
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	633
-Room	676
+Room	697
 Position 12
 Flags 65
 #OBJECT
@@ -12378,14 +12378,14 @@ EndMobile
 
 #MOBILE
 Vnum	627
-Room	680
+Room	676
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	633
-Room	678
+Room	675
 Position 12
 Flags 65
 #OBJECT
@@ -12416,7 +12416,7 @@ EndMobile
 
 #MOBILE
 Vnum	626
-Room	683
+Room	694
 Position 12
 Flags 65
 EndMobile
@@ -12430,7 +12430,7 @@ EndMobile
 
 #MOBILE
 Vnum	629
-Room	673
+Room	679
 Position 12
 Flags 65
 #OBJECT
@@ -12572,7 +12572,7 @@ EndMobile
 
 #MOBILE
 Vnum	633
-Room	671
+Room	694
 Position 12
 Flags 65
 #OBJECT
@@ -12920,7 +12920,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5250
+Room	5213
 Position 12
 Flags 101
 #OBJECT
@@ -12933,7 +12933,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5210
+Room	5241
 Position 12
 Flags 101
 #OBJECT
@@ -12959,7 +12959,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5212
+Room	5230
 Position 12
 Flags 101
 #OBJECT
@@ -12972,7 +12972,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5218
+Room	5215
 Position 12
 Flags 101
 #OBJECT
@@ -12985,14 +12985,14 @@ EndMobile
 
 #MOBILE
 Vnum	5207
-Room	5207
+Room	5225
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5229
+Room	5253
 Position 12
 Flags 101
 #OBJECT
@@ -13005,7 +13005,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5219
+Room	5201
 Position 12
 Flags 101
 #OBJECT
@@ -13018,7 +13018,7 @@ EndMobile
 
 #MOBILE
 Vnum	5204
-Room	5212
+Room	5202
 Position 12
 Flags 229
 #OBJECT
@@ -13031,112 +13031,13 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5223
+Room	5225
 Position 12
 Flags 101
 #OBJECT
 Vnum         5252
 Level        6
 Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5201
-Room	5212
-Position 12
-Flags 101
-#OBJECT
-Vnum         5252
-Level        8
-Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5201
-Room	5226
-Position 12
-Flags 101
-#OBJECT
-Vnum         5252
-Level        9
-Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5201
-Room	5225
-Position 12
-Flags 101
-#OBJECT
-Vnum         5252
-Level        7
-Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5201
-Room	5237
-Position 12
-Flags 101
-#OBJECT
-Vnum         5252
-Level        8
-Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5203
-Room	5211
-Position 12
-Flags 229
-#OBJECT
-Vnum         5215
-Level        9
-Values       25 87 -1 -1 0 0
-Spell 1      'enchant weapon'
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5207
-Room	5227
-Position 12
-Flags 129
-EndMobile
-
-#MOBILE
-Vnum	5201
-Room	5215
-Position 12
-Flags 101
-#OBJECT
-Vnum         5252
-Level        7
-Values       12 2 10 11 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	5202
-Room	5213
-Position 12
-Flags 229
-#OBJECT
-Vnum         5214
-Level        9
-Values       0 0 72 0 0 0
 End
 
 EndMobile
@@ -13155,15 +13056,21 @@ End
 EndMobile
 
 #MOBILE
-Vnum	5207
-Room	5213
+Vnum	5201
+Room	5209
 Position 12
-Flags 129
+Flags 101
+#OBJECT
+Vnum         5252
+Level        9
+Values       12 2 10 11 0 0
+End
+
 EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5231
+Room	5208
 Position 12
 Flags 101
 #OBJECT
@@ -13181,6 +13088,86 @@ Position 12
 Flags 101
 #OBJECT
 Vnum         5252
+Level        8
+Values       12 2 10 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5203
+Room	5209
+Position 12
+Flags 229
+#OBJECT
+Vnum         5215
+Level        9
+Values       25 87 -1 -1 0 0
+Spell 1      'enchant weapon'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5207
+Room	5244
+Position 12
+Flags 129
+EndMobile
+
+#MOBILE
+Vnum	5201
+Room	5252
+Position 12
+Flags 101
+#OBJECT
+Vnum         5252
+Level        7
+Values       12 2 10 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5202
+Room	5234
+Position 12
+Flags 229
+#OBJECT
+Vnum         5214
+Level        9
+Values       0 0 72 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5201
+Room	5240
+Position 12
+Flags 101
+#OBJECT
+Vnum         5252
+Level        8
+Values       12 2 10 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5207
+Room	5215
+Position 12
+Flags 129
+EndMobile
+
+#MOBILE
+Vnum	5201
+Room	5250
+Position 12
+Flags 101
+#OBJECT
+Vnum         5252
 Level        7
 Values       12 2 10 11 0 0
 End
@@ -13189,7 +13176,20 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5255
+Room	5210
+Position 12
+Flags 101
+#OBJECT
+Vnum         5252
+Level        7
+Values       12 2 10 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5201
+Room	5233
 Position 12
 Flags 101
 #OBJECT
@@ -13202,7 +13202,7 @@ EndMobile
 
 #MOBILE
 Vnum	5206
-Room	5232
+Room	5234
 Position 12
 Flags 229
 #OBJECT
@@ -13215,7 +13215,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5227
+Room	5237
 Position 12
 Flags 101
 #OBJECT
@@ -13228,7 +13228,7 @@ EndMobile
 
 #MOBILE
 Vnum	5205
-Room	5205
+Room	5210
 Position 12
 Flags 229
 #OBJECT
@@ -13241,7 +13241,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5243
+Room	5208
 Position 12
 Flags 101
 #OBJECT
@@ -13254,7 +13254,7 @@ EndMobile
 
 #MOBILE
 Vnum	5201
-Room	5243
+Room	5244
 Position 12
 Flags 101
 #OBJECT
@@ -13267,7 +13267,7 @@ EndMobile
 
 #MOBILE
 Vnum	5207
-Room	5209
+Room	5210
 Position 12
 Flags 129
 EndMobile
@@ -13456,7 +13456,7 @@ EndMobile
 
 #MOBILE
 Vnum	60650
-Room	60503
+Room	60504
 Position 12
 Flags 1089
 EndMobile
@@ -13491,7 +13491,7 @@ EndMobile
 
 #MOBILE
 Vnum	3000000
-Room	3000005
+Room	3000004
 Position 12
 Flags 1
 EndMobile
@@ -13920,7 +13920,7 @@ EndMobile
 
 #MOBILE
 Vnum	100003
-Room	100001
+Room	100006
 Position 12
 Flags 65
 #OBJECT
@@ -14373,7 +14373,7 @@ EndMobile
 
 #MOBILE
 Vnum	15116
-Room	15105
+Room	15101
 Position 12
 Flags 73
 #OBJECT
@@ -14447,7 +14447,7 @@ EndMobile
 
 #MOBILE
 Vnum	15116
-Room	15101
+Room	15105
 Position 12
 Flags 73
 #OBJECT
@@ -14515,21 +14515,21 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15123
+Room	15134
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15113
+Room	15104
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15113
+Room	15111
 Position 12
 Flags 225
 EndMobile
@@ -14592,7 +14592,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15118
+Room	15103
 Position 12
 Flags 225
 EndMobile
@@ -14649,7 +14649,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15117
+Room	15118
 Position 12
 Flags 225
 EndMobile
@@ -14687,7 +14687,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15113
+Room	15118
 Position 12
 Flags 225
 EndMobile
@@ -14737,21 +14737,21 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15118
+Room	15120
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15112
+Room	15118
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15116
-Room	15110
+Room	15109
 Position 12
 Flags 73
 #OBJECT
@@ -14812,7 +14812,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15112
+Room	15102
 Position 12
 Flags 225
 EndMobile
@@ -14882,7 +14882,7 @@ EndMobile
 
 #MOBILE
 Vnum	15109
-Room	15127
+Room	15138
 Position 12
 Flags 225
 EndMobile
@@ -14921,7 +14921,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15121
+Room	15122
 Position 12
 Flags 225
 EndMobile
@@ -14954,14 +14954,14 @@ EndMobile
 
 #MOBILE
 Vnum	15109
-Room	15125
+Room	15130
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15113
+Room	15112
 Position 12
 Flags 225
 EndMobile
@@ -14993,14 +14993,14 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15124
+Room	15137
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15116
-Room	15123
+Room	15122
 Position 12
 Flags 73
 #OBJECT
@@ -15061,7 +15061,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15123
+Room	15120
 Position 12
 Flags 225
 EndMobile
@@ -15118,14 +15118,14 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15139
+Room	15160
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15126
+Room	15125
 Position 12
 Flags 225
 EndMobile
@@ -15182,7 +15182,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15118
+Room	15122
 Position 12
 Flags 225
 EndMobile
@@ -15214,14 +15214,14 @@ EndMobile
 
 #MOBILE
 Vnum	15109
-Room	15126
+Room	15115
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15132
+Room	15137
 Position 12
 Flags 225
 EndMobile
@@ -15253,7 +15253,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15129
+Room	15124
 Position 12
 Flags 225
 EndMobile
@@ -15285,21 +15285,21 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15128
+Room	15130
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15146
+Room	15141
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15116
-Room	15129
+Room	15126
 Position 12
 Flags 73
 #OBJECT
@@ -15360,7 +15360,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15127
+Room	15123
 Position 12
 Flags 225
 EndMobile
@@ -15398,7 +15398,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15130
+Room	15129
 Position 12
 Flags 225
 EndMobile
@@ -15436,14 +15436,14 @@ EndMobile
 
 #MOBILE
 Vnum	15109
-Room	15132
+Room	15139
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15130
+Room	15136
 Position 12
 Flags 225
 EndMobile
@@ -15457,7 +15457,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15134
+Room	15129
 Position 12
 Flags 225
 EndMobile
@@ -15483,7 +15483,7 @@ EndMobile
 
 #MOBILE
 Vnum	15110
-Room	15135
+Room	15146
 Position 12
 Flags 225
 EndMobile
@@ -15509,14 +15509,14 @@ EndMobile
 
 #MOBILE
 Vnum	15107
-Room	15137
+Room	15151
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15107
-Room	15152
+Room	15139
 Position 12
 Flags 225
 EndMobile
@@ -15530,14 +15530,14 @@ EndMobile
 
 #MOBILE
 Vnum	15107
-Room	15162
+Room	15154
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	15120
-Room	15161
+Room	15166
 Position 12
 Flags 4169
 #OBJECT
@@ -15550,14 +15550,14 @@ EndMobile
 
 #MOBILE
 Vnum	15121
-Room	15157
+Room	15149
 Position 12
 Flags 105
 EndMobile
 
 #MOBILE
 Vnum	15120
-Room	15159
+Room	15158
 Position 12
 Flags 4169
 #OBJECT
@@ -15570,21 +15570,21 @@ EndMobile
 
 #MOBILE
 Vnum	15121
-Room	15157
+Room	15142
 Position 12
 Flags 105
 EndMobile
 
 #MOBILE
 Vnum	15121
-Room	15152
+Room	15140
 Position 12
 Flags 105
 EndMobile
 
 #MOBILE
 Vnum	15120
-Room	15152
+Room	15165
 Position 12
 Flags 4169
 #OBJECT
@@ -15597,14 +15597,14 @@ EndMobile
 
 #MOBILE
 Vnum	15121
-Room	15164
+Room	15142
 Position 12
 Flags 105
 EndMobile
 
 #MOBILE
 Vnum	15120
-Room	15147
+Room	15152
 Position 12
 Flags 4169
 #OBJECT
@@ -15617,7 +15617,7 @@ EndMobile
 
 #MOBILE
 Vnum	15120
-Room	15146
+Room	15147
 Position 12
 Flags 4169
 #OBJECT
@@ -15630,7 +15630,7 @@ EndMobile
 
 #MOBILE
 Vnum	15121
-Room	15164
+Room	15141
 Position 12
 Flags 105
 EndMobile
@@ -15689,7 +15689,7 @@ EndMobile
 
 #MOBILE
 Vnum	15176
-Room	15179
+Room	15174
 Position 12
 Flags 129
 #OBJECT
@@ -15699,191 +15699,6 @@ Values       11 2 2 42 0 0
 Spell 3      'colour spray'
 End
 
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15175
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        2
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15190
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        4
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15179
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15171
-Position 12
-Flags 85
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15175
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15182
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15173
-Room	15185
-Position 12
-Flags 229
-#OBJECT
-Vnum         15178
-Level        8
-Values       2 2 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15181
-Position 12
-Flags 85
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15171
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15172
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15185
-Position 12
-Flags 85
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15188
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        4
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15180
-Position 12
-Flags 85
-#OBJECT
-Vnum         15170
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15173
-Room	15184
-Position 12
-Flags 229
-#OBJECT
-Vnum         15172
-Level        9
-Values       12 2 14 4 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15176
-Room	15188
-Position 12
-Flags 129
-#OBJECT
-Vnum         15174
-Level        7
-Values       10 3 3 42 0 0
-Spell 3      'colour spray'
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15170
-Room	15183
-Position 12
-Flags 85
 EndMobile
 
 #MOBILE
@@ -15900,8 +15715,193 @@ End
 EndMobile
 
 #MOBILE
+Vnum	15170
+Room	15187
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        4
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15183
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15172
+Position 12
+Flags 85
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15199
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15192
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
 Vnum	15173
-Room	15178
+Room	15182
+Position 12
+Flags 229
+#OBJECT
+Vnum         15178
+Level        8
+Values       2 2 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15177
+Position 12
+Flags 85
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15182
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15185
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15171
+Position 12
+Flags 85
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15181
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        4
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15183
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15177
+Position 12
+Flags 229
+#OBJECT
+Vnum         15172
+Level        9
+Values       12 2 14 4 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15176
+Room	15232
+Position 12
+Flags 129
+#OBJECT
+Vnum         15174
+Level        7
+Values       10 3 3 42 0 0
+Spell 3      'colour spray'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15175
+Position 12
+Flags 85
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15200
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        2
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15186
 Position 12
 Flags 229
 #OBJECT
@@ -15933,7 +15933,7 @@ EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15180
+Room	15200
 Position 12
 Flags 85
 #OBJECT
@@ -15946,7 +15946,7 @@ EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15187
+Room	15199
 Position 12
 Flags 85
 #OBJECT
@@ -15966,14 +15966,14 @@ EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15177
+Room	15193
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15196
+Room	15212
 Position 12
 Flags 85
 #OBJECT
@@ -15986,7 +15986,7 @@ EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15208
+Room	15213
 Position 12
 Flags 85
 #OBJECT
@@ -15999,7 +15999,7 @@ EndMobile
 
 #MOBILE
 Vnum	15174
-Room	15188
+Room	15211
 Position 12
 Flags 213
 #OBJECT
@@ -16054,7 +16054,7 @@ EndMobile
 
 #MOBILE
 Vnum	15174
-Room	15205
+Room	15206
 Position 12
 Flags 213
 #OBJECT
@@ -16074,14 +16074,14 @@ EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15190
+Room	15207
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15170
-Room	15199
+Room	15204
 Position 12
 Flags 85
 #OBJECT
@@ -16094,7 +16094,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15207
+Room	15185
 Position 12
 Flags 65
 #OBJECT
@@ -16107,7 +16107,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15204
+Room	15223
 Position 12
 Flags 65
 #OBJECT
@@ -16120,7 +16120,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15183
+Room	15172
 Position 12
 Flags 65
 #OBJECT
@@ -16133,7 +16133,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15203
+Room	15193
 Position 12
 Flags 65
 #OBJECT
@@ -16146,7 +16146,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15202
+Room	15230
 Position 12
 Flags 65
 #OBJECT
@@ -16159,7 +16159,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15190
+Room	15174
 Position 12
 Flags 65
 #OBJECT
@@ -16172,7 +16172,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15211
+Room	15209
 Position 12
 Flags 65
 #OBJECT
@@ -16185,7 +16185,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15202
+Room	15218
 Position 12
 Flags 65
 #OBJECT
@@ -16198,7 +16198,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15208
+Room	15235
 Position 12
 Flags 65
 #OBJECT
@@ -16211,7 +16211,7 @@ EndMobile
 
 #MOBILE
 Vnum	15175
-Room	15208
+Room	15209
 Position 12
 Flags 65
 #OBJECT
@@ -16224,7 +16224,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15212
+Room	15205
 Position 12
 Flags 85
 #OBJECT
@@ -16237,7 +16237,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15214
+Room	15216
 Position 12
 Flags 85
 #OBJECT
@@ -16250,7 +16250,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15216
+Room	15225
 Position 12
 Flags 85
 #OBJECT
@@ -16310,7 +16310,7 @@ EndMobile
 
 #MOBILE
 Vnum	15174
-Room	15222
+Room	15218
 Position 12
 Flags 213
 #OBJECT
@@ -16330,14 +16330,14 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15225
+Room	15224
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15233
+Room	15235
 Position 12
 Flags 85
 #OBJECT
@@ -16350,7 +16350,7 @@ EndMobile
 
 #MOBILE
 Vnum	15174
-Room	15219
+Room	15228
 Position 12
 Flags 213
 #OBJECT
@@ -16364,7 +16364,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15211
+Room	15231
 Position 12
 Flags 85
 #OBJECT
@@ -16377,7 +16377,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15227
+Room	15233
 Position 12
 Flags 85
 #OBJECT
@@ -16390,14 +16390,14 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15228
+Room	15230
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15173
-Room	15231
+Room	15233
 Position 12
 Flags 229
 #OBJECT
@@ -16423,7 +16423,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15233
+Room	15230
 Position 12
 Flags 85
 #OBJECT
@@ -16443,7 +16443,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15234
+Room	15226
 Position 12
 Flags 85
 #OBJECT
@@ -16456,7 +16456,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15238
+Room	15239
 Position 12
 Flags 85
 #OBJECT
@@ -16476,7 +16476,7 @@ EndMobile
 
 #MOBILE
 Vnum	15176
-Room	15225
+Room	15231
 Position 12
 Flags 129
 #OBJECT
@@ -16490,7 +16490,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15231
+Room	15230
 Position 12
 Flags 85
 #OBJECT
@@ -16503,7 +16503,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15235
+Room	15219
 Position 12
 Flags 85
 #OBJECT
@@ -16516,14 +16516,14 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15225
+Room	15233
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15233
+Room	15234
 Position 12
 Flags 85
 #OBJECT
@@ -16550,27 +16550,14 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15218
+Room	15217
 Position 12
 Flags 85
 EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15226
-Position 12
-Flags 85
-#OBJECT
-Vnum         15171
-Level        4
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15171
-Room	15239
+Room	15231
 Position 12
 Flags 85
 #OBJECT
@@ -16583,7 +16570,20 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15226
+Room	15214
+Position 12
+Flags 85
+#OBJECT
+Vnum         15171
+Level        4
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15171
+Room	15217
 Position 12
 Flags 85
 #OBJECT
@@ -16596,7 +16596,7 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15233
+Room	15234
 Position 12
 Flags 85
 #OBJECT
@@ -16609,19 +16609,6 @@ EndMobile
 
 #MOBILE
 Vnum	15171
-Room	15238
-Position 12
-Flags 85
-#OBJECT
-Vnum         15171
-Level        3
-Values       5 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	15171
 Room	15233
 Position 12
 Flags 85
@@ -16634,8 +16621,21 @@ End
 EndMobile
 
 #MOBILE
+Vnum	15171
+Room	15200
+Position 12
+Flags 85
+#OBJECT
+Vnum         15171
+Level        3
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
 Vnum	15173
-Room	15228
+Room	15202
 Position 12
 Flags 229
 #OBJECT
@@ -16861,7 +16861,7 @@ EndMobile
 
 #MOBILE
 Vnum	5101
-Room	5104
+Room	5118
 Position 12
 Flags 105
 #OBJECT
@@ -16979,7 +16979,7 @@ EndMobile
 
 #MOBILE
 Vnum	5101
-Room	5136
+Room	5126
 Position 12
 Flags 105
 #OBJECT
@@ -17050,21 +17050,21 @@ EndMobile
 
 #MOBILE
 Vnum	48208
-Room	48205
+Room	48243
 Position 12
 Flags 65601
 EndMobile
 
 #MOBILE
 Vnum	48208
-Room	48222
+Room	48207
 Position 12
 Flags 65601
 EndMobile
 
 #MOBILE
 Vnum	48208
-Room	48230
+Room	48242
 Position 12
 Flags 65601
 EndMobile
@@ -17214,7 +17214,7 @@ EndMobile
 
 #MOBILE
 Vnum	48212
-Room	48224
+Room	48211
 Position 12
 Flags 9
 #OBJECT
@@ -17233,7 +17233,7 @@ EndMobile
 
 #MOBILE
 Vnum	48212
-Room	48207
+Room	48222
 Position 12
 Flags 9
 #OBJECT
@@ -17279,7 +17279,7 @@ EndMobile
 
 #MOBILE
 Vnum	48224
-Room	48246
+Room	48237
 Position 12
 Flags 97
 #OBJECT
@@ -17305,7 +17305,7 @@ EndMobile
 
 #MOBILE
 Vnum	48224
-Room	48258
+Room	48269
 Position 12
 Flags 97
 #OBJECT
@@ -17324,7 +17324,7 @@ EndMobile
 
 #MOBILE
 Vnum	48220
-Room	48247
+Room	48235
 Position 12
 Flags 129
 #OBJECT
@@ -17337,7 +17337,7 @@ EndMobile
 
 #MOBILE
 Vnum	48224
-Room	48231
+Room	48243
 Position 12
 Flags 97
 #OBJECT
@@ -17457,7 +17457,7 @@ Flags 524387
 #OBJECT
 Vnum         48221
 Level        49
-Timer        24
+Timer        12
 Values       31 31 0 0 0 0
 End
 
@@ -17571,7 +17571,7 @@ Flags 3
 #OBJECT
 Vnum         48220
 Level        40
-Timer        23
+Timer        11
 Values       30 30 0 0 0 0
 End
 
@@ -17652,7 +17652,7 @@ Flags 3
 #OBJECT
 Vnum         48220
 Level        42
-Timer        23
+Timer        11
 Values       30 30 0 0 0 0
 End
 
@@ -17841,7 +17841,7 @@ EndMobile
 
 #MOBILE
 Vnum	48261
-Room	48314
+Room	48295
 Position 12
 Flags 65
 EndMobile
@@ -18087,7 +18087,7 @@ EndMobile
 
 #MOBILE
 Vnum	48261
-Room	48334
+Room	48331
 Position 12
 Flags 65
 EndMobile
@@ -18179,14 +18179,14 @@ EndMobile
 
 #MOBILE
 Vnum	46007
-Room	46009
+Room	46005
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46007
-Room	46013
+Room	46006
 Position 12
 Flags 65
 EndMobile
@@ -18200,14 +18200,14 @@ EndMobile
 
 #MOBILE
 Vnum	46005
-Room	46014
+Room	46006
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46013
-Room	46014
+Room	46013
 Position 12
 Flags 65
 #OBJECT
@@ -18232,7 +18232,7 @@ EndMobile
 
 #MOBILE
 Vnum	46013
-Room	46005
+Room	46016
 Position 12
 Flags 65
 #OBJECT
@@ -18276,7 +18276,7 @@ EndMobile
 
 #MOBILE
 Vnum	46013
-Room	46022
+Room	46028
 Position 12
 Flags 65
 #OBJECT
@@ -18301,7 +18301,7 @@ EndMobile
 
 #MOBILE
 Vnum	46013
-Room	46014
+Room	46008
 Position 12
 Flags 65
 #OBJECT
@@ -18326,7 +18326,7 @@ EndMobile
 
 #MOBILE
 Vnum	46005
-Room	46010
+Room	46006
 Position 12
 Flags 65
 EndMobile
@@ -18359,7 +18359,7 @@ EndMobile
 
 #MOBILE
 Vnum	46005
-Room	46028
+Room	46018
 Position 12
 Flags 65
 EndMobile
@@ -18387,21 +18387,21 @@ EndMobile
 
 #MOBILE
 Vnum	46008
-Room	46033
+Room	46034
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46008
-Room	46033
+Room	46035
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46002
-Room	46033
+Room	46035
 Position 12
 Flags 65
 #OBJECT
@@ -18429,7 +18429,7 @@ EndMobile
 
 #MOBILE
 Vnum	46002
-Room	46041
+Room	46024
 Position 12
 Flags 65
 #OBJECT
@@ -18443,7 +18443,7 @@ EndMobile
 
 #MOBILE
 Vnum	46000
-Room	46037
+Room	46040
 Position 12
 Flags 65
 #OBJECT
@@ -18470,21 +18470,21 @@ EndMobile
 
 #MOBILE
 Vnum	46007
-Room	46031
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	46007
 Room	46042
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
-Vnum	46009
+Vnum	46007
 Room	46044
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46009
+Room	46031
 Position 12
 Flags 65
 EndMobile
@@ -18510,14 +18510,7 @@ EndMobile
 
 #MOBILE
 Vnum	46031
-Room	46046
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	46031
-Room	46047
+Room	46049
 Position 12
 Flags 65
 EndMobile
@@ -18531,7 +18524,14 @@ EndMobile
 
 #MOBILE
 Vnum	46031
-Room	46051
+Room	46061
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46031
+Room	46062
 Position 12
 Flags 65
 EndMobile
@@ -18655,6 +18655,13 @@ EndMobile
 
 #MOBILE
 Vnum	46007
+Room	46050
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46007
 Room	46052
 Position 12
 Flags 65
@@ -18662,14 +18669,7 @@ EndMobile
 
 #MOBILE
 Vnum	46007
-Room	46046
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	46007
-Room	46061
+Room	46058
 Position 12
 Flags 65
 EndMobile
@@ -18683,7 +18683,7 @@ EndMobile
 
 #MOBILE
 Vnum	46009
-Room	46059
+Room	46054
 Position 12
 Flags 65
 EndMobile
@@ -18901,7 +18901,7 @@ EndMobile
 
 #MOBILE
 Vnum	46026
-Room	46067
+Room	46069
 Position 12
 Flags 65
 #OBJECT
@@ -18915,28 +18915,28 @@ EndMobile
 
 #MOBILE
 Vnum	46026
-Room	46071
+Room	46066
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46026
-Room	46065
+Room	46066
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46026
-Room	46067
+Room	46066
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	46007
-Room	46006
+Room	46013
 Position 12
 Flags 65
 EndMobile
@@ -18967,56 +18967,56 @@ EndMobile
 
 #MOBILE
 Vnum	438
-Room	465
+Room	471
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	441
-Room	465
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	440
-Room	479
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	440
-Room	459
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	444
-Room	466
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	437
-Room	455
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	438
 Room	464
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
+Vnum	440
+Room	453
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	440
+Room	465
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	444
+Room	482
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	437
+Room	468
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	438
+Room	469
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
 Vnum	445
-Room	462
+Room	461
 Position 12
 Flags 1
 EndMobile
@@ -19056,7 +19056,7 @@ EndMobile
 
 #MOBILE
 Vnum	445
-Room	464
+Room	481
 Position 12
 Flags 1
 EndMobile
@@ -19077,28 +19077,14 @@ EndMobile
 
 #MOBILE
 Vnum	440
-Room	463
+Room	462
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	439
-Room	471
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	441
-Room	488
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	439
-Room	471
+Room	475
 Position 12
 Flags 1
 EndMobile
@@ -19111,6 +19097,20 @@ Flags 1
 EndMobile
 
 #MOBILE
+Vnum	439
+Room	468
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	441
+Room	458
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
 Vnum	442
 Room	468
 Position 12
@@ -19126,84 +19126,84 @@ EndMobile
 
 #MOBILE
 Vnum	441
-Room	479
+Room	489
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	446
-Room	470
+Room	454
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	438
-Room	482
+Room	483
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	441
-Room	463
+Room	465
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	439
-Room	462
+Room	473
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	437
-Room	453
+Room	474
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	440
-Room	453
+Room	456
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	446
-Room	479
+Room	458
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	445
-Room	470
+Room	468
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	444
-Room	469
+Room	474
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	440
-Room	486
+Room	474
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	437
-Room	459
+Room	464
 Position 12
 Flags 1
 EndMobile
@@ -19217,14 +19217,14 @@ EndMobile
 
 #MOBILE
 Vnum	439
-Room	462
+Room	475
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	444
-Room	477
+Room	462
 Position 12
 Flags 1
 EndMobile
@@ -19266,7 +19266,7 @@ EndMobile
 
 #MOBILE
 Vnum	438
-Room	469
+Room	456
 Position 12
 Flags 1
 EndMobile
@@ -19287,28 +19287,28 @@ EndMobile
 
 #MOBILE
 Vnum	439
-Room	481
+Room	452
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	439
-Room	458
+Room	455
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	439
-Room	470
+Room	463
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	438
-Room	491
+Room	488
 Position 12
 Flags 1
 EndMobile
@@ -19322,28 +19322,28 @@ EndMobile
 
 #MOBILE
 Vnum	446
-Room	490
+Room	482
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	444
-Room	479
+Room	465
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	437
-Room	458
+Room	486
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	439
-Room	491
+Room	464
 Position 12
 Flags 1
 EndMobile
@@ -19357,14 +19357,14 @@ EndMobile
 
 #MOBILE
 Vnum	440
-Room	492
+Room	488
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	440
-Room	492
+Room	477
 Position 12
 Flags 1
 EndMobile
@@ -19406,7 +19406,7 @@ EndMobile
 
 #MOBILE
 Vnum	447
-Room	432
+Room	431
 Position 12
 Flags 65
 EndMobile
@@ -19420,14 +19420,14 @@ EndMobile
 
 #MOBILE
 Vnum	429
-Room	430
+Room	431
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44762
+Room	44763
 Position 12
 Flags 229
 #OBJECT
@@ -19440,21 +19440,21 @@ EndMobile
 
 #MOBILE
 Vnum	44700
-Room	44724
+Room	44708
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	44700
-Room	44751
+Room	44703
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44720
+Room	44730
 Position 12
 Flags 229
 #OBJECT
@@ -19467,14 +19467,14 @@ EndMobile
 
 #MOBILE
 Vnum	44714
-Room	44725
+Room	44754
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44718
+Room	44725
 Position 12
 Flags 229
 #OBJECT
@@ -19487,7 +19487,7 @@ EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44760
+Room	44761
 Position 12
 Flags 229
 #OBJECT
@@ -19500,14 +19500,14 @@ EndMobile
 
 #MOBILE
 Vnum	44713
-Room	44718
+Room	44706
 Position 12
 Flags 161
 EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44710
+Room	44724
 Position 12
 Flags 229
 #OBJECT
@@ -19520,7 +19520,7 @@ EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44708
+Room	44723
 Position 12
 Flags 229
 #OBJECT
@@ -19533,21 +19533,21 @@ EndMobile
 
 #MOBILE
 Vnum	44700
-Room	44760
+Room	44759
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	44714
-Room	44708
+Room	44720
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	44705
-Room	44728
+Room	44730
 Position 12
 Flags 101
 #OBJECT
@@ -19572,9 +19572,23 @@ EndMobile
 
 #MOBILE
 Vnum	44713
-Room	44729
+Room	44737
 Position 12
 Flags 161
+EndMobile
+
+#MOBILE
+Vnum	44700
+Room	44729
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	44706
+Room	44735
+Position 12
+Flags 193
 EndMobile
 
 #MOBILE
@@ -19592,20 +19606,6 @@ Flags 193
 EndMobile
 
 #MOBILE
-Vnum	44700
-Room	44742
-Position 12
-Flags 193
-EndMobile
-
-#MOBILE
-Vnum	44706
-Room	44738
-Position 12
-Flags 193
-EndMobile
-
-#MOBILE
 Vnum	44706
 Room	44748
 Position 12
@@ -19614,7 +19614,7 @@ EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44741
+Room	44732
 Position 12
 Flags 229
 #OBJECT
@@ -19627,7 +19627,7 @@ EndMobile
 
 #MOBILE
 Vnum	44705
-Room	44743
+Room	44741
 Position 12
 Flags 101
 #OBJECT
@@ -19652,7 +19652,7 @@ EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44744
+Room	44741
 Position 12
 Flags 229
 #OBJECT
@@ -19810,7 +19810,7 @@ EndMobile
 
 #MOBILE
 Vnum	44705
-Room	44705
+Room	44719
 Position 12
 Flags 101
 #OBJECT
@@ -19835,14 +19835,14 @@ EndMobile
 
 #MOBILE
 Vnum	44714
-Room	44752
+Room	44708
 Position 12
 Flags 129
 EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44710
+Room	44722
 Position 12
 Flags 229
 #OBJECT
@@ -19917,7 +19917,7 @@ EndMobile
 
 #MOBILE
 Vnum	44713
-Room	44728
+Room	44756
 Position 12
 Flags 161
 EndMobile
@@ -19980,7 +19980,7 @@ EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44713
+Room	44715
 Position 12
 Flags 229
 #OBJECT
@@ -20024,7 +20024,7 @@ EndMobile
 
 #MOBILE
 Vnum	44702
-Room	44758
+Room	44772
 Position 12
 Flags 229
 #OBJECT
@@ -20037,14 +20037,14 @@ EndMobile
 
 #MOBILE
 Vnum	44700
-Room	44775
+Room	44772
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	44705
-Room	44774
+Room	44729
 Position 12
 Flags 101
 #OBJECT
@@ -20069,7 +20069,7 @@ EndMobile
 
 #MOBILE
 Vnum	44701
-Room	44774
+Room	44777
 Position 12
 Flags 229
 #OBJECT
@@ -20128,7 +20128,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12503
+Room	12506
 Position 12
 Flags 229
 #OBJECT
@@ -20154,7 +20154,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12504
+Room	12513
 Position 12
 Flags 229
 #OBJECT
@@ -20187,7 +20187,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12506
+Room	12502
 Position 12
 Flags 229
 #OBJECT
@@ -20200,7 +20200,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12507
+Room	12504
 Position 12
 Flags 229
 #OBJECT
@@ -20247,7 +20247,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12512
+Room	12515
 Position 12
 Flags 229
 #OBJECT
@@ -20260,7 +20260,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12515
+Room	12513
 Position 12
 Flags 229
 #OBJECT
@@ -20273,7 +20273,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12517
+Room	12515
 Position 12
 Flags 229
 #OBJECT
@@ -20286,7 +20286,7 @@ EndMobile
 
 #MOBILE
 Vnum	12598
-Room	12526
+Room	12527
 Position 12
 Flags 229
 #OBJECT
@@ -20369,35 +20369,35 @@ EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12534
+Room	12536
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12526
+Room	12536
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12541
+Room	12532
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12534
+Room	12537
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12534
+Room	12528
 Position 12
 Flags 97
 EndMobile
@@ -20411,14 +20411,14 @@ EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12541
+Room	12532
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12592
-Room	12537
+Room	12539
 Position 12
 Flags 97
 EndMobile
@@ -20657,7 +20657,7 @@ EndMobile
 
 #MOBILE
 Vnum	12584
-Room	12567
+Room	12569
 Position 12
 Flags 97
 #OBJECT
@@ -20676,7 +20676,7 @@ EndMobile
 
 #MOBILE
 Vnum	12584
-Room	12571
+Room	12572
 Position 12
 Flags 97
 #OBJECT
@@ -20721,7 +20721,7 @@ EndMobile
 
 #MOBILE
 Vnum	12584
-Room	12571
+Room	12570
 Position 12
 Flags 97
 #OBJECT
@@ -20766,7 +20766,7 @@ EndMobile
 
 #MOBILE
 Vnum	12584
-Room	12568
+Room	12572
 Position 12
 Flags 97
 #OBJECT
@@ -20785,7 +20785,7 @@ EndMobile
 
 #MOBILE
 Vnum	12585
-Room	12571
+Room	12570
 Position 12
 Flags 97
 EndMobile
@@ -20813,49 +20813,7 @@ EndMobile
 
 #MOBILE
 Vnum	12581
-Room	12597
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12574
-Room	12591
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12574
-Room	12589
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12574
-Room	12591
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12575
-Room	12585
-Position 12
-Flags 131137
-EndMobile
-
-#MOBILE
-Vnum	12573
-Room	12591
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	12574
-Room	12587
+Room	12592
 Position 12
 Flags 97
 EndMobile
@@ -20863,6 +20821,13 @@ EndMobile
 #MOBILE
 Vnum	12574
 Room	12585
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12574
+Room	12590
 Position 12
 Flags 97
 EndMobile
@@ -20870,6 +20835,41 @@ EndMobile
 #MOBILE
 Vnum	12574
 Room	12584
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12575
+Room	12587
+Position 12
+Flags 131137
+EndMobile
+
+#MOBILE
+Vnum	12573
+Room	12592
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	12574
+Room	12585
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12574
+Room	12592
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12574
+Room	12585
 Position 12
 Flags 97
 EndMobile
@@ -20918,7 +20918,7 @@ EndMobile
 
 #MOBILE
 Vnum	12567
-Room	12602
+Room	12606
 Position 12
 Flags 65
 #OBJECT
@@ -20931,21 +20931,21 @@ EndMobile
 
 #MOBILE
 Vnum	12585
-Room	12611
+Room	12606
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12585
-Room	12604
+Room	12612
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12567
-Room	12602
+Room	12601
 Position 12
 Flags 65
 #OBJECT
@@ -20978,7 +20978,7 @@ EndMobile
 
 #MOBILE
 Vnum	12567
-Room	12606
+Room	12601
 Position 12
 Flags 65
 #OBJECT
@@ -20991,7 +20991,7 @@ EndMobile
 
 #MOBILE
 Vnum	12567
-Room	12609
+Room	12604
 Position 12
 Flags 65
 #OBJECT
@@ -21004,7 +21004,7 @@ EndMobile
 
 #MOBILE
 Vnum	12567
-Room	12602
+Room	12610
 Position 12
 Flags 65
 #OBJECT
@@ -21017,7 +21017,7 @@ EndMobile
 
 #MOBILE
 Vnum	12585
-Room	12603
+Room	12601
 Position 12
 Flags 97
 EndMobile
@@ -21171,14 +21171,14 @@ EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12629
+Room	12635
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12624
+Room	12627
 Position 12
 Flags 97
 EndMobile
@@ -21242,49 +21242,49 @@ EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12626
+Room	12627
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12636
+Room	12624
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12631
+Room	12627
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12630
+Room	12634
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12560
-Room	12636
+Room	12633
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12560
-Room	12626
+Room	12633
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12561
-Room	12624
+Room	12628
 Position 12
 Flags 97
 #OBJECT
@@ -21303,7 +21303,7 @@ EndMobile
 
 #MOBILE
 Vnum	12561
-Room	12628
+Room	12624
 Position 12
 Flags 97
 #OBJECT
@@ -21322,7 +21322,7 @@ EndMobile
 
 #MOBILE
 Vnum	12561
-Room	12630
+Room	12632
 Position 12
 Flags 97
 #OBJECT
@@ -21341,14 +21341,14 @@ EndMobile
 
 #MOBILE
 Vnum	12560
-Room	12628
+Room	12626
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12560
-Room	12635
+Room	12626
 Position 12
 Flags 97
 EndMobile
@@ -21405,7 +21405,14 @@ EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12636
+Room	12638
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12562
+Room	12634
 Position 12
 Flags 97
 EndMobile
@@ -21419,14 +21426,7 @@ EndMobile
 
 #MOBILE
 Vnum	12562
-Room	12638
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12562
-Room	12633
+Room	12634
 Position 12
 Flags 97
 EndMobile
@@ -21470,7 +21470,7 @@ EndMobile
 
 #MOBILE
 Vnum	12557
-Room	12651
+Room	12652
 Position 12
 Flags 65
 #OBJECT
@@ -21489,7 +21489,7 @@ EndMobile
 
 #MOBILE
 Vnum	12557
-Room	12652
+Room	12649
 Position 12
 Flags 65
 #OBJECT
@@ -21508,7 +21508,7 @@ EndMobile
 
 #MOBILE
 Vnum	12557
-Room	12654
+Room	12659
 Position 12
 Flags 65
 #OBJECT
@@ -21527,7 +21527,7 @@ EndMobile
 
 #MOBILE
 Vnum	12557
-Room	12643
+Room	12644
 Position 12
 Flags 65
 #OBJECT
@@ -21565,7 +21565,7 @@ EndMobile
 
 #MOBILE
 Vnum	12557
-Room	12651
+Room	12643
 Position 12
 Flags 65
 #OBJECT
@@ -21584,7 +21584,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12641
+Room	12644
 Position 12
 Flags 65
 #OBJECT
@@ -21597,7 +21597,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12658
+Room	12645
 Position 12
 Flags 65
 #OBJECT
@@ -21610,7 +21610,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12650
+Room	12656
 Position 12
 Flags 65
 #OBJECT
@@ -21623,7 +21623,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12647
+Room	12642
 Position 12
 Flags 65
 #OBJECT
@@ -21636,28 +21636,28 @@ EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12649
+Room	12650
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12658
+Room	12650
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12641
+Room	12648
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12653
+Room	12643
 Position 12
 Flags 65
 #OBJECT
@@ -21670,7 +21670,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12657
+Room	12644
 Position 12
 Flags 65
 #OBJECT
@@ -21708,7 +21708,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12657
+Room	12641
 Position 12
 Flags 65
 #OBJECT
@@ -21721,7 +21721,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12656
+Room	12641
 Position 12
 Flags 65
 #OBJECT
@@ -21734,7 +21734,7 @@ EndMobile
 
 #MOBILE
 Vnum	12556
-Room	12642
+Room	12648
 Position 12
 Flags 65
 #OBJECT
@@ -21773,7 +21773,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12654
+Room	12649
 Position 12
 Flags 65
 #OBJECT
@@ -21786,7 +21786,7 @@ EndMobile
 
 #MOBILE
 Vnum	12555
-Room	12658
+Room	12648
 Position 12
 Flags 65
 #OBJECT
@@ -21806,21 +21806,21 @@ EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12649
+Room	12647
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12659
+Room	12657
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12643
+Room	12644
 Position 12
 Flags 65
 EndMobile
@@ -21884,14 +21884,14 @@ EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12649
+Room	12643
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12554
-Room	12644
+Room	12651
 Position 12
 Flags 65
 EndMobile
@@ -21948,13 +21948,6 @@ EndMobile
 
 #MOBILE
 Vnum	12602
-Room	12691
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	12602
 Room	12692
 Position 12
 Flags 65
@@ -21962,14 +21955,21 @@ EndMobile
 
 #MOBILE
 Vnum	12602
-Room	12682
+Room	12664
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	12602
+Room	12667
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	12601
-Room	12674
+Room	12663
 Position 12
 Flags 33
 EndMobile
@@ -22429,7 +22429,7 @@ EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12700
+Room	12709
 Position 12
 Flags 1
 EndMobile
@@ -22443,14 +22443,14 @@ EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12697
+Room	12700
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12696
+Room	12695
 Position 12
 Flags 1
 EndMobile
@@ -22477,7 +22477,7 @@ EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12706
+Room	12709
 Position 12
 Flags 1
 EndMobile
@@ -22491,21 +22491,21 @@ EndMobile
 
 #MOBILE
 Vnum	12552
-Room	12700
+Room	12709
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12708
+Room	12696
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	12551
-Room	12695
+Room	12704
 Position 12
 Flags 1
 EndMobile
@@ -22526,7 +22526,7 @@ EndMobile
 
 #MOBILE
 Vnum	12601
-Room	12712
+Room	12716
 Position 12
 Flags 33
 EndMobile
@@ -22553,7 +22553,7 @@ EndMobile
 
 #MOBILE
 Vnum	12603
-Room	12716
+Room	12714
 Position 12
 Flags 165
 EndMobile
@@ -22957,7 +22957,56 @@ EndMobile
 
 #MOBILE
 Vnum	12531
+Room	12757
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	12531
 Room	12759
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	12531
+Room	12759
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	12532
+Room	12760
+Position 12
+Flags 165
+EndMobile
+
+#MOBILE
+Vnum	12531
+Room	12761
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	12531
+Room	12759
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	12532
+Room	12758
+Position 12
+Flags 165
+EndMobile
+
+#MOBILE
+Vnum	12531
+Room	12757
 Position 12
 Flags 101
 EndMobile
@@ -22977,41 +23026,6 @@ Flags 101
 EndMobile
 
 #MOBILE
-Vnum	12532
-Room	12758
-Position 12
-Flags 165
-EndMobile
-
-#MOBILE
-Vnum	12531
-Room	12757
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	12531
-Room	12758
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	12532
-Room	12758
-Position 12
-Flags 165
-EndMobile
-
-#MOBILE
-Vnum	12531
-Room	12758
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
 Vnum	12531
 Room	12757
 Position 12
@@ -23026,22 +23040,8 @@ Flags 101
 EndMobile
 
 #MOBILE
-Vnum	12531
-Room	12759
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	12531
-Room	12758
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
 Vnum	12532
-Room	12758
+Room	12757
 Position 12
 Flags 165
 EndMobile
@@ -23120,7 +23120,7 @@ EndMobile
 
 #MOBILE
 Vnum	12504
-Room	12791
+Room	12783
 Position 12
 Flags 97
 EndMobile
@@ -23128,27 +23128,6 @@ EndMobile
 #MOBILE
 Vnum	12504
 Room	12785
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12504
-Room	12785
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12504
-Room	12787
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12504
-Room	12791
 Position 12
 Flags 97
 EndMobile
@@ -23162,7 +23141,21 @@ EndMobile
 
 #MOBILE
 Vnum	12504
-Room	12787
+Room	12788
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12504
+Room	12785
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	12504
+Room	12788
 Position 12
 Flags 97
 EndMobile
@@ -23176,21 +23169,7 @@ EndMobile
 
 #MOBILE
 Vnum	12504
-Room	12786
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12504
-Room	12783
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	12504
-Room	12787
+Room	12789
 Position 12
 Flags 97
 EndMobile
@@ -23322,7 +23301,7 @@ EndMobile
 
 #MOBILE
 Vnum	202
-Room	206
+Room	202
 Position 12
 Flags 1
 #OBJECT
@@ -23336,7 +23315,7 @@ EndMobile
 
 #MOBILE
 Vnum	204
-Room	204
+Room	1048576206
 Position 12
 Flags 1
 EndMobile
@@ -23424,7 +23403,7 @@ EndMobile
 
 #MOBILE
 Vnum	207
-Room	215
+Room	216
 Position 12
 Flags 97
 #OBJECT
@@ -23501,21 +23480,21 @@ EndMobile
 
 #MOBILE
 Vnum	231
-Room	229
+Room	228
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	233
-Room	233
+Room	231
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	226
-Room	234
+Room	232
 Position 12
 Flags 1
 #OBJECT
@@ -23589,7 +23568,7 @@ EndMobile
 
 #MOBILE
 Vnum	3008
-Room	3006
+Room	3004
 Position 12
 Flags 65
 EndMobile
@@ -23603,14 +23582,7 @@ EndMobile
 
 #MOBILE
 Vnum	3008
-Room	3005
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	3008
-Room	3008
+Room	3001
 Position 12
 Flags 65
 EndMobile
@@ -23625,13 +23597,6 @@ EndMobile
 #MOBILE
 Vnum	3008
 Room	3004
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	3008
-Room	3007
 Position 12
 Flags 65
 EndMobile
@@ -23658,7 +23623,7 @@ EndMobile
 
 #MOBILE
 Vnum	3012
-Room	3016
+Room	3017
 Position 12
 Flags 69
 #OBJECT
@@ -23697,7 +23662,7 @@ EndMobile
 
 #MOBILE
 Vnum	3009
-Room	3031
+Room	3029
 Position 12
 Flags 65
 #OBJECT
@@ -23710,7 +23675,7 @@ EndMobile
 
 #MOBILE
 Vnum	3009
-Room	3027
+Room	3029
 Position 12
 Flags 65
 #OBJECT
@@ -23971,7 +23936,7 @@ EndMobile
 
 #MOBILE
 Vnum	48506
-Room	48502
+Room	48501
 Position 12
 Flags 229
 EndMobile
@@ -23999,14 +23964,14 @@ EndMobile
 
 #MOBILE
 Vnum	48506
-Room	48500
+Room	48504
 Position 12
 Flags 229
 EndMobile
 
 #MOBILE
 Vnum	48506
-Room	48501
+Room	48502
 Position 12
 Flags 229
 EndMobile
@@ -24048,7 +24013,7 @@ EndMobile
 
 #MOBILE
 Vnum	48506
-Room	48500
+Room	48502
 Position 12
 Flags 229
 EndMobile
@@ -24082,14 +24047,14 @@ EndMobile
 
 #MOBILE
 Vnum	262
-Room	269
+Room	273
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	263
-Room	269
+Room	278
 Position 12
 Flags 1
 EndMobile
@@ -24103,6 +24068,13 @@ EndMobile
 
 #MOBILE
 Vnum	265
+Room	292
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	265
 Room	291
 Position 12
 Flags 33
@@ -24111,27 +24083,6 @@ EndMobile
 #MOBILE
 Vnum	265
 Room	295
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	265
-Room	296
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	265
-Room	295
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	265
-Room	291
 Position 12
 Flags 33
 EndMobile
@@ -24144,8 +24095,22 @@ Flags 33
 EndMobile
 
 #MOBILE
+Vnum	265
+Room	292
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	265
+Room	291
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
 Vnum	266
-Room	285
+Room	286
 Position 12
 Flags 1
 #OBJECT
@@ -24189,7 +24154,7 @@ EndMobile
 
 #MOBILE
 Vnum	260
-Room	273
+Room	274
 Position 12
 Flags 33
 #OBJECT
@@ -24198,6 +24163,52 @@ Level        71
 Values       600 5 0 0 0 0
 End
 
+EndMobile
+
+#MOBILE
+Vnum	260
+Room	280
+Position 12
+Flags 33
+#OBJECT
+Vnum         271
+Level        70
+Values       600 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	262
+Room	279
+Position 12
+Flags 33
+#OBJECT
+Vnum         271
+Level        71
+Values       600 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	260
+Room	273
+Position 12
+Flags 33
+#OBJECT
+Vnum         271
+Level        69
+Values       600 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	263
+Room	272
+Position 12
+Flags 1
 EndMobile
 
 #MOBILE
@@ -24220,52 +24231,6 @@ Position 12
 Flags 33
 #OBJECT
 Vnum         271
-Level        71
-Values       600 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	260
-Room	274
-Position 12
-Flags 33
-#OBJECT
-Vnum         271
-Level        69
-Values       600 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	263
-Room	276
-Position 12
-Flags 1
-EndMobile
-
-#MOBILE
-Vnum	260
-Room	271
-Position 12
-Flags 33
-#OBJECT
-Vnum         271
-Level        70
-Values       600 5 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
-Vnum	262
-Room	274
-Position 12
-Flags 33
-#OBJECT
-Vnum         271
 Level        72
 Values       600 5 0 0 0 0
 End
@@ -24274,7 +24239,7 @@ EndMobile
 
 #MOBILE
 Vnum	262
-Room	266
+Room	272
 Position 12
 Flags 33
 #OBJECT
@@ -24287,14 +24252,14 @@ EndMobile
 
 #MOBILE
 Vnum	263
-Room	274
+Room	269
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	263
-Room	278
+Room	279
 Position 12
 Flags 1
 EndMobile
@@ -24414,7 +24379,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2811
+Room	2807
 Position 12
 Flags 97
 #OBJECT
@@ -24439,7 +24404,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2817
+Room	2811
 Position 12
 Flags 97
 #OBJECT
@@ -24477,7 +24442,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2811
+Room	2833
 Position 12
 Flags 97
 #OBJECT
@@ -24502,7 +24467,7 @@ EndMobile
 
 #MOBILE
 Vnum	2827
-Room	2834
+Room	2837
 Position 12
 Flags 197
 #OBJECT
@@ -24533,7 +24498,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2817
+Room	2805
 Position 12
 Flags 97
 #OBJECT
@@ -24558,7 +24523,7 @@ EndMobile
 
 #MOBILE
 Vnum	2827
-Room	2815
+Room	2817
 Position 12
 Flags 197
 #OBJECT
@@ -24576,7 +24541,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2818
+Room	2829
 Position 12
 Flags 97
 #OBJECT
@@ -24627,7 +24592,7 @@ EndMobile
 
 #MOBILE
 Vnum	2809
-Room	2801
+Room	2817
 Position 12
 Flags 97
 #OBJECT
@@ -24728,7 +24693,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2815
+Room	2820
 Position 12
 Flags 97
 #OBJECT
@@ -24753,7 +24718,7 @@ EndMobile
 
 #MOBILE
 Vnum	2809
-Room	2816
+Room	2815
 Position 12
 Flags 97
 #OBJECT
@@ -24778,7 +24743,7 @@ EndMobile
 
 #MOBILE
 Vnum	2809
-Room	2834
+Room	2836
 Position 12
 Flags 97
 #OBJECT
@@ -24803,7 +24768,7 @@ EndMobile
 
 #MOBILE
 Vnum	2809
-Room	2838
+Room	2814
 Position 12
 Flags 97
 #OBJECT
@@ -24835,7 +24800,7 @@ EndMobile
 
 #MOBILE
 Vnum	2827
-Room	2840
+Room	2836
 Position 12
 Flags 197
 #OBJECT
@@ -24853,7 +24818,7 @@ EndMobile
 
 #MOBILE
 Vnum	2827
-Room	2835
+Room	2814
 Position 12
 Flags 197
 #OBJECT
@@ -24871,7 +24836,7 @@ EndMobile
 
 #MOBILE
 Vnum	2827
-Room	2833
+Room	2838
 Position 12
 Flags 197
 #OBJECT
@@ -24889,7 +24854,7 @@ EndMobile
 
 #MOBILE
 Vnum	2805
-Room	2837
+Room	2836
 Position 12
 Flags 97
 #OBJECT
@@ -24997,14 +24962,14 @@ EndMobile
 
 #MOBILE
 Vnum	2828
-Room	2860
+Room	2857
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	2828
-Room	2857
+Room	2856
 Position 12
 Flags 97
 EndMobile
@@ -25030,14 +24995,14 @@ EndMobile
 
 #MOBILE
 Vnum	2828
-Room	2865
+Room	2867
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	2828
-Room	2864
+Room	2869
 Position 12
 Flags 97
 EndMobile
@@ -25051,7 +25016,7 @@ EndMobile
 
 #MOBILE
 Vnum	2828
-Room	2868
+Room	2867
 Position 12
 Flags 97
 EndMobile
@@ -25145,21 +25110,14 @@ EndMobile
 
 #MOBILE
 Vnum	2812
-Room	2891
+Room	2892
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	2812
-Room	2896
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	2812
-Room	2897
+Room	2898
 Position 12
 Flags 97
 EndMobile
@@ -25167,6 +25125,13 @@ EndMobile
 #MOBILE
 Vnum	2812
 Room	2897
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	2812
+Room	2898
 Position 12
 Flags 97
 EndMobile
@@ -25218,14 +25183,14 @@ EndMobile
 
 #MOBILE
 Vnum	7960
-Room	7928
+Room	7950
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7927
-Room	7926
+Room	7929
 Position 12
 Flags 1
 EndMobile
@@ -25260,14 +25225,14 @@ EndMobile
 
 #MOBILE
 Vnum	7945
-Room	7926
+Room	7927
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7927
-Room	7953
+Room	7966
 Position 12
 Flags 1
 EndMobile
@@ -25281,7 +25246,7 @@ EndMobile
 
 #MOBILE
 Vnum	7945
-Room	7938
+Room	7953
 Position 12
 Flags 1
 EndMobile
@@ -25316,28 +25281,28 @@ EndMobile
 
 #MOBILE
 Vnum	7927
-Room	7966
+Room	7935
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7927
-Room	7938
+Room	7936
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7945
-Room	7943
+Room	7954
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7927
-Room	7942
+Room	7935
 Position 12
 Flags 1
 EndMobile
@@ -25369,28 +25334,28 @@ EndMobile
 
 #MOBILE
 Vnum	7960
-Room	7947
+Room	7945
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7960
-Room	7947
+Room	7945
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7945
-Room	7951
+Room	7944
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	7945
-Room	7953
+Room	7966
 Position 12
 Flags 1
 EndMobile
@@ -26221,7 +26186,7 @@ EndMobile
 
 #MOBILE
 Vnum	24500
-Room	24685
+Room	24687
 Position 12
 Flags 65
 #OBJECT
@@ -26240,7 +26205,7 @@ EndMobile
 
 #MOBILE
 Vnum	24500
-Room	24686
+Room	24685
 Position 12
 Flags 65
 #OBJECT
@@ -26353,7 +26318,7 @@ EndMobile
 
 #MOBILE
 Vnum	5011
-Room	5012
+Room	5010
 Position 12
 Flags 97
 EndMobile
@@ -26379,7 +26344,7 @@ EndMobile
 
 #MOBILE
 Vnum	5012
-Room	5003
+Room	5011
 Position 12
 Flags 97
 #OBJECT
@@ -26392,7 +26357,7 @@ EndMobile
 
 #MOBILE
 Vnum	5013
-Room	5022
+Room	5017
 Position 12
 Flags 193
 EndMobile
@@ -26419,7 +26384,7 @@ EndMobile
 
 #MOBILE
 Vnum	5000
-Room	5064
+Room	5024
 Position 12
 Flags 197
 EndMobile
@@ -26433,14 +26398,14 @@ EndMobile
 
 #MOBILE
 Vnum	5000
-Room	5007
+Room	5030
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	5003
-Room	5030
+Room	5026
 Position 12
 Flags 65
 EndMobile
@@ -26475,7 +26440,7 @@ EndMobile
 
 #MOBILE
 Vnum	5000
-Room	5027
+Room	5056
 Position 12
 Flags 197
 EndMobile
@@ -26489,14 +26454,14 @@ EndMobile
 
 #MOBILE
 Vnum	5001
-Room	5060
+Room	5030
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	5002
-Room	5024
+Room	5006
 Position 12
 Flags 65
 EndMobile
@@ -26579,7 +26544,7 @@ EndMobile
 
 #MOBILE
 Vnum	5002
-Room	5065
+Room	5031
 Position 12
 Flags 65
 #OBJECT
@@ -26613,7 +26578,7 @@ EndMobile
 
 #MOBILE
 Vnum	8118
-Room	8108
+Room	8111
 Position 12
 Flags 97
 EndMobile
@@ -26627,7 +26592,7 @@ EndMobile
 
 #MOBILE
 Vnum	8112
-Room	8107
+Room	8113
 Position 12
 Flags 97
 EndMobile
@@ -26711,7 +26676,7 @@ EndMobile
 
 #MOBILE
 Vnum	8103
-Room	8160
+Room	8137
 Position 12
 Flags 97
 EndMobile
@@ -26725,7 +26690,7 @@ EndMobile
 
 #MOBILE
 Vnum	8130
-Room	8171
+Room	8140
 Position 12
 Flags 205
 #OBJECT
@@ -26976,28 +26941,28 @@ EndMobile
 
 #MOBILE
 Vnum	8120
-Room	8175
+Room	8191
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	8121
-Room	8194
+Room	8189
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	8122
-Room	8180
+Room	8185
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	8124
-Room	8188
+Room	8193
 Position 12
 Flags 97
 EndMobile
@@ -27011,7 +26976,7 @@ EndMobile
 
 #MOBILE
 Vnum	8107
-Room	8180
+Room	8181
 Position 12
 Flags 4169
 EndMobile
@@ -27063,14 +27028,14 @@ EndMobile
 
 #MOBILE
 Vnum	60882
-Room	60856
+Room	60863
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	60879
-Room	60869
+Room	60863
 Position 12
 Flags 193
 EndMobile
@@ -27102,7 +27067,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60858
+Room	60855
 Position 12
 Flags 69
 #OBJECT
@@ -27138,7 +27103,7 @@ EndMobile
 
 #MOBILE
 Vnum	60879
-Room	60890
+Room	60894
 Position 12
 Flags 193
 EndMobile
@@ -27236,7 +27201,7 @@ EndMobile
 
 #MOBILE
 Vnum	60855
-Room	60863
+Room	60855
 Position 12
 Flags 133
 #OBJECT
@@ -27249,7 +27214,7 @@ EndMobile
 
 #MOBILE
 Vnum	60879
-Room	60898
+Room	60973
 Position 12
 Flags 193
 EndMobile
@@ -27331,14 +27296,14 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60948
+Room	60862
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60964
+Room	60861
 Position 12
 Flags 69
 #OBJECT
@@ -27374,28 +27339,28 @@ EndMobile
 
 #MOBILE
 Vnum	60879
-Room	60861
+Room	60885
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	60879
-Room	60861
+Room	60883
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60858
+Room	60854
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60881
-Room	60865
+Room	60860
 Position 12
 Flags 5
 #OBJECT
@@ -27627,7 +27592,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60893
+Room	60873
 Position 12
 Flags 69
 #OBJECT
@@ -27663,14 +27628,14 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60869
+Room	60858
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60881
-Room	60906
+Room	60905
 Position 12
 Flags 5
 #OBJECT
@@ -27776,16 +27741,9 @@ EndMobile
 
 #MOBILE
 Vnum	60882
-Room	60869
+Room	60948
 Position 12
 Flags 65
-EndMobile
-
-#MOBILE
-Vnum	60880
-Room	60861
-Position 12
-Flags 225
 EndMobile
 
 #MOBILE
@@ -27797,7 +27755,14 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60889
+Room	60887
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	60880
+Room	60861
 Position 12
 Flags 225
 EndMobile
@@ -28084,7 +28049,7 @@ EndMobile
 
 #MOBILE
 Vnum	60884
-Room	60892
+Room	60873
 Position 12
 Flags 225
 EndMobile
@@ -28098,7 +28063,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60873
+Room	60889
 Position 12
 Flags 69
 #OBJECT
@@ -28134,14 +28099,14 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60887
+Room	60862
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60881
-Room	60900
+Room	60890
 Position 12
 Flags 5
 #OBJECT
@@ -28166,7 +28131,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60892
+Room	60963
 Position 12
 Flags 69
 #OBJECT
@@ -28233,7 +28198,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60873
+Room	60892
 Position 12
 Flags 69
 #OBJECT
@@ -28269,7 +28234,7 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60893
+Room	60880
 Position 12
 Flags 225
 EndMobile
@@ -28293,7 +28258,7 @@ EndMobile
 
 #MOBILE
 Vnum	60881
-Room	60875
+Room	60873
 Position 12
 Flags 5
 #OBJECT
@@ -28318,7 +28283,7 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60858
+Room	60861
 Position 12
 Flags 225
 EndMobile
@@ -28332,7 +28297,7 @@ EndMobile
 
 #MOBILE
 Vnum	60914
-Room	60971
+Room	60988
 Position 12
 Flags 133
 EndMobile
@@ -28462,7 +28427,7 @@ EndMobile
 
 #MOBILE
 Vnum	60855
-Room	60913
+Room	60912
 Position 12
 Flags 133
 #OBJECT
@@ -28507,14 +28472,14 @@ EndMobile
 
 #MOBILE
 Vnum	60903
-Room	60917
+Room	60909
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60976
+Room	60924
 Position 12
 Flags 69
 #OBJECT
@@ -28544,7 +28509,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60910
+Room	60911
 Position 12
 Flags 69
 #OBJECT
@@ -28594,21 +28559,21 @@ EndMobile
 
 #MOBILE
 Vnum	60904
-Room	60917
+Room	60910
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	60904
-Room	60916
+Room	60910
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60917
+Room	60911
 Position 12
 Flags 69
 #OBJECT
@@ -28644,7 +28609,7 @@ EndMobile
 
 #MOBILE
 Vnum	60855
-Room	60935
+Room	60920
 Position 12
 Flags 133
 #OBJECT
@@ -28657,7 +28622,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60979
+Room	60924
 Position 12
 Flags 69
 #OBJECT
@@ -28687,14 +28652,14 @@ EndMobile
 
 #MOBILE
 Vnum	60909
-Room	60924
+Room	60920
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60925
+Room	60962
 Position 12
 Flags 69
 #OBJECT
@@ -28724,7 +28689,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60928
+Room	60979
 Position 12
 Flags 69
 #OBJECT
@@ -28754,21 +28719,21 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60943
+Room	60933
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60923
+Room	60873
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60912
+Room	60920
 Position 12
 Flags 69
 #OBJECT
@@ -28914,7 +28879,7 @@ EndMobile
 
 #MOBILE
 Vnum	60881
-Room	60934
+Room	60905
 Position 12
 Flags 5
 #OBJECT
@@ -29106,14 +29071,14 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60961
+Room	60960
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60894
+Room	60893
 Position 12
 Flags 69
 #OBJECT
@@ -29149,7 +29114,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60891
+Room	60888
 Position 12
 Flags 69
 #OBJECT
@@ -29257,7 +29222,7 @@ EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60964
+Room	60888
 Position 12
 Flags 225
 EndMobile
@@ -29300,28 +29265,28 @@ EndMobile
 
 #MOBILE
 Vnum	60882
-Room	60971
+Room	60970
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60974
+Room	60982
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60880
-Room	60930
+Room	60924
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60968
+Room	60888
 Position 12
 Flags 69
 #OBJECT
@@ -29357,14 +29322,14 @@ EndMobile
 
 #MOBILE
 Vnum	60913
-Room	60965
+Room	60969
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	60855
-Room	60981
+Room	60966
 Position 12
 Flags 133
 #OBJECT
@@ -29377,7 +29342,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60900
+Room	60890
 Position 12
 Flags 69
 #OBJECT
@@ -29413,7 +29378,7 @@ EndMobile
 
 #MOBILE
 Vnum	60878
-Room	60958
+Room	60934
 Position 12
 Flags 69
 #OBJECT
@@ -29449,7 +29414,14 @@ EndMobile
 
 #MOBILE
 Vnum	25507
-Room	25506
+Room	25503
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	25507
+Room	25501
 Position 12
 Flags 97
 EndMobile
@@ -29462,22 +29434,15 @@ Flags 97
 EndMobile
 
 #MOBILE
-Vnum	25507
-Room	25502
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
 Vnum	25508
-Room	25502
+Room	25508
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	25507
-Room	25504
+Room	25508
 Position 12
 Flags 97
 EndMobile
@@ -29536,7 +29501,7 @@ EndMobile
 
 #MOBILE
 Vnum	25520
-Room	25528
+Room	25523
 Position 12
 Flags 97
 EndMobile
@@ -29550,7 +29515,7 @@ EndMobile
 
 #MOBILE
 Vnum	25520
-Room	25526
+Room	25522
 Position 12
 Flags 97
 EndMobile
@@ -29628,14 +29593,14 @@ EndMobile
 
 #MOBILE
 Vnum	25518
-Room	25544
+Room	25547
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	25517
-Room	25542
+Room	25543
 Position 12
 Flags 97
 #OBJECT
@@ -29654,7 +29619,7 @@ EndMobile
 
 #MOBILE
 Vnum	25518
-Room	25543
+Room	25546
 Position 12
 Flags 97
 EndMobile
@@ -29723,7 +29688,7 @@ EndMobile
 
 #MOBILE
 Vnum	25517
-Room	25542
+Room	25543
 Position 12
 Flags 97
 #OBJECT
@@ -29749,7 +29714,7 @@ EndMobile
 
 #MOBILE
 Vnum	25510
-Room	25549
+Room	25552
 Position 12
 Flags 97
 #OBJECT
@@ -29798,7 +29763,7 @@ EndMobile
 
 #MOBILE
 Vnum	25510
-Room	25549
+Room	25551
 Position 12
 Flags 97
 #OBJECT
@@ -29847,7 +29812,7 @@ EndMobile
 
 #MOBILE
 Vnum	25511
-Room	25550
+Room	25554
 Position 12
 Flags 129
 #OBJECT
@@ -29897,7 +29862,7 @@ EndMobile
 
 #MOBILE
 Vnum	25511
-Room	25549
+Room	25550
 Position 12
 Flags 129
 #OBJECT
@@ -29947,7 +29912,7 @@ EndMobile
 
 #MOBILE
 Vnum	25511
-Room	25551
+Room	25554
 Position 12
 Flags 129
 #OBJECT
@@ -30010,14 +29975,14 @@ EndMobile
 
 #MOBILE
 Vnum	25531
-Room	25561
+Room	25562
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	25531
-Room	25561
+Room	25562
 Position 12
 Flags 197
 EndMobile
@@ -30049,7 +30014,7 @@ EndMobile
 
 #MOBILE
 Vnum	25526
-Room	25569
+Room	25567
 Position 12
 Flags 97
 #OBJECT
@@ -30289,14 +30254,14 @@ EndMobile
 
 #MOBILE
 Vnum	25507
-Room	25503
+Room	25508
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	30234
-Room	30253
+Room	30250
 Position 12
 Flags 193
 #OBJECT
@@ -30312,21 +30277,21 @@ EndMobile
 
 #MOBILE
 Vnum	30239
-Room	30240
+Room	30244
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	30235
-Room	30252
+Room	30251
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	30240
-Room	30256
+Room	30242
 Position 12
 Flags 65
 #OBJECT
@@ -30339,7 +30304,7 @@ EndMobile
 
 #MOBILE
 Vnum	30236
-Room	30259
+Room	30260
 Position 12
 Flags 193
 #OBJECT
@@ -30355,7 +30320,7 @@ EndMobile
 
 #MOBILE
 Vnum	30237
-Room	30256
+Room	30260
 Position 12
 Flags 193
 #OBJECT
@@ -30368,7 +30333,7 @@ EndMobile
 
 #MOBILE
 Vnum	30232
-Room	30243
+Room	30242
 Position 12
 Flags 193
 #OBJECT
@@ -30394,7 +30359,7 @@ EndMobile
 
 #MOBILE
 Vnum	30238
-Room	30255
+Room	30258
 Position 12
 Flags 577
 #OBJECT
@@ -30441,14 +30406,14 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42920
+Room	42918
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42907
+Room	42906
 Position 12
 Flags 65
 EndMobile
@@ -30549,14 +30514,14 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42906
+Room	42911
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42910
+Room	42914
 Position 12
 Flags 65
 EndMobile
@@ -30584,14 +30549,14 @@ EndMobile
 
 #MOBILE
 Vnum	42907
-Room	42919
+Room	42903
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42907
-Room	42904
+Room	42902
 Position 12
 Flags 65
 EndMobile
@@ -30605,21 +30570,21 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42909
+Room	42904
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42911
+Room	42929
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42912
+Room	42913
 Position 12
 Flags 65
 EndMobile
@@ -30646,7 +30611,21 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42914
+Room	42930
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	42909
+Room	42927
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	42908
+Room	42918
 Position 12
 Flags 65
 EndMobile
@@ -30654,20 +30633,6 @@ EndMobile
 #MOBILE
 Vnum	42909
 Room	42924
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	42908
-Room	42915
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	42909
-Room	42932
 Position 12
 Flags 65
 EndMobile
@@ -30743,14 +30708,21 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42919
+Room	42902
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42922
+Room	42923
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	42907
+Room	42901
 Position 12
 Flags 65
 EndMobile
@@ -30758,13 +30730,6 @@ EndMobile
 #MOBILE
 Vnum	42907
 Room	42922
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	42907
-Room	42921
 Position 12
 Flags 65
 EndMobile
@@ -30810,35 +30775,35 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42923
+Room	42901
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42931
+Room	42924
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42948
+Room	42908
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42927
+Room	42919
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42907
-Room	42927
+Room	42922
 Position 12
 Flags 65
 EndMobile
@@ -30897,14 +30862,14 @@ EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42931
+Room	42908
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42909
-Room	42949
+Room	42948
 Position 12
 Flags 65
 EndMobile
@@ -31084,21 +31049,14 @@ EndMobile
 
 #MOBILE
 Vnum	42907
-Room	42934
+Room	42955
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	42908
-Room	42917
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	42909
-Room	42954
+Room	42933
 Position 12
 Flags 65
 EndMobile
@@ -31106,6 +31064,13 @@ EndMobile
 #MOBILE
 Vnum	42909
 Room	42948
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	42909
+Room	42949
 Position 12
 Flags 65
 EndMobile
@@ -31126,7 +31091,7 @@ EndMobile
 
 #MOBILE
 Vnum	42945
-Room	42948
+Room	42957
 Position 12
 Flags 1
 #OBJECT
@@ -31177,7 +31142,7 @@ EndMobile
 
 #MOBILE
 Vnum	42945
-Room	42955
+Room	42954
 Position 12
 Flags 1
 #OBJECT
@@ -31234,7 +31199,7 @@ EndMobile
 
 #MOBILE
 Vnum	42940
-Room	42969
+Room	42970
 Position 12
 Flags 97
 #OBJECT
@@ -31253,7 +31218,7 @@ EndMobile
 
 #MOBILE
 Vnum	42940
-Room	42967
+Room	42970
 Position 12
 Flags 97
 #OBJECT
@@ -31291,7 +31256,7 @@ EndMobile
 
 #MOBILE
 Vnum	42945
-Room	42972
+Room	42957
 Position 12
 Flags 1
 #OBJECT
@@ -31310,7 +31275,7 @@ EndMobile
 
 #MOBILE
 Vnum	42945
-Room	42956
+Room	42957
 Position 12
 Flags 1
 #OBJECT
@@ -31329,7 +31294,7 @@ EndMobile
 
 #MOBILE
 Vnum	42945
-Room	42964
+Room	42957
 Position 12
 Flags 1
 #OBJECT
@@ -31615,7 +31580,7 @@ EndMobile
 
 #MOBILE
 Vnum	41422
-Room	41403
+Room	41407
 Position 12
 Flags 65601
 #OBJECT
@@ -31628,14 +31593,14 @@ EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41415
+Room	41414
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41413
-Room	41452
+Room	41451
 Position 12
 Flags 65
 EndMobile
@@ -31670,28 +31635,28 @@ EndMobile
 
 #MOBILE
 Vnum	41406
-Room	41452
+Room	41402
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41412
-Room	41419
+Room	41410
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41428
+Room	41431
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41406
+Room	41453
 Position 12
 Flags 65
 EndMobile
@@ -31712,14 +31677,14 @@ EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41408
+Room	41454
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41410
+Room	41413
 Position 12
 Flags 65
 EndMobile
@@ -31762,7 +31727,7 @@ EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41453
+Room	41401
 Position 12
 Flags 65
 #OBJECT
@@ -31776,14 +31741,14 @@ EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41417
+Room	41415
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	41410
-Room	41411
+Room	41412
 Position 12
 Flags 65
 #OBJECT
@@ -31796,21 +31761,21 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41418
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	41410
 Room	41413
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
+Vnum	41410
+Room	41415
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
 Vnum	41413
-Room	41416
+Room	41414
 Position 12
 Flags 65
 EndMobile
@@ -31830,28 +31795,28 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41416
+Room	41422
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41411
-Room	41415
+Room	41413
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41411
-Room	41418
+Room	41401
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41414
-Room	41416
+Room	41418
 Position 12
 Flags 262209
 #OBJECT
@@ -31865,7 +31830,7 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41415
+Room	41410
 Position 12
 Flags 65
 #OBJECT
@@ -31879,7 +31844,7 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41415
+Room	41416
 Position 12
 Flags 65
 EndMobile
@@ -31900,21 +31865,21 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41415
+Room	41417
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41406
-Room	41412
+Room	41418
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41407
+Room	41433
 Position 12
 Flags 65
 EndMobile
@@ -31940,7 +31905,7 @@ EndMobile
 
 #MOBILE
 Vnum	41407
-Room	41416
+Room	41452
 Position 12
 Flags 65
 EndMobile
@@ -31954,35 +31919,35 @@ EndMobile
 
 #MOBILE
 Vnum	41414
-Room	41416
+Room	41418
 Position 12
 Flags 262209
 EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41410
+Room	41406
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	41409
-Room	41421
+Room	41427
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41409
-Room	41423
+Room	41427
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41424
-Room	41419
+Room	41423
 Position 12
 Flags 262209
 #OBJECT
@@ -31995,20 +31960,13 @@ EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41424
+Room	41421
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41427
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	41411
 Room	41421
 Position 12
 Flags 65
@@ -32016,42 +31974,49 @@ EndMobile
 
 #MOBILE
 Vnum	41411
-Room	41425
+Room	41422
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41411
+Room	41422
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41424
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	41406
-Room	41423
-Position 12
-Flags 65
-EndMobile
-
-#MOBILE
-Vnum	41406
 Room	41427
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41406
+Room	41420
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41406
+Room	41420
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41412
-Room	41421
+Room	41440
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41427
+Room	41420
 Position 12
 Flags 65
 #OBJECT
@@ -32071,14 +32036,14 @@ EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41420
+Room	41431
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41424
+Room	41413
 Position 12
 Flags 65
 #OBJECT
@@ -32110,21 +32075,21 @@ EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41424
+Room	41421
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41404
-Room	41422
+Room	41427
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41409
+Room	41446
 Position 12
 Flags 197
 EndMobile
@@ -32157,7 +32122,7 @@ EndMobile
 
 #MOBILE
 Vnum	41424
-Room	41431
+Room	41430
 Position 12
 Flags 262209
 #OBJECT
@@ -32171,14 +32136,14 @@ EndMobile
 
 #MOBILE
 Vnum	41409
-Room	41406
+Room	41430
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41410
-Room	41429
+Room	41407
 Position 12
 Flags 65
 EndMobile
@@ -32238,7 +32203,7 @@ EndMobile
 
 #MOBILE
 Vnum	41405
-Room	41429
+Room	41431
 Position 12
 Flags 65
 #OBJECT
@@ -32252,14 +32217,14 @@ EndMobile
 
 #MOBILE
 Vnum	41405
-Room	41431
+Room	41405
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41410
-Room	41402
+Room	41411
 Position 12
 Flags 65
 EndMobile
@@ -32285,7 +32250,7 @@ EndMobile
 
 #MOBILE
 Vnum	41405
-Room	41431
+Room	41430
 Position 12
 Flags 65
 #OBJECT
@@ -32299,14 +32264,14 @@ EndMobile
 
 #MOBILE
 Vnum	41405
-Room	41430
+Room	41453
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41405
-Room	41431
+Room	41407
 Position 12
 Flags 65
 EndMobile
@@ -32320,14 +32285,14 @@ EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41436
+Room	41428
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41409
+Room	41407
 Position 12
 Flags 65
 EndMobile
@@ -32341,21 +32306,21 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41437
+Room	41445
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41434
+Room	41440
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41413
-Room	41434
+Room	41443
 Position 12
 Flags 65
 EndMobile
@@ -32369,7 +32334,7 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41435
+Room	41437
 Position 12
 Flags 65
 EndMobile
@@ -32383,7 +32348,7 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41437
+Room	41433
 Position 12
 Flags 65
 #OBJECT
@@ -32397,7 +32362,7 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41435
+Room	41434
 Position 12
 Flags 65
 EndMobile
@@ -32423,7 +32388,7 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41438
+Room	41437
 Position 12
 Flags 65
 #OBJECT
@@ -32436,7 +32401,7 @@ EndMobile
 
 #MOBILE
 Vnum	41408
-Room	41438
+Room	41433
 Position 12
 Flags 65
 EndMobile
@@ -32450,7 +32415,7 @@ EndMobile
 
 #MOBILE
 Vnum	41413
-Room	41446
+Room	41444
 Position 12
 Flags 65
 EndMobile
@@ -32464,7 +32429,7 @@ EndMobile
 
 #MOBILE
 Vnum	41412
-Room	41402
+Room	41451
 Position 12
 Flags 65
 EndMobile
@@ -32478,14 +32443,14 @@ EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41444
+Room	41442
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41454
+Room	41409
 Position 12
 Flags 262209
 #OBJECT
@@ -32498,7 +32463,7 @@ EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41444
+Room	41445
 Position 12
 Flags 262209
 #OBJECT
@@ -32512,14 +32477,14 @@ EndMobile
 
 #MOBILE
 Vnum	41412
-Room	41440
+Room	41418
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41444
+Room	41445
 Position 12
 Flags 262209
 EndMobile
@@ -32539,20 +32504,13 @@ EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41445
+Room	41446
 Position 12
 Flags 262209
 EndMobile
 
 #MOBILE
 Vnum	41414
-Room	41442
-Position 12
-Flags 262209
-EndMobile
-
-#MOBILE
-Vnum	41415
 Room	41445
 Position 12
 Flags 262209
@@ -32560,14 +32518,21 @@ EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41445
+Room	41439
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41446
 Position 12
 Flags 262209
 EndMobile
 
 #MOBILE
 Vnum	41414
-Room	41443
+Room	41435
 Position 12
 Flags 262209
 EndMobile
@@ -32606,14 +32571,14 @@ EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41446
+Room	41428
 Position 12
 Flags 262209
 EndMobile
 
 #MOBILE
 Vnum	41415
-Room	41441
+Room	41443
 Position 12
 Flags 262209
 EndMobile
@@ -32641,7 +32606,7 @@ EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41447
+Room	41449
 Position 12
 Flags 197
 EndMobile
@@ -32677,21 +32642,21 @@ EndMobile
 
 #MOBILE
 Vnum	41426
-Room	41448
+Room	41449
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	41431
-Room	41445
+Room	41446
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	41422
-Room	41426
+Room	41421
 Position 12
 Flags 65601
 EndMobile
@@ -32947,21 +32912,21 @@ EndMobile
 
 #MOBILE
 Vnum	45319
-Room	45321
+Room	45398
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	45320
-Room	45400
+Room	45399
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	45351
-Room	45402
+Room	45302
 Position 12
 Flags 1
 EndMobile
@@ -33031,14 +32996,14 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45387
+Room	45314
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	45352
-Room	45388
+Room	45316
 Position 12
 Flags 69
 EndMobile
@@ -33084,7 +33049,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45386
+Room	45389
 Position 12
 Flags 65
 EndMobile
@@ -33098,7 +33063,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45315
+Room	45391
 Position 12
 Flags 65
 EndMobile
@@ -33112,7 +33077,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45388
+Room	45389
 Position 12
 Flags 65
 EndMobile
@@ -33202,14 +33167,14 @@ EndMobile
 
 #MOBILE
 Vnum	45319
-Room	45405
+Room	45412
 Position 12
 Flags 1
 EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45323
+Room	45312
 Position 12
 Flags 65
 #OBJECT
@@ -33228,7 +33193,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45329
+Room	45322
 Position 12
 Flags 65
 #OBJECT
@@ -33247,7 +33212,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45323
+Room	45326
 Position 12
 Flags 65
 #OBJECT
@@ -33266,7 +33231,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45322
+Room	45310
 Position 12
 Flags 65
 #OBJECT
@@ -33317,7 +33282,7 @@ EndMobile
 
 #MOBILE
 Vnum	45301
-Room	45326
+Room	45382
 Position 12
 Flags 69
 EndMobile
@@ -33767,7 +33732,7 @@ EndMobile
 
 #MOBILE
 Vnum	45319
-Room	45351
+Room	45341
 Position 12
 Flags 1
 EndMobile
@@ -33824,7 +33789,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45323
+Room	45406
 Position 12
 Flags 65
 #OBJECT
@@ -33843,7 +33808,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45301
+Room	45380
 Position 12
 Flags 65
 #OBJECT
@@ -33862,7 +33827,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45350
+Room	45369
 Position 12
 Flags 65
 #OBJECT
@@ -33881,7 +33846,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45349
+Room	45350
 Position 12
 Flags 65
 #OBJECT
@@ -34143,7 +34108,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45357
+Room	45330
 Position 12
 Flags 65
 #OBJECT
@@ -34162,7 +34127,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45366
+Room	45353
 Position 12
 Flags 65
 #OBJECT
@@ -34181,7 +34146,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45330
+Room	45377
 Position 12
 Flags 65
 #OBJECT
@@ -34440,7 +34405,7 @@ EndMobile
 
 #MOBILE
 Vnum	45301
-Room	45335
+Room	45346
 Position 12
 Flags 69
 EndMobile
@@ -34775,7 +34740,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45393
+Room	45397
 Position 12
 Flags 65
 #OBJECT
@@ -34794,7 +34759,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45308
+Room	45401
 Position 12
 Flags 65
 #OBJECT
@@ -34813,7 +34778,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45383
+Room	45305
 Position 12
 Flags 65
 #OBJECT
@@ -34832,7 +34797,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45394
+Room	45320
 Position 12
 Flags 65
 #OBJECT
@@ -34851,7 +34816,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45397
+Room	45309
 Position 12
 Flags 65
 EndMobile
@@ -34884,7 +34849,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45401
+Room	45399
 Position 12
 Flags 65
 #OBJECT
@@ -34903,7 +34868,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45302
+Room	45382
 Position 12
 Flags 65
 #OBJECT
@@ -34922,7 +34887,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45384
+Room	45404
 Position 12
 Flags 65
 #OBJECT
@@ -34941,14 +34906,14 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45403
+Room	45402
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45387
+Room	45312
 Position 12
 Flags 65
 #OBJECT
@@ -34967,7 +34932,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45387
+Room	45388
 Position 12
 Flags 65
 #OBJECT
@@ -34986,7 +34951,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45384
+Room	45388
 Position 12
 Flags 65
 #OBJECT
@@ -35005,7 +34970,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45387
+Room	45391
 Position 12
 Flags 65
 #OBJECT
@@ -35024,14 +34989,14 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45314
+Room	45395
 Position 12
 Flags 65
 EndMobile
 
 #MOBILE
 Vnum	45319
-Room	45391
+Room	45379
 Position 12
 Flags 1
 EndMobile
@@ -35076,7 +35041,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45378
+Room	45310
 Position 12
 Flags 65
 EndMobile
@@ -35121,7 +35086,7 @@ EndMobile
 
 #MOBILE
 Vnum	45329
-Room	45399
+Room	45406
 Position 12
 Flags 65
 EndMobile
@@ -35135,7 +35100,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45401
+Room	45382
 Position 12
 Flags 65
 #OBJECT
@@ -35154,7 +35119,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45400
+Room	45403
 Position 12
 Flags 65
 #OBJECT
@@ -35173,7 +35138,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45309
+Room	45394
 Position 12
 Flags 65
 #OBJECT
@@ -35225,14 +35190,14 @@ EndMobile
 
 #MOBILE
 Vnum	45301
-Room	45408
+Room	45300
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45409
+Room	45413
 Position 12
 Flags 65
 #OBJECT
@@ -35251,7 +35216,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45411
+Room	45410
 Position 12
 Flags 65
 #OBJECT
@@ -35270,7 +35235,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45416
+Room	45410
 Position 12
 Flags 65
 #OBJECT
@@ -35289,7 +35254,7 @@ EndMobile
 
 #MOBILE
 Vnum	45328
-Room	45410
+Room	45411
 Position 12
 Flags 65
 #OBJECT
@@ -35527,35 +35492,35 @@ EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48003
+Room	48007
 Position 12
 Flags 262149
 EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48006
+Room	48024
 Position 12
 Flags 262149
 EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48006
+Room	48027
 Position 12
 Flags 262149
 EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48008
+Room	48011
 Position 12
 Flags 262149
 EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48026
+Room	48024
 Position 12
 Flags 262149
 EndMobile
@@ -35663,7 +35628,7 @@ End
 #OBJECT
 Vnum         48014
 Level        2
-Timer        17
+Timer        5
 Values       24 24 0 0 0 0
 End
 
@@ -35682,7 +35647,7 @@ End
 #OBJECT
 Vnum         48014
 Level        4
-Timer        17
+Timer        5
 Values       24 24 0 0 0 0
 End
 
@@ -35794,7 +35759,7 @@ EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48035
+Room	48007
 Position 12
 Flags 262149
 EndMobile
@@ -35838,35 +35803,35 @@ EndMobile
 
 #MOBILE
 Vnum	48021
-Room	48008
+Room	48025
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48021
-Room	48010
+Room	48029
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48023
-Room	48016
+Room	48015
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48023
-Room	48030
+Room	48022
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48033
+Room	48003
 Position 12
 Flags 262149
 EndMobile
@@ -36099,7 +36064,7 @@ EndMobile
 
 #MOBILE
 Vnum	48002
-Room	48011
+Room	48029
 Position 12
 Flags 262149
 #OBJECT
@@ -36202,7 +36167,7 @@ EndMobile
 
 #MOBILE
 Vnum	48022
-Room	48024
+Room	48023
 Position 12
 Flags 262149
 EndMobile
@@ -36341,7 +36306,7 @@ EndMobile
 
 #MOBILE
 Vnum	48602
-Room	48615
+Room	48618
 Position 12
 Flags 101
 EndMobile
@@ -36355,7 +36320,7 @@ EndMobile
 
 #MOBILE
 Vnum	48602
-Room	48621
+Room	48618
 Position 12
 Flags 101
 EndMobile
@@ -36395,7 +36360,7 @@ EndMobile
 
 #MOBILE
 Vnum	48602
-Room	48627
+Room	48623
 Position 12
 Flags 101
 EndMobile
@@ -36437,28 +36402,28 @@ EndMobile
 
 #MOBILE
 Vnum	48612
-Room	48638
+Room	48632
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	48607
-Room	48637
+Room	48633
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	48609
-Room	48633
+Room	48636
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	48609
-Room	48639
+Room	48641
 Position 12
 Flags 69
 EndMobile
@@ -36497,7 +36462,7 @@ EndMobile
 
 #MOBILE
 Vnum	48614
-Room	48637
+Room	48640
 Position 12
 Flags 101
 #OBJECT
@@ -36530,7 +36495,7 @@ EndMobile
 
 #MOBILE
 Vnum	48616
-Room	48600
+Room	48602
 Position 12
 Flags 5
 #OBJECT
@@ -36543,7 +36508,7 @@ EndMobile
 
 #MOBILE
 Vnum	48616
-Room	48646
+Room	48645
 Position 12
 Flags 5
 #OBJECT
@@ -36556,14 +36521,14 @@ EndMobile
 
 #MOBILE
 Vnum	48617
-Room	48646
+Room	48650
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48617
-Room	48645
+Room	48611
 Position 12
 Flags 5
 #OBJECT
@@ -36576,7 +36541,7 @@ EndMobile
 
 #MOBILE
 Vnum	48618
-Room	48600
+Room	48601
 Position 12
 Flags 69
 #OBJECT
@@ -36597,7 +36562,7 @@ EndMobile
 
 #MOBILE
 Vnum	48621
-Room	48601
+Room	48612
 Position 12
 Flags 5
 #OBJECT
@@ -36610,14 +36575,14 @@ EndMobile
 
 #MOBILE
 Vnum	48622
-Room	48651
+Room	48655
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48621
-Room	48660
+Room	48654
 Position 12
 Flags 5
 #OBJECT
@@ -36630,21 +36595,21 @@ EndMobile
 
 #MOBILE
 Vnum	48622
-Room	48648
+Room	48646
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48621
-Room	48652
+Room	48654
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48623
-Room	48656
+Room	48660
 Position 12
 Flags 5
 EndMobile
@@ -36658,14 +36623,14 @@ EndMobile
 
 #MOBILE
 Vnum	48623
-Room	48649
+Room	48646
 Position 12
 Flags 5
 EndMobile
 
 #MOBILE
 Vnum	48623
-Room	48653
+Room	48658
 Position 12
 Flags 5
 EndMobile
@@ -36766,7 +36731,7 @@ EndMobile
 
 #MOBILE
 Vnum	48702
-Room	48702
+Room	48703
 Position 12
 Flags 65
 EndMobile
@@ -37687,7 +37652,7 @@ EndMobile
 
 #MOBILE
 Vnum	1515
-Room	70012
+Room	70013
 Position 12
 Flags 37
 EndMobile
@@ -38332,14 +38297,14 @@ EndMobile
 
 #MOBILE
 Vnum	25036
-Room	25006
+Room	25051
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	25001
-Room	25017
+Room	25010
 Position 12
 Flags 97
 #OBJECT
@@ -38352,7 +38317,7 @@ EndMobile
 
 #MOBILE
 Vnum	25000
-Room	25012
+Room	25019
 Position 12
 Flags 97
 #OBJECT
@@ -38365,7 +38330,7 @@ EndMobile
 
 #MOBILE
 Vnum	25001
-Room	25019
+Room	25011
 Position 12
 Flags 97
 #OBJECT
@@ -38378,7 +38343,7 @@ EndMobile
 
 #MOBILE
 Vnum	25000
-Room	25015
+Room	25018
 Position 12
 Flags 97
 #OBJECT
@@ -38404,7 +38369,7 @@ EndMobile
 
 #MOBILE
 Vnum	25001
-Room	25010
+Room	25012
 Position 12
 Flags 97
 #OBJECT
@@ -38417,7 +38382,7 @@ EndMobile
 
 #MOBILE
 Vnum	25000
-Room	25013
+Room	25011
 Position 12
 Flags 97
 #OBJECT
@@ -38430,7 +38395,7 @@ EndMobile
 
 #MOBILE
 Vnum	25001
-Room	25019
+Room	25011
 Position 12
 Flags 97
 #OBJECT
@@ -38450,7 +38415,7 @@ EndMobile
 
 #MOBILE
 Vnum	25008
-Room	25022
+Room	25021
 Position 12
 Flags 97
 #OBJECT
@@ -38463,7 +38428,7 @@ EndMobile
 
 #MOBILE
 Vnum	25008
-Room	25021
+Room	25020
 Position 12
 Flags 97
 #OBJECT
@@ -38535,7 +38500,7 @@ EndMobile
 
 #MOBILE
 Vnum	25015
-Room	25034
+Room	25029
 Position 12
 Flags 97
 #OBJECT
@@ -38639,42 +38604,42 @@ EndMobile
 
 #MOBILE
 Vnum	25006
-Room	25041
+Room	25045
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	25006
-Room	25041
+Room	25040
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	25006
-Room	25043
+Room	25044
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	25006
-Room	25041
+Room	25040
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	25006
-Room	25039
+Room	25044
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	25035
-Room	25053
+Room	25003
 Position 12
 Flags 65
 #OBJECT
@@ -38699,7 +38664,7 @@ EndMobile
 
 #MOBILE
 Vnum	25036
-Room	25051
+Room	25002
 Position 12
 Flags 97
 EndMobile
@@ -38770,6 +38735,13 @@ EndMobile
 
 #MOBILE
 Vnum	25026
+Room	25070
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	25026
 Room	25075
 Position 12
 Flags 69
@@ -38777,14 +38749,7 @@ EndMobile
 
 #MOBILE
 Vnum	25026
-Room	25074
-Position 12
-Flags 69
-EndMobile
-
-#MOBILE
-Vnum	25026
-Room	25072
+Room	25070
 Position 12
 Flags 69
 EndMobile
@@ -38893,14 +38858,14 @@ EndMobile
 
 #MOBILE
 Vnum	25033
-Room	25086
+Room	25090
 Position 12
 Flags 225
 EndMobile
 
 #MOBILE
 Vnum	25033
-Room	25087
+Room	25085
 Position 12
 Flags 225
 EndMobile
@@ -39052,56 +39017,56 @@ EndMobile
 
 #MOBILE
 Vnum	44900
-Room	44908
+Room	44910
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	44900
+Room	44906
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44900
+Room	44909
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44907
+Room	44905
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44907
+Room	44905
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44907
 Room	44907
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
-Vnum	44900
-Room	44910
+Vnum	44907
+Room	44913
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	44907
-Room	44910
-Position 12
-Flags 69
-EndMobile
-
-#MOBILE
-Vnum	44907
-Room	44911
-Position 12
-Flags 69
-EndMobile
-
-#MOBILE
-Vnum	44907
-Room	44911
-Position 12
-Flags 69
-EndMobile
-
-#MOBILE
-Vnum	44907
-Room	44912
-Position 12
-Flags 69
-EndMobile
-
-#MOBILE
-Vnum	44907
-Room	44909
+Room	44906
 Position 12
 Flags 69
 EndMobile
@@ -39129,7 +39094,7 @@ EndMobile
 
 #MOBILE
 Vnum	44905
-Room	44928
+Room	44930
 Position 12
 Flags 69
 EndMobile
@@ -39143,7 +39108,7 @@ EndMobile
 
 #MOBILE
 Vnum	44905
-Room	44929
+Room	44932
 Position 12
 Flags 69
 EndMobile
@@ -39157,7 +39122,7 @@ EndMobile
 
 #MOBILE
 Vnum	44906
-Room	44926
+Room	44928
 Position 12
 Flags 69
 EndMobile
@@ -39223,7 +39188,7 @@ EndMobile
 
 #MOBILE
 Vnum	44912
-Room	44945
+Room	44948
 Position 12
 Flags 97
 EndMobile
@@ -39318,7 +39283,7 @@ EndMobile
 
 #MOBILE
 Vnum	20004
-Room	20009
+Room	20008
 Position 12
 Flags 33
 #OBJECT
@@ -39344,7 +39309,7 @@ EndMobile
 
 #MOBILE
 Vnum	20006
-Room	20008
+Room	20013
 Position 12
 Flags 33
 #OBJECT
@@ -39357,7 +39322,7 @@ EndMobile
 
 #MOBILE
 Vnum	20008
-Room	20018
+Room	20013
 Position 12
 Flags 33
 #OBJECT
@@ -39370,7 +39335,7 @@ EndMobile
 
 #MOBILE
 Vnum	20016
-Room	20008
+Room	20007
 Position 12
 Flags 33
 #OBJECT
@@ -39396,7 +39361,7 @@ EndMobile
 
 #MOBILE
 Vnum	20007
-Room	20008
+Room	20009
 Position 12
 Flags 33
 #OBJECT
@@ -39409,7 +39374,7 @@ EndMobile
 
 #MOBILE
 Vnum	20009
-Room	20022
+Room	20020
 Position 12
 Flags 33
 #OBJECT
@@ -39435,7 +39400,7 @@ EndMobile
 
 #MOBILE
 Vnum	20011
-Room	20031
+Room	20030
 Position 12
 Flags 33
 #OBJECT
@@ -39448,7 +39413,7 @@ EndMobile
 
 #MOBILE
 Vnum	20012
-Room	20029
+Room	20028
 Position 12
 Flags 33
 #OBJECT
@@ -39461,7 +39426,7 @@ EndMobile
 
 #MOBILE
 Vnum	20013
-Room	20025
+Room	20020
 Position 12
 Flags 33
 #OBJECT
@@ -39487,7 +39452,7 @@ EndMobile
 
 #MOBILE
 Vnum	20014
-Room	20025
+Room	20029
 Position 12
 Flags 33
 #OBJECT
@@ -40363,7 +40328,7 @@ EndMobile
 
 #MOBILE
 Vnum	4106
-Room	4107
+Room	4112
 Position 12
 Flags 101
 #OBJECT
@@ -40390,7 +40355,7 @@ EndMobile
 
 #MOBILE
 Vnum	4107
-Room	4123
+Room	4119
 Position 12
 Flags 101
 #OBJECT
@@ -40436,7 +40401,7 @@ EndMobile
 
 #MOBILE
 Vnum	4159
-Room	4161
+Room	4164
 Position 12
 Flags 101
 EndMobile
@@ -40471,7 +40436,7 @@ EndMobile
 
 #MOBILE
 Vnum	4155
-Room	4157
+Room	4172
 Position 12
 Flags 69
 #OBJECT
@@ -40498,7 +40463,7 @@ EndMobile
 
 #MOBILE
 Vnum	4160
-Room	4164
+Room	4158
 Position 12
 Flags 101
 #OBJECT
@@ -40512,7 +40477,7 @@ EndMobile
 
 #MOBILE
 Vnum	4160
-Room	4169
+Room	4170
 Position 12
 Flags 101
 EndMobile
@@ -40540,7 +40505,7 @@ EndMobile
 
 #MOBILE
 Vnum	4157
-Room	4155
+Room	4156
 Position 12
 Flags 101
 EndMobile
@@ -40561,7 +40526,7 @@ EndMobile
 
 #MOBILE
 Vnum	4159
-Room	4167
+Room	4168
 Position 12
 Flags 101
 EndMobile
@@ -40589,14 +40554,14 @@ EndMobile
 
 #MOBILE
 Vnum	4003
-Room	4013
+Room	4012
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	4003
-Room	4016
+Room	4012
 Position 12
 Flags 69
 EndMobile
@@ -40610,7 +40575,7 @@ EndMobile
 
 #MOBILE
 Vnum	4004
-Room	4031
+Room	4042
 Position 12
 Flags 101
 EndMobile
@@ -40631,21 +40596,21 @@ EndMobile
 
 #MOBILE
 Vnum	4003
-Room	4114
+Room	4125
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	4003
-Room	4017
+Room	4012
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	4005
-Room	4016
+Room	4011
 Position 12
 Flags 69
 #OBJECT
@@ -40672,7 +40637,7 @@ EndMobile
 
 #MOBILE
 Vnum	4003
-Room	4014
+Room	4010
 Position 12
 Flags 69
 EndMobile
@@ -40686,14 +40651,14 @@ EndMobile
 
 #MOBILE
 Vnum	4004
-Room	4029
+Room	4037
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	4004
-Room	4018
+Room	4030
 Position 12
 Flags 101
 EndMobile
@@ -40713,7 +40678,7 @@ EndMobile
 
 #MOBILE
 Vnum	4051
-Room	4050
+Room	4051
 Position 12
 Flags 101
 EndMobile
@@ -40734,21 +40699,21 @@ EndMobile
 
 #MOBILE
 Vnum	4051
-Room	4060
+Room	4056
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	4052
-Room	4061
+Room	4053
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	4056
-Room	4063
+Room	4069
 Position 12
 Flags 101
 EndMobile
@@ -40762,7 +40727,7 @@ EndMobile
 
 #MOBILE
 Vnum	4052
-Room	4024
+Room	4023
 Position 12
 Flags 69
 EndMobile
@@ -40789,7 +40754,7 @@ EndMobile
 
 #MOBILE
 Vnum	4055
-Room	4057
+Room	4062
 Position 12
 Flags 69
 #OBJECT
@@ -40804,14 +40769,14 @@ EndMobile
 
 #MOBILE
 Vnum	4052
-Room	4071
+Room	4069
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	4056
-Room	4069
+Room	4070
 Position 12
 Flags 101
 EndMobile
@@ -40825,14 +40790,14 @@ EndMobile
 
 #MOBILE
 Vnum	4051
-Room	4066
+Room	4062
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	4055
-Room	4073
+Room	4067
 Position 12
 Flags 69
 #OBJECT
@@ -40847,49 +40812,49 @@ EndMobile
 
 #MOBILE
 Vnum	4051
-Room	4068
+Room	4058
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46200
-Room	46209
+Room	46229
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46200
-Room	46208
+Room	46204
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46200
-Room	46202
+Room	46217
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46202
-Room	46208
+Room	46204
 Position 12
 Flags 149
 EndMobile
 
 #MOBILE
 Vnum	46200
-Room	46202
+Room	46203
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46200
-Room	46212
+Room	46218
 Position 12
 Flags 101
 EndMobile
@@ -40910,20 +40875,6 @@ EndMobile
 
 #MOBILE
 Vnum	46204
-Room	46213
-Position 12
-Flags 131265
-EndMobile
-
-#MOBILE
-Vnum	46204
-Room	46213
-Position 12
-Flags 131265
-EndMobile
-
-#MOBILE
-Vnum	46204
 Room	46218
 Position 12
 Flags 131265
@@ -40931,21 +40882,35 @@ EndMobile
 
 #MOBILE
 Vnum	46204
-Room	46211
+Room	46212
 Position 12
 Flags 131265
 EndMobile
 
 #MOBILE
 Vnum	46204
-Room	46214
+Room	46229
 Position 12
 Flags 131265
 EndMobile
 
 #MOBILE
 Vnum	46204
-Room	46218
+Room	46212
+Position 12
+Flags 131265
+EndMobile
+
+#MOBILE
+Vnum	46204
+Room	46230
+Position 12
+Flags 131265
+EndMobile
+
+#MOBILE
+Vnum	46204
+Room	46213
 Position 12
 Flags 131265
 EndMobile
@@ -41082,7 +41047,7 @@ EndMobile
 
 #MOBILE
 Vnum	46212
-Room	46233
+Room	46244
 Position 12
 Flags 97
 EndMobile
@@ -41312,7 +41277,7 @@ EndMobile
 
 #MOBILE
 Vnum	46212
-Room	46269
+Room	46276
 Position 12
 Flags 97
 EndMobile
@@ -41475,7 +41440,7 @@ EndMobile
 
 #MOBILE
 Vnum	46213
-Room	46299
+Room	46298
 Position 12
 Flags 97
 EndMobile
@@ -41624,14 +41589,14 @@ EndMobile
 
 #MOBILE
 Vnum	46212
-Room	46329
+Room	46326
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	46213
-Room	46335
+Room	46336
 Position 12
 Flags 97
 EndMobile
@@ -41666,7 +41631,7 @@ EndMobile
 
 #MOBILE
 Vnum	46213
-Room	46349
+Room	46366
 Position 12
 Flags 97
 EndMobile
@@ -41883,7 +41848,7 @@ EndMobile
 
 #MOBILE
 Vnum	8302
-Room	8306
+Room	8311
 Position 12
 Flags 101
 #OBJECT
@@ -41897,42 +41862,42 @@ EndMobile
 
 #MOBILE
 Vnum	8303
-Room	8304
+Room	8310
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8302
-Room	8312
+Room	8307
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8306
-Room	8309
+Room	8312
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8310
-Room	8304
+Room	8301
 Position 12
 Flags 229
 EndMobile
 
 #MOBILE
 Vnum	8314
-Room	8311
+Room	8307
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8307
-Room	8302
+Room	8306
 Position 12
 Flags 197
 EndMobile
@@ -41946,14 +41911,14 @@ EndMobile
 
 #MOBILE
 Vnum	8310
-Room	8303
+Room	8304
 Position 12
 Flags 229
 EndMobile
 
 #MOBILE
 Vnum	8314
-Room	8303
+Room	8302
 Position 12
 Flags 101
 EndMobile
@@ -41973,28 +41938,28 @@ EndMobile
 
 #MOBILE
 Vnum	8314
-Room	8305
+Room	8306
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8303
-Room	8315
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	8304
 Room	8317
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
+Vnum	8304
+Room	8316
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
 Vnum	8314
-Room	8315
+Room	8317
 Position 12
 Flags 101
 EndMobile
@@ -42021,28 +41986,28 @@ EndMobile
 
 #MOBILE
 Vnum	8308
-Room	8302
+Room	8301
 Position 12
 Flags 197
 EndMobile
 
 #MOBILE
 Vnum	8314
-Room	8308
+Room	8304
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8312
-Room	8309
+Room	8311
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	8314
-Room	8302
+Room	8307
 Position 12
 Flags 101
 EndMobile
@@ -42062,21 +42027,21 @@ EndMobile
 
 #MOBILE
 Vnum	8306
-Room	8304
+Room	8303
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	8312
-Room	8307
+Room	8311
 Position 12
 Flags 69
 EndMobile
 
 #MOBILE
 Vnum	8313
-Room	8312
+Room	8302
 Position 12
 Flags 69
 #OBJECT
@@ -42102,7 +42067,7 @@ EndMobile
 
 #MOBILE
 Vnum	8318
-Room	8309
+Room	8304
 Position 12
 Flags 69
 #OBJECT
@@ -42116,7 +42081,7 @@ EndMobile
 
 #MOBILE
 Vnum	8318
-Room	8309
+Room	8318
 Position 12
 Flags 69
 #OBJECT
@@ -42292,7 +42257,7 @@ EndMobile
 
 #MOBILE
 Vnum	2308
-Room	2345
+Room	2347
 Position 12
 Flags 229
 #OBJECT
@@ -42318,7 +42283,7 @@ EndMobile
 
 #MOBILE
 Vnum	2307
-Room	2342
+Room	2346
 Position 12
 Flags 193
 #OBJECT
@@ -42331,21 +42296,21 @@ EndMobile
 
 #MOBILE
 Vnum	2307
-Room	2350
+Room	2344
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	2307
-Room	2350
+Room	2348
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	2307
-Room	2345
+Room	2349
 Position 12
 Flags 193
 #OBJECT
@@ -42358,7 +42323,7 @@ EndMobile
 
 #MOBILE
 Vnum	2308
-Room	2347
+Room	2346
 Position 12
 Flags 229
 #OBJECT
@@ -42371,7 +42336,7 @@ EndMobile
 
 #MOBILE
 Vnum	2308
-Room	2350
+Room	2342
 Position 12
 Flags 229
 #OBJECT
@@ -42384,14 +42349,14 @@ EndMobile
 
 #MOBILE
 Vnum	2307
-Room	2342
+Room	2347
 Position 12
 Flags 193
 EndMobile
 
 #MOBILE
 Vnum	2308
-Room	2347
+Room	2346
 Position 12
 Flags 229
 #OBJECT
@@ -42692,7 +42657,7 @@ EndMobile
 
 #MOBILE
 Vnum	2317
-Room	2363
+Room	2362
 Position 12
 Flags 101
 #OBJECT
@@ -42829,7 +42794,7 @@ EndMobile
 
 #MOBILE
 Vnum	2317
-Room	2378
+Room	2376
 Position 12
 Flags 101
 #OBJECT
@@ -42861,7 +42826,7 @@ EndMobile
 
 #MOBILE
 Vnum	2317
-Room	2377
+Room	2378
 Position 12
 Flags 101
 #OBJECT
@@ -43686,7 +43651,7 @@ EndMobile
 
 #MOBILE
 Vnum	46919
-Room	46960
+Room	46958
 Position 12
 Flags 147493
 #OBJECT
@@ -43712,6 +43677,41 @@ EndMobile
 
 #MOBILE
 Vnum	46911
+Room	46965
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	46912
+Room	46963
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	46911
+Room	46967
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	46912
+Room	46967
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	46911
+Room	46966
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	46911
 Room	46964
 Position 12
 Flags 33
@@ -43719,70 +43719,35 @@ EndMobile
 
 #MOBILE
 Vnum	46912
+Room	46977
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	46911
 Room	46966
 Position 12
-Flags 101
+Flags 33
 EndMobile
 
 #MOBILE
 Vnum	46911
-Room	46965
+Room	46976
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	46912
-Room	46965
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	46911
-Room	46971
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	46911
-Room	46969
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	46912
-Room	46975
-Position 12
-Flags 101
-EndMobile
-
-#MOBILE
-Vnum	46911
-Room	46971
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	46911
 Room	46974
-Position 12
-Flags 33
-EndMobile
-
-#MOBILE
-Vnum	46912
-Room	46975
 Position 12
 Flags 101
 EndMobile
 
 #MOBILE
 Vnum	46913
-Room	46984
+Room	46981
 Position 12
 Flags 97
 EndMobile
@@ -43810,14 +43775,14 @@ EndMobile
 
 #MOBILE
 Vnum	46913
-Room	46991
+Room	46989
 Position 12
 Flags 97
 EndMobile
 
 #MOBILE
 Vnum	46913
-Room	46986
+Room	46985
 Position 12
 Flags 97
 EndMobile
@@ -44008,7 +43973,7 @@ EndMobile
 
 #MOBILE
 Vnum	14741
-Room	14724
+Room	14722
 Position 12
 Flags 8388705
 #OBJECT
@@ -44021,14 +43986,14 @@ EndMobile
 
 #MOBILE
 Vnum	14742
-Room	14728
+Room	14720
 Position 12
 Flags 8388705
 EndMobile
 
 #MOBILE
 Vnum	14741
-Room	14720
+Room	14706
 Position 12
 Flags 8388705
 #OBJECT
@@ -44041,7 +44006,7 @@ EndMobile
 
 #MOBILE
 Vnum	14732
-Room	14710
+Room	14712
 Position 12
 Flags 8388705
 #OBJECT
@@ -44073,14 +44038,14 @@ EndMobile
 
 #MOBILE
 Vnum	14742
-Room	14716
+Room	14719
 Position 12
 Flags 8388705
 EndMobile
 
 #MOBILE
 Vnum	14732
-Room	14732
+Room	14704
 Position 12
 Flags 8388705
 #OBJECT
@@ -44099,7 +44064,7 @@ EndMobile
 
 #MOBILE
 Vnum	14729
-Room	14719
+Room	14746
 Position 12
 Flags 8388705
 #OBJECT
@@ -44112,7 +44077,7 @@ EndMobile
 
 #MOBILE
 Vnum	14729
-Room	14733
+Room	14747
 Position 12
 Flags 8388705
 #OBJECT
@@ -44125,7 +44090,7 @@ EndMobile
 
 #MOBILE
 Vnum	14732
-Room	14745
+Room	14751
 Position 12
 Flags 8388705
 #OBJECT
@@ -44144,7 +44109,7 @@ EndMobile
 
 #MOBILE
 Vnum	14742
-Room	14733
+Room	14710
 Position 12
 Flags 8388705
 EndMobile
@@ -44170,7 +44135,7 @@ EndMobile
 
 #MOBILE
 Vnum	14729
-Room	14729
+Room	14710
 Position 12
 Flags 8388705
 #OBJECT
@@ -44202,7 +44167,7 @@ EndMobile
 
 #MOBILE
 Vnum	14732
-Room	14748
+Room	14771
 Position 12
 Flags 8388705
 #OBJECT
@@ -44221,7 +44186,7 @@ EndMobile
 
 #MOBILE
 Vnum	14741
-Room	14731
+Room	14771
 Position 12
 Flags 8388705
 #OBJECT
@@ -44234,14 +44199,14 @@ EndMobile
 
 #MOBILE
 Vnum	14742
-Room	14728
+Room	14771
 Position 12
 Flags 8388705
 EndMobile
 
 #MOBILE
 Vnum	14741
-Room	14733
+Room	14734
 Position 12
 Flags 8388705
 #OBJECT
@@ -45282,21 +45247,21 @@ EndMobile
 
 #MOBILE
 Vnum	3000252
-Room	3000252
+Room	3000269
 Position 12
 Flags 68288577
 EndMobile
 
 #MOBILE
 Vnum	3000253
-Room	3000268
+Room	3000272
 Position 12
 Flags 33
 EndMobile
 
 #MOBILE
 Vnum	3000253
-Room	3000260
+Room	3000262
 Position 12
 Flags 33
 EndMobile
@@ -45317,7 +45282,7 @@ EndMobile
 
 #MOBILE
 Vnum	3000256
-Room	3000266
+Room	3000272
 Position 12
 Flags 67240001
 EndMobile
@@ -45429,7 +45394,7 @@ EndMobile
 
 #MOBILE
 Vnum	13005
-Room	13005
+Room	13002
 Position 12
 Flags 262337
 EndMobile
@@ -45460,27 +45425,8 @@ End
 EndMobile
 
 #MOBILE
-Vnum	13007
-Room	13029
-Position 12
-Flags 16777281
-#OBJECT
-Vnum         13046
-Level        14
-Values       8 8 0 0 0 0
-End
-
-#OBJECT
-Vnum         13027
-Level        16
-Values       157 1 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
 Vnum	13008
-Room	13021
+Room	13022
 Position 12
 Flags 65
 #OBJECT
@@ -45761,25 +45707,6 @@ End
 EndMobile
 
 #MOBILE
-Vnum	13007
-Room	13021
-Position 12
-Flags 16777281
-#OBJECT
-Vnum         13046
-Level        15
-Values       8 8 0 0 0 0
-End
-
-#OBJECT
-Vnum         13027
-Level        15
-Values       157 1 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
 Vnum	13019
 Room	13019
 Position 12
@@ -45794,7 +45721,7 @@ EndMobile
 
 #MOBILE
 Vnum	13008
-Room	13021
+Room	13018
 Position 12
 Flags 65
 #OBJECT
@@ -45926,25 +45853,6 @@ End
 EndMobile
 
 #MOBILE
-Vnum	13007
-Room	13029
-Position 12
-Flags 16777281
-#OBJECT
-Vnum         13046
-Level        14
-Values       8 8 0 0 0 0
-End
-
-#OBJECT
-Vnum         13027
-Level        15
-Values       157 1 0 0 0 0
-End
-
-EndMobile
-
-#MOBILE
 Vnum	13018
 Room	13030
 Position 12
@@ -45983,7 +45891,7 @@ EndMobile
 
 #MOBILE
 Vnum	13008
-Room	13029
+Room	13021
 Position 12
 Flags 65
 #OBJECT
@@ -46040,7 +45948,7 @@ EndMobile
 
 #MOBILE
 Vnum	13048
-Room	13040
+Room	13041
 Position 12
 Flags 65
 #OBJECT
@@ -46059,7 +45967,7 @@ EndMobile
 
 #MOBILE
 Vnum	13048
-Room	13036
+Room	13041
 Position 12
 Flags 65
 #OBJECT
@@ -46078,7 +45986,7 @@ EndMobile
 
 #MOBILE
 Vnum	13048
-Room	13041
+Room	13035
 Position 12
 Flags 65
 #OBJECT
@@ -46326,7 +46234,21 @@ EndMobile
 
 #MOBILE
 Vnum	13010
-Room	13067
+Room	13073
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	13011
+Room	13066
+Position 12
+Flags 65733
+EndMobile
+
+#MOBILE
+Vnum	13010
+Room	13068
 Position 12
 Flags 97
 EndMobile
@@ -46339,22 +46261,8 @@ Flags 65733
 EndMobile
 
 #MOBILE
-Vnum	13010
-Room	13073
-Position 12
-Flags 97
-EndMobile
-
-#MOBILE
-Vnum	13011
-Room	13074
-Position 12
-Flags 65733
-EndMobile
-
-#MOBILE
 Vnum	70201
-Room	70203
+Room	70205
 Position 12
 Flags 202545153
 EndMobile
@@ -46659,7 +46567,7 @@ EndMobile
 
 #MOBILE
 Vnum	9902
-Room	9913
+Room	9910
 Position 12
 Flags 16777281
 #OBJECT
@@ -46696,7 +46604,7 @@ EndMobile
 
 #MOBILE
 Vnum	9902
-Room	9921
+Room	9937
 Position 12
 Flags 16777281
 #OBJECT
@@ -47132,7 +47040,7 @@ EndMobile
 
 #MOBILE
 Vnum	2071
-Room	2075
+Room	2079
 Position 12
 Flags 65
 EndMobile
@@ -47206,9 +47114,4218 @@ EndMobile
 
 #MOBILE
 Vnum	2071
+Room	2071
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15185
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        1
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15170
+Room	15172
+Position 12
+Flags 85
+#OBJECT
+Vnum         15170
+Level        4
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15190
+Position 12
+Flags 229
+#OBJECT
+Vnum         15178
+Level        8
+Values       2 2 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15182
+Position 12
+Flags 229
+#OBJECT
+Vnum         15172
+Level        8
+Values       12 2 14 4 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15186
+Position 12
+Flags 229
+#OBJECT
+Vnum         15172
+Level        8
+Values       12 2 14 4 0 0
+End
+
+#OBJECT
+Vnum         15173
+Level        8
+Values       3 3 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15174
+Room	15199
+Position 12
+Flags 213
+#OBJECT
+Vnum         15177
+Level        5
+Values       19 10 10 23 0 0
+Spell 3      'blindness'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15177
+Room	15193
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	15177
+Room	15193
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	15177
+Room	15193
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	15177
+Room	15193
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	15174
+Room	15192
+Position 12
+Flags 213
+#OBJECT
+Vnum         15176
+Level        6
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         15177
+Level        6
+Values       21 11 11 23 0 0
+Spell 3      'blindness'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15175
+Room	15192
+Position 12
+Flags 65
+#OBJECT
+Vnum         15179
+Level        6
+Values       12 1 12 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15175
+Room	15204
+Position 12
+Flags 65
+#OBJECT
+Vnum         15179
+Level        6
+Values       12 1 12 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15175
+Room	15201
+Position 12
+Flags 65
+#OBJECT
+Vnum         15179
+Level        6
+Values       12 1 12 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15175
+Room	15199
+Position 12
+Flags 65
+#OBJECT
+Vnum         15179
+Level        5
+Values       12 1 12 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15175
+Room	15203
+Position 12
+Flags 65
+#OBJECT
+Vnum         15179
+Level        6
+Values       12 1 12 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15174
+Room	15209
+Position 12
+Flags 213
+#OBJECT
+Vnum         15177
+Level        3
+Values       20 10 10 23 0 0
+Spell 3      'blindness'
+End
+
+#OBJECT
+Vnum         15176
+Level        3
+Values       3 3 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15174
+Room	15213
+Position 12
+Flags 213
+#OBJECT
+Vnum         15177
+Level        4
+Values       20 11 11 23 0 0
+Spell 3      'blindness'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15220
+Position 12
+Flags 229
+#OBJECT
+Vnum         15178
+Level        8
+Values       2 2 0 0 0 0
+End
+
+#OBJECT
+Vnum         15173
+Level        8
+Values       3 3 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15173
+Room	15236
+Position 12
+Flags 229
+#OBJECT
+Vnum         15173
+Level        8
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         15180
+Level        7
+Values       4 4 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48208
+Room	48204
+Position 12
+Flags 65601
+EndMobile
+
+#MOBILE
+Vnum	48208
+Room	48242
+Position 12
+Flags 65601
+EndMobile
+
+#MOBILE
+Vnum	48208
+Room	48207
+Position 12
+Flags 65601
+EndMobile
+
+#MOBILE
+Vnum	48209
+Room	48212
+Position 12
+Flags 131075
+EndMobile
+
+#MOBILE
+Vnum	48217
+Room	48222
+Position 12
+Flags 131075
+EndMobile
+
+#MOBILE
+Vnum	48217
+Room	48223
+Position 12
+Flags 131075
+EndMobile
+
+#MOBILE
+Vnum	48219
+Room	48229
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	48245
+Room	48310
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	48268
+Room	48329
+Position 12
+Flags 11
+EndMobile
+
+#MOBILE
+Vnum	44703
+Room	44748
+Position 12
+Flags 35
+#OBJECT
+Vnum         44700
+Level        4
+Values       4 4 4 2 0 0
+End
+
+#OBJECT
+Vnum         44701
+Level        4
+Values       3 3 3 0 0 0
+End
+
+#OBJECT
+Vnum         44702
+Level        4
+Values       12 3 9 3 0 0
+End
+
+#OBJECT
+Vnum         44703
+Level        4
+Values       3 3 3 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3008
+Room	3004
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	7927
+Room	7931
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	24532
+Room	24597
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	5011
+Room	5010
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	5012
+Room	5014
+Position 12
+Flags 97
+#OBJECT
+Vnum         5000
+Level        3
+Values       12 1 9 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5013
+Room	5021
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	5003
+Room	5063
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	5002
+Room	5028
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	5009
+Room	5057
+Position 6
+Flags 131
+EndMobile
+
+#MOBILE
+Vnum	5008
+Room	5059
+Position 12
+Flags 3
+#OBJECT
+Vnum         5018
+Level        9
+Values       12 2 14 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5002
+Room	5065
+Position 12
+Flags 65
+#OBJECT
+Vnum         667
+Level        1
+Values       100 0 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	4102
+Room	4103
+Position 12
+Flags 39
+#OBJECT
+Vnum         4104
+Level        7
+Values       24 0 0 1 0 0
+End
+
+#OBJECT
+Vnum         4103
+Level        8
+Values       24 0 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	4105
+Room	4108
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	4106
+Room	4111
+Position 12
+Flags 101
+#OBJECT
+Vnum         4101
+Level        7
+Values       2 2 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	4104
+Room	4113
+Position 12
+Flags 229
+#OBJECT
+Vnum         4104
+Level        5
+Values       24 0 0 1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	46200
+Room	46207
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	46212
+Room	46234
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	46212
+Room	46234
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	46212
+Room	46234
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	46213
+Room	46234
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	46228
+Room	46263
+Position 12
+Flags 131139
+EndMobile
+
+#MOBILE
+Vnum	46213
+Room	46274
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	46245
+Room	46308
+Position 12
+Flags 71
+EndMobile
+
+#MOBILE
+Vnum	46250
+Room	46324
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	46250
+Room	46324
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	100
+Room	1
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	21061
+Room	21095
+Position 12
+Flags 65
+#OBJECT
+Vnum         21067
+Level        13
+Values       0 0 24 0 0 0
+End
+
+#OBJECT
+Vnum         21056
+Level        14
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         21057
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21058
+Level        13
+Values       6 6 0 0 0 0
+End
+
+#OBJECT
+Vnum         21059
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21060
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21061
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21062
+Level        14
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21063
+Level        14
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21064
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21064
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21065
+Level        12
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         21066
+Level        14
+Values       3 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21069
+Level        13
+Values       10 3 16 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	21061
+Room	21108
+Position 12
+Flags 65
+#OBJECT
+Vnum         21056
+Level        13
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         21057
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21058
+Level        13
+Values       6 6 0 0 0 0
+End
+
+#OBJECT
+Vnum         21059
+Level        12
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21060
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21061
+Level        11
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21062
+Level        12
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21063
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21064
+Level        12
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21064
+Level        12
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21065
+Level        12
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         21066
+Level        11
+Values       3 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21067
+Level        13
+Values       0 0 24 0 0 0
+End
+
+#OBJECT
+Vnum         21069
+Level        12
+Values       10 5 15 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	21081
+Room	21039
+Position 12
+Flags 67108929
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21079
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21290
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21117
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21118
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21120
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21081
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21095
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21435
+Room	21093
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	21062
+Room	21088
+Position 12
+Flags 3
+#OBJECT
+Vnum         21061
+Level        13
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21062
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21063
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21067
+Level        12
+Values       0 0 24 0 0 0
+End
+
+#OBJECT
+Vnum         21069
+Level        13
+Values       10 5 14 3 0 0
+End
+
+#OBJECT
+Vnum         21056
+Level        14
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         21058
+Level        12
+Values       6 6 0 0 0 0
+End
+
+#OBJECT
+Vnum         21059
+Level        13
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         21060
+Level        14
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         21070
+Level        14
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	804
+Room	809
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	820
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        9
+Values       12 3 12 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	810
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        10
+Values       12 3 12 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	834
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        10
+Values       12 3 12 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	805
+Room	812
+Position 12
+Flags 69
+#OBJECT
+Vnum         807
+Level        10
+Values       12 3 12 11 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	808
+Room	821
+Position 12
+Flags 65
+#OBJECT
+Vnum         809
+Level        24
+Values       12 6 24 3 0 0
+End
+
+#OBJECT
+Vnum         815
+Level        25
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         816
+Level        24
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         817
+Level        23
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	810
+Room	820
+Position 12
+Flags 193
+#OBJECT
+Vnum         806
+Level        9
+Values       12 2 8 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	810
+Room	826
+Position 12
+Flags 193
+#OBJECT
+Vnum         806
+Level        8
+Values       12 2 8 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6501
+Room	6503
+Position 12
+Flags 2113
+EndMobile
+
+#MOBILE
+Vnum	6501
+Room	6505
+Position 12
+Flags 2113
+EndMobile
+
+#MOBILE
+Vnum	6501
+Room	6503
+Position 12
+Flags 2113
+EndMobile
+
+#MOBILE
+Vnum	6506
+Room	6522
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	6507
+Room	6543
+Position 12
+Flags 2051
+#OBJECT
+Vnum         6508
+Level        5
+Values       12 2 12 8 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6508
+Room	6543
+Position 12
+Flags 2051
+#OBJECT
+Vnum         6512
+Level        20
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         6508
+Level        20
+Values       12 2 12 8 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6510
+Room	6534
+Position 12
+Flags 2051
+EndMobile
+
+#MOBILE
+Vnum	6510
+Room	6534
+Position 12
+Flags 2051
+EndMobile
+
+#MOBILE
+Vnum	6514
+Room	6521
+Position 12
+Flags 2051
+#OBJECT
+Vnum         6509
+Level        13
+Values       12 2 14 1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6514
+Room	6521
+Position 12
+Flags 2051
+#OBJECT
+Vnum         6509
+Level        14
+Values       12 2 14 1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6511
+Room	6523
+Position 12
+Flags 2051
+EndMobile
+
+#MOBILE
+Vnum	6511
+Room	6523
+Position 12
+Flags 2051
+#OBJECT
+Vnum         6504
+Level        7
+Values       12 3 18 8 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6512
+Room	6528
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	6513
+Room	6525
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	6515
+Room	6531
+Position 12
+Flags 2051
+EndMobile
+
+#MOBILE
+Vnum	6515
+Room	6531
+Position 12
+Flags 2051
+EndMobile
+
+#MOBILE
+Vnum	2071
 Room	2072
 Position 12
 Flags 65
+EndMobile
+
+#MOBILE
+Vnum	7001
+Room	7041
+Position 4
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	7001
+Room	7025
+Position 4
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	7001
+Room	7004
+Position 4
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	7001
+Room	7004
+Position 4
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	7003
+Room	7039
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7003
+Room	7047
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7004
+Room	7401
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	7005
+Room	7103
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	7005
+Room	7122
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	7005
+Room	7112
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	7002
+Room	7014
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7006
+Room	7004
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7006
+Room	7017
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7000
+Room	7286
+Position 6
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	7000
+Room	7281
+Position 6
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	7041
+Room	7444
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7042
+Room	7435
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	7044
+Room	7406
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	7010
+Room	7426
+Position 12
+Flags 133
+EndMobile
+
+#MOBILE
+Vnum	7011
+Room	7417
+Position 12
+Flags 161
+EndMobile
+
+#MOBILE
+Vnum	7008
+Room	7401
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	5208
+Room	5246
+Position 12
+Flags 3
+#OBJECT
+Vnum         5221
+Level        25
+Values       12 2 24 3 0 0
+End
+
+#OBJECT
+Vnum         5203
+Level        23
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5208
+Room	5247
+Position 12
+Flags 3
+#OBJECT
+Vnum         5221
+Level        22
+Values       12 2 24 3 0 0
+End
+
+#OBJECT
+Vnum         5200
+Level        22
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         5204
+Level        24
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5208
+Room	5248
+Position 12
+Flags 3
+#OBJECT
+Vnum         5221
+Level        23
+Values       12 2 24 3 0 0
+End
+
+#OBJECT
+Vnum         5205
+Level        23
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         5206
+Level        22
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5208
+Room	5254
+Position 12
+Flags 3
+#OBJECT
+Vnum         5221
+Level        23
+Values       12 2 24 3 0 0
+End
+
+#OBJECT
+Vnum         5201
+Level        24
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         5202
+Level        23
+Values       8 8 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	60353
+Room	60357
+Position 12
+Flags 16908355
+EndMobile
+
+#MOBILE
+Vnum	60354
+Room	60357
+Position 12
+Flags 16908355
+EndMobile
+
+#MOBILE
+Vnum	8118
+Room	8102
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8112
+Room	8113
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8133
+Room	8166
+Position 12
+Flags 231
+EndMobile
+
+#MOBILE
+Vnum	8120
+Room	8183
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8121
+Room	8175
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8122
+Room	8186
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8124
+Room	8186
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	8125
+Room	8189
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	45351
+Room	45303
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	45351
+Room	45304
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	45351
+Room	45306
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	45350
+Room	45307
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	45351
+Room	45302
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	45351
+Room	45311
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	45352
+Room	45314
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	45300
+Room	45314
+Position 12
+Flags 35
+EndMobile
+
+#MOBILE
+Vnum	45326
+Room	45315
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	45326
+Room	45316
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	45325
+Room	45319
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	45331
+Room	45327
+Position 12
+Flags 3
+#OBJECT
+Vnum         45310
+Level        14
+Values       12 5 75 0 0 0
+End
+
+#OBJECT
+Vnum         45406
+Level        14
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	45343
+Room	45351
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	45306
+Room	45362
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	48022
+Room	48027
+Position 12
+Flags 262149
+EndMobile
+
+#MOBILE
+Vnum	48022
+Room	48034
+Position 12
+Flags 262149
+EndMobile
+
+#MOBILE
+Vnum	48024
+Room	48013
+Position 12
+Flags 7
+EndMobile
+
+#MOBILE
+Vnum	48024
+Room	48013
+Position 12
+Flags 7
+EndMobile
+
+#MOBILE
+Vnum	48011
+Room	48024
+Position 12
+Flags 7
+#OBJECT
+Vnum         48015
+Level        5
+End
+
+#OBJECT
+Vnum         48014
+Level        6
+Timer        15
+Values       24 24 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48011
+Room	48024
+Position 12
+Flags 7
+#OBJECT
+Vnum         48015
+Level        2
+End
+
+#OBJECT
+Vnum         48014
+Level        2
+Timer        15
+Values       24 24 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48010
+Room	48025
+Position 12
+Flags 7
+#OBJECT
+Vnum         48016
+Level        11
+End
+
+#OBJECT
+Vnum         48021
+Level        12
+Values       25 -1 -1 60 0 0
+Spell 3      'cure poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48010
+Room	48025
+Position 12
+Flags 7
+#OBJECT
+Vnum         48016
+Level        12
+End
+
+#OBJECT
+Vnum         48021
+Level        11
+Values       26 -1 -1 60 0 0
+Spell 3      'cure poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48021
+Room	48015
+Position 12
+Flags 5
+EndMobile
+
+#MOBILE
+Vnum	48023
+Room	48030
+Position 12
+Flags 5
+EndMobile
+
+#MOBILE
+Vnum	48008
+Room	48036
+Position 12
+Flags 524295
+#OBJECT
+Vnum         48017
+Level        25
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48008
+Room	48036
+Position 12
+Flags 524295
+#OBJECT
+Vnum         48017
+Level        24
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48009
+Room	48037
+Position 12
+Flags 39
+#OBJECT
+Vnum         48013
+Level        34
+Values       12 3 33 1 0 0
+End
+
+#OBJECT
+Vnum         48019
+Level        33
+Values       24 -1 -1 60 0 0
+Spell 3      'cure poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48009
+Room	48037
+Position 12
+Flags 39
+#OBJECT
+Vnum         48013
+Level        34
+Values       12 3 33 1 0 0
+End
+
+#OBJECT
+Vnum         48019
+Level        33
+Values       23 -1 -1 60 0 0
+Spell 3      'cure poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	48012
+Room	48049
+Position 12
+Flags 39
+EndMobile
+
+#MOBILE
+Vnum	48012
+Room	48049
+Position 12
+Flags 39
+EndMobile
+
+#MOBILE
+Vnum	48607
+Room	48641
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	48613
+Room	48637
+Position 12
+Flags 67
+#OBJECT
+Vnum         48605
+Level        16
+Values       12 2 14 6 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	44900
+Room	44910
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44900
+Room	44906
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44900
+Room	44905
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44900
+Room	44905
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44908
+Room	44928
+Position 12
+Flags 149
+EndMobile
+
+#MOBILE
+Vnum	44906
+Room	44936
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	44906
+Room	44928
+Position 12
+Flags 69
+EndMobile
+
+#MOBILE
+Vnum	3000253
+Room	3000271
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	3000253
+Room	3000259
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	3000254
+Room	3000260
+Position 12
+Flags 32771
+EndMobile
+
+#MOBILE
+Vnum	13007
+Room	13012
+Position 12
+Flags 16777281
+#OBJECT
+Vnum         13046
+Level        14
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         13027
+Level        14
+Values       157 1 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	6005
+Room	6017
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	5101
+Room	5106
+Position 12
+Flags 105
+#OBJECT
+Vnum         5100
+Level        8
+Values       12 2 12 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	5100
+Room	5122
+Position 4
+Flags 131
+EndMobile
+
+#MOBILE
+Vnum	5101
+Room	5131
+Position 12
+Flags 105
+#OBJECT
+Vnum         5100
+Level        8
+Values       12 2 12 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	60880
+Room	60957
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	8302
+Room	8304
+Position 12
+Flags 101
+#OBJECT
+Vnum         8307
+Level        12
+Values       42 58 -1 -1 0 0
+Spell 1      'cure critical'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	8314
+Room	8313
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	8314
+Room	8309
+Position 12
+Flags 101
+EndMobile
+
+#MOBILE
+Vnum	8305
+Room	8308
+Position 12
+Flags 69
+#OBJECT
+Vnum         8303
+Level        27
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	8318
+Room	8313
+Position 12
+Flags 69
+#OBJECT
+Vnum         8307
+Level        10
+Values       43 58 -1 -1 0 0
+Spell 1      'cure critical'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	13032
+Room	13015
+Position 12
+Flags 67
+#OBJECT
+Vnum         13038
+Values       4 4 15 0 0 0
+End
+
+#OBJECT
+Vnum         13037
+Level        14
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         13036
+Level        14
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3400
+Room	3446
+Position 12
+Flags 33
+#OBJECT
+Vnum         3421
+Level        1
+Values       12 2 6 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3400
+Room	3435
+Position 12
+Flags 33
+#OBJECT
+Vnum         3421
+Level        1
+Values       12 2 6 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3400
+Room	3415
+Position 12
+Flags 33
+#OBJECT
+Vnum         3421
+Level        1
+Values       12 2 6 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3400
+Room	3413
+Position 12
+Flags 33
+#OBJECT
+Vnum         3421
+Level        1
+Values       12 2 6 3 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3401
+Room	3414
+Position 12
+Flags 35
+EndMobile
+
+#MOBILE
+Vnum	3402
+Room	3441
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	3402
+Room	3453
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	3402
+Room	3452
+Position 12
+Flags 33
+EndMobile
+
+#MOBILE
+Vnum	3406
+Room	3468
+Position 12
+Flags 33
+#OBJECT
+Vnum         3403
+Level        10
+Values       7 7 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	8904
+Room	8905
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	8905
+Room	8905
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	8907
+Room	8905
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	8907
+Room	8906
+Position 12
+Flags 193
+EndMobile
+
+#MOBILE
+Vnum	8908
+Room	8901
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	3501
+Room	3551
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	3501
+Room	3515
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	3501
+Room	3510
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	3506
+Room	3555
+Position 12
+Flags 97
+#OBJECT
+Vnum         3510
+Level        9
+Values       8 8 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15116
+Room	15103
+Position 12
+Flags 73
+#OBJECT
+Vnum         15140
+Level        27
+Values       12 8 27 3 0 0
+End
+
+#OBJECT
+Vnum         15141
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15142
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15143
+Level        28
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15144
+Level        29
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15145
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15146
+Level        29
+Values       0 0 48 0 0 0
+End
+
+#OBJECT
+Vnum         15147
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        28
+Values       12 9 28 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15116
+Room	15111
+Position 12
+Flags 73
+#OBJECT
+Vnum         15140
+Level        28
+Values       12 9 26 3 0 0
+End
+
+#OBJECT
+Vnum         15141
+Level        29
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15142
+Level        27
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15143
+Level        27
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15144
+Level        27
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15145
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15146
+Level        27
+Values       0 0 48 0 0 0
+End
+
+#OBJECT
+Vnum         15147
+Level        29
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        28
+Values       12 10 28 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15109
+Room	15104
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15110
+Room	15130
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15111
+Room	15111
+Position 12
+Flags 195
+#OBJECT
+Vnum         15132
+Level        9
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         15100
+Level        9
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         15104
+Level        10
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15112
+Room	15111
+Position 12
+Flags 195
+#OBJECT
+Vnum         15132
+Level        11
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         15100
+Level        11
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         15104
+Level        11
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         15102
+Level        10
+Values       2 1 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15116
+Room	15115
+Position 12
+Flags 73
+#OBJECT
+Vnum         15140
+Level        27
+Values       12 7 26 3 0 0
+End
+
+#OBJECT
+Vnum         15141
+Level        26
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         15142
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15143
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15144
+Level        26
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15145
+Level        26
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         15146
+Level        26
+Values       0 0 48 0 0 0
+End
+
+#OBJECT
+Vnum         15147
+Level        27
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        26
+Values       12 9 24 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15117
+Room	15117
+Position 12
+Flags 99
+#OBJECT
+Vnum         15152
+Level        18
+Values       6 6 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        18
+Values       12 5 17 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15109
+Room	15108
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15109
+Room	15110
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15116
+Room	15118
+Position 12
+Flags 73
+#OBJECT
+Vnum         15140
+Level        26
+Values       12 9 25 3 0 0
+End
+
+#OBJECT
+Vnum         15141
+Level        27
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15142
+Level        27
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15143
+Level        26
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15144
+Level        28
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15145
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15146
+Level        28
+Values       0 0 48 0 0 0
+End
+
+#OBJECT
+Vnum         15147
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        27
+Values       12 9 26 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15109
+Room	15129
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15116
+Room	15128
+Position 12
+Flags 73
+#OBJECT
+Vnum         15140
+Level        27
+Values       12 7 26 3 0 0
+End
+
+#OBJECT
+Vnum         15141
+Level        28
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15142
+Level        28
+Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         15143
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15144
+Level        29
+Values       9 9 0 0 0 0
+End
+
+#OBJECT
+Vnum         15145
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15146
+Level        28
+Values       0 0 48 0 0 0
+End
+
+#OBJECT
+Vnum         15147
+Level        28
+Values       10 10 0 0 0 0
+End
+
+#OBJECT
+Vnum         15148
+Level        28
+Values       12 9 26 2 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	15109
+Room	15136
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15108
+Room	15135
+Position 12
+Flags 227
+EndMobile
+
+#MOBILE
+Vnum	15107
+Room	15129
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15107
+Room	15139
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	15108
+Room	15139
+Position 12
+Flags 227
+EndMobile
+
+#MOBILE
+Vnum	15107
+Room	15150
+Position 12
+Flags 225
+EndMobile
+
+#MOBILE
+Vnum	46032
+Room	46007
+Position 12
+Flags 16777219
+EndMobile
+
+#MOBILE
+Vnum	46005
+Room	46008
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46005
+Room	46014
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46005
+Room	46012
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46008
+Room	46034
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46008
+Room	46032
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	46007
+Room	46062
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	434
+Room	460
+Position 12
+Flags 35
+#OBJECT
+Vnum         471
+Level        70
+Values       20 0 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	434
+Room	460
+Position 12
+Flags 35
+#OBJECT
+Vnum         471
+Level        68
+Values       20 0 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	213
+Room	212
+Position 12
+Flags 3
+#OBJECT
+Vnum         218
+Level        74
+Values       12 5 25 5 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	231
+Room	234
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	233
+Room	225
+Position 12
+Flags 1
+EndMobile
+
+#MOBILE
+Vnum	234
+Room	244
+Position 0
+Flags 163843
+EndMobile
+
+#MOBILE
+Vnum	235
+Room	244
+Position 0
+Flags 163843
+EndMobile
+
+#MOBILE
+Vnum	48506
+Room	48501
+Position 12
+Flags 229
+EndMobile
+
+#MOBILE
+Vnum	48506
+Room	48502
+Position 12
+Flags 229
+EndMobile
+
+#MOBILE
+Vnum	48506
+Room	48501
+Position 12
+Flags 229
+EndMobile
+
+#MOBILE
+Vnum	48506
+Room	48503
+Position 12
+Flags 229
+EndMobile
+
+#MOBILE
+Vnum	48506
+Room	48501
+Position 12
+Flags 229
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41400
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41435
+Room	41400
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41422
+Room	41432
+Position 12
+Flags 65601
+#OBJECT
+Vnum         41411
+Level        17
+Values       12 2 16 7 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41401
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41413
+Room	41404
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41421
+Room	41402
+Position 12
+Flags 131139
+#OBJECT
+Vnum         41406
+Level        14
+Values       15 3 3 102 0 0
+Spell 3      'fireball'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41434
+Room	41403
+Position 12
+Flags 67
+#OBJECT
+Vnum         41412
+Level        7
+Values       19 2 2 120 0 0
+Spell 3      'harm'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41406
+Room	41401
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41412
+Room	41400
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41441
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41409
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41421
+Room	41407
+Position 12
+Flags 131139
+#OBJECT
+Vnum         41406
+Level        15
+Values       16 3 3 102 0 0
+Spell 3      'fireball'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41443
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41400
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41409
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41423
+Room	41409
+Position 12
+Flags 131139
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41408
+Position 12
+Flags 65
+#OBJECT
+Vnum         41416
+Level        1
+Values       19 67 -1 -1 0 0
+Spell 1      'detect invis'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41452
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41410
+Room	41408
+Position 12
+Flags 65
+#OBJECT
+Vnum         41413
+Level        7
+Values       0 0 1000 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41417
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41410
+Room	41413
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41413
+Room	41414
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41413
+Position 12
+Flags 67
+#OBJECT
+Vnum         41415
+Level        4
+Values       150 150 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41414
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41411
+Room	41413
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41411
+Room	41409
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41414
+Room	41412
+Position 12
+Flags 262209
+#OBJECT
+Vnum         41416
+Level        3
+Values       18 67 -1 -1 0 0
+Spell 1      'detect invis'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41414
+Position 12
+Flags 65
+#OBJECT
+Vnum         41408
+Level        1
+Values       7 2 2 81 0 0
+Spell 3      'earthquake'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41418
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41434
+Room	41416
+Position 12
+Flags 67
+#OBJECT
+Vnum         41410
+Level        9
+Values       8 2 2 144 0 0
+Spell 3      'lightning bolt'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41415
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41413
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41407
+Room	41415
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41414
+Room	41414
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41408
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41409
+Room	41423
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41409
+Room	41401
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41424
+Room	41420
+Position 12
+Flags 262209
+#OBJECT
+Vnum         41409
+Level        10
+Values       10 1 1 -1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41419
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41422
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41411
+Room	41427
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41411
+Room	41422
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41424
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41412
+Room	41423
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41422
+Position 12
+Flags 65
+#OBJECT
+Vnum         41407
+Level        6
+Values       11 3 3 -1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41425
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41422
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41419
+Position 12
+Flags 65
+#OBJECT
+Vnum         41415
+Level        8
+Values       150 150 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41404
+Room	41426
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41428
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41424
+Room	41430
+Position 12
+Flags 262209
+#OBJECT
+Vnum         41408
+Level        9
+Values       7 3 3 81 0 0
+Spell 3      'earthquake'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41409
+Room	41411
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41410
+Room	41408
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41431
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41430
+Position 12
+Flags 65
+#OBJECT
+Vnum         41406
+Level        2
+Values       14 4 4 102 0 0
+Spell 3      'fireball'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41431
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41410
+Room	41454
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41430
+Position 12
+Flags 65
+#OBJECT
+Vnum         41406
+Level        2
+Values       16 2 2 102 0 0
+Spell 3      'fireball'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41405
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41405
+Room	41430
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41434
+Room	41432
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41435
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41435
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41409
+Room	41433
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41433
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41437
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41413
+Room	41433
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41437
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41436
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41432
+Position 12
+Flags 65
+#OBJECT
+Vnum         41410
+Level        2
+Values       9 1 1 144 0 0
+Spell 3      'lightning bolt'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41438
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41408
+Room	41434
+Position 12
+Flags 65
+#OBJECT
+Vnum         41409
+Level        2
+Values       12 1 1 -1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41423
+Room	41439
+Position 12
+Flags 131139
+EndMobile
+
+#MOBILE
+Vnum	41413
+Room	41407
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41434
+Room	41440
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41412
+Room	41404
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41423
+Room	41441
+Position 12
+Flags 131139
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41445
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41439
+Position 12
+Flags 262209
+#OBJECT
+Vnum         41409
+Level        1
+Values       11 2 2 -1 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41443
+Position 12
+Flags 262209
+#OBJECT
+Vnum         41416
+Level        1
+Values       20 67 -1 -1 0 0
+Spell 1      'detect invis'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	41412
+Room	41410
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41446
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41445
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41414
+Room	41439
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41443
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41442
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41414
+Room	41444
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41415
+Room	41442
+Position 12
+Flags 262209
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41449
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41433
+Room	41453
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	41426
+Room	41407
+Position 12
+Flags 197
+EndMobile
+
+#MOBILE
+Vnum	41431
+Room	41451
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	41422
+Room	41415
+Position 12
+Flags 65601
+EndMobile
+
+#MOBILE
+Vnum	26545
+Room	26566
+Position 9
+Flags 3
+#OBJECT
+Vnum         26520
+Level        26
+Values       7 7 0 0 0 0
+End
+
+#OBJECT
+Vnum         26519
+Level        26
+Values       12 3 18 10 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14741
+Room	14734
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14740
+Level        40
+Values       13 13 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14742
+Room	14711
+Position 12
+Flags 8388705
+EndMobile
+
+#MOBILE
+Vnum	14741
+Room	14749
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14740
+Level        39
+Values       10 10 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14732
+Room	14711
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14743
+Level        44
+Values       12 13 38 7 0 0
+End
+
+#OBJECT
+Vnum         14742
+Level        45
+Values       12 13 39 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14742
+Room	14745
+Position 12
+Flags 8388705
+EndMobile
+
+#MOBILE
+Vnum	14732
+Room	14730
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14743
+Level        44
+Values       12 14 39 7 0 0
+End
+
+#OBJECT
+Vnum         14742
+Level        44
+Values       12 12 40 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14732
+Room	14712
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14743
+Level        41
+Values       12 13 37 7 0 0
+End
+
+#OBJECT
+Vnum         14742
+Level        43
+Values       12 11 37 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14742
+Room	14747
+Position 12
+Flags 8388705
+EndMobile
+
+#MOBILE
+Vnum	14732
+Room	14740
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14743
+Level        44
+Values       12 12 38 7 0 0
+End
+
+#OBJECT
+Vnum         14742
+Level        43
+Values       12 12 39 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14741
+Room	14739
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14740
+Level        40
+Values       13 13 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14742
+Room	14729
+Position 12
+Flags 8388705
+EndMobile
+
+#MOBILE
+Vnum	14741
+Room	14727
+Position 12
+Flags 8388705
+#OBJECT
+Vnum         14740
+Level        40
+Values       12 12 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14720
+Room	14752
+Position 12
+Flags 131
+#OBJECT
+Vnum         14730
+Level        9
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         14744
+Level        8
+Values       4 4 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14721
+Room	14753
+Position 12
+Flags 131
+#OBJECT
+Vnum         14730
+Level        8
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         14744
+Level        8
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14720
+Room	14755
+Position 12
+Flags 131
+#OBJECT
+Vnum         14730
+Level        9
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Vnum         14744
+Level        9
+Values       5 5 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14721
+Room	14756
+Position 12
+Flags 131
+#OBJECT
+Vnum         14730
+Level        6
+Values       3 3 0 0 0 0
+End
+
+#OBJECT
+Vnum         14744
+Level        7
+Values       2 2 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14739
+Room	14760
+Position 12
+Flags 99
+#OBJECT
+Vnum         14751
+Level        45
+Values       13 13 0 0 0 0
+End
+
+#OBJECT
+Vnum         14752
+Level        46
+Values       46 23 31 165 0 0
+Spell 1      'blindness'
+Spell 2      'cause critical'
+Spell 3      'poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14739
+Room	14762
+Position 12
+Flags 99
+#OBJECT
+Vnum         14751
+Level        46
+Values       14 14 0 0 0 0
+End
+
+#OBJECT
+Vnum         14752
+Level        46
+Values       49 23 31 165 0 0
+Spell 1      'blindness'
+Spell 2      'cause critical'
+Spell 3      'poison'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14722
+Room	14766
+Position 12
+Flags 99
+EndMobile
+
+#MOBILE
+Vnum	14710
+Room	14768
+Position 12
+Flags 99
+#OBJECT
+Vnum         14715
+Level        46
+Values       14 14 0 0 0 0
+End
+
+#OBJECT
+Vnum         14716
+Level        47
+Values       12 12 41 8 0 0
+End
+
+#OBJECT
+Vnum         14717
+Level        45
+Values       14 14 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14710
+Room	14769
+Position 12
+Flags 99
+#OBJECT
+Vnum         14715
+Level        45
+Values       12 12 0 0 0 0
+End
+
+#OBJECT
+Vnum         14716
+Level        46
+Values       12 13 40 8 0 0
+End
+
+#OBJECT
+Vnum         14717
+Level        45
+Values       13 13 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14710
+Room	14770
+Position 12
+Flags 99
+#OBJECT
+Vnum         14715
+Level        47
+Values       13 13 0 0 0 0
+End
+
+#OBJECT
+Vnum         14716
+Level        47
+Values       12 12 41 8 0 0
+End
+
+#OBJECT
+Vnum         14717
+Level        47
+Values       13 13 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14736
+Room	14771
+Position 12
+Flags 75
+#OBJECT
+Vnum         14747
+Level        44
+Values       12 14 37 8 0 0
+End
+
+#OBJECT
+Vnum         14748
+Level        44
+Values       13 13 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14731
+Room	14773
+Position 12
+Flags 99
+#OBJECT
+Vnum         14741
+Level        47
+Values       12 12 40 8 0 0
+End
+
+#OBJECT
+Vnum         14742
+Level        46
+Values       12 14 40 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14735
+Room	14776
+Position 12
+Flags 67
+#OBJECT
+Vnum         14745
+Level        47
+Values       12 14 42 3 0 0
+End
+
+#OBJECT
+Vnum         14746
+Level        48
+Values       48 10 22 191 0 0
+Spell 1      'armor'
+Spell 2      'bless'
+Spell 3      'shield'
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14708
+Room	14789
+Position 12
+Flags 67
+#OBJECT
+Vnum         14718
+Level        39
+Values       12 11 34 11 0 0
+End
+
+#OBJECT
+Vnum         14719
+Level        38
+Values       11 11 0 0 0 0
+End
+
+#OBJECT
+Vnum         14720
+Level        38
+Values       11 11 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14701
+Room	14799
+Position 12
+Flags 75
+#OBJECT
+Vnum         14704
+Level        53
+Values       12 15 46 8 0 0
+End
+
+#OBJECT
+Vnum         14705
+Level        53
+Values       15 15 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14706
+Room	14800
+Position 12
+Flags 99
+#OBJECT
+Vnum         14715
+Level        49
+Values       15 15 0 0 0 0
+End
+
+#OBJECT
+Vnum         14716
+Level        49
+Values       12 13 43 8 0 0
+End
+
+#OBJECT
+Vnum         14717
+Level        49
+Values       14 14 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	14707
+Room	14806
+Position 12
+Flags 67
+EndMobile
+
+#MOBILE
+Vnum	25507
+Room	25507
+Position 12
+Flags 97
+EndMobile
+
+#MOBILE
+Vnum	13033
+Room	13015
+Position 12
+Flags 16777283
+#OBJECT
+Vnum         13039
+Values       11 11 1 0 0 0
+End
+
+#OBJECT
+Vnum         13027
+Level        15
+Values       157 1 0 0 0 0
+End
+
+#OBJECT
+Vnum         13046
+Level        14
+Values       8 8 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	13033
+Room	13015
+Position 12
+Flags 16777283
+#OBJECT
+Vnum         13039
+Values       11 11 1 0 0 0
+End
+
+#OBJECT
+Vnum         13027
+Level        16
+Values       157 1 0 0 0 0
+End
+
+#OBJECT
+Vnum         13046
+Level        14
+Values       8 8 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	13033
+Room	13015
+Position 12
+Flags 16777283
+#OBJECT
+Vnum         13039
+Values       11 11 1 0 0 0
+End
+
+#OBJECT
+Vnum         13027
+Level        15
+Values       157 1 0 0 0 0
+End
+
+#OBJECT
+Vnum         13046
+Level        15
+Values       8 8 0 0 0 0
+End
+
+EndMobile
+
+#MOBILE
+Vnum	3008
+Room	3000
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	3008
+Room	3001
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	3008
+Room	3002
+Position 12
+Flags 65
+EndMobile
+
+#MOBILE
+Vnum	4105
+Room	4108
+Position 12
+Flags 3
+EndMobile
+
+#MOBILE
+Vnum	4104
+Room	4124
+Position 12
+Flags 229
+#OBJECT
+Vnum         4104
+Level        6
+Values       24 0 0 1 0 0
+End
+
 EndMobile
 
 #END
