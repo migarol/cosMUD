@@ -661,3 +661,125 @@ char *get_time_diff(time_t past)
 
     return buf;
 }
+
+/*
+ * Get custom routine for mob based on their schedule
+ */
+int get_custom_mob_routine(CHAR_DATA *mob)
+{
+    MOB_IDENTITY *identity;
+    CUSTOM_SCHEDULE *sched;
+    SCHEDULE_ENTRY *entry;
+    int hour;
+    extern int get_game_hour(void);  /* From world_simulation.c */
+
+    if (!mob || !IS_NPC(mob))
+        return -1;
+
+    identity = get_mob_identity(mob->pIndexData->vnum);
+    if (!identity || !identity->has_custom_schedule)
+        return -1;
+
+    sched = (CUSTOM_SCHEDULE *)identity->custom_schedule;
+    if (!sched)
+        return -1;
+
+    hour = get_game_hour();
+
+    /* Find matching schedule entry */
+    entry = get_current_schedule(sched, hour);
+    if (!entry)
+        return -1;
+
+    /* Map activity string to routine constant */
+    if (!str_cmp(entry->activity, "SLEEP"))
+        return ROUTINE_SLEEP;
+    else if (!str_cmp(entry->activity, "WAKE"))
+        return ROUTINE_WAKE;
+    else if (!str_cmp(entry->activity, "PATROL"))
+        return ROUTINE_PATROL;
+    else if (!str_cmp(entry->activity, "WORK") || !str_cmp(entry->activity, "RESEARCH"))
+        return ROUTINE_WORK;
+    else if (!str_cmp(entry->activity, "WRITE"))
+        return ROUTINE_WORK;  /* Writing is a form of work */
+    else if (!str_cmp(entry->activity, "TRADE"))
+        return ROUTINE_TRADE;
+    else if (!str_cmp(entry->activity, "SOCIALIZE") || !str_cmp(entry->activity, "SOCIAL"))
+        return ROUTINE_SOCIALIZE;
+    else if (!str_cmp(entry->activity, "EAT"))
+        return ROUTINE_EAT;
+    else if (!str_cmp(entry->activity, "GUARD"))
+        return ROUTINE_GUARD;
+    else if (!str_cmp(entry->activity, "HUNT"))
+        return ROUTINE_HUNT;
+    else if (!str_cmp(entry->activity, "MEDITATE"))
+        return ROUTINE_WORK;  /* Meditation is contemplative work */
+
+    return -1;  /* Unknown activity */
+}
+
+/*
+ * Get current schedule entry for given hour
+ */
+SCHEDULE_ENTRY *get_current_schedule(CUSTOM_SCHEDULE *sched, int hour)
+{
+    SCHEDULE_ENTRY *entry;
+
+    if (!sched)
+        return NULL;
+
+    for (entry = sched->first_entry; entry; entry = entry->next)
+    {
+        /* Check if current hour falls within this entry's time range */
+        if (entry->start_hour <= entry->end_hour)
+        {
+            /* Normal range (e.g., 8:00-17:00) */
+            if (hour >= entry->start_hour && hour < entry->end_hour)
+                return entry;
+        }
+        else
+        {
+            /* Wraps around midnight (e.g., 22:00-6:00) */
+            if (hour >= entry->start_hour || hour < entry->end_hour)
+                return entry;
+        }
+    }
+
+    return NULL;
+}
+
+/*
+ * Create custom schedule
+ */
+CUSTOM_SCHEDULE *create_custom_schedule(void)
+{
+    CUSTOM_SCHEDULE *sched;
+
+    CREATE(sched, CUSTOM_SCHEDULE, 1);
+    sched->first_entry = NULL;
+    sched->last_entry = NULL;
+
+    return sched;
+}
+
+/*
+ * Add schedule entry
+ */
+void add_schedule_entry(CUSTOM_SCHEDULE *sched, int start, int end, char *activity, char *location)
+{
+    SCHEDULE_ENTRY *entry;
+
+    if (!sched)
+        return;
+
+    CREATE(entry, SCHEDULE_ENTRY, 1);
+    entry->start_hour = start;
+    entry->end_hour = end;
+    entry->activity = str_dup(activity);
+    entry->location = str_dup(location);
+    entry->location_vnum = 0;  /* Can be set later */
+    entry->next = NULL;
+
+    /* Add to list */
+    LINK(entry, sched->first_entry, sched->last_entry, next, SCHEDULE_ENTRY);
+}

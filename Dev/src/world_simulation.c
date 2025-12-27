@@ -85,9 +85,21 @@ int get_game_hour(void)
 int get_mob_routine(CHAR_DATA *mob)
 {
     int hour = get_game_hour();
+    MOB_IDENTITY *identity;
+    extern MOB_IDENTITY *get_mob_identity(int vnum);
+    extern int get_custom_mob_routine(CHAR_DATA *mob);
 
     if (!mob || !IS_NPC(mob))
         return -1;
+
+    /* Check if mob has custom schedule */
+    identity = get_mob_identity(mob->pIndexData->vnum);
+    if (identity && identity->has_custom_schedule)
+    {
+        return get_custom_mob_routine(mob);
+    }
+
+    /* Default routines below */
 
     /* Guards are always on duty */
     if (xIS_SET(mob->act, ACT_SENTINEL))

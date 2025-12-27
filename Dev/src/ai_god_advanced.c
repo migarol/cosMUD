@@ -20,11 +20,17 @@
 #define GOD_ANALYSIS_INTERVAL 1800  /* 30 minutes */
 #define GOD_EVENT_CHECK_INTERVAL 600  /* 10 minutes */
 #define GOD_BALANCE_CHECK_INTERVAL 3600  /* 1 hour */
+#define GOD_LIFEGIVER_INTERVAL 1800  /* 30 minutes - give life to mobs */
 
 /* Global state - static to avoid conflicts with living_world.c */
 static time_t god_last_analysis_time = 0;
 static time_t god_last_event_check = 0;
 static time_t god_last_balance_check = 0;
+static time_t god_last_lifegiver_check = 0;
+
+/* Statistics */
+static int total_mobs_given_life = 0;
+static int total_personalities_generated = 0;
 
 /* Analysis data structures */
 typedef struct area_stats {
@@ -323,6 +329,60 @@ void god_spawn_special_encounter(CHAR_DATA *ch)
 }
 
 /*
+ * AI God Life-Giver: Automatically generates personalities for mobs
+ * Runs every 30 minutes, gives life to 5-10 random mobs
+ */
+void god_give_life_to_mobs(void)
+{
+    CHAR_DATA *mob;
+    MOB_IDENTITY *identity;
+    extern MOB_IDENTITY *first_mob_identity;
+    extern void generate_mob_identity(CHAR_DATA *mob);
+    extern MOB_IDENTITY *get_mob_identity(int vnum);
+    int mobs_to_process = number_range(5, 10);
+    int processed = 0;
+    int scanned = 0;
+    int max_scan = 200;
+
+    log_string("AI God Life-Giver: Searching for mobs to awaken...");
+
+    for (mob = first_char; mob && processed < mobs_to_process && scanned < max_scan; mob = mob->next)
+    {
+        scanned++;
+
+        if (!IS_NPC(mob))
+            continue;
+
+        identity = get_mob_identity(mob->pIndexData->vnum);
+        if (identity)
+            continue;
+
+        if (xIS_SET(mob->act, ACT_PROTOTYPE))
+            continue;
+
+        log_printf("AI God: Awakening %s (vnum %d)", mob->name, mob->pIndexData->vnum);
+        generate_mob_identity(mob);
+
+        processed++;
+        total_mobs_given_life++;
+        total_personalities_generated++;
+
+        if (number_percent() < 10)
+        {
+            char buf[MAX_STRING_LENGTH];
+            sprintf(buf, "&C[AI God]&W %s awakens to self-awareness...", mob->short_descr);
+            echo_to_all(AT_CYAN, buf, ECHOTAR_ALL);
+        }
+    }
+
+    if (processed > 0)
+    {
+        log_printf("AI God Life-Giver: Awakened %d mobs (Total: %d)",
+            processed, total_mobs_given_life);
+    }
+}
+
+/*
  * Main AI God update function (called from update.c)
  */
 void update_ai_god(void)
@@ -350,6 +410,12 @@ void update_ai_god(void)
         /* TODO: Implement faction balancing */
         god_last_balance_check = current_time;
     }
+
+    /* Life-Giver check - automatically generate personalities */
+    if (current_time - god_last_lifegiver_check > GOD_LIFEGIVER_INTERVAL) {
+        god_give_life_to_mobs();
+        god_last_lifegiver_check = current_time;
+    }
 }
 
 /*
@@ -367,6 +433,10 @@ void init_ai_god_advanced(void)
     god_last_analysis_time = time(NULL);
     god_last_event_check = time(NULL);
     god_last_balance_check = time(NULL);
+    god_last_lifegiver_check = time(NULL);
+
+    total_mobs_given_life = 0;
+    total_personalities_generated = 0;
 }
 
 /*
