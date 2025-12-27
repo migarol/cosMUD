@@ -916,7 +916,7 @@ void do_goto( CHAR_DATA *ch, char *argument )
     AREA_DATA *pArea;
     int vnum;
     char buf[MAX_STRING_LENGTH];
-	char buf2[20];
+	char buf2[MAX_INPUT_LENGTH];
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -982,16 +982,16 @@ void do_goto( CHAR_DATA *ch, char *argument )
 	if (ch->position != POS_STANDING)
 		do_stand(ch, "");
 
-	sprintf(buf2, "%s leaves in a swirling mist.", ch->name);
+	snprintf(buf2, sizeof(buf2), "%s leaves in a swirling mist.", ch->name);
 
-	for ( fch = in_room->first_person; fch; fch = fch_next ) 
+	for ( fch = in_room->first_person; fch; fch = fch_next )
 	{
            fch_next = fch->next_in_room;
-		
-	   if (fch != ch && ((get_trust(fch) >= (IS_NPC(ch) ? ch->level : ch->pcdata->wizinvis)) 
-            || !xIS_SET(ch->act, PLR_WIZINVIS)) ) 
+
+	   if (fch != ch && ((get_trust(fch) >= (IS_NPC(ch) ? ch->level : ch->pcdata->wizinvis))
+            || !xIS_SET(ch->act, PLR_WIZINVIS)) )
 	   {
-	    sprintf(buf, "&Y%s&w\r\n", (ch->pcdata && ch->pcdata->bamfout)
+	    snprintf(buf, sizeof(buf), "&Y%s&w\r\n", (ch->pcdata && ch->pcdata->bamfout)
             ? ch->pcdata->bamfout : buf2);
             send_to_char(buf, fch);
            }
@@ -1006,16 +1006,16 @@ void do_goto( CHAR_DATA *ch, char *argument )
     }
     char_to_room( ch, location );
 
-	sprintf(buf2, "%s appears in a swirling mist.", ch->name);
+	snprintf(buf2, sizeof(buf2), "%s appears in a swirling mist.", ch->name);
 
-    for ( fch = ch->in_room->first_person; fch; fch = fch_next ) 
+    for ( fch = ch->in_room->first_person; fch; fch = fch_next )
     {
         fch_next = fch->next_in_room;
 
-        if (fch != ch && ((get_trust(fch) >= (IS_NPC(ch) ? ch->level : ch->pcdata->wizinvis)) 
-         || !xIS_SET(ch->act, PLR_WIZINVIS)) ) 
+        if (fch != ch && ((get_trust(fch) >= (IS_NPC(ch) ? ch->level : ch->pcdata->wizinvis))
+         || !xIS_SET(ch->act, PLR_WIZINVIS)) )
 	{
-            sprintf(buf, "&Y%s&w\r\n", (ch->pcdata && ch->pcdata->bamfin)
+            snprintf(buf, sizeof(buf), "&Y%s&w\r\n", (ch->pcdata && ch->pcdata->bamfin)
             ? ch->pcdata->bamfin : buf2);
             send_to_char(buf, fch);
         }
