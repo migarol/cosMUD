@@ -152,4 +152,6 @@ Skill        100 'steal'
 Skill        100 'stun'
 Skill        100 'track'
 Skill        100 'trip'
-END
+End
+
+#END
