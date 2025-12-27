@@ -2187,8 +2187,9 @@ void update_handler( void )
 	arena_update();
     }
 
-    update_living_world( );  /* Living world systems update */
-    update_ai_god( );        /* Advanced AI God analysis and events */
+    update_living_world( );     /* Living world systems update */
+    update_ai_god( );           /* Advanced AI God analysis and events */
+    update_world_simulation( ); /* Autonomous mob routines and world simulation */
     tele_update( );
     aggr_update( );
     obj_act_update ( );

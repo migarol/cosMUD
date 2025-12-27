@@ -35,7 +35,7 @@ O_FILES = act_comm.o act_info.o ai_god.o ai_god_advanced.o act_move.o act_obj.o 
           mpxset.o mud_comm.o mud_prog.o npc_ai.o oedit.o planes.o player.o \
           polymorph.o redit.o requests.o reset.o save.o services.o \
           shops.o skills.o special.o stat_obj.o suicide.o tables.o \
-          track.o update.o websvr.o minilzo.o \
+          track.o update.o websvr.o minilzo.o world_simulation.o \
           ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \
           imc-interp.o imc-mail.o imc-mercbase.o imc-util.o imc-version.o \
  
@@ -47,7 +47,7 @@ C_FILES = act_comm.c act_info.c ai_god.c act_move.c act_obj.c act_wiz.c arena.c 
           mpxset.c mud_comm.c mud_prog.c npc_ai.c oedit.c planes.c player.c \
           polymorph.c redit.c requests.c reset.c save.c services.c \
           shops.c skills.c special.c stat_obj.c suicide.c tables.c \
-          track.c update.c websvr.c minilzo.c \
+          track.c update.c websvr.c minilzo.c world_simulation.c \
           ice.c icec.c icec-mercbase.c imc.c imc-config.c imc-events.c \
           imc-interp.c imc-mail.c imc-mercbase.c imc-util.c imc-version.c \
  

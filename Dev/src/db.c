@@ -796,6 +796,10 @@ void boot_db( bool fCopyOver )
     log_string("Initializing Advanced AI God...");
     init_ai_god_advanced();
 
+    /* Initialize Autonomous World Simulation */
+    log_string("Initializing Autonomous World Simulation...");
+    init_world_simulation();
+
     /* init_maps ( ); */
 
     return;

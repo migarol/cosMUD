@@ -772,6 +772,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_wizhelp" ))		return do_wizhelp;
 	if ( !str_cmp( name, "do_wizlist" ))		return do_wizlist;
 	if ( !str_cmp( name, "do_wizlock" ))		return do_wizlock;
+	if ( !str_cmp( name, "do_worldsim" ))		return do_worldsim;
         if ( !str_cmp( name, "do_worth" ))              return do_worth;
 	break;
     case 'y':
@@ -1435,6 +1436,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_wizhelp )		return "do_wizhelp";
     if ( skill == do_wizlist )		return "do_wizlist";
     if ( skill == do_wizlock )		return "do_wizlock";
+    if ( skill == do_worldsim )		return "do_worldsim";
     if ( skill == do_worth )            return "do_worth";
     if ( skill == do_yell )		return "do_yell";
     if ( skill == do_zap )		return "do_zap";

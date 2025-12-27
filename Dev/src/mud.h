@@ -4358,6 +4358,7 @@ DECLARE_DO_FUN(	do_wimpy	);
 DECLARE_DO_FUN(	do_wizhelp	);
 DECLARE_DO_FUN( do_wizlist	);
 DECLARE_DO_FUN(	do_wizlock	);
+DECLARE_DO_FUN( do_worldsim	); /* World simulation status */
 DECLARE_DO_FUN( do_worth        ); 
 DECLARE_DO_FUN(	do_yell		);
 DECLARE_DO_FUN(	do_zap		);
@@ -5392,6 +5393,11 @@ NPC_MEMORY * load_npc_memory	args( ( int mob_vnum, char *player_name ) );
 void	init_ai_god_advanced	args( ( void ) );
 void	update_ai_god		args( ( void ) );
 void	do_godquery		args( ( CHAR_DATA *ch, char *argument ) );
+
+/* world_simulation.c */
+void	init_world_simulation	args( ( void ) );
+void	update_world_simulation	args( ( void ) );
+void	do_worldsim		args( ( CHAR_DATA *ch, char *argument ) );
 
 /* hashstr.c */
 char *	str_alloc	args( ( char *str ) );
