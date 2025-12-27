@@ -1,0 +1,633 @@
+================================================================================
+DARKHAVEN ACADEMY ENHANCEMENTS
+Based on Player Data: Mob 10399 killed 72 times, 91 items equipped from area
+================================================================================
+
+SECTION 1: TRAINING BOOKS & MANUALS
+================================================================================
+
+#10500
+book combat basics warrior~
+Combat Fundamentals~
+A well-worn training manual lies here, marked "Combat Fundamentals".~
+~
+35 526336 16385
+5 0 0 0
+1 500 50
+E
+book manual pages~
+COMBAT FUNDAMENTALS
+Darkhaven Academy Training Manual - Level 1-10
+
+Welcome, young warrior! This manual will guide you through the basics of
+combat that all adventurers must master.
+
+LESSON 1: STANCE AND BALANCE
+Never stand flat-footed. Keep your weight distributed, knees slightly bent.
+A proper stance is the foundation of all combat techniques.
+
+LESSON 2: WEAPON GRIP
+Your weapon is an extension of your arm. Grip firmly but not rigidly. Rigid
+muscles tire quickly. Flow like water, strike like lightning.
+
+LESSON 3: READING YOUR OPPONENT
+Watch their eyes, not their weapon. The eyes telegraph intention before the
+body moves. This split-second advantage can mean life or death.
+
+LESSON 4: ENDURANCE
+Combat is won by those who can outlast their foe. Train your stamina as
+much as your technique. Run the Academy grounds daily. Build strength.
+
+LESSON 5: LEARNING FROM DEFEAT
+Every loss teaches. The training arena is here for you to fight creatures
+safely. Wolf, slug, naga, crawler - each teaches different lessons.
+
+    Wolf (10300) - Teaches speed and dodging
+    Slug (10301) - Teaches patience and accuracy
+    Naga (10302) - Teaches defense against magic
+    Crawler (10303) - Teaches poison resistance
+
+Remember: A warrior who never falls never rises above mediocrity.
+
+- Master Domick, Combat Instructor
+~
+
+#10501
+book magic primer mage~
+Primer of Arcane Studies~
+A pristine book titled "Primer of Arcane Studies" rests on a shelf.~
+~
+35 526336 16385
+5 0 0 0
+1 800 80
+E
+book primer pages~
+PRIMER OF ARCANE STUDIES
+Darkhaven Academy - Introductory Magic
+
+Student, you stand at the threshold of power beyond mortal reckoning.
+Magic is not simply words and gestures - it is will made manifest.
+
+CHAPTER 1: THE WEAVE OF MAGIC
+All magic draws from the Weave, an invisible tapestry of mystic energy that
+permeates all things. When you cast a spell, you pull at this thread and
+reshape reality itself.
+
+CHAPTER 2: SCHOOLS OF MAGIC
+The eight schools each approach the Weave differently:
+
+    - Evocation: Raw energy. Fire, lightning, force.
+    - Abjuration: Protection. Shields, wards, banishment.
+    - Conjuration: Creation. Summon allies, create objects.
+    - Transmutation: Change. Alter form, enhance abilities.
+    - Illusion: Deception. Trick the senses.
+    - Enchantment: Control. Charm, sleep, dominate.
+    - Divination: Knowledge. Scry, detect, identify.
+    - Necromancy: Death. Drain life, raise undead.
+
+CHAPTER 3: MANA MANAGEMENT
+Your mana pool is limited. A foolish mage burns all their power on the first
+enemy and dies to the second. Conservation is survival.
+
+Start with Magic Missile (simple, reliable).
+Progress to Burning Hands (area effect).
+Master Fireball when ready (devastating but costly).
+
+CHAPTER 4: SPELLBOOK DISCIPLINE
+A mage without their spellbook is defenseless. Protect it at all costs.
+Memorize spells you'll need. Prepare for variety of situations.
+
+CHAPTER 5: ETHICAL CONSIDERATIONS
+Magic is power. Power corrupts. Watch yourself for signs of hubris.
+The dark path is seductive (see: Argon, now leader of Order of Chaos).
+
+Do not become what you fight against.
+
+- Instructor's Note: See Advanced Arcana (restricted to level 20+)
+~
+
+#10502
+scroll student journal~
+A Student's Journal~
+A leather-bound journal lies discarded here.~
+~
+35 526336 16385
+1 0 0 0
+1 50 5
+E
+journal pages entries~
+STUDENT JOURNAL - Year 502
+Property of Kethros
+
+Entry 1 - First Day:
+I can't believe I'm actually here! Darkhaven Academy! My parents saved for
+years to send me. I won't let them down.
+
+Entry 7 - First Combat:
+Fought a training wolf today. Got my ass kicked. Master Domick says that's
+normal. "Pain is the best teacher," he says. My ribs disagree.
+
+Entry 15 - Making Friends:
+Met a girl named Sera. She's studying magic while I focus on the blade. We
+train together sometimes. She's brilliant with fire spells.
+
+Entry 23 - The Rumors:
+Everyone's talking about the ninjas attacking Darkhaven last month. 60-70
+of them! Led by someone called Snake Eyes. My cousin was in the RDAF,
+said it was hell. Bodies everywhere.
+
+Entry 31 - Advanced Training:
+Master Domick pulled me aside today. Said I have potential. Started teaching
+me advanced footwork. Maybe I'm not hopeless after all.
+
+Entry 45 - The Library:
+Found a hidden section in the library today. Old books about the Cataclysm,
+the founding of Darkhaven, ancient magic. One book mentioned something
+called "The Three Moon Prophecy". Creepy stuff.
+
+Entry 52 - Graduation Soon:
+Can't believe how fast time flew. Soon I'll be out there, a real adventurer.
+Sera and I made a pact - we'll watch each other's backs out there.
+
+The world is dangerous. But we'll be ready.
+
+Entry 60 - Final Entry:
+Graduation tomorrow. This journal ends, but my story begins.
+
+For Darkhaven. For honor. For glory.
+
+- Kethros, Class of 502
+~
+
+#10503
+book stealth rogue thief~
+The Shadow's Path~
+A black leather book titled "The Shadow's Path" rests in darkness.~
+~
+35 526336 16385
+5 0 0 0
+1 600 60
+E
+book pages manual~
+THE SHADOW'S PATH
+Darkhaven Academy - Rogue Training
+
+INTRODUCTION:
+Not all battles are won with steel and sorcery. Sometimes, victory belongs
+to those who are never seen.
+
+LESSON 1: MOVING IN SILENCE
+Your footfalls must be silent as falling snow. Practice on different surfaces.
+Stone, wood, grass, gravel - each requires different technique.
+
+Exercise: Walk the Academy halls at night. If a guard sees you, start over.
+
+LESSON 2: PICKING LOCKS
+A lock is a puzzle made of metal. Learn to listen to the tumblers. Feel the
+resistance. Each lock has a weakness - find it.
+
+(Practice locks available in training room 10450)
+
+LESSON 3: FINDING TRAPS
+Adventurers die more often to traps than monsters. Look for:
+    - Discolored stones (pressure plates)
+    - Strange seams in walls (dart traps)
+    - Tripwires (poison needle traps)
+    - Unnaturally clean floors (pit traps)
+
+If it looks too good to be true, it probably is.
+
+LESSON 4: BACKSTABBING
+Strike from behind, swiftly and silently. Target the kidneys or base of skull.
+One perfect strike is worth a hundred sloppy ones.
+
+WARNING: This is for monsters and PK-flagged enemies only. Murder of
+innocent NPCs is forbidden and will result in expulsion and jail time.
+
+LESSON 5: ETHICAL THIEVERY
+Yes, there is such a thing. We are not bandits or murderers. We are specialists
+in stealth operations, infiltration, and intelligence gathering.
+
+The Guild of Thieves has rules. Break them, and you'll wish you'd just gone
+to jail.
+
+Remember: The best thief is one who's never caught.
+
+- From the Office of the Guildmaster
+~
+
+#10504
+tome academy history~
+Chronicles of the Academy~
+A thick tome bound in blue leather rests here.~
+~
+35 526336 16385
+50 0 0 0
+1 5000 500
+E
+tome pages history~
+CHRONICLES OF DARKHAVEN ACADEMY
+Est. Year 467 - 45 Years of Excellence
+
+FOUNDING:
+In Year 467, following the great losses in the Dragon Wars, Arch-Mage Rennard
+recognized a critical need: trained adventurers. Too many eager youths died
+in their first dungeon, lacking even basic combat knowledge.
+
+Thus, Darkhaven Academy was born.
+
+EARLY YEARS (467-480):
+The first instructors were veterans of the Dragon Wars:
+- Domick "Ironwall" Varthane - Combat Master (still teaching!)
+- Sage Meloreth - Arcane Studies (deceased 489, dragon attack)
+- Whisper - Stealth Arts (identity unknown, still teaching)
+
+Initial enrollment: 12 students. Graduation rate: 50%.
+
+THE EXPANSION (481-495):
+As Darkhaven grew, so did the Academy. New wings were added:
+- The Arcane Tower (485)
+- The Combat Arena (488)
+- The Library of Collected Knowledge (492)
+
+Enrollment grew to 200+ students per year.
+
+THE NINJA INVASION (Year 502):
+On May 15th, Year 502, our Academy was tested as never before.
+
+Sixty to seventy ninja warriors, led by the infamous Snake Eyes, attacked
+Darkhaven. Our advanced students joined the RDAF and Rangers in defense.
+
+Casualties were heavy. Twenty-three Academy students fell that night.
+
+Their names are engraved in the Memorial Hall:
+
+[A list of 23 names follows, including familiar ones like "Kethros" and "Sera"]
+
+We honor their sacrifice. They gave everything so others could learn in safety.
+
+THE PRESENT (Year 512):
+Today, we train hundreds. Our graduates serve in every major organization:
+RDAF, Ranger Guild, Mage Tower, Temple of Light, even (reluctantly) the
+Order of Chaos.
+
+Our mission remains unchanged: Transform eager novices into capable heroes.
+
+NOTABLE ALUMNI:
+- Argon (Order of Chaos leader) - Class of 495
+- Aella (RDAF Commander) - Class of 498
+- Athmoz (RDAF Intelligence) - Class of 500
+- Metheus (Independent Hero) - Class of 499
+
+[Note: The Academy takes no responsibility for Argon's turn to evil]
+
+May the next generation be worthy of their predecessors.
+
+- Headmaster Thalorin, Year 512
+~
+
+#10505
+note secret hidden exam~
+a crumpled exam paper~
+A crumpled exam paper has been stuffed behind a bookshelf.~
+~
+35 526336 16385
+1 0 0 0
+1 10 1
+E
+note paper exam~
+DARKHAVEN ACADEMY - FINAL EXAMINATION
+Student: [Name smudged]
+Year 502
+
+COMBAT THEORY:
+1. Describe the proper stance for defensive combat.
+   ANSWER: [Blank]
+
+2. What are the advantages of a longsword versus a short sword?
+   ANSWER: "Longsword has reach, short sword is faster. Depends on opponent
+            and environment. Confined space favors short blade."
+
+3. How do you counter an enemy mage?
+   ANSWER: "Rush them! Mages are weak in melee. Don't give them time to cast."
+
+ARCANE KNOWLEDGE:
+1. Name three schools of magic.
+   ANSWER: "Evocation, Necromancy, um... Conjuring?"
+
+2. What is the Weave?
+   ANSWER: "The magic energy stuff that's everywhere"
+
+3. Why is mana management important?
+   ANSWER: "Don't waste it all at once, duh."
+
+ETHICS:
+1. Is it acceptable to steal from innocent townsfolk?
+   ANSWER: "No. Bad for business and you'll get caught."
+
+2. When is killing justified?
+   ANSWER: "Self-defense, defense of others, monsters, PK situations with
+            proper flags. Never murder."
+
+FINAL GRADE: 73% - PASS (Barely)
+
+INSTRUCTOR NOTES:
+"This student has potential but lacks discipline. Combat instincts are good,
+magical theory needs work. Ethical reasoning is... pragmatic but acceptable.
+
+Recommend field experience under supervision.
+
+- Domick"
+
+[Someone has drawn a crude stick figure celebrating at the bottom]
+~
+
+#10506
+book forbidden advanced~
+Forbidden Techniques~
+A book wrapped in chains lies here, radiating dark energy.~
+~
+35 526336 20481
+50 0 0 0
+1 50000 5000
+E
+book pages techniques~
+RESTRICTED - HEADMASTER APPROVAL REQUIRED
+
+ADVANCED COMBAT TECHNIQUES
+For Masters Only
+
+WARNING: The techniques described herein are dangerous. Improper execution
+can result in death - yours or your allies'. Proceed with caution.
+
+TECHNIQUE 1: MANA BURN
+By overloading your weapon with raw mana, you can create a devastating strike
+that bypasses physical armor. However, this drains your entire mana pool and
+leaves you vulnerable for 30 seconds.
+
+Use only as a finishing move or in desperation.
+
+TECHNIQUE 2: SOUL TETHER
+Link your life force to an ally's. Damage is shared between you. This can
+save a dying companion but may kill you both if not carefully managed.
+
+Requires absolute trust. Never use in PvP.
+
+TECHNIQUE 3: CRITICAL STRIKE MEDITATION
+By entering a trance state before combat, you can increase critical hit chance
+by 50% for your first three attacks. However, you cannot defend during this
+state.
+
+Requires preparation time. Not suitable for ambushes.
+
+TECHNIQUE 4: ELEMENTAL INFUSION
+Imbue your weapon with elemental damage (fire, ice, lightning). Each element
+has strengths and weaknesses:
+    - Fire: High damage, fear effect, but weak vs fire-resistant foes
+    - Ice: Slowing effect, good control, but weak vs cold creatures
+    - Lightning: Chain damage to nearby enemies, risky in water
+
+TECHNIQUE 5: THE BERSERKER'S RAGE
+Tap into primal fury. Triple damage output, immunity to pain, but you cannot
+distinguish friend from foe. Duration: 60 seconds, then collapse.
+
+ONLY use when alone or your party is safely away.
+
+These techniques separate masters from students. Use wisely.
+
+- Classified, Headmaster's Office
+~
+
+#10507
+scroll npc ai personality~
+Instructor Personality Profile~
+An official document detailing instructor characteristics.~
+~
+35 526336 16385
+1 0 0 0
+1 100 10
+E
+scroll document~
+DARKHAVEN ACADEMY - STAFF PROFILES
+For Administrative Use
+
+MASTER DOMICK (Combat Instructor):
+Personality: Gruff but caring. War veteran. Tough love approach.
+Speech Patterns: Short sentences. Direct. No nonsense.
+Quotes:
+    - "Pain is the best teacher."
+    - "Get up. Again."
+    - "A warrior who never falls never rises."
+    - "Your enemies won't wait for you to be ready."
+Backstory: Fought in Dragon Wars, Orc Invasions, survived Ninja Invasion.
+Trained half the RDAF personally.
+
+INSTRUCTOR ABBIGAYLE (Language Arts):
+Personality: Patient, scholarly, loves wordplay.
+Speech Patterns: Formal, eloquent, uses big words.
+Quotes:
+    - "Language is the key to understanding all cultures."
+    - "Learn their tongue, know their mind."
+    - "Miscommunication kills more adventurers than dragons."
+Backstory: Former diplomat. Speaks 12 languages fluently.
+
+BUBBA (Vampire Tactics Instructor):
+Personality: Morbid humor. Knowledgeable about undead.
+Speech Patterns: Dry wit, dark jokes.
+Quotes:
+    - "Vampires don't suck... well, they do, but that's beside the point."
+    - "Garlic? Works. Wooden stake? Better. Sunlight? Best."
+    - "Never fight a vampire at night. Seriously. Don't."
+Backstory: Former vampire hunter. Has killed 47 vampires.
+
+WHISPER (Stealth Instructor):
+Personality: Mysterious, rarely seen, speaks in riddles.
+Speech Patterns: Whispered, cryptic.
+Quotes:
+    - "The best fight is one that never happens."
+    - "Shadows have no enemies."
+    - "If they see you, you've already failed."
+Backstory: Unknown. Some say former assassin. Others say shadow demon.
+Nobody knows for sure.
+
+[Use these profiles for AI conversation generation]
+~
+
+================================================================================
+SECTION 2: AI PERSONALITIES FOR NPCS
+================================================================================
+
+Add to npc_ai.c or create mob programs:
+
+DOMICK (#10340) - Combat Master:
+> speech_prog training combat fight~
+say *crosses arms* You want to learn combat? Good.
+say First rule: Don't die stupidly.
+say Second rule: Every scar is a lesson. Learn it.
+emote points at the arena
+say The training ground is that way. Fight a wolf. Fight a naga. Get hurt.
+say Come back when you've bled a little. Then we'll talk real technique.
+~
+|
+> rand_prog 5~
+mpecho Master Domick demonstrates a perfect defensive stance, then smoothly flows into an attack.
+~
+|
+> speech_prog ninja invasion snake~
+emote's face hardens
+say That night... *pauses* Sixty ninjas. Maybe seventy.
+say Snake Eyes himself led them. Cold bastard. Killed three of my students.
+say But we held. RDAF and Rangers fought side by side.
+emote clenches fist
+say Lost good people. But Darkhaven stands.
+say That's what matters.
+~
+|
+
+ABBIGAYLE (#10394) - Language Instructor:
+> speech_prog language speak tongues~
+smile
+say Ah, you wish to expand your linguistic horizons! Excellent!
+say Language is not merely communication - it is a window into the soul of a culture.
+emote pulls out a thick tome
+say Begin with Common, of course. Then Elvish - melodious and precise.
+say Dwarven - harsh but honest. Draconic - powerful and ancient.
+say Each language teaches you to think differently.
+~
+|
+> rand_prog 8~
+say Remember class: 'Melar-na' means 'friend' in Elvish, but 'Melar-nar' means 'enemy'.
+say Pronunciation matters. Greatly.
+~
+|
+
+BUBBA (#10422) - Vampire Tactics:
+> speech_prog vampire undead night~
+grin wickedly
+say Vampires, eh? Nasty buggers.
+emote pulls out a wooden stake
+say Silver? Myth. Doesn't do squat. Wooden stake through the heart? Now that works.
+say Garlic keeps 'em away - they hate the smell. Holy water burns like acid.
+say But best defense? *taps temple* Don't fight at night.
+say Daylight weakens them by 25%. Full sun? They burn.
+chuckle darkly
+say Of course, you gotta GET them into sunlight first. That's the trick.
+~
+|
+> rand_prog 10~
+mpecho Bubba casually sharpens a wooden stake, humming a funeral dirge.
+~
+|
+
+================================================================================
+SECTION 3: ROOM ENHANCEMENTS
+================================================================================
+
+Add extra descriptions to key rooms:
+
+ACADEMY LIBRARY (Room TBD):
+E
+bookshelf shelves books~
+The shelves are packed with training manuals, historical texts, and arcane
+tomes. You notice several interesting titles:
+
+    - Combat Fundamentals (basic training)
+    - Primer of Arcane Studies (magic basics)
+    - The Shadow's Path (rogue techniques)
+    - Chronicles of the Academy (history)
+    - Forbidden Techniques (RESTRICTED - chained shut)
+
+There's a small plaque: "Knowledge is power. Use it wisely."
+~
+E
+plaque sign~
+"In Memory of the Class of 502
+ Twenty-three students fell defending Darkhaven
+ from the Ninja Invasion of May 15th.
+
+ They gave their lives so others could learn in safety.
+
+ Their names live forever in these halls."
+
+[Below, someone has scratched: "Never forget. Never forgive. - Graduate '503"]
+~
+
+COMBAT ARENA (Room with 10300-10303):
+E
+arena ground floor~
+The ground is stained with the blood and sweat of countless trainees. Claw
+marks from the training wolf, acid burns from the slug, char marks from
+magical combat.
+
+This is where novices become warriors.
+
+A sign reads:
+"Rules of the Arena:
+ 1. No killing blows - training only
+ 2. Healers on standby
+ 3. Learn from defeat
+ 4. Respect your opponent (even if it's a slug)"
+~
+
+HEADMASTER'S OFFICE (Room TBD):
+E
+desk papers~
+The headmaster's desk is covered in paperwork:
+- Enrollment forms
+- Budget requests
+- Incident reports
+- A letter from RDAF requesting more combat-trained graduates
+- A complaint about Argon's Order of Chaos recruiting on campus
+
+One paper catches your eye - a classified memo about increasing security
+following intelligence that suggests OOC infiltration attempts.
+~
+
+================================================================================
+SECTION 4: MOB PROGRAMS FOR ATMOSPHERE
+================================================================================
+
+TRAINING WOLF (10300):
+> fight_prog 50~
+mpecho The wolf circles, testing your defenses.
+~
+|
+> death_prog 100~
+mpe The wolf falls. Well fought, student.
+~
+|
+
+BONE NAGA (10302):
+> fight_prog 30~
+mpecho The naga's eyes glow with magical energy!
+c 'magic missile' $n
+~
+|
+> speech_prog ssss snake~
+hiss
+mpecho The naga hisses: "Ssstudent... you will make a fine meal..."
+~
+|
+
+================================================================================
+INSTALLATION NOTES
+================================================================================
+
+1. Add objects #10500-10507 to #OBJECTS section
+2. Add mob programs to existing NPCs (#10340, #10394, #10422)
+3. Add room extra descriptions
+4. Update resets to place books in library
+5. Configure AI system to use personality profiles for these NPCs
+6. Test in-game
+
+RESETS:
+O 0 10500 1 [library_room]  (Combat Fundamentals)
+O 0 10501 1 [library_room]  (Arcane Primer)
+O 0 10502 1 [library_room]  (Student Journal)
+O 0 10503 1 [library_room]  (Shadow's Path)
+O 0 10504 1 [library_room]  (Academy Chronicles)
+O 0 10505 1 [library_room]  (Exam Paper - hidden)
+O 0 10506 1 [restricted_section]  (Forbidden Techniques)
+O 0 10507 1 [admin_office]  (Instructor Profiles)
+
+================================================================================

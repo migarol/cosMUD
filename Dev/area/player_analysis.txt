@@ -1,0 +1,84 @@
+PLAYER EQUIPMENT AND ACTIVITY ANALYSIS
+================================================================================
+
+TOP PLAYERS ANALYZED:
+  Argon           Lv100 Order of Chaos        18349 kills
+  Andy            Lv102 None                  14740 kills
+  Metheus         Lv100 Guild of Paladins     12899 kills
+  Nicremog        Lv87  Guild of Warriors     10311 kills
+  Trespin         Lv100 Guild of Mages         9906 kills
+  Jurg            Lv100 Vampire                8981 kills
+  Athmoz          Lv90  RDAF                   8811 kills
+  Maximus         Lv65  Guild of Druids        6093 kills
+  Zel             Lv81  RDAF                   2377 kills
+  Maelstrom       Lv59  Order of Chaos         1950 kills
+  Garett          Lv47  Guild of Thieves        352 kills
+  Rathkor         Lv113 None                    253 kills
+  Fairburn        Lv112 None                    250 kills
+  Prage           Lv115 None                    247 kills
+  Arbadus         Lv112 None                    194 kills
+  Relgar          Lv115 None                    139 kills
+  Medic           Lv140 None                    105 kills
+  Marten          Lv115 None                     74 kills
+  Fellon          Lv116 None                     57 kills
+  Bronwen         Lv115 None                     22 kills
+
+
+UNIQUE EQUIPMENT VNUMS: 497
+UNIQUE MOB VNUMS KILLED: 330
+AREAS VISITED: 64
+
+
+KEY AREAS FOR ENHANCEMENT:
+(Based on player activity and valued equipment)
+
+  Area 125 (Area 125):
+    - 91 players equipping items from here
+    - 69 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 2 (Darkhaven/Newbie):
+    - 82 players equipping items from here
+    - 194 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 255 (Area 255):
+    - 65 players equipping items from here
+    - 12 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 0 (Area 0):
+    - 62 players equipping items from here
+    - 9 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 210 (Area 210):
+    - 52 players equipping items from here
+    - 74 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 700 (Area 700):
+    - 48 players equipping items from here
+    - 4 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 469 (Area 469):
+    - 43 players equipping items from here
+    - 4 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 79 (Area 79):
+    - 41 players equipping items from here
+    - 16 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 248 (Area 248):
+    - 38 players equipping items from here
+    - 34 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
+  Area 130 (Area 130):
+    - 37 players equipping items from here
+    - 54 total mob kills
+    - STATUS: HIGH PRIORITY for enhancement
+
