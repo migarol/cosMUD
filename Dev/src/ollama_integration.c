@@ -9,9 +9,36 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <curl/curl.h>
 #include "mud.h"
 #include "ollama_integration.h"
 #include "mob_home.h"
+
+/* Response buffer for curl */
+struct curl_response {
+    char *data;
+    size_t size;
+};
+
+/* Curl write callback */
+static size_t ollama_curl_write_cb(void *contents, size_t size, size_t nmemb, void *userp)
+{
+    size_t realsize = size * nmemb;
+    struct curl_response *resp = (struct curl_response *)userp;
+
+    char *ptr = realloc(resp->data, resp->size + realsize + 1);
+    if(!ptr) {
+        /* out of memory */
+        return 0;
+    }
+
+    resp->data = ptr;
+    memcpy(&(resp->data[resp->size]), contents, realsize);
+    resp->size += realsize;
+    resp->data[resp->size] = 0;
+
+    return realsize;
+}
 
 /* Global state */
 bool ollama_enabled = FALSE;
@@ -45,12 +72,55 @@ void init_ollama(void)
  */
 bool ollama_test_connection(void)
 {
-    /* TODO: Implement actual HTTP connection test to OLLAMA_HOST:OLLAMA_PORT */
-    /* For now, assume Ollama is not available */
-    /* This prevents dependency on libcurl */
+    CURL *curl;
+    CURLcode res;
+    char url[256];
+    bool success = FALSE;
 
-    ollama_last_error = str_dup("Ollama service not configured (requires libcurl)");
-    return FALSE;
+    curl = curl_easy_init();
+    if(!curl)
+    {
+        ollama_last_error = str_dup("Failed to initialize curl");
+        return FALSE;
+    }
+
+    sprintf(url, "%s:%d/api/tags", OLLAMA_HOST, OLLAMA_PORT);
+
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, OLLAMA_TIMEOUT);
+    curl_easy_setopt(curl, CURLOPT_NOBODY, 1L);  /* HEAD request */
+
+    res = curl_easy_perform(curl);
+
+    if(res == CURLE_OK)
+    {
+        long response_code;
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+        if(response_code == 200)
+        {
+            success = TRUE;
+            if(ollama_last_error)
+            {
+                DISPOSE(ollama_last_error);
+                ollama_last_error = NULL;
+            }
+        }
+        else
+        {
+            char buf[256];
+            sprintf(buf, "Ollama returned HTTP %ld", response_code);
+            ollama_last_error = str_dup(buf);
+        }
+    }
+    else
+    {
+        char buf[256];
+        sprintf(buf, "Connection failed: %s", curl_easy_strerror(res));
+        ollama_last_error = str_dup(buf);
+    }
+
+    curl_easy_cleanup(curl);
+    return success;
 }
 
 /*
@@ -253,15 +323,136 @@ char *ollama_generate_inn_description(char *inn_name, char *location, int qualit
  */
 char *ollama_request(char *prompt, int max_tokens)
 {
+    CURL *curl;
+    CURLcode res;
+    char url[256];
+    char *json_payload;
+    struct curl_response response;
+    struct curl_slist *headers = NULL;
+    char *result = NULL;
+
     if (!ollama_enabled || !prompt)
         return NULL;
 
-    /* TODO: Implement actual HTTP POST to Ollama API */
-    /* Requires libcurl or similar HTTP library */
-    /* For now, return NULL to trigger fallback */
+    curl = curl_easy_init();
+    if(!curl)
+    {
+        ollama_last_error = str_dup("Failed to initialize curl");
+        return NULL;
+    }
 
-    ollama_last_error = str_dup("HTTP request not implemented");
-    return NULL;
+    /* Prepare JSON payload */
+    json_payload = malloc(MAX_STRING_LENGTH * 2);
+    if(!json_payload)
+    {
+        curl_easy_cleanup(curl);
+        return NULL;
+    }
+
+    sprintf(json_payload,
+        "{\"model\":\"%s\",\"prompt\":%s,\"stream\":false,\"options\":{\"num_predict\":%d}}",
+        OLLAMA_MODEL,
+        ollama_escape_json(prompt),
+        max_tokens);
+
+    /* Initialize response buffer */
+    response.data = malloc(1);
+    response.size = 0;
+    if(!response.data)
+    {
+        free(json_payload);
+        curl_easy_cleanup(curl);
+        return NULL;
+    }
+
+    sprintf(url, "%s:%d/api/generate", OLLAMA_HOST, OLLAMA_PORT);
+
+    /* Set headers */
+    headers = curl_slist_append(headers, "Content-Type: application/json");
+
+    /* Configure curl */
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_payload);
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, ollama_curl_write_cb);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&response);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);  /* 30 second timeout for generation */
+
+    /* Perform request */
+    res = curl_easy_perform(curl);
+
+    if(res == CURLE_OK)
+    {
+        long response_code;
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+
+        if(response_code == 200 && response.data)
+        {
+            /* Parse JSON response to extract the "response" field */
+            char *response_start = strstr(response.data, "\"response\":\"");
+            if(response_start)
+            {
+                response_start += 12;  /* Skip past "response":" */
+                char *response_end = strstr(response_start, "\",");
+                if(!response_end)
+                    response_end = strstr(response_start, "\"}");
+
+                if(response_end)
+                {
+                    int len = response_end - response_start;
+                    if(len > 0 && len < MAX_STRING_LENGTH)
+                    {
+                        result = malloc(len + 1);
+                        if(result)
+                        {
+                            strncpy(result, response_start, len);
+                            result[len] = '\0';
+
+                            /* Unescape JSON special characters */
+                            char *src = result, *dst = result;
+                            while(*src)
+                            {
+                                if(*src == '\\' && *(src+1))
+                                {
+                                    src++;  /* Skip backslash */
+                                    if(*src == 'n') *dst++ = '\n';
+                                    else if(*src == 't') *dst++ = '\t';
+                                    else if(*src == 'r') *dst++ = '\r';
+                                    else *dst++ = *src;
+                                    src++;
+                                }
+                                else
+                                {
+                                    *dst++ = *src++;
+                                }
+                            }
+                            *dst = '\0';
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            char buf[256];
+            sprintf(buf, "Ollama returned HTTP %ld", response_code);
+            ollama_last_error = str_dup(buf);
+        }
+    }
+    else
+    {
+        char buf[256];
+        sprintf(buf, "Request failed: %s", curl_easy_strerror(res));
+        ollama_last_error = str_dup(buf);
+    }
+
+    /* Cleanup */
+    curl_slist_free_all(headers);
+    curl_easy_cleanup(curl);
+    free(json_payload);
+    free(response.data);
+
+    return result;
 }
 
 /*

@@ -25,7 +25,7 @@ I3 = -DI3 -DI3SMAUG
 #OPT_FLAG = -finline-functions -funroll-loops -fdefer-pop -fstrength-reduce
  
 C_FLAGS = $(OPT_FLAG) -g3 -O -Wall $(I3) $(PROF) $(NOCRYPT) $(DBUGFLG) -DSMAUG $(SOLARIS_FLAG)
-L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
+L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC) -lcurl
  
 O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ai_context_analyzer.o axsmaug.o ban.o bank.o base64.o beeler.o \
