@@ -176,6 +176,11 @@ typedef struct  locker_data		LOCKER_DATA;    /* Shadowlands Locker Code */
 typedef struct	member_data		MEMBER_DATA; /* Individual member data */
 typedef struct	member_list		MEMBER_LIST; /* List of members in clan */
 typedef struct  membersort_data         MS_DATA;     /* List for sorted roster list */
+typedef struct	mob_identity_data	MOB_IDENTITY_DATA; /* AI System */
+typedef struct	mob_home_data		MOB_HOME_DATA;     /* AI System */
+typedef struct	mob_memory_data		MOB_MEMORY_DATA;   /* AI System */
+typedef struct	mob_schedule_data	MOB_SCHEDULE_DATA; /* AI System */
+typedef struct	context_analysis	CONTEXT_ANALYSIS;  /* AI System */
 
 /*
  * Function types.
@@ -2242,6 +2247,12 @@ struct	mob_index_data
     sh_int		saving_para_petri;
     sh_int		saving_breath;
     sh_int		saving_spell_staff;
+
+    /* AI System fields */
+    MOB_IDENTITY_DATA *	ai_identity;
+    MOB_HOME_DATA *		ai_home;
+    MOB_MEMORY_DATA *	ai_memory_first;
+    MOB_SCHEDULE_DATA *	ai_schedule_first;
 };
 
 
