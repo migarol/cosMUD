@@ -59,9 +59,17 @@ void beeler_build_context_cache(void)
     for (area = first_area; area; area = area->next)
         area_count++;
 
-    /* Count rooms */
-    for (room = first_room; room; room = room->next)
-        room_count++;
+    /* Count rooms by iterating through areas */
+    int vnum;
+    for (area = first_area; area; area = area->next)
+    {
+        for (vnum = area->low_r_vnum; vnum <= area->hi_r_vnum; vnum++)
+        {
+            room = get_room_index(vnum);
+            if (room)
+                room_count++;
+        }
+    }
 
     beeler_world_context.total_mobs = mob_count;
     beeler_world_context.total_areas = area_count;

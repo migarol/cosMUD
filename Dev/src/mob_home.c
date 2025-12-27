@@ -514,12 +514,36 @@ void do_home(CHAR_DATA *ch, char *argument)
 }
 
 /*
- * Command: rent - rent inn room
+ * Command: inn_rent - rent inn room
  */
-void do_rent(CHAR_DATA *ch, char *argument)
+void do_inn_rent(CHAR_DATA *ch, char *argument)
 {
     /* TODO: Implement inn rental */
     send_to_char("Inn rental system coming soon!\n\r", ch);
+}
+
+/*
+ * Find available home in district
+ */
+int find_available_home_in_district(DISTRICT_DATA *district)
+{
+    int i;
+
+    if (!district)
+        return 0;
+
+    /* Search for unoccupied home */
+    for (i = 0; i < district->num_homes; i++)
+    {
+        if (!district->home_occupied[i])
+        {
+            /* Mark as occupied */
+            district->home_occupied[i] = TRUE;
+            return district->home_vnums[i];
+        }
+    }
+
+    return 0;  /* No available homes */
 }
 
 /*
