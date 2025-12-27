@@ -2188,6 +2188,7 @@ void update_handler( void )
     }
 
     update_living_world( );  /* Living world systems update */
+    update_ai_god( );        /* Advanced AI God analysis and events */
     tele_update( );
     aggr_update( );
     obj_act_update ( );

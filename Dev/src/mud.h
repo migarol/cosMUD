@@ -4043,6 +4043,7 @@ DECLARE_DO_FUN( do_gfighting    );
 DECLARE_DO_FUN(	do_give		);
 DECLARE_DO_FUN(	do_glance	);
 DECLARE_DO_FUN( do_ghost        ); /* Froboz */
+DECLARE_DO_FUN( do_godquery	); /* AI God query */
 DECLARE_DO_FUN( do_gold         );
 DECLARE_DO_FUN(	do_goto		);
 DECLARE_DO_FUN( do_gouge	);
@@ -5386,6 +5387,11 @@ char *	npc_ai_talk		args( ( CHAR_DATA *mob, CHAR_DATA *ch, char *message ) );
 void	do_ai_talk		args( ( CHAR_DATA *ch, char *argument, CHAR_DATA *mob ) );
 bool	spec_ai_npc		args( ( CHAR_DATA *ch ) );
 NPC_MEMORY * load_npc_memory	args( ( int mob_vnum, char *player_name ) );
+
+/* ai_god_advanced.c */
+void	init_ai_god_advanced	args( ( void ) );
+void	update_ai_god		args( ( void ) );
+void	do_godquery		args( ( CHAR_DATA *ch, char *argument ) );
 
 /* hashstr.c */
 char *	str_alloc	args( ( char *str ) );

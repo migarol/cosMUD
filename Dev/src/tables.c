@@ -329,9 +329,10 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_gaso" ))		return do_gaso;
 	if ( !str_cmp( name, "do_get" ))		return do_get;
 	if ( !str_cmp( name, "do_gfighting" ))		return do_gfighting;
-        if ( !str_cmp( name, "do_ghost" ))              return do_ghost; 
+        if ( !str_cmp( name, "do_ghost" ))              return do_ghost;
 	if ( !str_cmp( name, "do_give" ))		return do_give;
 	if ( !str_cmp( name, "do_glance" ))		return do_glance;
+	if ( !str_cmp( name, "do_godquery" ))		return do_godquery;
         if ( !str_cmp( name, "do_gold" ))               return do_gold;
 	if ( !str_cmp( name, "do_goto" ))		return do_goto;
 	if ( !str_cmp( name, "do_gouge" ))		return do_gouge;
@@ -1030,6 +1031,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_ghost )            return "do_ghost";
     if ( skill == do_give )		return "do_give";
     if ( skill == do_glance )		return "do_glance";
+    if ( skill == do_godquery )		return "do_godquery";
     if ( skill == do_gold )             return "do_gold";
     if ( skill == do_goto )		return "do_goto";
     if ( skill == do_gouge )		return "do_gouge";

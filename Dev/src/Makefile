@@ -27,7 +27,7 @@ I3 = -DI3 -DI3SMAUG
 C_FLAGS = $(OPT_FLAG) -g3 -O -Wall $(I3) $(PROF) $(NOCRYPT) $(DBUGFLG) -DSMAUG $(SOLARIS_FLAG)
 L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
  
-O_FILES = act_comm.o act_info.o ai_god.o act_move.o act_obj.o act_wiz.o arena.o \
+O_FILES = act_comm.o act_info.o ai_god.o ai_god_advanced.o act_move.o act_obj.o act_wiz.o arena.o \
           axsmaug.o ban.o bank.o base64.o boards.o build.o clan_relations.o clans.o comm.o \
           comments.o const.o db.o deity.o fight.o grub.o handler.o hashstr.o \
           hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \

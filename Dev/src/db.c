@@ -792,6 +792,10 @@ void boot_db( bool fCopyOver )
     log_string("Initializing clan relations...");
     init_clan_relations();
 
+    /* Initialize Advanced AI God system */
+    log_string("Initializing Advanced AI God...");
+    init_ai_god_advanced();
+
     /* init_maps ( ); */
 
     return;
