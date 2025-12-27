@@ -788,6 +788,10 @@ void boot_db( bool fCopyOver )
     log_string("Initializing NPC AI...");
     init_npc_ai();
 
+    /* Initialize clan relations system */
+    log_string("Initializing clan relations...");
+    init_clan_relations();
+
     /* init_maps ( ); */
 
     return;

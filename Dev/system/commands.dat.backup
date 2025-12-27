@@ -478,38 +478,6 @@ Level       0
 Log         0
 End
 
-
-#COMMAND
-Name        clan_relations~
-Code        do_clan_relations
-Position    100
-Level       0
-Log         0
-End
-
-#COMMAND
-Name        clan_war~
-Code        do_clan_war
-Position    100
-Level       51
-Log         1
-End
-
-#COMMAND
-Name        clan_ally~
-Code        do_clan_ally
-Position    100
-Level       51
-Log         1
-End
-
-#COMMAND
-Name        clan_peace~
-Code        do_clan_peace
-Position    100
-Level       51
-Log         1
-End
 #COMMAND
 Name        close~
 Code        do_close

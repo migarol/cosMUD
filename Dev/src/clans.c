@@ -202,6 +202,23 @@ void save_clan( CLAN_DATA *clan )
 	fprintf( fp, "Storeroom    %d\n",	clan->storeroom		);
 	fprintf( fp, "GuardOne     %d\n",	clan->guard1		);
 	fprintf( fp, "GuardTwo     %d\n",	clan->guard2		);
+
+	/* Save clan relations */
+	{
+	    CLAN_RELATION *rel;
+	    for (rel = clan->first_relation; rel; rel = rel->next)
+	    {
+		if (rel->with_clan && rel->with_clan->name)
+		{
+		    fprintf( fp, "Relation     %s~ %d %ld %s~\n",
+			rel->with_clan->name,
+			rel->value,
+			(long)rel->since,
+			rel->reason ? rel->reason : "" );
+		}
+	    }
+	}
+
 	fprintf( fp, "End\n\n"						);
 	fprintf( fp, "#END\n"						);
     }
@@ -439,6 +456,48 @@ void fread_clan( CLAN_DATA *clan, FILE *fp )
 
 	case 'R':
 	    KEY( "Recall",	clan->recall,		fread_number( fp ) );
+	    if ( !str_cmp( word, "Relation" ) )
+	    {
+		CLAN_RELATION *rel;
+		char *target_name;
+		int value;
+		long since;
+		char *reason;
+
+		fMatch = TRUE;
+		target_name = fread_string( fp );
+		value = fread_number( fp );
+		since = fread_number( fp );
+		reason = fread_string( fp );
+
+		/* Create relation entry (will be linked to target clan later) */
+		CREATE( rel, CLAN_RELATION, 1 );
+		rel->with_clan = NULL;  /* Will be set in init_clan_relations */
+		rel->value = value;
+		rel->since = (time_t)since;
+		rel->reason = STRALLOC( reason );
+
+		/* Store target name temporarily in reason field for init */
+		if ( !clan->first_relation )
+		{
+		    clan->first_relation = rel;
+		    clan->last_relation = rel;
+		}
+		else
+		{
+		    LINK( rel, clan->first_relation, clan->last_relation, next, prev );
+		}
+
+		/* Save target name for later resolution */
+		/* We'll use a temp string that init_clan_relations will parse */
+		/* Format: "TARGET_CLAN_NAME|reason" */
+		{
+		    char temp_buf[MAX_STRING_LENGTH];
+		    sprintf( temp_buf, "%s|%s", target_name, reason );
+		    STRFREE( rel->reason );
+		    rel->reason = STRALLOC( temp_buf );
+		}
+	    }
 	    break;
 
 	case 'S':

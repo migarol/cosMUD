@@ -148,6 +148,7 @@ typedef struct	hour_min_sec		HOUR_MIN_SEC;
 typedef struct	weather_data		WEATHER_DATA;
 typedef struct	neighbor_data		NEIGHBOR_DATA; /* FB */
 typedef	struct	clan_data		CLAN_DATA;
+typedef struct	clan_relation_data	CLAN_RELATION;
 typedef struct  council_data 		COUNCIL_DATA;
 typedef struct  tourney_data            TOURNEY_DATA;
 typedef struct	mob_prog_data		MPROG_DATA;
@@ -1194,6 +1195,16 @@ struct member_list
 	MEMBER_LIST	*prev;		/* Prev clan */
 };
 
+struct	clan_relation_data
+{
+    CLAN_RELATION * next;	/* next relation in list		*/
+    CLAN_RELATION * prev;	/* previous relation in list		*/
+    CLAN_DATA *	with_clan;	/* clan this relation is with		*/
+    int		value;		/* -100 (war) to +100 (allied)		*/
+    time_t	since;		/* when relation was established	*/
+    char *	reason;		/* reason for this relation		*/
+};
+
 struct	clan_data
 {
     CLAN_DATA * next;		/* next clan in list			*/
@@ -1230,6 +1241,10 @@ struct	clan_data
     int		guard1;		/* Vnum of clan guard type 1		*/
     int		guard2;		/* Vnum of clan guard type 2		*/
     int		class;		/* For clubs				*/
+    CLAN_RELATION * first_relation;	/* First inter-clan relation	*/
+    CLAN_RELATION * last_relation;	/* Last inter-clan relation	*/
+    int		war_declarations;	/* Number of active wars	*/
+    int		active_alliances;	/* Number of active alliances	*/
 };
 
 struct	council_data
@@ -3949,6 +3964,10 @@ DECLARE_DO_FUN(	do_check_vnums  );
 DECLARE_DO_FUN( do_circle	);
 DECLARE_DO_FUN(	do_clans	);
 DECLARE_DO_FUN(	do_clantalk	);
+DECLARE_DO_FUN(	do_clan_relations );
+DECLARE_DO_FUN(	do_clan_war	);
+DECLARE_DO_FUN(	do_clan_ally	);
+DECLARE_DO_FUN(	do_clan_peace	);
 DECLARE_DO_FUN( do_classes	); /* Fellon */
 DECLARE_DO_FUN(	do_claw		);
 DECLARE_DO_FUN( do_climate	); /* FB */
@@ -4789,6 +4808,20 @@ void RelDestroy( relation_type, void *, void * );
 CL *	get_clan	args( ( char *name ) );
 void	load_clans	args( ( void ) );
 void	save_clan	args( ( CLAN_DATA *clan ) );
+
+/* clan_relations.c */
+void	init_clan_relations		args( ( void ) );
+CLAN_RELATION * find_clan_relation	args( ( CLAN_DATA *clan, CLAN_DATA *target ) );
+void	clan_set_relation		args( ( CLAN_DATA *clan, CLAN_DATA *target, int value, char *reason ) );
+int	clan_get_relation		args( ( CLAN_DATA *clan, CLAN_DATA *target ) );
+bool	clans_are_allied		args( ( CLAN_DATA *clan1, CLAN_DATA *clan2 ) );
+bool	clans_at_war			args( ( CLAN_DATA *clan1, CLAN_DATA *clan2 ) );
+void	clan_declare_war		args( ( CLAN_DATA *aggressor, CLAN_DATA *target, char *reason ) );
+void	clan_make_peace			args( ( CLAN_DATA *clan1, CLAN_DATA *clan2 ) );
+void	do_clan_relations		args( ( CHAR_DATA *ch, char *argument ) );
+void	do_clan_war			args( ( CHAR_DATA *ch, char *argument ) );
+void	do_clan_ally			args( ( CHAR_DATA *ch, char *argument ) );
+void	do_clan_peace			args( ( CHAR_DATA *ch, char *argument ) );
 
 CO *	get_council	args( ( char *name ) );
 void	load_councils	args( ( void ) );

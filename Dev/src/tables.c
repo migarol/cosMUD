@@ -244,6 +244,10 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_circle" ))		return do_circle;
 	if ( !str_cmp( name, "do_clans" ))		return do_clans;
 	if ( !str_cmp( name, "do_clantalk" ))		return do_clantalk;
+	if ( !str_cmp( name, "do_clan_relations" ))	return do_clan_relations;
+	if ( !str_cmp( name, "do_clan_war" ))		return do_clan_war;
+	if ( !str_cmp( name, "do_clan_ally" ))		return do_clan_ally;
+	if ( !str_cmp( name, "do_clan_peace" ))		return do_clan_peace;
 	if ( !str_cmp( name, "do_classes" ))		return do_classes;
 	if ( !str_cmp( name, "do_clear" ))		return do_clear;
 	if ( !str_cmp( name, "do_climate" ))		return do_climate;
@@ -945,6 +949,10 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_circle )		return "do_circle";
     if ( skill == do_clans )		return "do_clans";
     if ( skill == do_clantalk )		return "do_clantalk";
+    if ( skill == do_clan_relations )	return "do_clan_relations";
+    if ( skill == do_clan_war )		return "do_clan_war";
+    if ( skill == do_clan_ally )	return "do_clan_ally";
+    if ( skill == do_clan_peace )	return "do_clan_peace";
     if ( skill == do_classes )		return "do_classes";
     if ( skill == do_clear )		return "do_clear";
     if ( skill == do_climate )		return "do_climate";
