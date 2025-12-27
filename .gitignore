@@ -21,3 +21,11 @@ core.*
 .vscode/
 .idea/
 *.iml
+
+# Runtime system files
+Dev/system/WIZLIST
+Dev/system/WEBWIZ
+Dev/system/boot.txt
+Dev/system/bugs.txt
+Dev/system/shutdown.txt
+Dev/src/shutdown.txt
