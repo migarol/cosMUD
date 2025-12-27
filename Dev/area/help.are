@@ -14190,13 +14190,220 @@ non-prototype zone in the mud.
 -1 _DIEMSG_~
 .&z&r...A curtain of red washes over you, as a curtain of blood, then all
 begins to grow still, and silence takes you.
- 
+
  &z&WA void of darkness and light surrounds you, darkness and light each
 vying for possession of your soul.
- 
+
 But then you feel yourself being pulled by an inexorable force, and know
 that this is not the end, as you open your eyes again you find yourself
 naked, reincarnated in a new body.
+~
+
+111 MEDIT-AI 'AI SETTINGS'~
+&WMEDIT AI SETTINGS&w
+
+When editing a mob with MEDIT, press '0' to access the AI Settings submenu.
+
+&CAI Settings Submenu:&w
+  &g1&w) View/Edit Identity - View or modify the mob's self-awareness and personality
+  &g2&w) View/Edit Home     - View the mob's assigned home (editing coming soon)
+  &g3&w) View Memory        - View the mob's memories of player interactions
+  &g4&w) Generate Identity  - Use Beeler AI to auto-generate a personality
+  &g5&w) Analyze Context    - Analyze mob's context for awareness recommendations
+  &gQ&w) Return to main menu
+
+&CIdentity System:&w
+Every mob can have an AI identity that defines:
+  - Who Am I?         (self-concept)
+  - What I Do?        (purpose)
+  - How I Do It?      (methods)
+  - Where I Live?     (home location)
+  - Where I Go?       (patrol areas)
+  - My Purpose?       (goals)
+
+&CAwareness Levels:&w
+  0 - None:    Basic scripted NPC
+  1 - Low:     Responds to simple interactions
+  2 - Medium:  Has personality, remembers things
+  3 - High:    Complex interactions, has goals
+  4 - Sapient: Full AI-driven character
+
+See also: BEELER, MOB-IDENTITY, MOB-HOME, MOB-MEMORY
+~
+
+111 BEELER 'AI GOD'~
+&WBEELER - The AI God&w
+
+Syntax: beeler <command>
+
+Beeler is the AI God who breathes life into NPCs by generating contextually
+appropriate personalities and identities.
+
+&CCommands:&w
+  beeler identity <mob>    - Generate AI personality for a mob
+  beeler analyze <mob>     - Analyze mob's context and suggest awareness level
+  beeler home <mob>        - Assign appropriate home to mob
+  beeler district <area>   - Build residential district in area
+  beeler populate <area>   - Generate identities for all mobs in area
+
+&CHow Beeler Works:&w
+Beeler examines a mob's context:
+  - Area type (city, dungeon, wilderness)
+  - Mob's role (guard, shopkeeper, boss, etc.)
+  - Equipment and items carried
+  - Mentions in books/lore/quests
+  - Relationships to other mobs
+
+Based on this analysis, Beeler determines:
+  - Appropriate awareness level (0-4)
+  - Suitable home type (hovel, apartment, house, manor, palace)
+  - Personality traits and background
+  - Goals and motivations
+
+&CExamples:&w
+  beeler identity guard    - Generate personality for a city guard
+  beeler analyze dragon    - Analyze dragon's context for AI recommendations
+  beeler home shopkeeper   - Assign appropriate home to shopkeeper
+
+See also: MEDIT-AI, MOB-IDENTITY, MOB-HOME
+~
+
+111 MOB-IDENTITY 'AI IDENTITY'~
+&WMOB IDENTITY SYSTEM&w
+
+The Mob Identity System gives NPCs self-awareness and persistent personality.
+
+&CIdentity Fields:&w
+  &CWho Am I?&w       - The mob's self-concept
+                   Example: "I am a veteran city guard"
+
+  &CWhat I Do?&w      - The mob's purpose
+                   Example: "I protect the citizens"
+
+  &CHow I Do It?&w    - The mob's methods
+                   Example: "With honor and steel"
+
+  &CWhere I Live?&w   - Home location description
+                   Example: "In the guard barracks"
+
+  &CWhere I Go?&w     - Patrol or travel areas
+                   Example: "I patrol the market district"
+
+  &CMy Purpose?&w     - Long-term goals
+                   Example: "To serve and protect Darkhaven"
+
+&CAwareness Levels (0-4):&w
+  &g0 - NONE:&w      Basic scripted NPC, no self-awareness
+  &g1 - LOW:&w       Can respond to simple interactions
+  &g2 - MEDIUM:&w    Has distinct personality, remembers interactions
+  &g3 - HIGH:&w      Complex behavior, has goals and motivations
+  &g4 - SAPIENT:&w   Fully AI-driven, can learn and evolve
+
+&CCapabilities:&w
+Aware mobs can have special abilities:
+  - Write books and scrolls
+  - Craft custom items
+  - Trade and barter
+  - Teach skills
+  - Give quests
+  - Hire/recruit players
+
+&CData Storage:&w
+Identities are stored in ../data/mob_identity/ as JSON files,
+one per mob vnum.
+
+See also: MEDIT-AI, BEELER, MOB-HOME, MOB-MEMORY
+~
+
+111 MOB-HOME 'HOUSING SYSTEM'~
+&WMOB HOUSING SYSTEM&w
+
+Every intelligent mob deserves a place to call home.
+
+&CHome Types:&w
+  &CHovel&w      - Awareness 0 mobs, cramped and poor (10 gold rent)
+  &CApartment&w  - Awareness 1 mobs, basic rental (50 gold rent)
+  &CHouse&w      - Awareness 2 mobs, comfortable dwelling (200 gold rent)
+  &CManor&w      - Awareness 3 mobs, spacious estate (owned)
+  &CPalace&w     - Awareness 4 mobs, grand residence (owned)
+  &CInn Room&w   - Temporary lodging (25 gold rent)
+  &CBarracks&w   - Guards and soldiers (free, shared)
+  &CDormitory&w  - Apprentices and students (20 gold rent)
+
+&CHome Features:&w
+  - Personalized descriptions based on mob's personality
+  - Furnishings reflecting mob's interests and capabilities
+  - Rent system for non-owned homes (weekly gold cost)
+  - Visit tracking (when mob last went home)
+  - Neighbor relationships in districts
+  - District-based rent modifiers
+
+&CHome Assignment:&w
+Homes are automatically assigned by Beeler based on:
+  - Mob's awareness level
+  - Mob's role (guard, shopkeeper, noble, etc.)
+  - Area location and district availability
+  - Mob's financial status
+
+&CMob Behavior:&w
+Aware mobs will:
+  - Return home at night or when tired
+  - Invite trusted players to visit
+  - Defend their homes fiercely
+  - Pay rent if needed (or face eviction!)
+
+&CData Storage:&w
+Home data stored in ../data/mob_homes/ as JSON files.
+
+See also: MEDIT-AI, BEELER, MOB-IDENTITY, INN-RENTAL
+~
+
+111 MOB-MEMORY 'NPC MEMORY'~
+&WMOB MEMORY SYSTEM&w
+
+Aware mobs (awareness level 1+) remember their interactions with players.
+
+&CMemory Features:&w
+  - Remembers player names and events
+  - Tracks emotional impact of interactions (-100 to +100)
+  - Maintains relationship scores with each player
+  - Recalls past conversations and deeds
+  - Holds grudges or shows favoritism
+
+&CMemory Types:&w
+  &GPositive Memories&w (+50 to +100 impact)
+    - Player helped the mob
+    - Completed quest for mob
+    - Gave gifts or donations
+    - Defended mob from attackers
+
+  &YNeutral Memories&w (-49 to +49 impact)
+    - Simple conversations
+    - Purchase transactions
+    - Common interactions
+
+  &RNegative Memories&w (-100 to -50 impact)
+    - Player attacked the mob
+    - Insulted or threatened
+    - Stole from mob
+    - Killed mob's friends/family
+
+&CMemory Effects:&w
+Mobs will adjust behavior based on memories:
+  - Refuse service to disliked players
+  - Offer discounts to friends
+  - Attack enemies on sight (if appropriate)
+  - Share information with trusted allies
+  - Warn others about dangerous players
+
+&CViewing Memories:&w
+  In MEDIT AI menu, option 3 shows mob's memories
+  Lists player name, event, date, and relationship score
+
+&CData Persistence:&w
+Memories are saved with mob identity data.
+
+See also: MEDIT-AI, MOB-IDENTITY, AWARENESS
 ~
 
 0 $~
