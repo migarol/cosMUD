@@ -153,6 +153,7 @@ int beeler_total_snapshots(void);
 void beeler_show_stats(CHAR_DATA *ch);
 
 /* Commands */
+void do_beeler(CHAR_DATA *ch, char *argument);
 void do_beeler_stats(CHAR_DATA *ch, char *argument);
 void do_snapshot(CHAR_DATA *ch, char *argument);
 void do_beeler_mood(CHAR_DATA *ch, char *argument);

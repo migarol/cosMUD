@@ -379,6 +379,44 @@ int beeler_determine_profession( CHAR_DATA *mob, const char *context )
 }
 
 /*
+ * Main beeler command - routes to subcommands
+ */
+void do_beeler( CHAR_DATA *ch, char *argument )
+{
+    char arg[MAX_INPUT_LENGTH];
+
+    if ( IS_NPC( ch ) )
+        return;
+
+    argument = one_argument( argument, arg );
+
+    if ( arg[0] == '\0' )
+    {
+        send_to_char( "&CBeeler Command System&w\n\r", ch );
+        send_to_char( "Syntax:\n\r", ch );
+        send_to_char( "  beeler assign <vnum>        - Assign personality to a mob\n\r", ch );
+        send_to_char( "  beeler assign all           - Assign personalities to ALL mobs\n\r", ch );
+        send_to_char( "  beeler assign area <name>   - Assign personalities to area mobs\n\r", ch );
+        send_to_char( "  beeler analyze <mob>        - View Beeler's analysis of a mob\n\r", ch );
+        return;
+    }
+
+    if ( !str_cmp( arg, "assign" ) )
+    {
+        do_beeler_assign( ch, argument );
+        return;
+    }
+
+    if ( !str_cmp( arg, "analyze" ) )
+    {
+        do_beeler_analyze( ch, argument );
+        return;
+    }
+
+    send_to_char( "Invalid beeler subcommand. Type 'beeler' for syntax.\n\r", ch );
+}
+
+/*
  * Command: beeler assign <vnum|all|area>
  */
 void do_beeler_assign( CHAR_DATA *ch, char *argument )

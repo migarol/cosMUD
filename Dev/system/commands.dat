@@ -4649,7 +4649,7 @@ End
 
 #COMMAND
 Name        beeler~
-Code        do_beeler_assign
+Code        do_beeler
 Position    100
 Level       60
 Log         1

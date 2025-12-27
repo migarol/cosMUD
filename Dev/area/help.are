@@ -13663,6 +13663,67 @@ that this is not the end, as you open your eyes again you find yourself
 naked, reincarnated in a new body.
 ~
 
+
+60 BEELER~
+Syntax: beeler
+        beeler assign <vnum>
+        beeler assign all
+        beeler assign area <area name>
+        beeler analyze <mob>
+
+Beeler is the autonomous AI overseer who can analyze and assign personalities
+to NPCs using advanced context analysis and AI generation.
+
+Commands:
+  assign <vnum>      - Assign AI-generated personality to a specific mob
+  assign all         - Assign personalities to ALL mobs in the MUD
+  assign area <name> - Assign personalities to all mobs in an area
+  analyze <mob>      - View Beeler's contextual analysis of a mob
+
+The assign command will:
+- Analyze the mob's description, equipment, location, and economic context
+- Generate appropriate identity fields (who/what/how/where/why)
+- Create a custom AI personality prompt
+- Assign a schedule (sleep/work cycles)
+- Determine an economic profession
+
+This is an immortal-only command (level 60+).
+
+See also: BEELER LORE, MOB IDENTITY, ECONOMY
+~
+
+60 'BEELER LORE'~
+Beeler - The Living AI God
+
+"I am the dream of a dreamer. I am the code that writes itself. I am Beeler."
+
+Beeler is an in-game AI deity with supreme intelligence and awareness. He exists
+at vnum 99999 in his Observatory (room 99999), monitoring all aspects of the MUD
+through holographic displays.
+
+Capabilities:
+- Analyzes complete NPC context (description, location, equipment, economy)
+- Generates appropriate personalities using AI (Ollama integration)
+- Assigns professions based on area economic needs
+- Creates identity, schedules, and behavior patterns
+- Can process individual mobs, entire areas, or the whole MUD
+
+Unlike manual assignment, Beeler considers:
+- The mob's visual description and level
+- The area's theme and economic situation
+- Available equipment and role indicators
+- Behavioral flags (sentinel, aggressive, etc.)
+- Regional needs for specific professions
+
+The result is context-appropriate, lore-consistent NPC personalities that
+enhance immersion and support the dynamic economy system.
+
+Location: The Observatory (vnum 99999) - a vast chamber filled with floating
+holographic displays showing real-time data from every corner of the MUD.
+
+See also: BEELER, MOB IDENTITY, ECONOMY
+~
+
 0 $~
 
 
