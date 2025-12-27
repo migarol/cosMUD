@@ -1,25 +1,23 @@
-# Compiled object files
+# Build artifacts
 *.o
+*.so
+*.a
+Dev/src/rmexe
 
-# Executables
-rmexe
-*/rmexe
-*/src/rmexe
+# Log files
+Dev/log/*.log
 
-# Backup files
+# Core dumps
+core
+core.*
+
+# Editor temporary files
 *~
-*.bak
-
-# Temporary files
-*.tmp
-*.log
+*.swp
+*.swo
+.*.sw?
 
 # IDE files
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# System files
-.DS_Store
-Thumbs.db
+*.iml

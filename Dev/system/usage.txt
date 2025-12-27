@@ -4674,3 +4674,4 @@ Mon Aug  5 00:00:00 2002: 15 players
 Mon Aug  5 01:00:00 2002: 18 players
 Mon Aug  5 02:00:00 2002: 19 players
 Mon Aug  5 02:30:00 2002: 18 players
+Sat Dec 27 22:30:00 2025: 0 players
