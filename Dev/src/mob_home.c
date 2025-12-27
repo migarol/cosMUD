@@ -704,3 +704,332 @@ bool mob_move_along_path(CHAR_DATA *mob, int target_vnum)
     /* TODO: Implement A* pathfinding or similar */
     return FALSE;  /* Return FALSE for now (can't find path) */
 }
+
+/*
+ * Command: homeslist [area] - List all homes (admin command)
+ */
+void do_homeslist(CHAR_DATA *ch, char *argument)
+{
+    MOB_HOME *home;
+    AREA_DATA *area = NULL;
+    ROOM_INDEX_DATA *room;
+    MOB_INDEX_DATA *mob;
+    int count = 0;
+    char arg[MAX_INPUT_LENGTH];
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs cannot use this command.\n\r", ch);
+        return;
+    }
+
+    if (get_trust(ch) < LEVEL_IMMORTAL)
+    {
+        send_to_char("Only immortals can view the homes list.\n\r", ch);
+        return;
+    }
+
+    one_argument(argument, arg);
+
+    /* If area specified, find it */
+    if (arg[0] != '\0')
+    {
+        for (area = first_area; area; area = area->next)
+        {
+            if (!str_cmp(area->name, arg) || !str_cmp(area->filename, arg))
+                break;
+        }
+
+        if (!area)
+        {
+            ch_printf(ch, "Area '%s' not found.\n\r", arg);
+            return;
+        }
+
+        ch_printf(ch, "\n\r&Y=== Homes in %s ===&w\n\r\n\r", area->name);
+    }
+    else
+    {
+        send_to_char("\n\r&Y=== All Homes in World ===&w\n\r\n\r", ch);
+    }
+
+    send_to_char("&CVnum  Owner (vnum)                Type       Occupied  District&w\n\r", ch);
+    send_to_char("&C---------------------------------------------------------------------------&w\n\r", ch);
+
+    for (home = first_mob_home; home; home = home->next)
+    {
+        /* Filter by area if specified */
+        if (area)
+        {
+            room = get_room_index(home->home_vnum);
+            if (!room || room->area != area)
+                continue;
+        }
+
+        /* Get owner info */
+        mob = get_mob_index(home->mob_vnum);
+
+        ch_printf(ch, "&G%-6d&w %-25s %-10s %-9s %s\n\r",
+            home->home_vnum,
+            mob ? mob->short_descr : "(none)",
+            home_type_name(home->home_type),
+            home->owned ? "&GOwned&w" : "&YRent&w",
+            home->district ? home->district : "None");
+
+        count++;
+    }
+
+    if (count == 0)
+    {
+        if (area)
+            ch_printf(ch, "No homes found in %s.\n\r", area->name);
+        else
+            send_to_char("No homes found in the world.\n\r", ch);
+    }
+    else
+    {
+        ch_printf(ch, "\n\r&YTotal homes: %d&w\n\r\n\r", count);
+    }
+}
+
+/*
+ * Command: homeinfo <vnum> - Show detailed home info (admin command)
+ */
+void do_homeinfo(CHAR_DATA *ch, char *argument)
+{
+    MOB_HOME *home;
+    ROOM_INDEX_DATA *room;
+    MOB_INDEX_DATA *mob;
+    char arg[MAX_INPUT_LENGTH];
+    int vnum;
+    int i;
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs cannot use this command.\n\r", ch);
+        return;
+    }
+
+    if (get_trust(ch) < LEVEL_IMMORTAL)
+    {
+        send_to_char("Only immortals can view home info.\n\r", ch);
+        return;
+    }
+
+    one_argument(argument, arg);
+
+    if (arg[0] == '\0')
+    {
+        send_to_char("Syntax: homeinfo <room_vnum>\n\r", ch);
+        return;
+    }
+
+    vnum = atoi(arg);
+
+    /* Search for home by vnum (could be mob_vnum or home_vnum) */
+    for (home = first_mob_home; home; home = home->next)
+    {
+        if (home->home_vnum == vnum || home->mob_vnum == vnum)
+            break;
+    }
+
+    if (!home)
+    {
+        ch_printf(ch, "No home found for vnum %d.\n\r", vnum);
+        return;
+    }
+
+    room = get_room_index(home->home_vnum);
+    mob = get_mob_index(home->mob_vnum);
+
+    send_to_char("\n\r&Y=== Home Information ===&w\n\r\n\r", ch);
+
+    ch_printf(ch, "&GRoom Vnum:&w      %d\n\r", home->home_vnum);
+
+    if (room)
+    {
+        ch_printf(ch, "&GRoom Name:&w      %s\n\r", room->name);
+        ch_printf(ch, "&GArea:&w           %s\n\r", room->area ? room->area->name : "Unknown");
+    }
+
+    ch_printf(ch, "&GHome Type:&w      %s\n\r", home_type_name(home->home_type));
+    ch_printf(ch, "&GHome Name:&w      %s\n\r", home->home_name ? home->home_name : "None");
+
+    if (mob)
+    {
+        ch_printf(ch, "&GOwner:&w          %s (vnum %d)\n\r",
+            mob->short_descr, home->mob_vnum);
+    }
+    else
+    {
+        ch_printf(ch, "&GOwner:&w          None\n\r");
+    }
+
+    ch_printf(ch, "&GDistrict:&w       %s\n\r",
+        home->district ? home->district : "None");
+
+    ch_printf(ch, "&GOwnership:&w      %s\n\r",
+        home->owned ? "&GOwned&w" : "&YRenting&w");
+
+    ch_printf(ch, "&GRent Cost:&w      %d gold/week\n\r", home->rent_cost);
+
+    if (home->num_furnishings > 0)
+    {
+        send_to_char("\n\r&YFurnishings:&w\n\r", ch);
+        for (i = 0; i < home->num_furnishings; i++)
+        {
+            if (home->furnishing_descriptions && home->furnishing_descriptions[i])
+            {
+                ch_printf(ch, "  - %s\n\r", home->furnishing_descriptions[i]);
+            }
+        }
+    }
+
+    send_to_char("\n\r", ch);
+}
+
+/*
+ * Command: homeassign <mob_vnum> <room_vnum> - Manually assign home (admin command)
+ */
+void do_homeassign(CHAR_DATA *ch, char *argument)
+{
+    char arg1[MAX_INPUT_LENGTH];
+    char arg2[MAX_INPUT_LENGTH];
+    int mob_vnum, room_vnum;
+    MOB_INDEX_DATA *pMobIndex;
+    ROOM_INDEX_DATA *pRoomIndex;
+    MOB_HOME *home;
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs cannot use this command.\n\r", ch);
+        return;
+    }
+
+    if (get_trust(ch) < LEVEL_IMMORTAL)
+    {
+        send_to_char("Only immortals can assign homes.\n\r", ch);
+        return;
+    }
+
+    argument = one_argument(argument, arg1);
+    argument = one_argument(argument, arg2);
+
+    if (arg1[0] == '\0' || arg2[0] == '\0')
+    {
+        send_to_char("Syntax: homeassign <mob_vnum> <room_vnum>\n\r", ch);
+        send_to_char("Example: homeassign 3001 10500\n\r", ch);
+        return;
+    }
+
+    mob_vnum = atoi(arg1);
+    room_vnum = atoi(arg2);
+
+    pMobIndex = get_mob_index(mob_vnum);
+    if (!pMobIndex)
+    {
+        ch_printf(ch, "Mob vnum %d does not exist.\n\r", mob_vnum);
+        return;
+    }
+
+    pRoomIndex = get_room_index(room_vnum);
+    if (!pRoomIndex)
+    {
+        ch_printf(ch, "Room vnum %d does not exist.\n\r", room_vnum);
+        return;
+    }
+
+    /* Check if home already exists for this room */
+    for (home = first_mob_home; home; home = home->next)
+    {
+        if (home->home_vnum == room_vnum)
+            break;
+    }
+
+    if (!home)
+    {
+        /* Create new home */
+        home = create_mob_home(mob_vnum, room_vnum, HOME_TYPE_APARTMENT);
+        if (!home)
+        {
+            send_to_char("Failed to create home.\n\r", ch);
+            return;
+        }
+    }
+    else
+    {
+        /* Update existing home's owner */
+        home->mob_vnum = mob_vnum;
+    }
+
+    /* Mark as owned */
+    home->owned = TRUE;
+
+    ch_printf(ch, "&G[SUCCESS]&w Assigned room %d (%s) to mob %d (%s)\n\r",
+        room_vnum, pRoomIndex->name,
+        mob_vnum, pMobIndex->short_descr);
+
+    /* Save homes */
+    save_mob_home(home);
+
+    sprintf(log_buf, "%s assigned home %d to mob %d", ch->name, room_vnum, mob_vnum);
+    log_string(log_buf);
+}
+
+/*
+ * Command: homeunassign <room_vnum> - Free up a home (admin command)
+ */
+void do_homeunassign(CHAR_DATA *ch, char *argument)
+{
+    char arg[MAX_INPUT_LENGTH];
+    int room_vnum;
+    MOB_HOME *home;
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs cannot use this command.\n\r", ch);
+        return;
+    }
+
+    if (get_trust(ch) < LEVEL_IMMORTAL)
+    {
+        send_to_char("Only immortals can unassign homes.\n\r", ch);
+        return;
+    }
+
+    one_argument(argument, arg);
+
+    if (arg[0] == '\0')
+    {
+        send_to_char("Syntax: homeunassign <room_vnum>\n\r", ch);
+        return;
+    }
+
+    room_vnum = atoi(arg);
+
+    /* Find home by room vnum */
+    for (home = first_mob_home; home; home = home->next)
+    {
+        if (home->home_vnum == room_vnum)
+            break;
+    }
+
+    if (!home)
+    {
+        ch_printf(ch, "Room %d is not registered as a home.\n\r", room_vnum);
+        return;
+    }
+
+    ch_printf(ch, "Unassigned home %d (was owned by mob %d)\n\r",
+        room_vnum, home->mob_vnum);
+
+    /* Clear owner */
+    home->mob_vnum = 0;
+    home->owned = FALSE;
+
+    /* Save */
+    save_mob_home(home);
+
+    sprintf(log_buf, "%s unassigned home %d", ch->name, room_vnum);
+    log_string(log_buf);
+}

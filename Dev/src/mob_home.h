@@ -160,4 +160,10 @@ void do_home(CHAR_DATA *ch, char *argument);
 void do_rent(CHAR_DATA *ch, char *argument);
 void do_innlist(CHAR_DATA *ch, char *argument);
 
+/* Admin commands */
+void do_homeslist(CHAR_DATA *ch, char *argument);
+void do_homeinfo(CHAR_DATA *ch, char *argument);
+void do_homeassign(CHAR_DATA *ch, char *argument);
+void do_homeunassign(CHAR_DATA *ch, char *argument);
+
 #endif /* MOB_HOME_H */
