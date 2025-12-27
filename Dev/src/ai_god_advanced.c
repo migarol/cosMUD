@@ -15,6 +15,7 @@
 #include <time.h>
 #include <curl/curl.h>
 #include "mud.h"
+#include "mob_identity.h"
 
 /* Analysis intervals */
 #define GOD_ANALYSIS_INTERVAL 1800  /* 30 minutes */

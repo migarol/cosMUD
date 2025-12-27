@@ -18,6 +18,8 @@
 #include <string.h>
 #include <time.h>
 #include "mud.h"
+#include "mob_identity.h"
+#include "mob_pathfinding.h"
 
 /* Simulation intervals */
 #define SIM_MOB_ACTION_INTERVAL 60      /* 1 minute - mobs take actions */

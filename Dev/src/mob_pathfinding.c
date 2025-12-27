@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "mud.h"
 #include "mob_pathfinding.h"
 
@@ -101,7 +102,7 @@ PATH_RESULT *find_path(int from_vnum, int to_vnum, int max_distance)
             /* Skip if closed door or no-mob */
             if (IS_SET(pexit->exit_info, EX_CLOSED))
                 continue;
-            if (xIS_SET(next_room->room_flags, ROOM_NO_MOB))
+            if (IS_SET(next_room->room_flags, ROOM_NO_MOB))
                 continue;
 
             /* Skip if already visited */

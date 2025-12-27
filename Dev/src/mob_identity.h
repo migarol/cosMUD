@@ -50,6 +50,7 @@ typedef struct mob_identity_data {
     /* Capabilities */
     int capabilities;         /* Bitfield of MOB_CAN_* flags */
     int awareness_level;      /* 0-4 awareness level */
+    int mobility;             /* 0-100 how much this mob moves around */
 
     /* Writing abilities */
     char *writing_style;      /* "académico, pedante" */
@@ -81,6 +82,7 @@ typedef struct schedule_entry {
     char *location;           /* "library", "study", "quarters" */
     int location_vnum;        /* Optional specific room */
     struct schedule_entry *next;
+    struct schedule_entry *prev;
 } SCHEDULE_ENTRY;
 
 typedef struct custom_schedule {
@@ -114,6 +116,7 @@ typedef struct mob_memory_entry {
     int room_vnum;            /* Where this happened */
 
     struct mob_memory_entry *next;
+    struct mob_memory_entry *prev;
 } MEMORY_ENTRY;
 
 typedef struct mob_memory_data {

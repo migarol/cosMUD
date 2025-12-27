@@ -12,6 +12,7 @@
 #include <curl/curl.h>
 #include "mud.h"
 #include "mob_identity.h"
+#include "ai_context_analyzer.h"
 
 /* Global lists */
 MOB_IDENTITY *first_mob_identity = NULL;
@@ -22,6 +23,20 @@ MOB_CREATION *first_mob_creation = NULL;
 #define IDENTITY_DIR "../data/mob_identity/"
 #define MEMORY_DIR "../data/mob_memory/"
 #define CREATION_DIR "../data/mob_creations/"
+
+/* Routine types (from world_simulation.c) */
+#define ROUTINE_SLEEP       0
+#define ROUTINE_WAKE        1
+#define ROUTINE_PATROL      2
+#define ROUTINE_WORK        3
+#define ROUTINE_TRADE       4
+#define ROUTINE_SOCIALIZE   5
+#define ROUTINE_EAT         6
+#define ROUTINE_GUARD       7
+#define ROUTINE_HUNT        8
+
+/* Forward declarations */
+char *get_time_diff(time_t past);
 
 /*
  * Initialize the mob identity system
@@ -262,7 +277,7 @@ void add_mob_memory(int vnum, int type, char *target, char *summary, int emotion
     entry->is_promise = FALSE;
 
     /* Add to list */
-    LINK(entry, memory->first_memory, memory->last_memory, next, MEMORY_ENTRY);
+    LINK(entry, memory->first_memory, memory->last_memory, next, prev);
     memory->total_memories++;
 
     /* Save to disk periodically */
@@ -442,64 +457,109 @@ void track_mob_creation(int creator_vnum, int object_vnum, char *name, bool is_b
 void generate_mob_identity(CHAR_DATA *mob)
 {
     MOB_IDENTITY *identity;
-    char prompt[MAX_STRING_LENGTH * 4];
+    MOB_CONTEXT *ctx;
+    char *ai_prompt;
     /* char *ai_response; */
+    extern MOB_CONTEXT *analyze_mob_context(CHAR_DATA *mob);
+    extern char *generate_context_aware_prompt(MOB_CONTEXT *ctx);
+    extern bool validate_personality_fits_context(MOB_CONTEXT *ctx, MOB_IDENTITY *identity);
+    extern void free_mob_context(MOB_CONTEXT *ctx);
 
     if (!IS_NPC(mob))
         return;
+
+    /* STEP 1: Deep context analysis */
+    ctx = analyze_mob_context(mob);
+
+    if (!ctx)
+    {
+        log_string("ERROR: Failed to analyze mob context");
+        return;
+    }
+
+    /* Log importance level */
+    if (ctx->fame_level > 80)
+    {
+        sprintf(log_buf, "[AI GOD] HIGH IMPORTANCE MOB: %s (fame %d, unique=%s, boss=%s)",
+            mob->name, ctx->fame_level,
+            ctx->is_unique ? "YES" : "No",
+            ctx->is_boss ? "YES" : "No");
+        log_string(log_buf);
+    }
 
     /* Get or create identity */
     identity = get_mob_identity(mob->pIndexData->vnum);
     if (!identity)
         identity = create_mob_identity(mob->pIndexData->vnum);
 
-    /* Build AI prompt */
-    sprintf(prompt,
-        "Generate a unique personality and identity for this mob:\n\n"
-        "Name: %s\n"
-        "Short Description: %s\n"
-        "Long Description: %s\n"
-        "Location: %s (vnum %d)\n\n"
-        "Provide:\n"
-        "1. WHO_AM_I: Brief self-introduction (20 words)\n"
-        "2. WHAT_I_DO: Main activity/profession (15 words)\n"
-        "3. HOW_I_DO_IT: Work style/method (15 words)\n"
-        "4. WHERE_I_LIVE: Home location (10 words)\n"
-        "5. WHERE_I_GO: Travel patterns (15 words)\n"
-        "6. PURPOSE: Life purpose (15 words)\n"
-        "7. WRITING_STYLE: If scholar/writer (10 words)\n"
-        "8. MOBILITY: 0-100 (0=never moves, 100=always traveling)\n"
-        "9. CAPABILITIES: List of CAN_WRITE_BOOKS, CAN_CRAFT_ITEMS, CAN_TRADE, etc\n"
-        "10. AWARENESS: 0-4 (0=animal, 4=genius)\n\n"
-        "Make it UNIQUE - avoid generic personalities.",
-        mob->name,
-        mob->short_descr,
-        mob->long_descr,
-        mob->in_room ? mob->in_room->name : "Unknown",
-        mob->in_room ? mob->in_room->vnum : 0);
+    /* STEP 2: Generate context-aware prompt */
+    ai_prompt = generate_context_aware_prompt(ctx);
 
-    /* Call AI to generate */
-    /* ai_response = call_ollama_advanced(prompt); */
+    if (!ai_prompt)
+    {
+        log_string("ERROR: Failed to generate context-aware prompt");
+        free_mob_context(ctx);
+        return;
+    }
 
-    /* For now, set defaults with variation based on vnum */
-    sprintf(log_buf, "Generating identity for %s (vnum %d)",
-        mob->name, mob->pIndexData->vnum);
+    sprintf(log_buf, "[AI GOD] Generating context-aware identity for %s (vnum %d, coherence %d/100)",
+        mob->name, mob->pIndexData->vnum, ctx->coherence_score);
     log_string(log_buf);
 
-    /* TODO: Parse AI response and fill identity fields */
+    /* STEP 3: Call AI to generate */
+    /* ai_response = call_ollama_advanced(ai_prompt); */
 
-    /* Assign some capabilities based on mob type */
-    if (strstr(mob->name, "scholar") || strstr(mob->name, "scribe"))
+    /* For now, set defaults based on context analysis */
+
+    /* Assign capabilities based on context and mob type */
+    if (strstr(mob->name, "scholar") || strstr(mob->name, "scribe") || (ctx->area_type && strstr(ctx->area_type, "academy")))
         identity->capabilities |= MOB_CAN_WRITE_BOOKS;
 
     if (strstr(mob->name, "smith") || strstr(mob->name, "craftsman"))
         identity->capabilities |= MOB_CAN_CRAFT_ITEMS;
 
-    if (strstr(mob->name, "merchant") || strstr(mob->name, "trader"))
+    if (strstr(mob->name, "merchant") || strstr(mob->name, "trader") || ctx->is_shopkeeper)
         identity->capabilities |= MOB_CAN_TRADE;
 
-    /* Save */
+    /* Set awareness based on importance */
+    if (ctx->is_boss || ctx->is_unique)
+        identity->awareness_level = 4;  /* Genius-level for bosses/unique */
+    else if (ctx->fame_level > 70)
+        identity->awareness_level = 3;  /* High for famous */
+    else if (ctx->is_shopkeeper || ctx->is_guard)
+        identity->awareness_level = 2;  /* Moderate for important roles */
+    else
+        identity->awareness_level = 1;  /* Basic for common mobs */
+
+    /* Set mobility based on context */
+    if (ctx->stays_in_place)
+        identity->mobility = 5;   /* Very low for sentinels */
+    else if (ctx->is_guard)
+        identity->mobility = 20;  /* Low for guards (patrol only) */
+    else if (ctx->is_shopkeeper)
+        identity->mobility = 10;  /* Very low for shopkeepers */
+    else
+        identity->mobility = 50;  /* Moderate default */
+
+    /* STEP 4: TODO - Parse AI response and fill identity fields */
+    /* identity = parse_ai_response_to_identity(ai_response); */
+
+    /* STEP 5: Validate it fits context */
+    if (!validate_personality_fits_context(ctx, identity))
+    {
+        log_string("[AI GOD] WARNING: Generated personality rejected - doesn't fit context");
+        /* Don't save, keep trying later */
+        free_mob_context(ctx);
+        return;
+    }
+
+    /* STEP 6: Save */
+    sprintf(log_buf, "[AI GOD] %s awakens to self-awareness (awareness level %d)",
+        mob->name, identity->awareness_level);
+    log_string(log_buf);
+
     save_mob_identity(identity);
+    free_mob_context(ctx);
 }
 
 /*
@@ -781,5 +841,5 @@ void add_schedule_entry(CUSTOM_SCHEDULE *sched, int start, int end, char *activi
     entry->next = NULL;
 
     /* Add to list */
-    LINK(entry, sched->first_entry, sched->last_entry, next, SCHEDULE_ENTRY);
+    LINK(entry, sched->first_entry, sched->last_entry, next, prev);
 }
