@@ -51,6 +51,7 @@ Skill 'extradimensional portal' 13 95
 Skill 'faerie fire' 4 95
 Skill 'faerie fog' 10 95
 Skill 'feather fall' 30 95
+Skill 'firebreath' 11 95
 Skill 'fireshield' 35 95
 Skill 'flight' 27 95
 Skill 'float' 5 95
@@ -112,7 +113,6 @@ Skill 'dig' 2 80
 Skill 'dodge' 5 30
 Skill 'dual wield' 20 30
 Skill 'enhanced damage' 44 30
-Skill 'fire breath' 11 95
 Skill 'fly' 2 95
 Skill 'focus' 43 95
 Skill 'jump' 2 95

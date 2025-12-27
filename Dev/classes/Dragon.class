@@ -25,7 +25,7 @@ Skill 'locate object' 10 95
 Skill 'poison' 11 95
 Skill 'shield' 2 100
 Skill 'word of recall' 16 95
-Skill 'acid breath' 2 90
+Skill 'acidbreath' 2 90
 Skill 'aid' 15 75
 Skill 'bash' 46 90
 Skill 'between' 50 95
@@ -43,17 +43,17 @@ Skill 'dust' 2 95
 Skill 'enhanced damage' 6 95
 Skill 'fan' 2 95
 Skill 'fifth attack' 40 85
-Skill 'fire breath' 2 95
+Skill 'firebreath' 2 95
 Skill 'fly' 2 95
 Skill 'forestwalk' 2 95
 Skill 'fourth attack' 30 90
-Skill 'frost breath' 2 95
-Skill 'gas breath' 2 95
+Skill 'frostbreath' 2 95
+Skill 'gasbreath' 2 95
 Skill 'gouge' 80 95
 Skill 'grip' 63 95
 Skill 'jump' 2 95
 Skill 'kick' 2 40
-Skill 'lightning breath' 2 95
+Skill 'lightningbreath' 2 95
 Skill 'lore' 2 90
 Skill 'mount' 2 95
 Skill 'parry' 40 50

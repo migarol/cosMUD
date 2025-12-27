@@ -1,16 +1,16 @@
-Name        AntiPaladin~
+Name        Antipaladin~
 Class       18
-Attrprime   1
-Alignment   -1000
+Attrprime   4
+Alignment   0
 Weapon      10312
 Guild       21430
 Skilladept  95
 Thac0       18
 Thac32      7
-Hpmin       9
-Hpmax       14
+Hpmin       11
+Hpmax       20
 Mana        1
-Expbase     1350
+Expbase     1165
 Skill 'aqua breath' 14 80
 Skill 'armor' 2 90
 Skill 'bless' 16 95
@@ -21,6 +21,7 @@ Skill 'cause serious' 9 95
 Skill 'charm person' 27 90
 Skill 'chill touch' 5 95
 Skill 'continual light' 3 90
+Skill 'cover of darkness' 50 95
 Skill 'create food' 4 95
 Skill 'create spring' 6 95
 Skill 'create water' 5 95
@@ -46,49 +47,59 @@ Skill 'locate object' 25 90
 Skill 'midas touch' 14 95
 Skill 'nostrum' 29 95
 Skill 'pass door' 47 95
+Skill 'penetrate defenses' 53 95
 Skill 'poison' 19 90
+Skill 'power word kill' 50 75
 Skill 'refresh' 8 85
 Skill 'remove invis' 13 85
-Skill 'sanctuary' 35 95
-Skill 'scorching surge' 28 95
 Skill 'shield' 23 90
 Skill 'shocking grasp' 7 90
 Skill 'shockwave' 65 95
 Skill 'sleep' 18 85
+Skill 'slow' 90 95
 Skill 'spiral blast' 46 95
 Skill 'stone skin' 37 95
 Skill 'weaken' 7 80
 Skill 'wizard eye' 78 95
-Skill 'aggressive style' 1 60
+Skill 'word of recall' 20 95
 Skill 'aid' 16 90
-Skill 'berserk style' 38 40
+Skill 'climb' 2 95
+Skill 'clover' 2 95
 Skill 'cook' 1 95
 Skill 'cuff' 10 90
-Skill 'defensive style' 4 85
 Skill 'dig' 2 85
-Skill 'dual wield' 17 80
-Skill 'enhanced damage' 22 75
-Skill 'evasive style' 1 90
+Skill 'dodge' 2 70
+Skill 'drowfire' 2 95
+Skill 'dual wield' 2 80
+Skill 'dust' 2 95
+Skill 'enhanced damage' 22 95
 Skill 'fifth attack' 58 50
+Skill 'fly' 2 95
+Skill 'forestwalk' 2 95
 Skill 'fourth attack' 41 95
+Skill 'grasp suspiria' 50 95
 Skill 'hide' 17 90
-Skill 'jump' 70 95
-Skill 'kick' 4 90
+Skill 'jump' 2 95
+Skill 'kick' 2 90
 Skill 'levitate' 65 95
+Skill 'lore' 2 20
 Skill 'meditate' 12 95
-Skill 'mount' 6 95
+Skill 'mount' 2 95
 Skill 'parry' 22 95
+Skill 'peek' 2 50
+Skill 'punch' 2 70
 Skill 'rescue' 14 50
-Skill 'scan' 3 85
-Skill 'search' 10 80
-Skill 'second attack' 15 33
+Skill 'scan' 2 85
+Skill 'search' 2 80
+Skill 'second attack' 15 80
 Skill 'sneak' 15 90
-Skill 'standard style' 1 70
-Skill 'strike' 15 90
+Skill 'talonslash' 2 95
+Skill 'taunt' 2 95
 Skill 'third attack' 31 66
+Skill 'vomica pravus' 50 95
 Skill 'bludgeons' 1 75
 Skill 'flexible arms' 1 95
-Skill 'long blades' 1 45
+Skill 'long blades' 1 95
 Skill 'pugilism' 1 90
 Skill 'short blades' 1 85
 Skill 'talonous arms' 1 40
@@ -96,6 +107,7 @@ Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
+Skill 'gnome' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -106,8 +118,8 @@ Title
 Man~
 Woman~
 Title
-Docent of Wizardry~
-Docent of Wizardry~
+Unholy Squire~
+Unholy Squiress~
 Title
 Understudy of Magic~
 Understudy of Magic~

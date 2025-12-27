@@ -91,7 +91,7 @@ Skill 'spectral furor' 14 95
 Skill 'stone skin' 17 95
 Skill 'summon' 20 95
 Skill 'swordbait' 23 95
-Skill 'teleport' 50 95
+Skill 'teleport' 8 95
 Skill 'transmutation' 84 95
 Skill 'transport' 17 95
 Skill 'true sight' 43 35
@@ -106,15 +106,20 @@ Skill 'word of recall' 15 95
 Skill 'aid' 10 95
 Skill 'clairvoyance' 2 95
 Skill 'climb' 2 95
+Skill 'clover' 2 95
 Skill 'cook' 1 95
 Skill 'cuff' 20 60
 Skill 'dig' 2 80
 Skill 'dodge' 2 30
-Skill 'dual wield' 5 30
+Skill 'drowfire' 2 95
+Skill 'dual wield' 2 30
+Skill 'dust' 2 95
 Skill 'enhanced damage' 44 30
 Skill 'fly' 2 95
 Skill 'focus' 43 95
+Skill 'forestwalk' 2 95
 Skill 'fourth attack' 75 40
+Skill 'fourth cast' 30 95
 Skill 'jump' 2 95
 Skill 'kick' 2 20
 Skill 'levitate' 60 95
@@ -131,9 +136,10 @@ Skill 'scribe' 30 100
 Skill 'search' 2 95
 Skill 'second attack' 10 45
 Skill 'second cast' 10 95
-Skill 'talonslash' 6 95
+Skill 'talonslash' 2 95
 Skill 'taunt' 2 95
 Skill 'third attack' 30 30
+Skill 'third cast' 18 95
 Skill 'trance' 32 95
 Skill 'vision' 80 95
 Skill 'bludgeons' 1 50

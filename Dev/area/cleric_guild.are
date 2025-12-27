@@ -1,4 +1,4 @@
-#AREA   Temple of Aoskar~
+#AREA   The Cleric Guild Hall~
 
 
 
@@ -6,7 +6,7 @@
 #AUTHOR Zebeid~
 
 #RANGES
-0 100 0 116
+0 65 0 116
 $
 
 #RESETMSG A bell gently chimes in the wind.~
@@ -14,7 +14,7 @@ $
 #FLAGS
 5 15
 
-#ECONOMY 0 42378400
+#ECONOMY 0 43588400
 
 #CLIMATE 2 2 2
 
