@@ -2434,6 +2434,9 @@ struct	char_data
     int			arena_wins; /* Scion arenacode */
     int			arena_kills;
     int			arena_deaths;
+
+    /* Economy system */
+    sh_int		profession; /* NPC profession for economy system */
 };
 
 
@@ -4682,8 +4685,7 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define USAGE_FILE	SYSTEM_DIR "usage.txt"    /* How many people are on 
  						     every half hour - trying to
 						     determine best reboot time */
-#define ECONOMY_FILE	SYSTEM_DIR "economy.txt"  /* Gold looted, value of
-						     used potions/pills  */
+#define ECONOMY_FILE	SYSTEM_DIR "economy.dat"  /* Economy system data */
 #define PROJECTS_FILE	SYSTEM_DIR "projects.txt" /* For projects	 */
 #define PLANE_FILE	SYSTEM_DIR "planes.dat"	  /* For planes		 */
 #define CLASSDIR	"../classes/"

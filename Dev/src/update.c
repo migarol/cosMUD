@@ -37,6 +37,7 @@
 #include <string.h>
 #include <time.h>
 #include "mud.h"
+#include "economy.h"
 
 /* Scion arenacode extern function */
 extern void arena_update(void);
@@ -2120,6 +2121,7 @@ void update_handler( void )
     static  int	    pulse_second;
     static  int     pulse_arena; /* Scion arenacode */
 	static  int     pulse_regen;
+    static  int     pulse_economy;
     struct timeval stime;
     struct timeval etime;
 
@@ -2185,6 +2187,12 @@ void update_handler( void )
     {
 	pulse_arena = PULSE_AREA; /* 1 minute */
 	arena_update();
+    }
+
+    if ( --pulse_economy <= 0 )
+    {
+	pulse_economy = PULSE_TICK * 24; /* Once per MUD day */
+	update_economy();
     }
 
     tele_update( );
