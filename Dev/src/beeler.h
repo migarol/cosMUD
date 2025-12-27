@@ -12,8 +12,8 @@
 #define BEELER_H
 
 /* Beeler's special vnum */
-#define BEELER_MOB_VNUM 1
-#define BEELER_ROOM_VNUM 1  /* The Void */
+#define BEELER_MOB_VNUM 99999
+#define BEELER_ROOM_VNUM 99999  /* Beeler's Observatory */
 
 /* Beeler's awareness level */
 #define BEELER_AWARENESS 5  /* Godlike - beyond mortal comprehension */

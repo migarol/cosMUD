@@ -42,6 +42,7 @@
   #include <dirent.h>
 #endif
 #include "mud.h"
+#include "economy.h"
 
 
 /*
@@ -2787,6 +2788,9 @@ void save_world( CHAR_DATA *ch)
 		fprintf(mobfp, "#END");
 		fclose(mobfp);
 	}
+
+	/* Save economy system data */
+	save_economy_data();
 }
 
 void load_world(CHAR_DATA *ch) {

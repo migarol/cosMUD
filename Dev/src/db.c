@@ -45,6 +45,7 @@
   #define strcasecmp strcmp
 #endif
 #include "mud.h"
+#include "economy.h"
 
 
 extern	int	_filbuf		args( (FILE *) );
@@ -782,6 +783,9 @@ void boot_db( bool fCopyOver )
     /* Initialize area weather data */
     load_weatherdata();
     init_area_weather();
+
+    /* Initialize economy system */
+    init_economy_system();
 
     /* init_maps ( ); */
 
@@ -2639,6 +2643,10 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
     add_char( mob );
     pMobIndex->count++;
     nummobsloaded++;
+
+    /* Initialize economy profession */
+    mob->profession = PROF_NONE;
+
     return mob;
 }
 

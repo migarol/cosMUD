@@ -4582,3 +4582,69 @@ Log         0
 End
 
 #END
+#COMMAND
+Name        ecoview~
+Code        do_ecoview
+Position    100
+Level       58
+Log         0
+End
+
+#COMMAND
+Name        ecoset~
+Code        do_ecoset
+Position    100
+Level       60
+Log         1
+End
+
+#COMMAND
+Name        ecoevent~
+Code        do_ecoevent
+Position    100
+Level       60
+Log         1
+End
+
+#COMMAND
+Name        ecobalance~
+Code        do_ecobalance
+Position    100
+Level       58
+Log         0
+End
+
+#COMMAND
+Name        econews~
+Code        do_econews
+Position    100
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        harvest~
+Code        do_harvest
+Position    106
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        getwater~
+Code        do_getwater
+Position    106
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        profession~
+Code        do_profession
+Position    100
+Level       58
+Log         0
+End
+
+
+#END
