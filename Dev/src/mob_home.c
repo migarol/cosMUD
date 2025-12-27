@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <dirent.h>
+#include <ctype.h>
 #include "mud.h"
 #include "mob_home.h"
 #include "mob_identity.h"
@@ -424,12 +426,177 @@ void save_mob_home(MOB_HOME *home)
 }
 
 /*
+ * Simple JSON string parser - extracts value between quotes
+ */
+static char *parse_json_string(char *line)
+{
+    char *start, *end;
+    static char value[MAX_STRING_LENGTH];
+
+    start = strchr(line, '"');
+    if (!start) return NULL;
+    start++; /* Skip opening quote */
+
+    end = start;
+    while (*end && *end != '"')
+    {
+        if (*end == '\\' && *(end+1) == '"')
+            end += 2; /* Skip escaped quote */
+        else if (*end == '\\' && *(end+1) == 'n')
+        {
+            /* Handle \n */
+            end += 2;
+        }
+        else
+            end++;
+    }
+
+    if (*end != '"') return NULL;
+
+    /* Copy and unescape */
+    char *src = start;
+    char *dst = value;
+    while (src < end)
+    {
+        if (*src == '\\' && *(src+1) == '"')
+        {
+            *dst++ = '"';
+            src += 2;
+        }
+        else if (*src == '\\' && *(src+1) == 'n')
+        {
+            *dst++ = '\n';
+            src += 2;
+        }
+        else
+        {
+            *dst++ = *src++;
+        }
+    }
+    *dst = '\0';
+
+    return str_dup(value);
+}
+
+/*
+ * Parse JSON integer value
+ */
+static int parse_json_int(char *line)
+{
+    char *colon = strchr(line, ':');
+    if (!colon) return 0;
+    return atoi(colon + 1);
+}
+
+/*
+ * Parse JSON boolean value
+ */
+static bool parse_json_bool(char *line)
+{
+    return (strstr(line, "true") != NULL);
+}
+
+/*
+ * Load a single mob home from JSON file
+ */
+static MOB_HOME *load_mob_home_file(char *filename)
+{
+    FILE *fp;
+    char line[MAX_STRING_LENGTH];
+    MOB_HOME *home = NULL;
+    bool in_furnishings = FALSE;
+    int furn_count = 0;
+
+    fp = fopen(filename, "r");
+    if (!fp) return NULL;
+
+    CREATE(home, MOB_HOME, 1);
+
+    while (fgets(line, sizeof(line), fp))
+    {
+        /* Trim whitespace */
+        char *p = line;
+        while (*p && isspace(*p)) p++;
+
+        if (strstr(p, "\"mob_vnum\":"))
+            home->mob_vnum = parse_json_int(p);
+        else if (strstr(p, "\"home_vnum\":"))
+            home->home_vnum = parse_json_int(p);
+        else if (strstr(p, "\"home_type\":"))
+            home->home_type = parse_json_int(p);
+        else if (strstr(p, "\"home_name\":"))
+            home->home_name = parse_json_string(p);
+        else if (strstr(p, "\"owned\":"))
+            home->owned = parse_json_bool(p);
+        else if (strstr(p, "\"rent_cost\":"))
+            home->rent_cost = parse_json_int(p);
+        else if (strstr(p, "\"description\":"))
+            home->home_description = parse_json_string(p);
+        else if (strstr(p, "\"num_furnishings\":"))
+        {
+            home->num_furnishings = parse_json_int(p);
+            if (home->num_furnishings > 0)
+                CREATE(home->furnishing_descriptions, char *, home->num_furnishings);
+        }
+        else if (strstr(p, "\"furnishings\":"))
+        {
+            in_furnishings = TRUE;
+            furn_count = 0;
+        }
+        else if (in_furnishings && furn_count < home->num_furnishings)
+        {
+            char *value = parse_json_string(p);
+            if (value)
+                home->furnishing_descriptions[furn_count++] = value;
+        }
+        else if (strstr(p, "],"))
+            in_furnishings = FALSE;
+        else if (strstr(p, "\"last_visited\":"))
+            home->last_visited = (time_t)parse_json_int(p);
+        else if (strstr(p, "\"times_visited\":"))
+            home->times_visited = parse_json_int(p);
+    }
+
+    fclose(fp);
+
+    /* Add to global list */
+    home->next = first_mob_home;
+    first_mob_home = home;
+
+    return home;
+}
+
+/*
  * Load all homes from disk
  */
 void load_all_homes(void)
 {
-    /* TODO: Implement loading from JSON files */
-    log_string("  - Loading mob homes... (TODO)");
+    DIR *dir;
+    struct dirent *entry;
+    char filepath[512];
+    int count = 0;
+
+    dir = opendir(HOME_DIR);
+    if (!dir)
+    {
+        log_string("  - No mob homes directory, skipping");
+        return;
+    }
+
+    while ((entry = readdir(dir)) != NULL)
+    {
+        if (strstr(entry->d_name, ".json"))
+        {
+            sprintf(filepath, "%s%s", HOME_DIR, entry->d_name);
+            if (load_mob_home_file(filepath))
+                count++;
+        }
+    }
+
+    closedir(dir);
+
+    sprintf(log_buf, "  - Loaded %d mob homes", count);
+    log_string(log_buf);
 }
 
 /*
