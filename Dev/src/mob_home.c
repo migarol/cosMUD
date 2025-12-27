@@ -600,6 +600,130 @@ void load_all_homes(void)
 }
 
 /*
+ * Create a new inn
+ */
+INN_DATA *create_inn(int inn_vnum, char *name)
+{
+    INN_DATA *inn;
+
+    CREATE(inn, INN_DATA, 1);
+
+    inn->inn_vnum = inn_vnum;
+    inn->inn_name = str_dup(name ? name : "The Inn");
+    inn->inn_keeper_vnum = 0;
+    inn->room_cost_per_night = 50;  /* Default 50 gold/night */
+    inn->meal_cost = 10;
+    inn->stable_cost = 20;
+
+    /* Default 5 rooms */
+    inn->num_rooms = 5;
+    CREATE(inn->room_vnums, int, inn->num_rooms);
+    CREATE(inn->room_occupied, bool, inn->num_rooms);
+    CREATE(inn->room_occupants, int, inn->num_rooms);
+    CREATE(inn->checkout_times, time_t, inn->num_rooms);
+
+    inn->on_road = FALSE;
+    inn->in_city = TRUE;
+    inn->has_stables = FALSE;
+    inn->has_tavern = TRUE;
+    inn->has_bath = FALSE;
+    inn->has_secure_storage = FALSE;
+    inn->quality = 50;
+    inn->safety = 50;
+
+    /* Add to global list */
+    inn->next = first_inn;
+    first_inn = inn;
+
+    return inn;
+}
+
+/*
+ * Get inn by vnum
+ */
+INN_DATA *get_inn(int inn_vnum)
+{
+    INN_DATA *inn;
+
+    for (inn = first_inn; inn; inn = inn->next)
+    {
+        if (inn->inn_vnum == inn_vnum)
+            return inn;
+    }
+
+    return NULL;
+}
+
+/*
+ * Save inn to disk (JSON format)
+ */
+void save_inn(INN_DATA *inn)
+{
+    FILE *fp;
+    char filename[256];
+    int i;
+
+    if (!inn)
+        return;
+
+    sprintf(filename, "%s%d.json", INN_DIR, inn->inn_vnum);
+
+    fp = fopen(filename, "w");
+    if (!fp)
+    {
+        sprintf(log_buf, "ERROR: Could not save inn %d", inn->inn_vnum);
+        log_string(log_buf);
+        return;
+    }
+
+    /* Write JSON */
+    fprintf(fp, "{\n");
+    fprintf(fp, "  \"inn_vnum\": %d,\n", inn->inn_vnum);
+    fprintf(fp, "  \"inn_name\": \"%s\",\n", inn->inn_name ? inn->inn_name : "");
+    fprintf(fp, "  \"inn_keeper_vnum\": %d,\n", inn->inn_keeper_vnum);
+    fprintf(fp, "  \"room_cost_per_night\": %d,\n", inn->room_cost_per_night);
+    fprintf(fp, "  \"num_rooms\": %d,\n", inn->num_rooms);
+
+    if (inn->num_rooms > 0)
+    {
+        fprintf(fp, "  \"room_vnums\": [");
+        for (i = 0; i < inn->num_rooms; i++)
+        {
+            fprintf(fp, "%d%s", inn->room_vnums[i],
+                i < inn->num_rooms - 1 ? ", " : "");
+        }
+        fprintf(fp, "],\n");
+
+        fprintf(fp, "  \"room_occupied\": [");
+        for (i = 0; i < inn->num_rooms; i++)
+        {
+            fprintf(fp, "%s%s", inn->room_occupied[i] ? "true" : "false",
+                i < inn->num_rooms - 1 ? ", " : "");
+        }
+        fprintf(fp, "],\n");
+
+        fprintf(fp, "  \"room_occupants\": [");
+        for (i = 0; i < inn->num_rooms; i++)
+        {
+            fprintf(fp, "%d%s", inn->room_occupants[i],
+                i < inn->num_rooms - 1 ? ", " : "");
+        }
+        fprintf(fp, "],\n");
+
+        fprintf(fp, "  \"checkout_times\": [");
+        for (i = 0; i < inn->num_rooms; i++)
+        {
+            fprintf(fp, "%ld%s", (long)inn->checkout_times[i],
+                i < inn->num_rooms - 1 ? ", " : "");
+        }
+        fprintf(fp, "]\n");
+    }
+
+    fprintf(fp, "}\n");
+    fclose(fp);
+}
+
+/*
  * Load all inns from disk
  */
 void load_all_inns(void)
@@ -664,6 +788,98 @@ bool is_mob_at_home(CHAR_DATA *mob)
 }
 
 /*
+ * Check if inn has vacancy
+ */
+bool inn_has_vacancy(INN_DATA *inn)
+{
+    int i;
+
+    if (!inn || !inn->room_occupied)
+        return FALSE;
+
+    for (i = 0; i < inn->num_rooms; i++)
+    {
+        if (!inn->room_occupied[i])
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+/*
+ * Rent a room at an inn
+ * Returns room index (0 to num_rooms-1) on success, -1 on failure
+ */
+int inn_rent_room(INN_DATA *inn, CHAR_DATA *ch, int nights)
+{
+    int i;
+    time_t checkout_time;
+
+    if (!inn || !ch || !inn->room_occupied)
+        return -1;
+
+    /* Find first available room */
+    for (i = 0; i < inn->num_rooms; i++)
+    {
+        if (!inn->room_occupied[i])
+        {
+            /* Mark room as occupied */
+            inn->room_occupied[i] = TRUE;
+
+            /* Set occupant - for players, use a negative value or special ID */
+            /* For now, we'll use 0 to indicate player occupation */
+            if (inn->room_occupants)
+                inn->room_occupants[i] = 0;  /* 0 = player occupied */
+
+            /* Calculate checkout time (nights * 24 hours) */
+            checkout_time = time(NULL) + (nights * 24 * 3600);
+            if (inn->checkout_times)
+                inn->checkout_times[i] = checkout_time;
+
+            /* Save inn data */
+            save_inn(inn);
+
+            return i;
+        }
+    }
+
+    return -1;  /* No vacancy */
+}
+
+/*
+ * Inn checkout
+ */
+void inn_checkout(INN_DATA *inn, CHAR_DATA *ch)
+{
+    int i;
+
+    if (!inn || !ch)
+        return;
+
+    /* Find player's rented room */
+    for (i = 0; i < inn->num_rooms; i++)
+    {
+        if (inn->room_occupied[i] && inn->room_occupants[i] == 0)
+        {
+            /* Clear room */
+            inn->room_occupied[i] = FALSE;
+            inn->room_occupants[i] = 0;
+
+            if (inn->checkout_times)
+                inn->checkout_times[i] = 0;
+
+            save_inn(inn);
+
+            sprintf(log_buf, "%s checked out of inn %s room %d",
+                ch->name, inn->inn_name, i);
+            log_string(log_buf);
+
+            break;
+        }
+    }
+}
+
+/*
  * Command: home - go to your home
  */
 void do_home(CHAR_DATA *ch, char *argument)
@@ -685,8 +901,85 @@ void do_home(CHAR_DATA *ch, char *argument)
  */
 void do_innrent(CHAR_DATA *ch, char *argument)
 {
-    /* TODO: Implement inn rental */
-    send_to_char("Inn rental system coming soon!\n\r", ch);
+    INN_DATA *inn = NULL;
+    ROOM_INDEX_DATA *room;
+    int nights = 1;
+    int cost;
+    int room_index;
+    char arg[MAX_INPUT_LENGTH];
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs don't need to rent inn rooms.\n\r", ch);
+        return;
+    }
+
+    /* Find inn in current area */
+    for (inn = first_inn; inn; inn = inn->next)
+    {
+        room = get_room_index(inn->inn_vnum);
+        if (room && room->area == ch->in_room->area)
+            break;
+    }
+
+    if (!inn)
+    {
+        send_to_char("There's no inn in this area.\n\r", ch);
+        send_to_char("Use 'innlist' to find nearby inns.\n\r", ch);
+        return;
+    }
+
+    one_argument(argument, arg);
+
+    /* Parse number of nights */
+    if (arg[0] != '\0')
+    {
+        nights = atoi(arg);
+        if (nights < 1 || nights > 30)
+        {
+            send_to_char("You can rent for 1 to 30 nights.\n\r", ch);
+            return;
+        }
+    }
+
+    /* Check if inn has vacancy */
+    if (!inn_has_vacancy(inn))
+    {
+        send_to_char("Sorry, the inn is fully booked.\n\r", ch);
+        return;
+    }
+
+    /* Calculate cost */
+    cost = inn->room_cost_per_night * nights;
+
+    if (ch->gold < cost)
+    {
+        ch_printf(ch, "You need %d gold to rent for %d night%s.\n\r",
+            cost, nights, nights == 1 ? "" : "s");
+        return;
+    }
+
+    /* Rent the room */
+    room_index = inn_rent_room(inn, ch, nights);
+
+    if (room_index < 0)
+    {
+        send_to_char("Failed to rent room. Please try again.\n\r", ch);
+        return;
+    }
+
+    /* Charge gold */
+    ch->gold -= cost;
+
+    ch_printf(ch, "\n\r&YThe innkeeper smiles warmly.&w\n\r");
+    ch_printf(ch, "\"That'll be %d gold for %d night%s.\"\n\r\n\r",
+        cost, nights, nights == 1 ? "" : "s");
+    ch_printf(ch, "&GYou've rented room #%d.&w\n\r", inn->room_vnums[room_index]);
+    ch_printf(ch, "Use '&Cgoto %d&w' to visit your room.\n\r\n\r", inn->room_vnums[room_index]);
+
+    sprintf(log_buf, "%s rented inn room for %d nights at %s",
+        ch->name, nights, inn->inn_name);
+    log_string(log_buf);
 }
 
 /*
@@ -694,8 +987,57 @@ void do_innrent(CHAR_DATA *ch, char *argument)
  */
 void do_innlist(CHAR_DATA *ch, char *argument)
 {
-    /* TODO: Implement inn listing */
-    send_to_char("Inn listing coming soon!\n\r", ch);
+    INN_DATA *inn;
+    ROOM_INDEX_DATA *room;
+    int count = 0;
+    int vacancy;
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs don't need this command.\n\r", ch);
+        return;
+    }
+
+    send_to_char("\n\r&Y=== Inns in This Realm ===&w\n\r\n\r", ch);
+    send_to_char("&CName                        Location           Cost/Night  Vacancy&w\n\r", ch);
+    send_to_char("&C------------------------------------------------------------------------&w\n\r", ch);
+
+    for (inn = first_inn; inn; inn = inn->next)
+    {
+        room = get_room_index(inn->inn_vnum);
+        if (!room)
+            continue;
+
+        vacancy = 0;
+        if (inn->room_occupied)
+        {
+            int i;
+            for (i = 0; i < inn->num_rooms; i++)
+            {
+                if (!inn->room_occupied[i])
+                    vacancy++;
+            }
+        }
+
+        ch_printf(ch, "%-28s %-18s %4d gold   %d/%d\n\r",
+            inn->inn_name ? inn->inn_name : "The Inn",
+            room->area ? room->area->name : "Unknown",
+            inn->room_cost_per_night,
+            vacancy,
+            inn->num_rooms);
+
+        count++;
+    }
+
+    if (count == 0)
+    {
+        send_to_char("No inns found. Innkeepers should create some!\n\r", ch);
+    }
+    else
+    {
+        ch_printf(ch, "\n\r&YTotal inns: %d&w\n\r", count);
+        send_to_char("Use '&Cinnrent <nights>&w' to rent a room.\n\r\n\r", ch);
+    }
 }
 
 /* Stub implementation - TODO: Implement pathfinding */
