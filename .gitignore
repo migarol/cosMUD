@@ -1,0 +1,25 @@
+# Compiled object files
+*.o
+
+# Executables
+rmexe
+*/rmexe
+*/src/rmexe
+
+# Backup files
+*~
+*.bak
+
+# Temporary files
+*.tmp
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db

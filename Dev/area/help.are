@@ -980,12 +980,6 @@ Ex: bamfin Colors swirl as $n materializes.
 Ex: bamfout $n disappears in a myriad of shifting colors.
 ~
 
-1 BANDAGE~
-Syntax:  bandage [target]
- 
-Heals the target's wounds with a covering of ethereal magic.
-~
-
 2 BANK BALANCE DEPOSIT TRANSFER WITHDRAW~
 Syntax:  balance
 Syntax:  deposit <amount>
@@ -1096,14 +1090,6 @@ Syntax: c basic <target>
 This spell protects the target from chemical attacks.
 ~
 
-1 BEARHUG~
-Syntax:  bearhug <victim>
- 
-Used to start a fight, crushing your victim in a giant hug until their
-bones crush beneath your death grip. Obviously more effective based on
-the strength of the attacker.
-~
-
 1 'BENEDICTION'~
 Syntax: cast benediction
  
@@ -1178,171 +1164,6 @@ space and time to their destination.  However, making the jump to between
 is very straining on the dragon, and requires much energy to pull off,
 and the dragon should beware of jumping into dangerous areas because of
 the state of delay after coming out of between.
-~
-
-50 BGUIDE~
-&rStarting and some ground rules&c:
- 
-&gMake sure you read the SDFMud building guide&c,&g this is
-available online at&c: &Bhttp://sdfmud.willowhaven.org/builderrules.shtml
- 
-&gMake your intentions known to either Cyph or Prage&c, &gwho
-will organise getting you a vnum range&c.
- 
-&gA quick summary of the most important parts&c:
- 
-&r1&c. &gNo direct references to any mobs or characters&c.
-&r2&c. &gSpell check&c.
-&r3&c. &gUse 80 columns&c.
- 
-&gIn addition to these points&c:
- 
-&r1&c. &gNo DTs&c/&gprisons&c/&gdungeons or otherwise kinky things&c.
-&r2&c. &gAll rooms should be noastral and nosummon&c.
-&r3&c. &gNo mobs&c/&gitems should be loaded from other areas of the
-   game&c.
-&r4&c. &gReferences to individual leaders&c/&gmembers should not
-   form part of room or mob descriptions&c/&gnames&c. &gAs
-   the builder&c/&gleader you can include your name on the
-   author sheet and on a plaque within the area&c.
- 
-&rSee also &BBGUIDE2&c, &BBGUIDE3&c, &BBGUIDE4&c.
-~
-
-50 BGUIDE2~
-&rMobs&c:
- 
-&gAll mobs with the exception of any specific combat
-training opponents should be PACIFIST&c. &gNo more
-than TWO training mobs per guild&c. &gHitpoints and
-ac should be set to defaults for the level&c.
- 
-&rPets&c:
- 
-&gNo pets should be included&c, &gyou will have to
-negotiate after your guild is complete to get these
-as add-ons&c.
- 
-&rItems&c: &rWeapons&c/&rArmor&c:
- 
-&gMaximum of 5 items&c, &gthese should pass the check as
-set out at&c: &Bhttp://www.jase.org/sdf/weapontester.php
- 
-&gThese 5 items can be made at any time using the &c'make&c'
-&gcommand by the guild leader&c. &gThese will not be instantly
-available to members of the guild&c. (&gThese should be
-rewards for good service&c, &getc&c.)
- 
-&gYou should not build these items yourself&c. &gYou should
-provide either&c:
- 
-&ra&c.) &gA rough spec &c- &gwear locations&c, &glevel&c, &g
-       descriptions and features&c.
-&rb&c.) &gIdentify output&c.
-&rc&c.) &gList of oset commands to recreate the item&c.
- 
-&gAn immortal will then create these items for you&c.
- 
-&gAny other items will have to be negotiated with either gold&c,
-&gglory or other terms once your guild is in place&c.
- 
-&gNo weapons or armor should be loaded in from other areas
-under any circumstances&c.
- 
-&rSee also &BBGUIDE&c, &BBGUIDE3&c, &BBGUIDE4&c.
-~
-
-50 BGUIDE3~
-&rItems&c: &rStaffs&c/&rScrolls&c/&rPotions&c/&rWands&c:
- 
-&gDefensive and utility spells only&c. &gA limit of 5
-items from this class per guild&c. &gA spell should
-not be made available via a scroll&c/&gstaff that is
-lower than any class slist in the game&c.
- 
-&ge&c.&gg&c.: &gBlur is a level 50 mage skill&c, &git should
-not appear as a scroll at less than level 50&c.
- 
-&gThe spell level should not be more than 10 levels
-higher than the scroll level&c.
- 
-&rProgs&c:
- 
-&gThese should be kept to an absolute minimum&c, &gyou
-would be expected to include a list of these when 
-submitting your guild&c.
- 
-&gA teleporter is permitted to the following destinations&c:
- 
-&r21000 &c- &gDarkhaven Square
-&r60874 &c- &gCommon Square &c(&gMidgaard&c)
-&r13022 &c- &gSkull Run Viewpoint &c(&gMidon&c)
-&r2002016 &c- &gThe Half Point &c(&gRoc Road&c)
-&r7925 &c- &gOutside Entrance to Luskan
-&r46000 &c- &gFreeport
-&r45378 &c- &gSolace
- 
-&rTrainers&c:
- 
-&gNo access to hidden skills should be made available 
-through trainers&c.
- 
-&rSee also &BBGUIDE&c, &BBGUIDE2&c, &BBGUIDE4&c.
-~
-
-50 BGUIDE4~
-&rSubmitting your guild&c:
- 
-&gBefore submitting your guild prepare the following&c:
- 
-&r1&c. &gList of the 5 items you want in your guild &c-
-   &gthese should NOT be available as objects within
-   your guild&c, &gan immortal will do this based on 
-   your specifications&c.
- 
-   &gYou can include this as either&c:
- 
-   &gA rough spec&c: &ge&c.&gg&c.: &g Weldon Blade &c-&g Short &c- 
-   &gStab&c - &gSlice &c - Level 50&c, +&g2 dex&c, +&g2 str&c, +&g20hp&c.
-   &gIdentify output from something you&c'&gve already
-   designed&c.
-   &gList of oset commands required to recreate the item&c.
- 
-&r2&c. &gList of all the mprogs&c, &goprogs&c, &gand rprogs in
-   the guild&c. &gList the vnums of any items&c, &grooms&c,
-   &gmobs that have progs&c. &gThese will need to be checked
-   over&c.
- 
-&r3&c. &gIf your guild is not already linked in the game&c, &g
-   suggest a good place for it to be linked in&c.
- 
-&r4&c. &gThe vnums of&c:
-   &r1&c. &gYour donation room&c.
-   &r2&c. &gYour death recall room&c.
-   &r3&c. &gWhere you would like the board placed&c.
- 
-&r5&c. &E&c-&gmail the area to &Bfellon@sdf.lonestar.org
- 
-&rWhat happens next&c:
- 
-&gYour guild will be looked over by an immortal for suitability&c.
-&gThis may take some time depending on the size and the complexity
-of your guild&c. &gIf you have not included the information listed
-above&c, &gyou may be asked to resubmit the guild with this
-included&c. &gYou may have to resubmit your guild should it bend
-too many of the rules listed above too much&c.
- 
-&gProvided your guild mees the requirements it&c'&gll be loaded
-and linked into the mud&c, &gand you&c'&gll be online&c.
- 
-&rSee also &BBGUIDE&c, &BBGUIDE2&c, &BBGUIDE3&c.
-~
-
-1 BITE~
-Syntax:  bite [target]
- 
-Bites someone. Potential damage increses with level, but is otherwise
-very random depending on how good a bite you manage to take out.
 ~
 
 1 'BLACK FIST'~
@@ -1426,13 +1247,6 @@ See also GOUGE, BLIND
 1 BLINK BLINKING~
 Some people find blinking text very annoying.  In order to turn off blinking
 text in zMUD, go to 'colors', then to 'ansi' then for blink select 'disable'
-~
-
-1 BLITZ~
-Syntax:  blitz [target]
- 
-Lands a series of deadly blows on the target in rapid succession causeing
-damage proportinal the the strength of the attacker.
 ~
 
 1 BLIZZARD~
@@ -1922,13 +1736,6 @@ first to attack in the battle, or be grouped with whoever was.
  
 ~
 
-1 CLAIRVOYANCE~
-Syntax:  clairvoyance <victim>
- 
-Clairvoyance allows the user to view the victim from afar. It is the same
-as farsight, but requres almost no mana.
-~
-
 1 CLAN CLANS~
 Clans are the organizations available to mortals in this realm.
 A character may only be a member of one clan, but may be in a clan
@@ -1966,12 +1773,6 @@ The current classes within the Realms available to you are:
 20) Monk                 21) Rogue
 &c22) Angel                23) Psionicist&W
 To get more information on each class, type "help <class name>".
-~
-
-1 CLEANSE~
-Syntax:  cleanse
- 
-Attempts to remove and poison affecting yourself.
 ~
 
 0 CLEAR~
@@ -2314,17 +2115,6 @@ Number         Effect
 Also see:  OSET and OBJECTTYPES
 ~
 
-1 COOK~
-Syntax:  cook <object>
- 
-The cook skill allows the user to turn body parts left from dead creatures
-into valuable food. It requires a fire to work properly. Cooking food more
-will make it more nutritious and will conserve it longer, altough overcooking
-it will not do much good.
- 
-See: CREATE FIRE
-~
-
 111 COPYOVER WARMBOOT~
 Syntax: Copyover
 Syntax: Warmboot
@@ -2548,13 +2338,6 @@ Fields: save - saves the control panel settings
         webserver on/off - activates/deactivates the webserver
         webport <port> - sets the port for the webserver
         webcounter - toggles the log that shows the counter when websvr is used
-~
-
-1 CUFF~
-Syntax:  cuff [target]
- 
-Cuff is a physical attack used to smack the victim on the head. It hurts more
-when a higher level player does it to you.
 ~
 
 0 'CURE BLINDNESS'~
@@ -3031,48 +2814,6 @@ of the first.
  
 ~
 
-101 DISASTER~
-The following help files have been created by Rathkor as a guide to help
-plan out the new area placement with changes that should be make. Please
-post comments on the note board and make your own modifications to these help
-files to add in ideas or changes.
-
-disaster2 - an explanation of the maps, symbols, etc.
-map1 - very restricted map of the current world
-map2 - working on a more detailed map of the new world
-map3 - proposed map of the new town (any names guys?)
-~
-
-101 DISASTER2~
-Post-Apocalyptic World:
-So DarkHaven is going the way of Atlantis as I see it. We sink the town.
-No need to disrupt the neat layout of the existing areas or to confuse
-players too much with this, just rebuild newdark.are so that it no longer
-is a city, but an ocean inlet with floating planks connecting between the
-different ends so it can still be walked across (I would love to do this
-part.) The art gallery was shored up with water-tight seals below the
-water level and can still be climbed down into amoungst the ruins. Dragon
-exports build up a magical force field bubble that keeps them dry. The
-sewers, quite amazingly, were preseved by underwater air pressure and can
-still be accessed if you're willing to dive under the ocean to find the
-entrance.
-Excluded areas: limbo newgate arena gods lordrom weater keraptis (secret
-entrance) build reign roads stockobj weed moonlight hallof
-Areas still to be added:
-swanbrk unholy frstdead drow thalos gtown marsh newacad necro xchan1
-hood goblins armsmaug cursenec thoran canyon dream valley solace olympus
-wyvern origin thief_guild warrior_guild mage_guild paladin_guild
-ranger_guild druid_guild brave vague hand_of_light monk_guild pe_order
-cleric_guild harperhall werewolf <and of course the new city, whatever shall
-we decide to call it?>
-. plains
-* forest
-# mountains
-- swamp
-= ocean
-Colour will be added when I'm done :]
-~
-
 1 DISCERN~
 Syntax: discern
  
@@ -3395,13 +3136,6 @@ you as a result!
  
 Be aware that area attacks are aggressive to all mobs in the room,
 including pets, mounts and charmed creatures.
-~
-
-1 EARTHSONG~
-Syntax:  x earthsong [target]
- 
-Improves armour and gives the ability to detect hidden figures with an
-effectiveness proportional to the dexterity of the caster.
 ~
 
 0 EAT DRINK~
@@ -3826,13 +3560,6 @@ This spell reveals all manner of invisible, hidden, and sneaking creatures in
 the same room as you.
 ~
 
-1 FAN~
-Syntax:  fan [target]
- 
-Causes the target to become cooled and resist heat attacks for a duration
-related to the fanner's strength.
-~
-
 1 FATIGUE~
 Syntax:  c fatigue <victim>
  
@@ -3888,12 +3615,6 @@ Hated
 Damned
  
 See also:  favor, deities, supplicate, devote
-~
-
-1 FEATHER FALL~
-Syntax: c feather
- 
-This spell is equivalent to float.
 ~
 
 1 FEEBLENESS~
@@ -4057,13 +3778,6 @@ If you are in an area and your movement suddenly begins to drop, then you
 begin losing hps <hitpoints>, you should cast fly immediately.
 ~
 
-1 FOCUS~
-Syntax: focus
- 
-Increases intelligence proportional to level at the expense of a bit
-of strength for a time related to your original intelligence and wisdom.
-~
-
 56 FOLDAREA~
 Syntax:  foldarea <area filename>
  
@@ -4181,21 +3895,6 @@ sensitive, and the character name _must_ be capitalized.  The resulting
 encrypted password must then be pasted into the character's pfile offline
 by someone with access to player files.
  
-~
-
-1 FORTIFY~
-Syntax:  c fortify
- 
-Fortify heals your group's wounds by an amount approximately proportional to
-the caster's level.
-~
-
-1 FORTISSIMO~
-Syntax:  c fortissimo
- 
-Fills you with music which increases your strength and constitution by
-a potentially large amount dependant on the caster's level. The results
-may vary in success with each cast.
 ~
 
 0 FPROMPT FPROMPTS~
@@ -4433,10 +4132,10 @@ See also: GLORY RATES,  GLORY TRADE
 0 'GLORY RATES~
 All prices are for adding affects/stats to an item or weapon, excepting the
 "Sex Change" which is a permanent altering of one's player file.
-There has also been precident for renaming / affecting pets with equal prices.
+&W
 &W+1 Manapoint            &G5 Glory | &WWeight to 1            &G125 Glory 
 &W+1 Hitpoint            &G10 Glory | &WGlow/Hum Removal         &G5 Glory    
-&W+1 Stat               &G100 Glory | &WRename/Rekey             &G5 Glory
+&W+1 Stat               &G100 Glory | &WRename/Rekey            &G20 Glory   
 &W+1 Hitroll            &G125 Glory | &W1 Practice              &G50 Glory  
 &W+1 Damroll            &G175 Glory | &WSex Change              &G10 Glory
 &W-1 Save               &G175 Glory | &WMinor Affect           &G300 Glory   
@@ -4813,20 +4512,6 @@ to our Resort.
 If you have problems understanding matters in the guide type: HELP NC 
 ~
 
-10 GUILDREQS~
-&rClan&c/&rorder&c/&rguild creation costs and requirements&c:
- 
-&gFounder must be level 100&c, &gand must provide the following 
-things before the guild can be created&c:
- 
-&r1&c.) &g100 quest points&c, &gor 75&c,&g000&c,&g000 gold&c.
-&r2&c.) &gAt least 5 potential members&c, &gwho can confirm that
-    they are going to join the clan upon its&c' &gcompletion&c.
-&r3&c.) &gA clan name&c, &gbadge&c, &gmotto and description&c.
- 
-&rSee also &BBGUIDE&c.
-~
-
 101 GWHERE GFIGHTING GLOBALS~
 Here are some global commands that are great on spoting Mortals at their best:
  
@@ -5119,6 +4804,32 @@ To release a player from hell, simply "unhell <character>".
 ~
 
 -1 HELP~
+I--------------------------------------I--------------------------------------I
+I                MOVEMENT              I                 GROUP                I
+I north east west south northeast exit I  follow group gtell ; split          I
+I northwest southeast southwest sleep  I--------------------------------------I
+I rest sit wake stand somewhere unlock I               INFORMATION            I
+I up down enter climb where fly float  I areas experience score title weather I
+I--------------------------------------I channels description experience note I
+I              CONFIG OPTIONS          I who wizlist story tick MOTD news bug I
+I autoloot autogold telnetga autoexit  I mail time password slist report typo I
+I nice flee norecall blank combine rip I spells skills weapons languages idea I
+I nointro prompt ansi autosac shovedragI talk bank house IMC marriage IMAIL   I
+I talk fastdeath                       I--------------------------------------I
+I--------------------------------------I               COMMUNICATION          I
+I                 OBJECTS              I social quest clan ordertalk guildtalkI
+I  get put drop give sacrifice hold digI say tell chat question answer auctionI
+I  appraise list  buy sell  equipment  I--------------------------------------I
+I  recite  quaff zap  brandish compare I                COMBAT                I
+I  empty fill  eat drink  examine pick Ikill flee wimpy rescue aid murder castI
+I  fishing engrave identify construct  Isuicide                               I
+I--------------------------------------I--------------------------------------I
+ Also see help on: !, save, quit, pagelength, practice, alias;
+ To use the help menu, just type "help <topic>".
+ To see help on individual areas, you can now type "help <full area name>".
+ If you are new to the game, type HELP NEWBIE to see a special help series.
+ 
+ SEE ALSO HLIST HSEARCH
 ~
 
 1 HEZEKIAH HEZEKIAHS 'HEZEKIAHS CURE' HEZEKIAH'S~
@@ -5189,22 +4900,10 @@ Note - The list of help files is quite extensive, and the command does
        is, at present, your only recourse.
 ~
 
-1 'HOLY ARMOR'~
-Syntax:  c 'holy armor'
- 
-Improves your armour with divine power!
-~
-
 1 'HOLY SANCTITY'~
 Syntax:  c 'holy sanctity'
  
 This spell casts sanctuary on every member of the cleric's group.
-~
-
-1 'HOLY STRENGTH'~
-Syntax:  c 'holy str' [target]
- 
-Improves your strength with holy power!
 ~
 
 51 HOLYLIGHT INVIS~
@@ -7487,14 +7186,12 @@ list is in no specific order.
 ~
 
 104 IMOTD~
-Remember when ever you edit an area or what not to make notes of it
-on the webforums. I know that its a bit of a pain, but with two muds
-it is eisier to centralize the info between them.
-
-For those of you who are writing code, posting your code changes on the
-webforums is for the same reason. Please keep us all posted.
-
-The race/class votes is comming up soon.
+Hough Ya!!
+Its Immort meeting time.
+I will be sending out a list of info to the immort lsit pretty soon.
+All details will be on there, and we will need to figure what everyones jobs
+are. Someone told me that if I keep working like this I will loose my mind,
+and the mud will crash and burn. So its time to put these councils to work.
 ~
 
 1 IMPROVEMENT TRANSMUTATION~
@@ -7508,13 +7205,6 @@ Syntax: c transmut <target>
 This spell will cause the target to randomly transmute, increasing some
 stats and lowering others at random.  It is highly unpredictable.
 This spell is not considered an attack.
-~
-
-1 INDIGNATION~
-Syntax:  c indignation [target]
- 
-Fills your group with the fury of the gods, increasing your hitroll and
-damageroll temporarily according to the level of the caster.
 ~
 
 50 INDUCT OUTCAST~
@@ -7977,12 +7667,6 @@ very direct manner, it can affect nearly every aspect to at least a degree.
  
 ~
 
-1 'LEPRECHAUN FORTUNE'~
-Syntax:  c leprechaun [target]
- 
-Increases you luck for a while.
-~
-
 0 LEPRECHAUN LEPRECHAUNS~
 Leprechauns are said to have been of faerie origin, for their exact nature
 is unknown to most.  They tend to be very sensitive to luck, and will not
@@ -8077,14 +7761,7 @@ burn until it burns itself out, is smoked out, or you tamp your pipe.
 See SMOKE, TAMP, FILL
 ~
 
-1 LIMBER~
-Syntax:  limber
- 
-Greatly increases your dexterity for a time. Increases in effectiveness
-with your level.
-~
-
-101 LIQUIDTYPES~
+52 LIQUIDTYPES~
 Value | Liquid Type
 ------------------------------
   0   | water
@@ -8100,11 +7777,10 @@ Value | Liquid Type
  10   | milk
  11   | tea
  12   | coffee
- 13   | blood
- 14   | salt water
- 15   | cola
- 
-see also ITEMVALUES and OSET.
+ 13   | salt water
+ 14   | cola
+
+See OSET and ITEMVALUES.
 ~
 
 52 LITTERBUG~
@@ -8218,12 +7894,6 @@ advantage with a loyal weapon.
  
 ~
 
-1 LUNGE~
-Syntax:  lunge
- 
-Lunge out at your target and hit them, causing a bit of damage.
-~
-
 1 LYCANTHROPE~
 The creatures of the moon.
 Represented by the Wolf, Rat, Raven, and Bear.
@@ -8231,13 +7901,6 @@ Werewolves are evil creatures who use the powers of thier change to destroy
 Wereravens are as curious as their raven namesakes and are good aligned.
 Wererats are sneaky little gutter thieves. Yet cunning and sly as they are evil
 Wearbears are the Good protectors of the wildlands.
-~
-
-1 MAGEBLADE~
-Syntax: c mageblade
- 
-This spell allows the caster to form a deadly blade from the power of the
-mind. The sword lasts only temporarily.
 ~
 
 0 MAGICUSER MAGE MAGES~
@@ -8392,117 +8055,33 @@ spells.  As undead beings, Vampires neither have nor need mana.
 
 1 MAP~
 Town of Darkhaven:
-                 North Rd.||  |Dungeon                 (Guilds Houses)
-     .===PATHWAY=========='`==+=================.    1 Clerics (Good)
+Ocean                   Plains                         (Guilds Houses)
+Keep \===PATHWAY=========='`====================.    1 Clerics (Good)
      |    (23)            ||                    |    2 Clerics (Evil)
      |  +===JUSTICE=ST====||=================+  |    3 Druids
      |  |                 V|                 |  |    4 Warriors
-     |  F    Notre        E|    Duke's       H  |    5 Old Ranger Guild
-     |  A    Dame         R|    Castle(4)    A V|    6 Mages
-Pixie|  L   (1)|(2)       T|      |          W o|    7 Bank
-For.-+  C (9)  |          I|    .-+-\        K i/    8 Vampires
-     |  O  .+--+--------. C| .-/     (5)     | d|    9 Augurers
-Dark |  N (3)            \||/      (6)       |  |   23 Paladins
+     |  F    Notre        E|    Duke's       H  |    5 Rangers
+     |  A    Dame         R|    Castle(4)    A  |    6 Mages
+Pixie|  L   (1)|(2)       T|      |          W  |    7 Thieves
+For.-+  C (9)  |          I|    .-+-\        K  |    8 Vampires
+     |  O  .+--+--------. C| .-/     (5)     |  |    9 Augurers
+Dark |  N (3)  Portal    \||/                |  |   23 Paladins
 For.-+== =================[]===HORIZON=ST==== ==+-X-   10 Scrolls
-     |  | Bar   Inn  Hall ||           Acad  |  |Road  11 Potions
-     |  | (10) (11) (12)Md\| (16) (17) (18)  |  |      12 Magic Items
+     |  | Bar   Inn  Hall || NOTES (6) Acad  |  |Road  11 Potions
+     |  | (10) (11) (12)  || (16) (17) (18)  |  |      12 Magic Items
      |  +===MARKET=ST====='`=================+  |      13 Jewelry
      |  | (13) (14) (15)  || (19) (20) (21)  |  |      14 Courier/Post Office
-     |  |       (7)       ||                 |  |      15 Notes/Quills
+     |  |       (7)  Ware ||                 |  |      15 Notes/Quills
      |  +--thieves'-alley- |                 |  |      16 Butcher
      |  |  (8)  (22)  Art || Cult Pawn  Pets |  |      17 Baker
      |  +================='`===LAW=ST========+  |      18 Dairy
      |                    ||                    |      19 Blacksmith
-     +====================+`==+==PATHWAY=====+=='  N   20 Armour
-     |                    |   |              |    w+e  21 Weapons
-   Graveyard       Black For. Marina   Freeport    S   22 Tailor
-~
-
-1 MAP1~
-Rathkor's Vague World Map
- - Selected Landmarks -            |Marsh(10)    .                 |
-(1)  Midgaard                      | (15)(1)  .   .  (2)           |
-(2)  New Ofcol                     |   *  . \Northern/          ^^  |
-(3)  Midon                         | *     * \Plains/. ^^     ^^     |
-(4)  New Darkhaven                 |    *     .\. ./    Dwarven  ^^ |
-(5)  Holy Grove                    | *    *    .\ /    Mountains   |
-(6)  Shattered Refuge              | Forest  .   +  ^^(3) (9)      ^^|
-(7)  Graveyard                     |    (11)\   .|.   | ^^/     ^^   |
-(8)  Mt Doom                       |*  * (12)\---+   ^^| |.   ^^    ^^|
-(9)  Dwarven Village               | *  (13)-----(4)----(5) .  .  .|
-(10) Luskan                        |    (16)*  *    .  \ . Valley  |
-(11) Manor                         | - - - -===___==-\  (6) . .   .|
-(12) Pixie Forest                  |Ocean . (7)*   *  =_   DH River|
-(13) Haon Dor                      | - - . (14) Black *  \_-=\_ . .|
-(14) Catacombs                     |-  . .   . Forest  ^^(8)    \   |
-(15) Lillith                       |- .  .   .   *     *        \ .|
-(16) Mahn Tor                      | .  .  .   *     *     *     | |
-~
-
-101 MAP2~
-= = = = = = = = = = = = # # # # # # # # # # # # # # # # # # # # # # # # #
- = = - - = = = = = = . . . moria # # # # # # # # # # # # # # # # # # # #
-= = . - - - - = = = . . . . .|. . # # # . . # # # # # # # # # # # # # # #
- . . - - - - - = =luskan . . | olympus .valley # # # # # # # # # # # # #
-. . . - lillith . . .|hood. .|. ./. . ./. . # # # # # # # # # # # # # # #
- . . - - - - -\- . midgaard--+---ofcol2# # # # # # # # # # # # # # # # # 
-. . . - - - -  --+---+. . . . . . . # # # # # # # # # # # # # # # # # # #
- . . = = = - . ./. . | . . . . . . . # # # # # # # # # # # # # # # # # # 
-. . = = = = . ./. . . \ . . . . # # # # # # # # # # # # # # # # # # # # #
- . . = solace.|  . . . \   . . . # # # # # # # # # # # # # # # # # # # # 
-. . . . . .\ /. . . . . | . . . . # # # # # # # #_-------xchan1 # # # # #
- .cursenec .|. . . . . . \ . . * # # # # # # # #/# # # # # # # # # # # # 
-gtown | . . | . . . . . . \ . . # # # # # # # #/# # # # # # # # # # # # #
- | . .|. . .+--wyverne . . \ . * # # # #dwarven# # # # # # # # # # # # # 
-.\----+-----+ . . . . . . . | . * # #midon \ /# # # # # # # # # # # # # #
- * * *|* * *|* * * . taldron/.donjon # \ # #|# # # # # # # # # # # # # # 
-* * * *\* * | thoran* . ./--.\. | # # # | # | # # # # # # # # # # # # # #
- * *swanbrk* \ *|* * * ./= = =|---\dream|# #|# # # # # # # # # # # # # # 
-- - - * * * * \/*manor*/* = = = = =\# # | # | # # # # # # # # # # # # # #
- - - - - * * * \ * | */* * = =\= = = \ # \ #|# # # # # # # # # # # # . .
-- -hightower* * \ pixie__ * = =|= = = \ # | | # # # # # # # # # # # : : :
-vantower * * * * \ *pixie--\-=/= = = =|# / daycare # # # # # # # # : : : 
-- - - - * arachnos| * rdaf*|=astral = | #|#/. . * # # # # # # : : : : : :
- * *|* * * * *\*-*+--*-+*--=\newdark =|--+/-grove# # #armsmaug : :eastern
-* * *\* * * * *|haon* * = = =gallery=/=\* \ . . * # # # # | # : :/: : : :
- * * *+*-*-*+*-+ * * * * = =|export=/= / * \_--rocroad-+--+------\ : : :
-* * * *|trollden\pyrundead= =sewer=-= | * * * *|hannigans # # * .|: : : #
- * * marsh * * * * * = = = =|= =|= = = \srefuge*\# # # # # # #hochenya #
-* - - - - - * * * = = = = redferne* *r=i* * * * | #goblins* # # * * : # #
- - - - - - = = = = = = = ./ |midennir* =v=thalos-\ *\*frstdead # # # # #
-= = = = = = = = = = = = ./grave\brave\* *e=r* * *|* */* * * * # # # # # #
- = = = = = = = = = = = ./.chapel\vague#mtdoom* * /+-+-mahntor* # # # # #
-= = = = = = = = freeport.tohell|*|* * * * * = drow* | # # # # # # # # # #
- = = = = = = = = = = = = *unholy izmyr * * * = * * canyon# # # # # # # #
+     +===================='`==+==PATHWAY========'  N   20 Armour
+     |             South      |                   w+e  21 Weapons
+   Graveyard      Bridge    Marina-Coral Depths    S   22 Tailor
  
-= water  - marsh  * forest  # mountain  . plains  : desert
+NOTES: Archive second floor, all south.  Oracle second floor, all south, east.
  
-~
-
-101 MAP3~
-BUTcher   PETshop   DAIry    /Issues           /Mental /Bakery
-SCRibe    WEAponsm. TAIlor   TownHALl BANk     MEDical MALl
-WIZard    ARMourer  JEWeller          \Lockers \Morgue
-ALChemist BLAcksm.  DONation FIShmonger PORt MARina
- . . . . . . . . . . .northern . . . . . . ./\ . . . .
-. . . . . . . . . . . .village. . . . .?-_. ||. . . . .
- . . . . . .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ \ || . . . .
-. . . . . @@@ ??? ??? But Pet.-.Dai Tai @@@\||. . . . .
- . . ? .@@@   .+---+---+---+/*!*\+---+--\.@@\| . . . .
-. . / @@@???./??? ??? ??? Cha * Mal Jew  | @||. . . . .
- . / @@    / \               * * :       | @|| . . . .
-. .|.@???\/   \.  Wea Arm Bla * Don-Ban  | @||. . . . .
- . | @   |      \/+=+==+===+==[]=:===+===+=|+< . . . .
-. .|.@???+??? Scr+| * * */* * |+Hal Med  | @@\\ . . . .
- . |@@   |      >||* */*-* * *|<    +----+\ @@\\ . . .
-. .|@ ???+??? Wiz+| *p*a*r*k* |+Pos |academy @@ \\. . .
- . |@    |      >||* *|* * * *|<    |grounds\ @@ \\. .
-. .|@ Inn+Bar Alc+| */* * * * |+Not +----++--/ @@|+===>
- /=+|====+======/++\====+==++=/:::%%%%%%%::%%%%@@|| %%%
-// @@@.b.e.a.c.h.%%%%%%Fis%:::Mar:%%%%%%%::%%%Lit++%%%%
-/%%%%%%%%% . .%%%%%%%%%::%Por%%%%%%%%%%%%::%%%%%%::%%%%
-%%%%%%%%%%%%%%%%%%%%%%%::%%::%%%%%%%%%%%%%%%%%%%%::%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::%%
 ~
 
 100 MATERIAL MAKEORE FASHION~
@@ -8598,12 +8177,6 @@ memorize rooms in these slots too, but will not be able to use them
 without the appropriate spell.
  
 See also: APPORT ARCANE
-~
-
-1 'MENTAL BLOCK'~
-Syntax:  c 'mental block' [target]
- 
-Severely lowers the intelligence of the victim.
 ~
 
 -1 MENTALSTATE MENTALSTATES 'MENTAL STATE' 'MENTAL STATES'~
@@ -8735,15 +8308,6 @@ a fortress against magic.
 It affects intelligence and save vs. spell.
 ~
 
-1 MINDFLAY~
-Syntax:  mindflay <victim>
- 
-With the mindflay attack, the victim's brain is scrambled in a painful
-psionic attack that causes intense damage, destroys intelligence, and
-erases wisdom. The attack naturally works better based on the experience
-and intelligence of the attacker.
-~
-
 1 'MINOR INVOCATION'~
 Syntax:  cast 'minor invocation'
  
@@ -8782,13 +8346,6 @@ position as it's ranked at 6.
 14 POS_SHOVE
 15 POS_DRAG
 See also : Help STYLE
-~
-
-1 'MINSTREL SHIELD'~
-Syntax:  c minstrel
- 
-A powerful shield that improves one's armour. It greatly increases in
-strengh with the experience of the caster.
 ~
 
 53 MINVOKE OINVOKE~
@@ -8971,42 +8528,31 @@ See also:  polymorph, morphcreate, morphdestroy, morph
 ~
 
 -1 MOTD~
+Welcome to SDFMud!
+ 
+Bugs are being dealt with.
+For any bug reports please post them on the bug board in the game or at
+the mud forum. Also any ideas or suggestions would be welcome, please post
+them on the mud forum, which can be found from a link at sdfmud.willowhaven.org
+ 
 &B    _,.-*-'-*-.,_,.-*-'-*-.,_,.-*-'-*-.,.-*-'-*-.,_,.-*-'-*-.,_,.-*-'-*-.,_
   /                                                                       \
                                   SDFmud
 &c                              Message of the Day
-                            Last Updated:  09/02/02
+&W                            Last Updated:  06/22/02&w
+&W
+ Welcome to the SDFmud!
+ There will be major changes to class and race structure being done slowly
+ over the next few months. Guilds/Orders/and Clans are going to be shaken
+ up a bit as they are restructured. And finally the world itself is going
+ to be reformed into a beter place all and all.
+ If you have bugs to report, please post them to the bug forum at the SDFmud
+ website.
+ Thanks
  
- SDFmud updates and info can be found on the web forums located at
- http://forums.willowhaven.org/ikonboard.cgi
- Please check the forums every few days for important announcments.
-
- I will be setting up some poll booths on the webforums.
- These polls will be used to determine what classes will be stayin and what
- ones will be leaving us in SDFmud ver 2.5. This is a very important vote
- So anyone who wishes to see their fav class kept in needs to participate.
- There will be a place to also post your opinions as well. Lots of new stuff
- Will be happening with the mud soon. Once the main world is finished, we
- will be expanding into the outer planes. Some new races will appear
- when this happens. The deities will be expanded upon. Some new
- supplications will be added. And A new form of alignment restrictions will
- be looked into.
-
- The new buildrules will be ported to the website, but for now you can
- view them on the webforums.
-
- Anyone with experiance playing Dungeons And Dragons could you please
- send an e-mail to Fellon with what games you have played.
- fellon@sdf.lonestar.org
-
 &c                                 Visit SDF at: &B
    \._                   http://sdfmud.willowhaven.org/                   _./
      `-*-'-*-.,_,.-*-'-*-.,_,.-*-'-*-.,.-*-'-*-.,_,.-*-'-*-.,_,.-*-'-*-'&W
- 
-&RWe are bugged, connect at your own risk!
-~
-
-115 MOTD SAVE~
 ~
 
 102 MOTDHELP~
@@ -9149,7 +8695,7 @@ MPFORCE         <name/all> <actions>  MPSLAY         <victim>
 MPDREAM         <name> <phrase>       MPDAMAGE       <name> <#hps> 
 MPCLOSEPASSAGE  <room> <direction>    MPOPENPASSAGE  <origin> <dest> <dir>
 MPPRACTICE      <victim> (skill|spell) (max_percent)
-MPFAVOR         <victim> <favor>      MPECHOZONE     <phrase>
+MPFAVOR         <victim> <favor>
  
 Mobs only:
 MPKILL           <name>                 MPGOTO <vnum>
@@ -9679,7 +9225,7 @@ This spell drains hitpoints from the victim and returns some to the caster.
 ~
 
 1 NEWBIE NEW START BEGIN~
-If you are new to SDFMUD, here are a few help files that will help you
+If you are new to the Resort, here are a few help files that will help you
 get acquainted with our world.  We have tried to make the help system as 
 detailed as possible for everyone's benefit:
  
@@ -10759,22 +10305,8 @@ In no instances will pets be reimbursed. Do not even ask.
   *** You may only purchase one pet per level ***
 ~
 
-1 PIANISSIMO~
-Syntax:  c pianissimo [target]
- 
-Drains the victim's strength and constitution in the opposite manor of
-fortissimo by blaring poorly-played and annoying piano music in their
-ears until they writhe in agony and weakness.
-~
-
 1 'PICK LOCK'~
 This skill enables you to pick open locked doors.
-~
-
-1 PIGEON~
-Syntax:  pigeon <item> <traget>
- 
-This is the same as the "transport" spell but requires no mana.
 ~
 
 1 PINCH~
@@ -10820,35 +10352,31 @@ Pixies gain experience on a scale of normal rate * 1.08.
 ~
 
 1 PKILL PKILLING~
-&rRULES&c:
+Player killing is legal on this MUD, under the following circumstances:
  
-&c* &rPlayer killing is legal on this &gMUD&r, under the following 
-circumstances&c:
+1) Player A and Player B are:
+   - "Deadly" or "PKILL" players (seen as [PK] in the who list)
+   - at least level 10
+   - within 10 levels of each other
+   - not in the same clan
+    
+2) Player A and Player B are in the Arena. (See HELP ARENA)
  
-&B1&c.) &rPlayer &gA &rand Player &gB &r are &c:
- &c- &gDeadly &c(&gPKILL&c) &r characters, flagged as &R[&WPK&R]
- &c- &rAt least level &g10
- &c- &rWithin &g10 &rlevels of each other
- &c- &rNot in the same clan
+3) Either player is named "Shirley".
+
+
+*IMPORTANT*
+----------
+
+-DEADLY PLAYERS WITH A RANK OF [ANONYMOUS] (or otherwise obscured level rank) 
+CAN BE ATTACKED AT ANY TIME, REGARDLESS OF LEVEL.
  
-&B2&c.) &rPlayer &gA &rand Player &gB &rare in the &gArena&c.
+-Deadly players CAN be attacked while flagged [AWAY], [LINK-DEAD], [WRITING], 
+etc. 
  
-&c* &rDeadly players with a rank of Anonymous (or otherwise 
-obscured level rank) can be attacked at any time, regardless of
-level&c.
+*ONE* ITEM OF EQUIPMENT MAY BE TAKEN FROM THE CORPSE OF A PKILLED VICTIM. The 
+looting of more than one item will result in something bad happening to you.
  
-&c* &rDeadly players &gCAN&r be attacked while flagged [AWAY]&c.
- 
-&c* &rDeadly players &gCAN&c'&gT&r be attacked while flagged 
-[Link-dead] or [Writing]&c.
- 
-&c* &rAnd the last rule, use some logic and reason. Don't just go
-around killing random people, or else&c.
- 
-&rPUNISHMENT&c:
- 
-&c* &rIf ANY of these rules are broken, the offender will be helled for
- one week, or longer if he/she is a repeated offender&c.&w
 ~
 
 0 'PLANT PASS'~
@@ -11089,13 +10617,6 @@ The more positive (or negative) the number is, the sooner the force
 will push or pull you.
 ~
 
-1 PUMMEL~
-Syntax:  pummel [target]
- 
-Pummel your victim with viscious blows. A very effective tactic for those
-less experienced.
-~
-
 0 PUNCH~
 Syntax: punch
  
@@ -11125,7 +10646,7 @@ PURGE will not get rid of PC's.
 1 PWK 'POWER WORD KILL'~
 Syntax: c power <victim>
  
-One of the best offensive spells, this spell is only rumored to
+The most powerful in offensive spells, this spell is only rumored to
 even exist.  It is said to cause great pain and even death at the
 mere pointing of a finger and the speaking of the word 'Die.'
 ~
@@ -11247,13 +10768,6 @@ characteristics of your race may enhance your enjoyment of the mud,
 and may provide a unique experience for those who have never
 roleplayed previously.
  
-~
-
-1 RAGE~
-Syntax:  rage
- 
-Allowing rage to flow through you while you fight, you will have a greater
-chance to get in extra hits while it lasts but will not be able to flee.
 ~
 
 0 RANGER~
@@ -11827,12 +11341,6 @@ This command will return that player or mob to the room from which
 you last transferred it from.
 ~
 
-1 REVELATION~
-Syntax:  c revelation [target]
- 
-Revelation is the same as true sight, but lasts longer.
-~
-
 1 REVERT~
 Syntax:  Revert
  
@@ -11884,12 +11392,6 @@ FIRE      COLD      ELECTRICITY  ENERGY     BLUNT     PIERCE     SLASH
 ACID      POISON    DRAIN        SLEEP      CHARM     HOLD       NONMAGIC
 PLUS1     PLUS2     PLUS3        PLUS4      PLUS5     PLUS6      MAGIC
 PARALYSIS
-~
-
-1 RIVERSONG~
-Syntax:  c riversong [target]
- 
-Increases hitroll and applies aqua breath.
 ~
 
 52 RLIST~
@@ -12297,12 +11799,6 @@ crash the MUD upon use of the social.  &RNO ANDS, IF OR BUTS ABOUT IT!&W
                             &RYou have been warned!&W
 ~
 
-1 SERENITY~
-Syntax:  serenity
- 
-Allows a werecreature to regain control of itself when it is in a frenzy.
-~
-
 57 SETBOOT~
 Syntax: setboot time <hour> <minute>
  	setboot manual <0|1>
@@ -12696,13 +12192,6 @@ a deep slumber from which they cannot awaken until attacked or the
 spell wears off.
 ~
 
-1 SLICE~
-Syntax: slice <corpse>
- 
-Will slice a piece of fresh meat from a corpse if that corpse has not
-decayed too long and you are wielding a sharp enough weapon.
-~
-
 0 SLINK~
 This spell makes you more dexterous for its duration.
 ~
@@ -12991,12 +12480,6 @@ physical damage.
  
 With 'Hand of Chaos,' Thanatos perfected this line of magic, and he
 returned to his researches on the art of astral travel.
-~
-
-1 SPELLBAIT~
-Syntax:  c spellbait [target]
- 
-Makes the victim more susceptible to magic.
 ~
 
 56 SPELLCOMPONENTS~
@@ -13716,12 +13199,6 @@ However, the use of this skill is unpredictable, and the results
 are not always the same.
 ~
 
-1 VISOGY~
-Syntax:  visogy [target]
- 
-Curse blindess.
-~
-
 1 VITALIZE~
 Syntax: c vital
  
@@ -14071,13 +13548,6 @@ Also see these help files:  IMC and ICEd
 Date: 8/27/99
 ~
 
-1 WINDSONG~
-Syntax:  c windsong [target]
-
-Increases hitroll by allowing the caster to visualize nearby rooms
-from airflows.
-~
-
 1 'WINTER MIST'~
 Syntax: c winter <victim>
  
@@ -14100,12 +13570,6 @@ to incorporate learning.  Among other things, it affects:
  - the ability to remove a trap or poison a weapon
  
 Wisdom is the prime attribute of druids and clerics.
-~
-
-1 WITHERFIST~
-Syntax:  c witherfist <target>
- 
-This is a powerful attack spell.
 ~
 
 100 WIZHELP~

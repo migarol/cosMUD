@@ -247,6 +247,7 @@ struct olc_save_info
 #define MEDIT_SAV5			59
 #define MEDIT_CLASS			60
 #define MEDIT_RACE			61
+#define MEDIT_AI_MENU			62
 
 /*. Submodes of SEDIT connectedness 	.*/
 #define SEDIT_MAIN_MENU              	0

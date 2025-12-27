@@ -31,11 +31,13 @@
 #include <string.h>
 #include "mud.h"
 #include "olc.h"
+#include "mob_identity.h"
+#include "mob_home.h"
 
 /*-------------------------------------------------------------------*/
 /* Externals */
 extern int	top_mob_index;
-MOB_INDEX_DATA *   mob_index_hash          [MAX_KEY_HASH];
+extern MOB_INDEX_DATA *mob_index_hash          [MAX_KEY_HASH];
 
 /* Global Variables */
 extern char * const act_flags [];
@@ -85,6 +87,7 @@ void medit_disp_parts		args( ( DESCRIPTOR_DATA *d ) );
 void medit_disp_classes		args( ( DESCRIPTOR_DATA *d ) );
 void medit_disp_races		args( ( DESCRIPTOR_DATA *d ) );
 void medit_disp_saving_menu	args( ( DESCRIPTOR_DATA *d ) );
+void medit_disp_ai_menu		args( ( DESCRIPTOR_DATA *d ) );
 void medit_setup_arrays         args( ( void ) );
 
 /*-------------------------------------------------------------------*\
@@ -806,6 +809,7 @@ void medit_disp_npc_menu( DESCRIPTOR_DATA *d )
     ch_printf_color( ch, "&gX&w) Body Parts  : &c%s\n\r", flag_string(mob->xflags, part_flags) );
     ch_printf_color( ch, "&gY&w) Act Flags   : &c%s\n\r", ext_flag_string( &mob->act, act_flags ) );
     ch_printf_color( ch, "&gZ&w) Affected    : &c%s\n\r", affect_bit_name( &mob->affected_by ) );
+    ch_printf_color( ch, "&g0&w) AI Settings\n\r" );
     ch_printf_color( ch, "&gQ&w) Quit\n\r" );
     ch_printf_color( ch, "Enter choice : " );
 
@@ -900,6 +904,78 @@ void do_medit_reset( CHAR_DATA *ch, char *argument )
 	    medit_disp_menu( ch->desc );
 	    return;
     }
+}
+
+/*
+ * Display AI settings submenu for NPCs
+ */
+void medit_disp_ai_menu( DESCRIPTOR_DATA *d )
+{
+    CHAR_DATA *ch = d->character;
+    CHAR_DATA *mob = d->character->dest_buf;
+    MOB_IDENTITY *identity;
+    MOB_HOME *home;
+    extern MOB_IDENTITY *get_mob_identity(int vnum);
+    extern MOB_HOME *get_mob_home(int vnum);
+
+    if (!IS_NPC(mob))
+    {
+        send_to_char("AI settings are only for NPCs.\n\r", ch);
+        medit_disp_menu(d);
+        return;
+    }
+
+    identity = get_mob_identity(mob->pIndexData->vnum);
+    home = get_mob_home(mob->pIndexData->vnum);
+
+    write_to_buffer( d, "50\x1B[;H\x1B[2J", 0 );
+    set_char_color( AT_PLAIN, d->character );
+    ch_printf_color( ch, "-- &CAI Settings for Mob &w[&c%d&w] --\n\r\n\r", mob->pIndexData->vnum );
+
+    if (identity)
+    {
+        ch_printf_color( ch, "&CIDENTITY:&w\n\r" );
+        ch_printf_color( ch, "  Who Am I: &O%s\n\r", identity->who_am_i ? identity->who_am_i : "(not set)" );
+        ch_printf_color( ch, "  What I Do: &O%s\n\r", identity->what_i_do ? identity->what_i_do : "(not set)" );
+        ch_printf_color( ch, "  Awareness Level: &c%d&w (&O%s&w)\n\r",
+            identity->awareness_level,
+            identity->awareness_level == 0 ? "None" :
+            identity->awareness_level == 1 ? "Low" :
+            identity->awareness_level == 2 ? "Medium" :
+            identity->awareness_level == 3 ? "High" : "Sapient" );
+    }
+    else
+    {
+        ch_printf_color( ch, "&CIDENTITY:&w &RNot configured\n\r" );
+    }
+
+    ch_printf_color( ch, "\n\r" );
+
+    if (home)
+    {
+        ch_printf_color( ch, "&CHOME:&w\n\r" );
+        ch_printf_color( ch, "  Location: &c%d&w - &O%s\n\r",
+            home->home_vnum,
+            home->home_name ? home->home_name : "(unnamed)" );
+        ch_printf_color( ch, "  Type: &O%s\n\r", home_type_name(home->home_type) );
+        ch_printf_color( ch, "  Owned: &O%s\n\r", home->owned ? "Yes" : "No" );
+        if (!home->owned)
+            ch_printf_color( ch, "  Rent: &c%d&w gold\n\r", home->rent_cost );
+    }
+    else
+    {
+        ch_printf_color( ch, "&CHOME:&w &RNot assigned\n\r" );
+    }
+
+    ch_printf_color( ch, "\n\r&g1&w) View/Edit Identity\n\r" );
+    ch_printf_color( ch, "&g2&w) View/Edit Home\n\r" );
+    ch_printf_color( ch, "&g3&w) View Memory\n\r" );
+    ch_printf_color( ch, "&g4&w) Generate AI Identity (Beeler)\n\r" );
+    ch_printf_color( ch, "&g5&w) Analyze Context\n\r" );
+    ch_printf_color( ch, "&gQ&w) Back to Main Menu\n\r" );
+    ch_printf_color( ch, "Enter choice : " );
+
+    OLC_MODE(d) = MEDIT_AI_MENU;
 }
 
 /**************************************************************************
@@ -1128,6 +1204,10 @@ void medit_parse( DESCRIPTOR_DATA *d, char *arg )
 	    OLC_MODE(d) = MEDIT_AFF_FLAGS;
 	    medit_disp_aff_flags(d);
 	    return;
+	case '0':
+	    OLC_MODE(d) = MEDIT_AI_MENU;
+	    medit_disp_ai_menu(d);
+	    return;
 	default:
 	    medit_disp_npc_menu(d);
 	    return;
@@ -1299,7 +1379,53 @@ void medit_parse( DESCRIPTOR_DATA *d, char *arg )
 	}
 	break;
 
-        
+  case MEDIT_AI_MENU:
+	{
+	    extern void medit_show_ai(CHAR_DATA *ch, CHAR_DATA *mob);
+	    extern void medit_identity(CHAR_DATA *ch, CHAR_DATA *mob, char *argument);
+	    extern void medit_ai_generate(CHAR_DATA *ch, CHAR_DATA *mob);
+	    extern void medit_ai_analyze(CHAR_DATA *ch, CHAR_DATA *mob);
+	    extern void medit_memory(CHAR_DATA *ch, CHAR_DATA *mob, char *argument);
+	    CHAR_DATA *mob = victim;
+
+	    switch (UPPER(*arg))
+	    {
+	    case 'Q':
+		medit_disp_npc_menu(d);
+		return;
+	    case '1':
+		/* View/Edit Identity */
+		medit_identity(d->character, mob, "");
+		medit_disp_ai_menu(d);
+		return;
+	    case '2':
+		/* View/Edit Home - show info */
+		medit_show_ai(d->character, mob);
+		send_to_char("\n\r(Home editing coming soon)\n\r", d->character);
+		medit_disp_ai_menu(d);
+		return;
+	    case '3':
+		/* View Memory */
+		medit_memory(d->character, mob, "");
+		medit_disp_ai_menu(d);
+		return;
+	    case '4':
+		/* Generate AI Identity */
+		medit_ai_generate(d->character, mob);
+		medit_disp_ai_menu(d);
+		return;
+	    case '5':
+		/* Analyze Context */
+		medit_ai_analyze(d->character, mob);
+		medit_disp_ai_menu(d);
+		return;
+	    default:
+		medit_disp_ai_menu(d);
+		return;
+	    }
+	}
+	break;
+
     case MEDIT_NAME:
 	if ( !IS_NPC(victim) && get_trust( d->character ) > 58 )
 	{

@@ -1,6 +1,7 @@
 Name        Elf~
 Race        1
-Classes     329216
+Classes     12848912
+Species     1
 Str_Plus    -1
 Dex_Plus    2
 Wis_Plus    0
@@ -18,7 +19,7 @@ Align       0
 Min_Align  -1000
 Max_Align	1000
 AC_Plus    0
-Exp_Mult   110
+Exp_Mult   100
 Attacks    0
 Defenses   0
 Height     63

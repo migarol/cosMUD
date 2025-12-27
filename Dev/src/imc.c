@@ -76,6 +76,7 @@ time_t imc_boot;          /* current time */
 int imc_lock;
 int imc_is_router;       /* run as a router (ie. ping stuff) */
 int imc_lock_file=-1;
+int (*imc_recv_hook)(const imc_packet *p, int bcast) = NULL;  /* Hook for packet reception */
 
 char global_hubname[IMC_MNAME_LENGTH] = "NULL";
 int global_directnum=-1;

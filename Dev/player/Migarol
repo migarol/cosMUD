@@ -1,0 +1,157 @@
+#PLAYER
+Version      3
+Name         Migarol~
+Description  ~
+Sex          1
+Class        19
+Race         0
+Species      0
+Languages    -1 -262145
+Level        116
+Played       0
+Room         1200
+Memorized		21001 0 0 0 0 0 0 0
+HpManaMove   25000 25000 25000 25000 25000 25000
+Gold         100000
+Exp          1863071875
+Height          70
+Weight          180
+Act          570431096
+Position     112
+Style     2
+Practice     999
+SavingThrows 0 0 0 0 0
+Alignment    0
+Favor	       0
+Balance      100000
+Glory        0
+MGlory       0
+Hitroll      0
+Damroll      0
+Armor        100
+ICEListen (null) iMusic Ichat Pchat cchat~
+Mentalstate  0
+Password     MiQWyzYMbQynw~
+Rank         The IMP~
+Title         the Immortal Creator.~
+Lastname  ~
+Bio          Creator and administrator of cosMUD.~
+Bamfin       Migarol materializes in a flash of light.~
+Restore_time 0
+WizInvis     116
+Council      Elder Council~
+Flags        100608
+PKills       0
+PDeaths      0
+MKills       0
+MDeaths      0
+ArenaWins    0
+ArenaKills   0
+ArenaDeaths  0
+IllegalPK    0
+AttrPerm     18 18 18 18 18 18 18
+AttrMod      0 0 0 0 0 0 0
+Condition    48 48 48 48
+Site         127.0.0.1
+Spell        100 'acetum primus'
+Spell        100 'acid blast'
+Spell        100 'armor'
+Spell        100 'bless'
+Spell        100 'blindness'
+Spell        100 'burning hands'
+Spell        100 'call lightning'
+Spell        100 'cause critical'
+Spell        100 'cause light'
+Spell        100 'cause serious'
+Spell        100 'charm person'
+Spell        100 'chill touch'
+Spell        100 'colour spray'
+Spell        100 'continual light'
+Spell        100 'control weather'
+Spell        100 'create food'
+Spell        100 'create spring'
+Spell        100 'create water'
+Spell        100 'cure blindness'
+Spell        100 'cure critical'
+Spell        100 'cure light'
+Spell        100 'cure poison'
+Spell        100 'cure serious'
+Spell        100 'curse'
+Spell        100 'detect evil'
+Spell        100 'detect good'
+Spell        100 'detect hidden'
+Spell        100 'detect invis'
+Spell        100 'detect magic'
+Spell        100 'detect poison'
+Spell        100 'dispel evil'
+Spell        100 'dispel good'
+Spell        100 'dispel magic'
+Spell        100 'earthquake'
+Spell        100 'enchant armor'
+Spell        100 'enchant weapon'
+Spell        100 'energy drain'
+Spell        100 'faerie fire'
+Spell        100 'faerie fog'
+Spell        100 'fireball'
+Spell        100 'flamestrike'
+Spell        100 'fly'
+Spell        100 'gate'
+Spell        100 'giant strength'
+Spell        100 'harm'
+Spell        100 'heal'
+Spell        100 'identify'
+Spell        100 'invis'
+Spell        100 'know alignment'
+Spell        100 'lightning bolt'
+Spell        100 'locate object'
+Spell        100 'magic missile'
+Spell        100 'mass invis'
+Spell        100 'pass door'
+Spell        100 'poison'
+Spell        100 'protection'
+Spell        100 'refresh'
+Spell        100 'remove curse'
+Spell        100 'sanctuary'
+Spell        100 'shocking grasp'
+Spell        100 'sleep'
+Spell        100 'smaug'
+Spell        100 'stone skin'
+Spell        100 'summon'
+Spell        100 'teleport'
+Spell        100 'ventriloquate'
+Spell        100 'weaken'
+Spell        100 'word of recall'
+Skill        100 'backstab'
+Skill        100 'bash'
+Skill        100 'berserk'
+Skill        100 'circle'
+Skill        100 'climb'
+Skill        100 'cook'
+Skill        100 'detrap'
+Skill        100 'dig'
+Skill        100 'disarm'
+Skill        100 'disguise'
+Skill        100 'dodge'
+Skill        100 'dual wield'
+Skill        100 'enhanced damage'
+Skill        100 'feed'
+Skill        100 'grip'
+Skill        100 'hide'
+Skill        100 'kick'
+Skill        100 'mount'
+Skill        100 'parry'
+Skill        100 'peek'
+Skill        100 'pick lock'
+Skill        100 'poison weapon'
+Skill        100 'rescue'
+Skill        100 'scan'
+Skill        100 'search'
+Skill        100 'shield bash'
+Skill        100 'sneak'
+Skill        100 'steal'
+Skill        100 'stun'
+Skill        100 'track'
+Skill        100 'trip'
+End
+
+#END

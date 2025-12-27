@@ -249,6 +249,10 @@ MOB_INDEX_DATA *	mob_index_hash		[MAX_KEY_HASH];
 OBJ_INDEX_DATA *	obj_index_hash		[MAX_KEY_HASH];
 ROOM_INDEX_DATA *	room_index_hash		[MAX_KEY_HASH];
 
+/* Global variables defined here */
+bool			MOBtrigger = TRUE;
+int			area_version = 0;
+
 AREA_DATA *		first_area;
 AREA_DATA *		last_area;
 AREA_DATA *             first_area_name;        /*Used for alphanum. sort*/

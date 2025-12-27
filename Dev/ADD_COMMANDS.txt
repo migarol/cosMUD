@@ -1,0 +1,143 @@
+================================================================
+COMANDOS PARA AGREGAR EN EL MUD - Copia y pega línea por línea
+================================================================
+
+cedit ollama create
+name ollama
+code do_ollama
+level 102
+position 100
+log 1
+done
+
+cedit beelerstats create
+name beelerstats
+code do_beeler_stats
+level 102
+position 100
+log 1
+done
+
+cedit beelerbuild create
+name beelerbuild
+code do_beeler_build
+level 102
+position 100
+log 1
+done
+
+cedit beelerpop create
+name beelerpop
+code do_beeler_populate
+level 102
+position 100
+log 1
+done
+
+cedit beelerctx create
+name beelercontext
+code do_beeler_context
+level 102
+position 100
+log 1
+done
+
+cedit mobidentity create
+name mobidentity
+code do_mobidentity
+level 102
+position 100
+log 1
+done
+
+cedit genpersonal create
+name genpersonality
+code do_genpersonality
+level 102
+position 100
+log 1
+done
+
+cedit mobmemory create
+name mobmemory
+code do_mobmemory
+level 102
+position 100
+log 1
+done
+
+cedit home create
+name home
+code do_home
+level 0
+position 100
+log 0
+done
+
+cedit innrent create
+name innrent
+code do_innrent
+level 0
+position 100
+log 0
+done
+
+cedit innlist create
+name innlist
+code do_innlist
+level 0
+position 100
+log 0
+done
+
+cedit homeslist create
+name homeslist
+code do_homeslist
+level 102
+position 100
+log 0
+done
+
+cedit homeinfo create
+name homeinfo
+code do_homeinfo
+level 102
+position 100
+log 0
+done
+
+cedit homeassign create
+name homeassign
+code do_homeassign
+level 102
+position 100
+log 1
+done
+
+cedit homeunassign create
+name homeunassign
+code do_homeunassign
+level 102
+position 100
+log 1
+done
+
+cedit snapshot create
+name snapshot
+code do_snapshot
+level 102
+position 100
+log 1
+done
+
+cedit talkbeeler create
+name talkbeeler
+code do_talk_beeler
+level 102
+position 100
+log 0
+done
+
+================================================================
+LISTO! Ahora puedes usar los comandos en el MUD
+================================================================

@@ -90,7 +90,7 @@ BUGZILLA!!~
 BUGZILLA is here stomping away at the mud code!
 ~
 ~
-67371011 0 0 C
+67895299 0 0 C
 90 0 0 0d0+0 0d0+0
 0 0
 112 112 0
@@ -106,6 +106,12 @@ say Oh yeah!  I like it like that Mr. Death Man!
 ~
 > act_prog p mounts you.~
 say Oh yeah!  I like it like that Mr. Death Man!
+~
+> act_prog p gives you~
+growl $n
+drop $o
+, stomps on $O!
+mppurge $o
 ~
 |
 #1204
@@ -220,7 +226,7 @@ The robot guard~
 The robot guard scans for mortals.
 ~
 ~
-65 4202624 0 C
+1073741889 4202624 0 C
 105 0 0 20d100+15000 10d100+1000
 0 0
 112 112 0
@@ -520,21 +526,104 @@ mpgoto 1
 ~
 |
 #1211
-leftover~
-a newly created leftover~
-Some god abandoned a newly created leftover here.
+quest mob ugly rat~
+an ugly rat~
+An ugly rat scurries about.
 ~
 ~
-1073741825 0 0 C
-1 0 0 0d0+0 0d0+0
+16842817 4227072 0 C
+10 0 0 1d1+800 4d4+4
 0 0
 112 112 0
 13 13 13 13 13 13 13
 0 0 0 0 0
-0 3 0 0 1 1 0
-0 0 0 0 0 0 0 0
-> speech_prog p foo bar~
-say hmm
+79 20 0 0 1667571789 1667571789 2
+30 0 0 0 0 0 1 0
+> death_prog 100~
+mpat 0.rathkor mpforce rathkor at $n qpset $n give 1
+' Noooooo . . . 
+~
+> fight_prog 100~
+if level($n) > 10
+if rand(30)
+punch $n
+endif
+if level($n) > 20
+if rand(30)
+kick $n
+endif
+if level($n) > 30
+if rand(30)
+c 'magic missile' $n
+endif
+if level($n) > 40
+if rand(30)
+c 'black hand' $n
+endif
+if level($n) > 50
+if rand(30)
+c caustic $n
+endif
+if level($n) > 60
+if rand(30)
+c q $n
+endif
+if level($n) > 70
+if rand(30)
+c elder $n
+endif
+if level($n) > 80
+if rand(30)
+c wither $n
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+~
+> rand_prog 30~
+,sniffs at the air.
+~
+|
+#1212
+mysterious man basuki~
+Basuki~
+A mysterious man is here 
+~
+THIS MAN IS NAKED!!
+His aura is the strangest you've ever felt!
+~
+65601 4194856&4 0 C
+75 0 -250 1d1+1999 8d2+50
+250000 0
+112 112 1
+18 17 16 17 17 16 17
+0 0 0 0 0
+0 3 0 0 1 1 5
+45 50 9 772 11264 0 872931825 540679
+> greet_prog 100~
+if sex($n)== 2
+and if level($n) > 50
+ mpkill $n
+ yell I'll have a taste on you!!
+endif
+~
+> hitprcnt_prog 50~
+mpgoto 1
+mprestore $i 2000
+mpgoto 21002
+~
+> death_prog 100~
+yell Arrrrghhhh!!!!
+say There will be thousands more like me!!
+~
+> rand_prog 25~
+say grhhh grhhhh .... grhh ... woman ... woman ....
+glare $n
 ~
 |
 #1299
@@ -748,13 +837,21 @@ mer $n _red $n drinks blood from a fountain.
 ~
 |
 #1213
-link~
-a link~
-Someone had lost their link here.~
+book adultery~
+A book of adultery~
+An old book of human nature is here~
 ~
-13 0 16385
+35 1 1
 0 0 0 0
 1 0 0
+E
+book adultery~
+This book is rated "R"
+ 
+hasgdfahgsd ahsgdfhagsdfasd jagsdjahsgdjasdhg jashdgjashdg8qwuey asdhg
+asdjahgasjdhgasd ajshdgajshd ajshdiquwey asdkjhfoiwer askdjhasdoiwe
+ajsdhgasiqw qweiuqywe asdiuyqwe aiuyqwieuyqwekjasd qwieuyqiwe aiuyqwe
+~
 #1299
 key stone~
 a key stone~
@@ -1493,6 +1590,8 @@ O 1 10429 1 10429
 O 0 49998 1 1222
 O 0 6003 1 1222
 O 0 457 1 1222
+M 1 1209 1 1200
+O 1 1200 1 1200
 M 1 1209 3 1221
 O 1 1201 1 1221
 D 0 1221 0 0
@@ -1520,9 +1619,8 @@ O 1 1202 1 1234
 O 1 50163 1 1234
 D 0 1234 5 1
 O 0 1200 1 1222
+O 0 457 1 1200
 M 1 1210 1 1211
-M 1 1209 4 1200
-O 1 1200 1 1200
 S
 
 

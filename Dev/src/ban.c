@@ -1281,9 +1281,6 @@ bool check_expire( BAN_DATA *pban )
 
 void dispose_ban ( BAN_DATA *pban , int type)
 {
-  BAN_DATA *first_ptr;
-  BAN_DATA *last_ptr;
-
   if ( !pban )
         return;
 
@@ -1293,31 +1290,12 @@ void dispose_ban ( BAN_DATA *pban , int type)
         return;
   }
 
-  /* Determine which list to use */
-  if (type == BAN_SITE) {
-    first_ptr = first_ban;
-    last_ptr = last_ban;
-  } else if (type == BAN_CLASS) {
-    first_ptr = first_ban_class;
-    last_ptr = last_ban_class;
-  } else {
-    first_ptr = first_ban_race;
-    last_ptr = last_ban_race;
-  }
-
-  UNLINK( pban, first_ptr, last_ptr, next, prev );
-
-  /* Update the actual global pointers */
-  if (type == BAN_SITE) {
-    first_ban = first_ptr;
-    last_ban = last_ptr;
-  } else if (type == BAN_CLASS) {
-    first_ban_class = first_ptr;
-    last_ban_class = last_ptr;
-  } else {
-    first_ban_race = first_ptr;
-    last_ban_race = last_ptr;
-  }
+  if ( type == BAN_SITE )
+    UNLINK( pban, first_ban, last_ban, next, prev );
+  else if ( type == BAN_CLASS )
+    UNLINK( pban, first_ban_class, last_ban_class, next, prev );
+  else
+    UNLINK( pban, first_ban_race, last_ban_race, next, prev );
 
   free_ban( pban );
   return;
