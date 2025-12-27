@@ -4651,9 +4651,42 @@ End
 Name        beeler~
 Code        do_beeler
 Position    100
-Level       60
+Level       105
 Log         1
 End
 
 
 #END
+
+#COMMAND
+Name        ollama~
+Code        do_ollama
+Position    100
+Level       105
+Log         1
+End
+
+#COMMAND
+Name        mobidentity~
+Code        do_mobidentity
+Position    100
+Level       105
+Log         1
+End
+
+#COMMAND
+Name        genpersonality~
+Code        do_genpersonality
+Position    100
+Level       105
+Log         1
+End
+
+#COMMAND
+Name        mobmemory~
+Code        do_mobmemory
+Position    100
+Level       105
+Log         1
+End
+
