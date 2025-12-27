@@ -35,7 +35,7 @@
 /*-------------------------------------------------------------------*/
 /* Externals */
 extern int	top_mob_index;
-MOB_INDEX_DATA *   mob_index_hash          [MAX_KEY_HASH];
+extern MOB_INDEX_DATA *mob_index_hash          [MAX_KEY_HASH];
 
 /* Global Variables */
 extern char * const act_flags [];
