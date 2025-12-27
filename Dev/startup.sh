@@ -4,7 +4,8 @@
 # Puerto por defecto: 4500
 
 PORT=${1:-4500}
-BASEDIR="/home/user/cosMUD/Dev"
+# Detectar automáticamente el directorio del script
+BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 LOGDIR="$BASEDIR/log"
 
 # Crear directorio de logs si no existe
