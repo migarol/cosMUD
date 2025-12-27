@@ -29,7 +29,7 @@ L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC) -lcurl
  
 O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ai_context_analyzer.o axsmaug.o ban.o bank.o base64.o beeler.o \
-          beeler_architect.o boards.o build.o clans.o comm.o \
+          beeler_architect.o beeler_assign.o boards.o build.o clans.o comm.o \
           comments.o const.o db.o deity.o economy.o economy_commands.o \
           fight.o grub.o handler.o hashstr.o \
           hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \
@@ -44,7 +44,7 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
           ai_context_analyzer.c axsmaug.c ban.c bank.c base64.c beeler.c \
-          beeler_architect.c boards.c build.c clans.c comm.c \
+          beeler_architect.c beeler_assign.c boards.c build.c clans.c comm.c \
           comments.c const.c db.c deity.c economy.c economy_commands.c \
           fight.c grub.c handler.c hashstr.c \
           hiscores.c hskelter.c i3.c ibuild.c ident.c imm_host.c immscore.c \

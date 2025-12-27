@@ -4647,4 +4647,13 @@ Log         0
 End
 
 
+#COMMAND
+Name        beeler~
+Code        do_beeler_assign
+Position    100
+Level       60
+Log         1
+End
+
+
 #END

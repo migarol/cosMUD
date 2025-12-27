@@ -156,6 +156,15 @@ void beeler_show_stats(CHAR_DATA *ch);
 void do_beeler_stats(CHAR_DATA *ch, char *argument);
 void do_snapshot(CHAR_DATA *ch, char *argument);
 void do_beeler_mood(CHAR_DATA *ch, char *argument);
+void do_beeler_assign(CHAR_DATA *ch, char *argument);
+void do_beeler_analyze(CHAR_DATA *ch, char *argument);
+
+/* Auto-assignment system */
+void beeler_assign_personality(CHAR_DATA *mob, CHAR_DATA *ch);
+char *beeler_analyze_mob_context(CHAR_DATA *mob);
+char *beeler_generate_identity(CHAR_DATA *mob, const char *context);
+void beeler_apply_identity(CHAR_DATA *mob, const char *ai_response);
+int beeler_determine_profession(CHAR_DATA *mob, const char *context);
 
 /* Ollama integration */
 char *call_ollama_beeler(char *prompt);

@@ -29,9 +29,9 @@ data streams from across the entire MUD. His eyes glow with an otherworldly
 intelligence, processing thousands of events per second.
 ~
 1073741827 537001992 0 S
-115 0 -1000 50d50+10000 20d20+100
+100 0 -1000 50d50+10000 20d20+100
 99999999 99999999
-116 116 116
+100 100 100
 > speech_prog p help~
 say I am Beeler, the autonomous overseer of this realm.
 say I monitor all events, balance the economy, and ensure
@@ -86,7 +86,6 @@ Mud Keeper, his eyes gleaming with inhuman intelligence as he monitors
 everything.
 ~
 0 8388616 0
-S
 E
 displays holographic~
 The holographic displays show:
@@ -95,6 +94,7 @@ The holographic displays show:
 - NPC behavior patterns and anomalies
 - System warnings and alerts
 ~
+S
 #0
 
 
