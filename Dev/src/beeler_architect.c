@@ -520,13 +520,81 @@ bool beeler_has_permission_for(char *command)
 }
 
 /*
+ * Build district - creates rooms in area file
+ */
+bool beeler_build_district(DISTRICT_GENERATION *district)
+{
+    AREA_DATA *area;
+    char area_filename[512];
+    int i;
+    int rooms_created = 0;
+
+    if (!district)
+    {
+        log_string("[BEELER] ERROR: beeler_build_district called with NULL district");
+        return FALSE;
+    }
+
+    /* Find area */
+    for (area = first_area; area; area = area->next)
+    {
+        if (area->low_r_vnum <= district->area_vnum && area->hi_r_vnum >= district->area_vnum)
+            break;
+    }
+
+    if (!area || !area->filename)
+    {
+        log_string("[BEELER] ERROR: Could not find area for district");
+        return FALSE;
+    }
+
+    /* Build full path to area file */
+    sprintf(area_filename, "../area/%s", area->filename);
+
+    sprintf(log_buf, "[BEELER] Building district '%s' with %d rooms in %s",
+        district->district_name, district->num_rooms, area_filename);
+    log_string(log_buf);
+
+    /* Insert each room into the area file */
+    for (i = 0; i < district->num_rooms; i++)
+    {
+        if (!district->rooms[i])
+        {
+            sprintf(log_buf, "[BEELER] WARNING: NULL room at index %d", i);
+            log_string(log_buf);
+            continue;
+        }
+
+        if (beeler_insert_room_in_area_file(area_filename, district->rooms[i]))
+        {
+            rooms_created++;
+        }
+        else
+        {
+            sprintf(log_buf, "[BEELER] ERROR: Failed to insert room #%d", district->rooms[i]->vnum);
+            log_string(log_buf);
+        }
+    }
+
+    sprintf(log_buf, "[BEELER] District build complete: %d/%d rooms created",
+        rooms_created, district->num_rooms);
+    log_string(log_buf);
+
+    return (rooms_created > 0);
+}
+
+/*
  * Commands
  */
 void do_beeler_build(CHAR_DATA *ch, char *argument)
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
+    char arg3[MAX_INPUT_LENGTH];
+    char arg4[MAX_INPUT_LENGTH];
     DISTRICT_GENERATION *district;
+    int home_type = HOME_TYPE_APARTMENT;
+    int num_homes = 5;
 
     if (ch->level < LEVEL_IMMORTAL)
     {
@@ -536,29 +604,159 @@ void do_beeler_build(CHAR_DATA *ch, char *argument)
 
     argument = one_argument(argument, arg1);
     argument = one_argument(argument, arg2);
+    argument = one_argument(argument, arg3);
+    argument = one_argument(argument, arg4);
 
     if (arg1[0] == '\0')
     {
-        send_to_char("Beeler build commands:\n\r", ch);
-        send_to_char("  beeler_build district <area> <type> <count>\n\r", ch);
-        send_to_char("  beeler_build inn <area> <name>\n\r", ch);
-        send_to_char("  beeler_build home <mob_name>\n\r", ch);
+        send_to_char("&Y=== Beeler Build Commands ===&w\n\r\n\r", ch);
+        send_to_char("&Gbeeler_build district <area> <type> <count>&w\n\r", ch);
+        send_to_char("  Types: hovel, apartment, house, manor, palace\n\r", ch);
+        send_to_char("  Example: beeler_build district Darkhaven apartment 10\n\r\n\r", ch);
+        send_to_char("&Gbeeler_build room <area> <vnum> <type>&w\n\r", ch);
+        send_to_char("  Build a single room in an area\n\r", ch);
+        send_to_char("  Example: beeler_build room Darkhaven 10500 house\n\r\n\r", ch);
         return;
     }
 
     if (!str_cmp(arg1, "district"))
     {
         /* beeler_build district Darkhaven apartment 10 */
-        if (arg2[0] == '\0')
+        if (arg2[0] == '\0' || arg3[0] == '\0')
         {
-            send_to_char("Specify: area, home_type, count\n\r", ch);
+            send_to_char("Syntax: beeler_build district <area> <type> <count>\n\r", ch);
+            send_to_char("Types: hovel, apartment, house, manor, palace\n\r", ch);
             return;
         }
 
-        send_to_char("&Y[Beeler begins to reshape reality...]&w\n\r\n\r", ch);
+        /* Parse home type */
+        if (!str_cmp(arg3, "hovel"))
+            home_type = HOME_TYPE_HOVEL;
+        else if (!str_cmp(arg3, "apartment"))
+            home_type = HOME_TYPE_APARTMENT;
+        else if (!str_cmp(arg3, "house"))
+            home_type = HOME_TYPE_HOUSE;
+        else if (!str_cmp(arg3, "manor"))
+            home_type = HOME_TYPE_MANOR;
+        else if (!str_cmp(arg3, "palace"))
+            home_type = HOME_TYPE_PALACE;
+        else
+        {
+            send_to_char("Invalid home type. Use: hovel, apartment, house, manor, palace\n\r", ch);
+            return;
+        }
 
-        /* TODO: Parse arguments and generate district */
-        send_to_char("District generation not yet fully implemented.\n\r", ch);
+        /* Parse count */
+        if (arg4[0] != '\0')
+            num_homes = atoi(arg4);
+
+        if (num_homes < 1 || num_homes > 50)
+        {
+            send_to_char("Count must be between 1 and 50.\n\r", ch);
+            return;
+        }
+
+        send_to_char("\n\r&Y[Beeler's eyes glow with creative power...]&w\n\r", ch);
+        send_to_char("&CReality bends to his will...&w\n\r\n\r", ch);
+
+        /* Generate district */
+        district = beeler_generate_residential_district(arg2, home_type, num_homes);
+        if (!district)
+        {
+            send_to_char("&RBeeler shakes his head. The area cannot support this construction.&w\n\r", ch);
+            return;
+        }
+
+        /* Build district (write to area file) */
+        if (beeler_build_district(district))
+        {
+            ch_printf(ch, "\n\r&G[SUCCESS]&w Beeler has built the %s!\n\r", district->district_name);
+            ch_printf(ch, "&YRooms created: %d (vnums %d-%d)&w\n\r",
+                district->num_rooms,
+                district->starting_vnum,
+                district->starting_vnum + district->num_rooms - 1);
+            ch_printf(ch, "\n\r&WUse '&Cgoto %d&W' to visit the district.&w\n\r", district->starting_vnum);
+            ch_printf(ch, "&RRemember to COPYOVER to load the new rooms into memory!&w\n\r\n\r", ch);
+        }
+        else
+        {
+            send_to_char("&RBeeler's power falters. The construction has failed.&w\n\r", ch);
+        }
+
+        /* TODO: Free district memory */
+    }
+    else if (!str_cmp(arg1, "room"))
+    {
+        /* beeler_build room Darkhaven 10500 house */
+        AREA_DATA *area;
+        ROOM_GENERATION *room;
+        char area_filename[512];
+        int vnum;
+
+        if (arg2[0] == '\0' || arg3[0] == '\0' || arg4[0] == '\0')
+        {
+            send_to_char("Syntax: beeler_build room <area> <vnum> <type>\n\r", ch);
+            return;
+        }
+
+        /* Find area */
+        area = beeler_find_area_by_name(arg2);
+        if (!area)
+        {
+            ch_printf(ch, "Area '%s' not found.\n\r", arg2);
+            return;
+        }
+
+        vnum = atoi(arg3);
+        if (vnum < area->low_r_vnum || vnum > area->hi_r_vnum)
+        {
+            ch_printf(ch, "Vnum %d is outside area range (%d-%d).\n\r",
+                vnum, area->low_r_vnum, area->hi_r_vnum);
+            return;
+        }
+
+        /* Parse home type */
+        if (!str_cmp(arg4, "hovel"))
+            home_type = HOME_TYPE_HOVEL;
+        else if (!str_cmp(arg4, "apartment"))
+            home_type = HOME_TYPE_APARTMENT;
+        else if (!str_cmp(arg4, "house"))
+            home_type = HOME_TYPE_HOUSE;
+        else if (!str_cmp(arg4, "manor"))
+            home_type = HOME_TYPE_MANOR;
+        else if (!str_cmp(arg4, "palace"))
+            home_type = HOME_TYPE_PALACE;
+        else
+        {
+            send_to_char("Invalid home type.\n\r", ch);
+            return;
+        }
+
+        /* Generate single room */
+        room = beeler_generate_room(vnum, home_type, NULL);
+        if (!room)
+        {
+            send_to_char("Failed to generate room.\n\r", ch);
+            return;
+        }
+
+        /* Build path to area file */
+        sprintf(area_filename, "../area/%s", area->filename);
+
+        send_to_char("&YBeeler weaves reality...&w\n\r", ch);
+
+        /* Insert room */
+        if (beeler_insert_room_in_area_file(area_filename, room))
+        {
+            ch_printf(ch, "&G[SUCCESS]&w Room #%d created in %s\n\r", vnum, area->name);
+            ch_printf(ch, "&RRemember to COPYOVER to load the new room!&w\n\r", ch);
+        }
+        else
+        {
+            send_to_char("&R[FAILED]&w Could not create room.\n\r", ch);
+        }
+
+        /* TODO: Free room memory */
     }
 }
 
@@ -588,9 +786,377 @@ void do_beeler_context(CHAR_DATA *ch, char *argument)
     }
 }
 
+/*
+ * Command: beeler populate <area> - Generate identities for all mobs in area
+ */
+void do_beeler_populate(CHAR_DATA *ch, char *argument)
+{
+    AREA_DATA *area;
+    MOB_INDEX_DATA *pMobIndex;
+    char arg[MAX_INPUT_LENGTH];
+    int vnum, count = 0, skipped = 0;
+    extern void generate_mob_identity(CHAR_DATA *mob);
+    extern MOB_IDENTITY *get_mob_identity(int vnum);
+
+    if (IS_NPC(ch))
+    {
+        send_to_char("NPCs cannot use this command.\n\r", ch);
+        return;
+    }
+
+    if (get_trust(ch) < LEVEL_IMMORTAL)
+    {
+        send_to_char("Only immortals can use Beeler's bulk operations.\n\r", ch);
+        return;
+    }
+
+    one_argument(argument, arg);
+
+    if (arg[0] == '\0')
+    {
+        send_to_char("Syntax: beeler populate <area name or filename>\n\r", ch);
+        send_to_char("\n\rExample: beeler populate Darkhaven\n\r", ch);
+        send_to_char("         beeler populate midgaard.are\n\r", ch);
+        return;
+    }
+
+    /* Find area by name or filename */
+    area = NULL;
+    for (area = first_area; area; area = area->next)
+    {
+        if (!str_cmp(area->name, arg) || !str_cmp(area->filename, arg))
+            break;
+    }
+
+    if (!area)
+    {
+        ch_printf(ch, "Area '%s' not found.\n\r", arg);
+        return;
+    }
+
+    ch_printf(ch, "\n\r&C[BEELER]&w Awakening consciousness in area: &Y%s&w\n\r", area->name);
+    ch_printf(ch, "&CMob range: %d to %d&w\n\r\n\r", area->low_m_vnum, area->hi_m_vnum);
+
+    /* Iterate through all mob vnums in this area */
+    for (vnum = area->low_m_vnum; vnum <= area->hi_m_vnum; vnum++)
+    {
+        pMobIndex = get_mob_index(vnum);
+
+        if (!pMobIndex)
+            continue;
+
+        /* Skip if already has identity */
+        if (get_mob_identity(vnum))
+        {
+            skipped++;
+            continue;
+        }
+
+        /* Create a temporary mob instance for identity generation */
+        CHAR_DATA *temp_mob = create_mobile(pMobIndex);
+
+        if (!temp_mob)
+            continue;
+
+        /* Generate identity */
+        char_to_room(temp_mob, ch->in_room);  /* Temporarily place in room */
+        generate_mob_identity(temp_mob);
+        extract_char(temp_mob, TRUE);  /* Remove temp mob */
+
+        count++;
+
+        /* Progress indicator every 10 mobs */
+        if (count % 10 == 0)
+            ch_printf(ch, "&G.&w");
+    }
+
+    /* Final summary */
+    ch_printf(ch, "\n\r\n\r&Y[BEELER]&w Awakening complete!\n\r");
+    ch_printf(ch, "&GIdentities generated: %d&w\n\r", count);
+    ch_printf(ch, "&YAlready had identity: %d&w\n\r", skipped);
+    ch_printf(ch, "&CTotal mobs processed: %d&w\n\r\n\r", count + skipped);
+
+    sprintf(log_buf, "[BEELER] %s populated area %s with %d identities",
+            ch->name, area->name, count);
+    log_string(log_buf);
+}
+
 /* Stub implementation - TODO: Implement district home allocation */
 int find_available_home_in_district(DISTRICT_DATA *district)
 {
     /* TODO: Search district for available home vnum */
     return 0;  /* Return 0 for now (no home found) */
+}
+
+/*
+ * Backup area file before modification
+ */
+bool beeler_backup_area_file(char *filename)
+{
+    char backup_name[512];
+    char command[1024];
+    FILE *fp_test;
+
+    if (!filename || filename[0] == '\0')
+    {
+        log_string("[BEELER] ERROR: beeler_backup_area_file called with NULL filename");
+        return FALSE;
+    }
+
+    /* Check if file exists */
+    fp_test = fopen(filename, "r");
+    if (!fp_test)
+    {
+        sprintf(log_buf, "[BEELER] WARNING: Cannot backup %s - file doesn't exist", filename);
+        log_string(log_buf);
+        return FALSE;
+    }
+    fclose(fp_test);
+
+    /* Create backup filename with timestamp */
+    sprintf(backup_name, "%s.bak", filename);
+
+    /* Use system cp command to preserve file */
+    sprintf(command, "cp -f \"%s\" \"%s\"", filename, backup_name);
+
+    if (system(command) != 0)
+    {
+        sprintf(log_buf, "[BEELER] ERROR: Failed to backup %s to %s", filename, backup_name);
+        log_string(log_buf);
+        return FALSE;
+    }
+
+    sprintf(log_buf, "[BEELER] Backed up %s to %s", filename, backup_name);
+    log_string(log_buf);
+
+    return TRUE;
+}
+
+/*
+ * Read entire area file into memory
+ */
+bool beeler_read_area_file(char *filename, char **content)
+{
+    FILE *fp;
+    long file_size;
+    char *buffer;
+    size_t bytes_read;
+
+    if (!filename || !content)
+    {
+        log_string("[BEELER] ERROR: beeler_read_area_file called with NULL parameter");
+        return FALSE;
+    }
+
+    fp = fopen(filename, "r");
+    if (!fp)
+    {
+        sprintf(log_buf, "[BEELER] ERROR: Cannot open %s for reading", filename);
+        log_string(log_buf);
+        return FALSE;
+    }
+
+    /* Get file size */
+    fseek(fp, 0, SEEK_END);
+    file_size = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+
+    if (file_size <= 0 || file_size > 10000000)  /* 10MB max */
+    {
+        sprintf(log_buf, "[BEELER] ERROR: Invalid file size for %s: %ld bytes", filename, file_size);
+        log_string(log_buf);
+        fclose(fp);
+        return FALSE;
+    }
+
+    /* Allocate buffer */
+    buffer = (char *)malloc(file_size + 1);
+    if (!buffer)
+    {
+        log_string("[BEELER] ERROR: Out of memory reading area file");
+        fclose(fp);
+        return FALSE;
+    }
+
+    /* Read entire file */
+    bytes_read = fread(buffer, 1, file_size, fp);
+    buffer[bytes_read] = '\0';
+
+    fclose(fp);
+
+    if (bytes_read != file_size)
+    {
+        sprintf(log_buf, "[BEELER] WARNING: Read %zu bytes, expected %ld", bytes_read, file_size);
+        log_string(log_buf);
+    }
+
+    *content = buffer;
+
+    sprintf(log_buf, "[BEELER] Read %zu bytes from %s", bytes_read, filename);
+    log_string(log_buf);
+
+    return TRUE;
+}
+
+/*
+ * Write content to area file
+ */
+bool beeler_write_area_file(char *filename, char *content)
+{
+    FILE *fp;
+    size_t content_len;
+    size_t bytes_written;
+
+    if (!filename || !content)
+    {
+        log_string("[BEELER] ERROR: beeler_write_area_file called with NULL parameter");
+        return FALSE;
+    }
+
+    /* Backup first */
+    if (!beeler_backup_area_file(filename))
+    {
+        log_string("[BEELER] WARNING: Proceeding without backup (file may not exist yet)");
+    }
+
+    fp = fopen(filename, "w");
+    if (!fp)
+    {
+        sprintf(log_buf, "[BEELER] ERROR: Cannot open %s for writing", filename);
+        log_string(log_buf);
+        return FALSE;
+    }
+
+    content_len = strlen(content);
+    bytes_written = fwrite(content, 1, content_len, fp);
+
+    fclose(fp);
+
+    if (bytes_written != content_len)
+    {
+        sprintf(log_buf, "[BEELER] ERROR: Wrote %zu bytes, expected %zu", bytes_written, content_len);
+        log_string(log_buf);
+        return FALSE;
+    }
+
+    sprintf(log_buf, "[BEELER] Wrote %zu bytes to %s", bytes_written, filename);
+    log_string(log_buf);
+
+    return TRUE;
+}
+
+/*
+ * Insert room into area file
+ * This parses the area file, finds the #ROOMS section, and inserts the room before #0
+ */
+bool beeler_insert_room_in_area_file(char *area_file, ROOM_GENERATION *room)
+{
+    char *file_content = NULL;
+    char *new_content = NULL;
+    char *rooms_section_start;
+    char *rooms_section_end;
+    char room_data[MAX_STRING_LENGTH * 2];
+    size_t new_size;
+    int i;
+
+    if (!area_file || !room)
+    {
+        log_string("[BEELER] ERROR: beeler_insert_room_in_area_file called with NULL parameter");
+        return FALSE;
+    }
+
+    /* Read the area file */
+    if (!beeler_read_area_file(area_file, &file_content))
+    {
+        return FALSE;
+    }
+
+    /* Find #ROOMS section */
+    rooms_section_start = strstr(file_content, "#ROOMS");
+    if (!rooms_section_start)
+    {
+        log_string("[BEELER] ERROR: No #ROOMS section found in area file");
+        free(file_content);
+        return FALSE;
+    }
+
+    /* Find the #0 that ends the ROOMS section */
+    /* It's the first #0 after #ROOMS */
+    rooms_section_end = strstr(rooms_section_start, "\n#0\n");
+    if (!rooms_section_end)
+    {
+        /* Try without surrounding newlines */
+        rooms_section_end = strstr(rooms_section_start, "#0");
+        if (!rooms_section_end)
+        {
+            log_string("[BEELER] ERROR: No #0 terminator found in #ROOMS section");
+            free(file_content);
+            return FALSE;
+        }
+    }
+
+    /* Generate room data in area file format */
+    sprintf(room_data, "#%d\n%s~\n%s~\n0 %d %d\n",
+        room->vnum,
+        room->name ? room->name : "Unnamed Room",
+        room->description ? room->description : "",
+        room->room_flags,
+        room->sector_type);
+
+    /* Add exits */
+    for (i = 0; i < room->num_exits; i++)
+    {
+        char exit_data[512];
+        sprintf(exit_data, "D%d\n~\n~\n0 -1 %d\n",
+            room->exit_dirs[i],
+            room->exit_to_vnums[i]);
+        strcat(room_data, exit_data);
+    }
+
+    /* Add extra descriptions */
+    for (i = 0; i < room->num_extras; i++)
+    {
+        char extra_data[1024];
+        sprintf(extra_data, "E\n%s~\n%s~\n",
+            room->extra_keywords[i] ? room->extra_keywords[i] : "",
+            room->extra_descriptions[i] ? room->extra_descriptions[i] : "");
+        strcat(room_data, extra_data);
+    }
+
+    /* Add room terminator */
+    strcat(room_data, "S\n");
+
+    /* Calculate new content size */
+    new_size = strlen(file_content) + strlen(room_data) + 100;
+    new_content = (char *)malloc(new_size);
+    if (!new_content)
+    {
+        log_string("[BEELER] ERROR: Out of memory creating new area file content");
+        free(file_content);
+        return FALSE;
+    }
+
+    /* Build new content: everything before #0 + room data + #0 + everything after */
+    size_t prefix_len = rooms_section_end - file_content;
+    strncpy(new_content, file_content, prefix_len);
+    new_content[prefix_len] = '\0';
+
+    strcat(new_content, room_data);
+    strcat(new_content, rooms_section_end);
+
+    /* Write modified content */
+    if (!beeler_write_area_file(area_file, new_content))
+    {
+        free(file_content);
+        free(new_content);
+        return FALSE;
+    }
+
+    free(file_content);
+    free(new_content);
+
+    sprintf(log_buf, "[BEELER] Successfully inserted room #%d into %s", room->vnum, area_file);
+    log_string(log_buf);
+
+    return TRUE;
 }

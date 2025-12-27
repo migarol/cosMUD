@@ -171,5 +171,6 @@ void load_beeler_modifications(void);
 void do_beeler_build(CHAR_DATA *ch, char *argument);
 void do_beeler_analyze(CHAR_DATA *ch, char *argument);
 void do_beeler_context(CHAR_DATA *ch, char *argument);
+void do_beeler_populate(CHAR_DATA *ch, char *argument);
 
 #endif /* BEELER_ARCHITECT_H */
