@@ -22,22 +22,73 @@ typedef enum
     MAX_RESOURCE
 } resource_type;
 
-/* Profession Types */
+/* Profession Types - Organized by Category */
 typedef enum
 {
-    PROF_NONE,          /* 0 - No profession */
-    PROF_FARMER,        /* 1 - Grows grain/vegetables */
-    PROF_RANCHER,       /* 2 - Raises livestock */
-    PROF_HUNTER,        /* 3 - Hunts animals */
-    PROF_MINER,         /* 4 - Extracts ore/stone */
-    PROF_LUMBERJACK,    /* 5 - Cuts wood */
-    PROF_MERCHANT,      /* 6 - Trades goods */
-    PROF_WATER_KEEPER,  /* 7 - Manages water sources */
-    PROF_BUTCHER,       /* 8 - Specialist: processes meat */
-    PROF_TANNER,        /* 9 - Specialist: processes hide */
-    PROF_BLACKSMITH,    /* 10 - Specialist: processes ore */
-    PROF_WEAVER,        /* 11 - Specialist: makes cloth */
-    PROF_HERBALIST,     /* 12 - Specialist: grows herbs */
+    PROF_NONE,              /* 0 - No profession */
+
+    /* === PRIMARY PRODUCTION (1-9) === */
+    PROF_FARMER,            /* 1 - Grows grain/vegetables */
+    PROF_RANCHER,           /* 2 - Raises livestock */
+    PROF_HUNTER,            /* 3 - Hunts animals */
+    PROF_MINER,             /* 4 - Extracts ore/stone */
+    PROF_LUMBERJACK,        /* 5 - Cuts wood */
+    PROF_FISHERMAN,         /* 6 - Catches fish */
+    PROF_APIARIST,          /* 7 - Keeps bees (honey/wax) */
+    PROF_VINTNER,           /* 8 - Grows grapes for wine */
+    PROF_SHEPHERD,          /* 9 - Raises sheep (wool/meat) */
+
+    /* === PROCESSING & REFINING (10-18) === */
+    PROF_BUTCHER,           /* 10 - Processes meat */
+    PROF_TANNER,            /* 11 - Processes hides */
+    PROF_BLACKSMITH,        /* 12 - Forges metal */
+    PROF_WEAVER,            /* 13 - Makes cloth */
+    PROF_MILLER,            /* 14 - Grinds grain to flour */
+    PROF_BREWER,            /* 15 - Makes beer/ale */
+    PROF_CHEESEMAKER,       /* 16 - Makes cheese */
+    PROF_JEWELER,           /* 17 - Crafts jewelry */
+    PROF_SMELTER,           /* 18 - Refines ore to metal */
+
+    /* === ARTISANS & CRAFTERS (19-29) === */
+    PROF_CARPENTER,         /* 19 - Works wood (furniture) */
+    PROF_POTTER,            /* 20 - Makes pottery */
+    PROF_GLASSBLOWER,       /* 21 - Creates glass items */
+    PROF_LEATHERWORKER,     /* 22 - Crafts leather goods */
+    PROF_TAILOR,            /* 23 - Sews clothing */
+    PROF_COBBLER,           /* 24 - Makes shoes/boots */
+    PROF_WEAPONSMITH,       /* 25 - Forges weapons */
+    PROF_ARMORSMITH,        /* 26 - Forges armor */
+    PROF_BOWYER,            /* 27 - Makes bows */
+    PROF_FLETCHER,          /* 28 - Makes arrows */
+    PROF_CANDLEMAKER,       /* 29 - Makes candles */
+
+    /* === SERVICES (30-36) === */
+    PROF_MERCHANT,          /* 30 - Trades goods */
+    PROF_INNKEEPER,         /* 31 - Runs inn */
+    PROF_TAVERN_KEEPER,     /* 32 - Runs tavern */
+    PROF_STABLE_MASTER,     /* 33 - Cares for horses */
+    PROF_WATER_KEEPER,      /* 34 - Manages water */
+    PROF_HEALER,            /* 35 - Heals ailments */
+    PROF_COOK,              /* 36 - Prepares food */
+
+    /* === ACADEMICS & ARTISTS (37-45) === */
+    PROF_SCHOLAR,           /* 37 - Studies/teaches */
+    PROF_SCRIBE,            /* 38 - Copies books */
+    PROF_ALCHEMIST,         /* 39 - Makes potions */
+    PROF_HERBALIST,         /* 40 - Grows/sells herbs */
+    PROF_BARD,              /* 41 - Performs music */
+    PROF_PAINTER,           /* 42 - Creates paintings */
+    PROF_SCULPTOR,          /* 43 - Sculpts statues */
+    PROF_ARCHITECT,         /* 44 - Designs buildings */
+    PROF_MAPMAKER,          /* 45 - Creates maps */
+
+    /* === SPECIALIZED (46-50) === */
+    PROF_GUARD,             /* 46 - Protects area */
+    PROF_SAILOR,            /* 47 - Navigates ships */
+    PROF_EXPLORER,          /* 48 - Discovers new areas */
+    PROF_GUIDE,             /* 49 - Leads travelers */
+    PROF_ENTERTAINER,       /* 50 - General performer */
+
     MAX_PROFESSION
 } profession_type;
 

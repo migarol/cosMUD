@@ -45,12 +45,34 @@ const char * resource_names[MAX_RESOURCE] =
     "wood", "stone", "ore", "cloth", "herbs"
 };
 
-/* Profession name table */
+/* Profession name table - 51 professions total */
 const char * profession_names[MAX_PROFESSION] =
 {
-    "none", "farmer", "rancher", "hunter", "miner", "lumberjack",
-    "merchant", "water keeper", "butcher", "tanner", "blacksmith",
-    "weaver", "herbalist"
+    /* 0 */ "none",
+
+    /* PRIMARY PRODUCTION (1-9) */
+    /* 1 */ "farmer", "rancher", "hunter", "miner", "lumberjack",
+    /* 6 */ "fisherman", "apiarist", "vintner", "shepherd",
+
+    /* PROCESSING & REFINING (10-18) */
+    /* 10 */ "butcher", "tanner", "blacksmith", "weaver", "miller",
+    /* 15 */ "brewer", "cheesemaker", "jeweler", "smelter",
+
+    /* ARTISANS & CRAFTERS (19-29) */
+    /* 19 */ "carpenter", "potter", "glassblower", "leatherworker", "tailor",
+    /* 24 */ "cobbler", "weaponsmith", "armorsmith", "bowyer", "fletcher",
+    /* 29 */ "candlemaker",
+
+    /* SERVICES (30-36) */
+    /* 30 */ "merchant", "innkeeper", "tavern keeper", "stable master",
+    /* 34 */ "water keeper", "healer", "cook",
+
+    /* ACADEMICS & ARTISTS (37-45) */
+    /* 37 */ "scholar", "scribe", "alchemist", "herbalist", "bard",
+    /* 42 */ "painter", "sculptor", "architect", "mapmaker",
+
+    /* SPECIALIZED (46-50) */
+    /* 46 */ "guard", "sailor", "explorer", "guide", "entertainer"
 };
 
 /* Event name table */
