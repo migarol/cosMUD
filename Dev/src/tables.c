@@ -220,6 +220,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_berserk" ))		return do_berserk;
 	if ( !str_cmp( name, "do_bestow" ))		return do_bestow;
 	if ( !str_cmp( name, "do_bestowarea" ))		return do_bestowarea;
+	if ( !str_cmp( name, "do_beeler" ))		return do_beeler;
 	if ( !str_cmp( name, "do_bio" ))		return do_bio;
         if ( !str_cmp( name, "do_bite" ))               return do_bite;
         if ( !str_cmp( name, "do_bloodlet" ))           return do_bloodlet;
@@ -293,6 +294,8 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_east" ))		return do_east;
 	if ( !str_cmp( name, "do_eat" ))		return do_eat;
 	if ( !str_cmp( name, "do_echo" ))		return do_echo;
+	if ( !str_cmp( name, "do_econews" ))		return do_econews;
+	if ( !str_cmp( name, "do_ecoview" ))		return do_ecoview;
         if ( !str_cmp( name, "do_elevate" ))            return do_elevate;
 	if ( !str_cmp( name, "do_emote" ))		return do_emote;
 	if ( !str_cmp( name, "do_empty" ))		return do_empty;
@@ -324,6 +327,7 @@ DO_FUN *skill_function( char *name )
     case 'g':
 	if ( !str_cmp( name, "do_gaso" ))		return do_gaso;
 	if ( !str_cmp( name, "do_get" ))		return do_get;
+	if ( !str_cmp( name, "do_genpersonality" ))	return do_genpersonality;
 	if ( !str_cmp( name, "do_gfighting" ))		return do_gfighting;
         if ( !str_cmp( name, "do_ghost" ))              return do_ghost; 
 	if ( !str_cmp( name, "do_give" ))		return do_give;
@@ -439,6 +443,8 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_mlist" ))		return do_mlist;
 	if ( !str_cmp( name, "do_mmenu" ))		return do_mmenu;
 	if ( !str_cmp( name, "do_moblog" ))		return do_moblog;
+	if ( !str_cmp( name, "do_mobidentity" ))	return do_mobidentity;
+	if ( !str_cmp( name, "do_mobmemory" ))		return do_mobmemory;
         if ( !str_cmp (name, "do_morphcreate" ) ) 	return do_morphcreate;
         if ( !str_cmp (name, "do_morphdestroy" ) ) 	return do_morphdestroy;
         if ( !str_cmp (name, "do_morphset")) 		return do_morphset;
@@ -536,6 +542,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_oinvoke" ))		return do_oinvoke;
 	if ( !str_cmp( name, "do_oldscore" ))		return do_oldscore;
 	if ( !str_cmp( name, "do_olist" ))		return do_olist;
+	if ( !str_cmp( name, "do_ollama" ))		return do_ollama;
 	if ( !str_cmp( name, "do_omenu" ))		return do_omenu;
 	if ( !str_cmp( name, "do_omedit" ))		return do_omedit;
 	if ( !str_cmp( name, "do_ooedit" ))		return do_ooedit;
