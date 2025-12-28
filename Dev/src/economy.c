@@ -23,26 +23,53 @@ WATER_SOURCE *      last_water_source       = NULL;
 ECON_NEWS *         first_econ_news         = NULL;
 ECON_NEWS *         last_econ_news          = NULL;
 
-/* Base prices (in copper coins) */
+/* Base prices (in copper coins) - 28 resources */
 const int base_resource_prices[MAX_RESOURCE] =
 {
+    /* FOOD (0-5) */
     50,     /* RES_MEAT */
     20,     /* RES_GRAIN */
     15,     /* RES_VEGETABLES */
+    40,     /* RES_FISH */
+    45,     /* RES_CHEESE */
+    10,     /* RES_BREAD */
+
+    /* RAW MATERIALS (6-13) */
     5,      /* RES_WATER */
     40,     /* RES_HIDE */
     30,     /* RES_WOOD */
     25,     /* RES_STONE */
     100,    /* RES_ORE */
+    35,     /* RES_WOOL */
+    50,     /* RES_GRAPES */
+    70,     /* RES_HONEY */
+
+    /* PROCESSED (14-21) */
     60,     /* RES_CLOTH */
-    80      /* RES_HERBS */
+    80,     /* RES_LEATHER */
+    150,    /* RES_METAL */
+    120,    /* RES_GLASS */
+    40,     /* RES_POTTERY */
+    200,    /* RES_FURNITURE */
+    80,     /* RES_TOOLS */
+    15,     /* RES_CANDLES */
+
+    /* LUXURY (22-27) */
+    80,     /* RES_HERBS */
+    120,    /* RES_WINE */
+    35,     /* RES_BEER */
+    500,    /* RES_JEWELRY */
+    800,    /* RES_ARTWORK */
+    150     /* RES_BOOKS */
 };
 
-/* Resource name table */
+/* Resource name table - 28 resources */
 const char * resource_names[MAX_RESOURCE] =
 {
-    "meat", "grain", "vegetables", "water", "hide",
-    "wood", "stone", "ore", "cloth", "herbs"
+    /* FOOD */ "meat", "grain", "vegetables", "fish", "cheese", "bread",
+    /* RAW */ "water", "hide", "wood", "stone", "ore", "wool", "grapes", "honey",
+    /* PROCESSED */ "cloth", "leather", "metal", "glass", "pottery", "furniture", "tools", "candles",
+    /* LUXURY */ "herbs", "wine", "beer", "jewelry", "artwork", "books"
 };
 
 /* Profession name table - 51 professions total */
@@ -154,23 +181,49 @@ int get_profession_by_name( const char *name )
 }
 
 /*
- * Get profession that produces a resource
+ * Get profession that produces a resource (28 resources mapped to 51 professions)
  */
 int get_profession_for_resource( int resource )
 {
     switch( resource )
     {
-        case RES_MEAT:       return PROF_RANCHER;
-        case RES_GRAIN:      return PROF_FARMER;
-        case RES_VEGETABLES: return PROF_FARMER;
-        case RES_WATER:      return PROF_WATER_KEEPER;
-        case RES_HIDE:       return PROF_HUNTER;
-        case RES_WOOD:       return PROF_LUMBERJACK;
-        case RES_STONE:      return PROF_MINER;
-        case RES_ORE:        return PROF_MINER;
-        case RES_CLOTH:      return PROF_WEAVER;
-        case RES_HERBS:      return PROF_HERBALIST;
-        default:             return PROF_NONE;
+        /* FOOD RESOURCES */
+        case RES_MEAT:          return PROF_BUTCHER;        /* Rancher produces, butcher processes */
+        case RES_GRAIN:         return PROF_FARMER;
+        case RES_VEGETABLES:    return PROF_FARMER;
+        case RES_FISH:          return PROF_FISHERMAN;
+        case RES_CHEESE:        return PROF_CHEESEMAKER;
+        case RES_BREAD:         return PROF_COOK;           /* Or miller */
+
+        /* RAW MATERIALS */
+        case RES_WATER:         return PROF_WATER_KEEPER;
+        case RES_HIDE:          return PROF_HUNTER;
+        case RES_WOOD:          return PROF_LUMBERJACK;
+        case RES_STONE:         return PROF_MINER;
+        case RES_ORE:           return PROF_MINER;
+        case RES_WOOL:          return PROF_SHEPHERD;
+        case RES_GRAPES:        return PROF_VINTNER;
+        case RES_HONEY:         return PROF_APIARIST;
+
+        /* PROCESSED MATERIALS */
+        case RES_CLOTH:         return PROF_WEAVER;
+        case RES_LEATHER:       return PROF_LEATHERWORKER;
+        case RES_METAL:         return PROF_SMELTER;
+        case RES_GLASS:         return PROF_GLASSBLOWER;
+        case RES_POTTERY:       return PROF_POTTER;
+        case RES_FURNITURE:     return PROF_CARPENTER;
+        case RES_TOOLS:         return PROF_BLACKSMITH;
+        case RES_CANDLES:       return PROF_CANDLEMAKER;
+
+        /* LUXURY/SPECIAL */
+        case RES_HERBS:         return PROF_HERBALIST;
+        case RES_WINE:          return PROF_VINTNER;
+        case RES_BEER:          return PROF_BREWER;
+        case RES_JEWELRY:       return PROF_JEWELER;
+        case RES_ARTWORK:       return PROF_PAINTER;        /* Or sculptor */
+        case RES_BOOKS:         return PROF_SCRIBE;
+
+        default:                return PROF_NONE;
     }
 }
 
@@ -1207,9 +1260,10 @@ void npc_work_profession( CHAR_DATA *mob )
     /* Get productivity */
     productivity = aecon->productivity[profession];
 
-    /* Simple work: add to production based on profession */
+    /* Comprehensive work system: all 51 professions */
     switch( profession )
     {
+        /* === PRIMARY PRODUCTION === */
         case PROF_FARMER:
             amount = number_range( 5, 15 ) * productivity / 100;
             aecon->production[RES_GRAIN] += amount;
@@ -1218,13 +1272,13 @@ void npc_work_profession( CHAR_DATA *mob )
 
         case PROF_RANCHER:
             amount = number_range( 3, 10 ) * productivity / 100;
-            aecon->production[RES_MEAT] += amount;
-            aecon->production[RES_HIDE] += amount / 2;
+            aecon->supply[RES_MEAT] += amount;  /* Raw meat (needs butcher) */
+            aecon->supply[RES_HIDE] += amount / 2;
             break;
 
         case PROF_HUNTER:
             amount = number_range( 2, 8 ) * productivity / 100;
-            aecon->production[RES_MEAT] += amount;
+            aecon->production[RES_MEAT] += amount / 2;  /* Some processed */
             aecon->production[RES_HIDE] += amount;
             break;
 
@@ -1239,9 +1293,233 @@ void npc_work_profession( CHAR_DATA *mob )
             aecon->production[RES_WOOD] += amount;
             break;
 
+        case PROF_FISHERMAN:
+            amount = number_range( 3, 12 ) * productivity / 100;
+            aecon->production[RES_FISH] += amount;
+            break;
+
+        case PROF_APIARIST:
+            amount = number_range( 1, 5 ) * productivity / 100;
+            aecon->production[RES_HONEY] += amount;
+            break;
+
+        case PROF_VINTNER:
+            amount = number_range( 2, 8 ) * productivity / 100;
+            aecon->production[RES_GRAPES] += amount;
+            /* Also produces wine if has grapes */
+            if (aecon->supply[RES_GRAPES] >= 10) {
+                aecon->supply[RES_GRAPES] -= 10;
+                aecon->production[RES_WINE] += amount / 3;
+            }
+            break;
+
+        case PROF_SHEPHERD:
+            amount = number_range( 3, 10 ) * productivity / 100;
+            aecon->production[RES_WOOL] += amount;
+            aecon->production[RES_MEAT] += amount / 3;  /* Some meat */
+            break;
+
+        /* === PROCESSING & REFINING === */
+        case PROF_BUTCHER:
+            /* Processes raw meat from ranchers */
+            if (aecon->supply[RES_MEAT] >= 5) {
+                amount = number_range( 2, 8 ) * productivity / 100;
+                aecon->supply[RES_MEAT] -= amount * 2;  /* Consumes raw */
+                aecon->production[RES_MEAT] += amount * 3;  /* Produces more processed */
+            }
+            break;
+
+        case PROF_TANNER:
+            /* Processes hides to leather */
+            if (aecon->supply[RES_HIDE] >= 3) {
+                amount = number_range( 1, 5 ) * productivity / 100;
+                aecon->supply[RES_HIDE] -= amount * 2;
+                aecon->production[RES_LEATHER] += amount;
+            }
+            break;
+
+        case PROF_BLACKSMITH:
+            /* Forges metal into tools/weapons */
+            if (aecon->supply[RES_METAL] >= 5) {
+                amount = number_range( 1, 4 ) * productivity / 100;
+                aecon->supply[RES_METAL] -= amount * 3;
+                aecon->production[RES_TOOLS] += amount;
+            }
+            break;
+
+        case PROF_WEAVER:
+            /* Weaves wool/cloth into fabric */
+            if (aecon->supply[RES_WOOL] >= 3) {
+                amount = number_range( 2, 6 ) * productivity / 100;
+                aecon->supply[RES_WOOL] -= amount * 2;
+                aecon->production[RES_CLOTH] += amount;
+            }
+            break;
+
+        case PROF_MILLER:
+            /* Grinds grain to flour (for bread) */
+            if (aecon->supply[RES_GRAIN] >= 10) {
+                amount = number_range( 3, 10 ) * productivity / 100;
+                aecon->supply[RES_GRAIN] -= amount * 2;
+                aecon->production[RES_BREAD] += amount;
+            }
+            break;
+
+        case PROF_BREWER:
+            /* Brews beer from grain */
+            if (aecon->supply[RES_GRAIN] >= 8 && aecon->supply[RES_WATER] >= 10) {
+                amount = number_range( 2, 7 ) * productivity / 100;
+                aecon->supply[RES_GRAIN] -= amount * 2;
+                aecon->supply[RES_WATER] -= amount * 3;
+                aecon->production[RES_BEER] += amount;
+            }
+            break;
+
+        case PROF_CHEESEMAKER:
+            /* Makes cheese (abstract dairy production) */
+            amount = number_range( 1, 5 ) * productivity / 100;
+            aecon->production[RES_CHEESE] += amount;
+            break;
+
+        case PROF_JEWELER:
+            /* Crafts jewelry from metal/stone */
+            if (aecon->supply[RES_METAL] >= 2 || aecon->supply[RES_STONE] >= 3) {
+                amount = number_range( 1, 3 ) * productivity / 100;
+                aecon->production[RES_JEWELRY] += amount;
+            }
+            break;
+
+        case PROF_SMELTER:
+            /* Refines ore to metal */
+            if (aecon->supply[RES_ORE] >= 5) {
+                amount = number_range( 2, 7 ) * productivity / 100;
+                aecon->supply[RES_ORE] -= amount * 3;
+                aecon->production[RES_METAL] += amount;
+            }
+            break;
+
+        /* === ARTISANS & CRAFTERS === */
+        case PROF_CARPENTER:
+            /* Makes furniture from wood */
+            if (aecon->supply[RES_WOOD] >= 10) {
+                amount = number_range( 1, 4 ) * productivity / 100;
+                aecon->supply[RES_WOOD] -= amount * 5;
+                aecon->production[RES_FURNITURE] += amount;
+            }
+            break;
+
+        case PROF_POTTER:
+            /* Makes pottery */
+            amount = number_range( 2, 6 ) * productivity / 100;
+            aecon->production[RES_POTTERY] += amount;
+            break;
+
+        case PROF_GLASSBLOWER:
+            /* Creates glass items */
+            amount = number_range( 1, 4 ) * productivity / 100;
+            aecon->production[RES_GLASS] += amount;
+            break;
+
+        case PROF_LEATHERWORKER:
+            /* Crafts leather goods */
+            if (aecon->supply[RES_LEATHER] >= 3) {
+                amount = number_range( 1, 5 ) * productivity / 100;
+                aecon->supply[RES_LEATHER] -= amount * 2;
+                /* Creates leather items (abstracted) */
+            }
+            break;
+
+        case PROF_TAILOR:
+        case PROF_COBBLER:
+            /* Create clothing/shoes from cloth/leather */
+            if (aecon->supply[RES_CLOTH] >= 3 || aecon->supply[RES_LEATHER] >= 2) {
+                amount = number_range( 1, 4 ) * productivity / 100;
+                /* Consume materials, create wearables */
+            }
+            break;
+
+        case PROF_WEAPONSMITH:
+        case PROF_ARMORSMITH:
+            /* Forge weapons/armor from metal */
+            if (aecon->supply[RES_METAL] >= 5) {
+                amount = number_range( 1, 3 ) * productivity / 100;
+                aecon->supply[RES_METAL] -= amount * 4;
+                /* Create combat equipment (abstracted) */
+            }
+            break;
+
+        case PROF_BOWYER:
+        case PROF_FLETCHER:
+            /* Make bows/arrows from wood */
+            if (aecon->supply[RES_WOOD] >= 3) {
+                amount = number_range( 2, 6 ) * productivity / 100;
+                aecon->supply[RES_WOOD] -= amount;
+                /* Create archery equipment */
+            }
+            break;
+
+        case PROF_CANDLEMAKER:
+            /* Makes candles */
+            if (aecon->supply[RES_HONEY] >= 1) {
+                amount = number_range( 3, 8 ) * productivity / 100;
+                aecon->supply[RES_HONEY] -= 1;
+                aecon->production[RES_CANDLES] += amount;
+            }
+            break;
+
+        /* === SERVICES === */
+        case PROF_MERCHANT:
+            /* Merchants don't produce, they facilitate trade */
+            /* Increases economic velocity (handled in update) */
+            break;
+
+        case PROF_INNKEEPER:
+        case PROF_TAVERN_KEEPER:
+        case PROF_STABLE_MASTER:
+            /* Service professions (consume food/beer, provide services) */
+            if (aecon->supply[RES_BREAD] >= 2 && aecon->supply[RES_BEER] >= 1) {
+                aecon->consumption[RES_BREAD] += 2;
+                aecon->consumption[RES_BEER] += 1;
+            }
+            break;
+
         case PROF_WATER_KEEPER:
             amount = number_range( 20, 50 ) * productivity / 100;
             aecon->production[RES_WATER] += amount;
+            break;
+
+        case PROF_HEALER:
+            /* Consumes herbs, provides healing services */
+            if (aecon->supply[RES_HERBS] >= 1) {
+                aecon->consumption[RES_HERBS] += 1;
+            }
+            break;
+
+        case PROF_COOK:
+            /* Prepares food from raw materials */
+            if (aecon->supply[RES_MEAT] >= 2 && aecon->supply[RES_VEGETABLES] >= 2) {
+                amount = number_range( 2, 6 ) * productivity / 100;
+                aecon->supply[RES_MEAT] -= 1;
+                aecon->supply[RES_VEGETABLES] -= 1;
+                aecon->production[RES_BREAD] += amount;  /* Prepared meals */
+            }
+            break;
+
+        /* === ACADEMICS & ARTISTS === */
+        case PROF_SCHOLAR:
+        case PROF_SCRIBE:
+            /* Produce books/knowledge */
+            amount = number_range( 1, 3 ) * productivity / 100;
+            aecon->production[RES_BOOKS] += amount;
+            break;
+
+        case PROF_ALCHEMIST:
+            /* Creates potions from herbs */
+            if (aecon->supply[RES_HERBS] >= 3) {
+                amount = number_range( 1, 4 ) * productivity / 100;
+                aecon->supply[RES_HERBS] -= amount * 2;
+                /* Produce potions (abstracted) */
+            }
             break;
 
         case PROF_HERBALIST:
@@ -1249,12 +1527,44 @@ void npc_work_profession( CHAR_DATA *mob )
             aecon->production[RES_HERBS] += amount;
             break;
 
-        /* Specialists process resources */
-        case PROF_BUTCHER:
-        case PROF_TANNER:
-        case PROF_BLACKSMITH:
-        case PROF_WEAVER:
-            /* Specialists convert resources (handled elsewhere) */
+        case PROF_BARD:
+        case PROF_ENTERTAINER:
+            /* Entertainers consume food/beer, provide morale */
+            if (aecon->supply[RES_BEER] >= 1) {
+                aecon->consumption[RES_BEER] += 1;
+                /* Boost area morale/productivity (handled elsewhere) */
+            }
+            break;
+
+        case PROF_PAINTER:
+        case PROF_SCULPTOR:
+            /* Create artwork */
+            amount = number_range( 1, 2 ) * productivity / 100;
+            aecon->production[RES_ARTWORK] += amount;
+            break;
+
+        case PROF_ARCHITECT:
+        case PROF_MAPMAKER:
+            /* Specialized knowledge workers */
+            /* Don't produce tradeable goods directly */
+            break;
+
+        /* === SPECIALIZED === */
+        case PROF_GUARD:
+            /* Guards consume food, provide security */
+            if (aecon->supply[RES_BREAD] >= 1) {
+                aecon->consumption[RES_BREAD] += 1;
+            }
+            break;
+
+        case PROF_SAILOR:
+        case PROF_EXPLORER:
+        case PROF_GUIDE:
+            /* Mobility professions - facilitate trade/discovery */
+            break;
+
+        default:
+            /* No production for PROF_NONE or unhandled */
             break;
     }
 }

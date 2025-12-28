@@ -6,19 +6,45 @@
 #ifndef ECONOMY_H
 #define ECONOMY_H
 
-/* Resource Types */
+/* Resource Types - Expanded for 51 professions */
 typedef enum
 {
+    /* FOOD RESOURCES (0-5) */
     RES_MEAT,           /* 0 - Animal meat for food */
     RES_GRAIN,          /* 1 - Wheat, corn, rice */
     RES_VEGETABLES,     /* 2 - Various vegetables */
-    RES_WATER,          /* 3 - Critical resource */
-    RES_HIDE,           /* 4 - Animal hides for leather */
-    RES_WOOD,           /* 5 - Lumber for building */
-    RES_STONE,          /* 6 - Building material */
-    RES_ORE,            /* 7 - Metal ore for smelting */
-    RES_CLOTH,          /* 8 - Processed fabric */
-    RES_HERBS,          /* 9 - Medicinal plants */
+    RES_FISH,           /* 3 - Fresh/preserved fish */
+    RES_CHEESE,         /* 4 - Dairy product */
+    RES_BREAD,          /* 5 - Baked bread */
+
+    /* RAW MATERIALS (6-13) */
+    RES_WATER,          /* 6 - Critical resource */
+    RES_HIDE,           /* 7 - Animal hides for leather */
+    RES_WOOD,           /* 8 - Lumber for building */
+    RES_STONE,          /* 9 - Building material */
+    RES_ORE,            /* 10 - Metal ore for smelting */
+    RES_WOOL,           /* 11 - Sheep wool */
+    RES_GRAPES,         /* 12 - For wine making */
+    RES_HONEY,          /* 13 - From bees */
+
+    /* PROCESSED MATERIALS (14-21) */
+    RES_CLOTH,          /* 14 - Processed fabric */
+    RES_LEATHER,        /* 15 - Tanned hide */
+    RES_METAL,          /* 16 - Smelted metal */
+    RES_GLASS,          /* 17 - Blown glass */
+    RES_POTTERY,        /* 18 - Fired clay */
+    RES_FURNITURE,      /* 19 - Crafted furniture */
+    RES_TOOLS,          /* 20 - Various tools */
+    RES_CANDLES,        /* 21 - Wax candles */
+
+    /* LUXURY/SPECIAL (22-27) */
+    RES_HERBS,          /* 22 - Medicinal plants */
+    RES_WINE,           /* 23 - Fermented drink */
+    RES_BEER,           /* 24 - Brewed ale */
+    RES_JEWELRY,        /* 25 - Crafted jewels */
+    RES_ARTWORK,        /* 26 - Paintings/sculptures */
+    RES_BOOKS,          /* 27 - Written knowledge */
+
     MAX_RESOURCE
 } resource_type;
 
