@@ -756,6 +756,13 @@ void mobile_update( void )
 	if ( ch->position < POS_STANDING )
 	  continue;
 
+	/* === AUTONOMOUS ECONOMY: NPCs work their professions === */
+	/* NPCs work every 30 seconds (PULSE_AREA = 60 seconds, so ~50% of the time) */
+	if ( number_bits(1) == 0 )  /* 50% chance each mobile_update tick */
+	{
+	    npc_work_profession( ch );
+	}
+
 /*	if (number_range(1,5) < 4) {
 		CHAR_DATA *keeper;
 		OBJ_DATA *obj;

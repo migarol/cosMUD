@@ -2644,8 +2644,48 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
     pMobIndex->count++;
     nummobsloaded++;
 
-    /* Initialize economy profession */
-    mob->profession = PROF_NONE;
+    /* === AUTONOMOUS ECONOMY: Auto-assign profession based on level === */
+    /* Skip special mobs (very low vnums are usually special/quest mobs) */
+    if ( pMobIndex->vnum < 100 )
+    {
+        mob->profession = PROF_NONE;  /* Special mobs have no profession */
+    }
+    else
+    {
+        /* Assign profession based on level range */
+        /* Use vnum for determinism - same vnum always gets same profession */
+        int prof_category;
+        int prof_offset;
+
+        if ( mob->level <= 20 )
+        {
+            /* LOW LEVEL: Primary Production (PROF_FARMER=1 to PROF_SHEPHERD=9) */
+            prof_category = 1;  /* Start at PROF_FARMER */
+            prof_offset = (pMobIndex->vnum % 9);  /* 0-8 */
+            mob->profession = prof_category + prof_offset;
+        }
+        else if ( mob->level <= 50 )
+        {
+            /* MID LEVEL: Processing & Artisans (PROF_BUTCHER=10 to PROF_CANDLEMAKER=29) */
+            prof_category = 10;  /* Start at PROF_BUTCHER */
+            prof_offset = (pMobIndex->vnum % 20);  /* 0-19 */
+            mob->profession = prof_category + prof_offset;
+        }
+        else if ( mob->level <= 80 )
+        {
+            /* HIGH LEVEL: Services & Academics (PROF_MERCHANT=30 to PROF_MAPMAKER=45) */
+            prof_category = 30;  /* Start at PROF_MERCHANT */
+            prof_offset = (pMobIndex->vnum % 16);  /* 0-15 */
+            mob->profession = prof_category + prof_offset;
+        }
+        else
+        {
+            /* VERY HIGH LEVEL: Specialized (PROF_GUARD=46 to PROF_ENTERTAINER=50) */
+            prof_category = 46;  /* Start at PROF_GUARD */
+            prof_offset = (pMobIndex->vnum % 5);  /* 0-4 */
+            mob->profession = prof_category + prof_offset;
+        }
+    }
 
     return mob;
 }
