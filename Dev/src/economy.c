@@ -1249,6 +1249,12 @@ void npc_work_profession( CHAR_DATA *mob )
     if ( !mob || !IS_NPC( mob ) )
         return;
 
+    /* === FASE 3D: 24-Hour Schedule System === */
+    /* NPCs only work during daylight hours (6am - 6pm) */
+    /* At night (6pm - 6am), they rest/sleep */
+    if ( time_info.hour < 6 || time_info.hour >= 18 )
+        return;  /* Nighttime - NPCs don't work */
+
     profession = get_npc_profession( mob );
     if ( profession == PROF_NONE )
         return;

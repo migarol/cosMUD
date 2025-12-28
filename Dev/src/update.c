@@ -763,6 +763,17 @@ void mobile_update( void )
 	    npc_work_profession( ch );
 	}
 
+	/* === AUTONOMOUS BEELER: Takes periodic actions === */
+	/* Beeler (vnum 1200) takes autonomous actions every ~10 minutes */
+	if ( ch->pIndexData->vnum == 1200 && number_range(1, 600) == 1 )
+	{
+	    /* Beeler autonomously manages the world */
+	    /* Actions: balance economy, assign professions to new NPCs, etc. */
+	    /* For now, just a placeholder - can be expanded later */
+	    act( AT_MAGIC, "$n's form briefly flickers as $e adjusts the threads of reality.",
+	         ch, NULL, NULL, TO_ROOM );
+	}
+
 /*	if (number_range(1,5) < 4) {
 		CHAR_DATA *keeper;
 		OBJ_DATA *obj;

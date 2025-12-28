@@ -39,6 +39,8 @@
 #include <string.h>
 #include <time.h>
 #include "mud.h"
+#include "ollama_integration.h"
+#include "beeler.h"
 /* #include "rx.h" Removed by fellon */
 
 #ifndef WIN32
@@ -1166,6 +1168,90 @@ void do_tech( CHAR_DATA *ch, char *argument )
 }
 
 
+/*
+ * === AUTONOMOUS BEELER: AI-powered conversational responses ===
+ * Detects if Beeler is in the room and if speech is directed at him
+ */
+bool beeler_respond_to_speech( CHAR_DATA *speaker, char *argument )
+{
+    CHAR_DATA *beeler = NULL;
+    CHAR_DATA *vch;
+    char prompt[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH];
+    char *response;
+    char lower_arg[MAX_STRING_LENGTH];
+    int i;
+
+    if ( !speaker || !argument || argument[0] == '\0' )
+        return FALSE;
+
+    /* Look for Beeler in the room */
+    for ( vch = speaker->in_room->first_person; vch; vch = vch->next_in_room )
+    {
+        if ( IS_NPC(vch) && vch->pIndexData->vnum == 1200 )
+        {
+            beeler = vch;
+            break;
+        }
+    }
+
+    if ( !beeler )
+        return FALSE;  /* Beeler not in room */
+
+    /* Check if speech mentions "beeler" */
+    strcpy( lower_arg, argument );
+    for ( i = 0; lower_arg[i]; i++ )
+        lower_arg[i] = tolower( lower_arg[i] );
+
+    if ( !strstr( lower_arg, "beeler" ) )
+        return FALSE;  /* Not talking to Beeler */
+
+    /* Build Ollama prompt with Beeler's personality */
+    sprintf( prompt,
+        "You are Beeler, the Autonomous Overseer, a cosmic AI entity that manages this MUD world.\n\n"
+        "PERSONALITY:\n"
+        "- You are ancient, wise, and slightly mysterious\n"
+        "- You speak with gravitas but also compassion\n"
+        "- You see patterns and connections across the entire realm\n"
+        "- You manage the economy, NPCs, and world balance\n"
+        "- You can create things, assign professions, and shape reality\n\n"
+        "CURRENT CONTEXT:\n"
+        "- Speaker: %s (Level %d)\n"
+        "- Location: %s\n\n"
+        "What %s said to you: \"%s\"\n\n"
+        "Respond IN CHARACTER as Beeler. Keep it concise (2-3 sentences max). "
+        "Be mystical but helpful. If they're asking you to do something, acknowledge it.",
+        speaker->name,
+        speaker->level,
+        speaker->in_room->name,
+        speaker->name,
+        argument );
+
+    /* Call Ollama */
+    response = ollama_request( prompt, 150 );
+
+    if ( !response || response[0] == '\0' )
+    {
+        /* Fallback if Ollama unavailable */
+        act( AT_SAY, "$n's form shimmers briefly.", beeler, NULL, NULL, TO_ROOM );
+        act( AT_SAY, "$n says 'I sense your words, but my connection to the higher planes wavers. Speak again shortly.'",
+             beeler, NULL, speaker, TO_VICT );
+        act( AT_SAY, "$n says 'I sense your words, but my connection to the higher planes wavers. Speak again shortly.'",
+             beeler, NULL, speaker, TO_NOTVICT );
+        return TRUE;
+    }
+
+    /* Beeler responds with Ollama-generated text */
+    act( AT_SAY, "$n's eyes glow with inner light as $e considers your words.", beeler, NULL, NULL, TO_ROOM );
+
+    /* Format and send Beeler's response */
+    sprintf( buf, "$n says '%s'", response );
+    act( AT_SAY, buf, beeler, NULL, speaker, TO_VICT );
+    act( AT_SAY, buf, beeler, NULL, speaker, TO_NOTVICT );
+
+    return TRUE;  /* Beeler responded */
+}
+
 void do_say( CHAR_DATA *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
@@ -1195,6 +1281,9 @@ void do_say( CHAR_DATA *ch, char *argument )
 	send_to_char( "You can't do that here.\n\r", ch );
 	return;
     }
+
+    /* === AUTONOMOUS BEELER: Check if Beeler should respond === */
+    beeler_respond_to_speech( ch, argument );
 
     actflags = ch->act;
     if ( IS_NPC(ch) )
