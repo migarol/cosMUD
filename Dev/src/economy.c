@@ -91,6 +91,47 @@ const char * event_name( int type )
 }
 
 /*
+ * Get resource type by name (case-insensitive)
+ */
+int get_resource_by_name( const char *name )
+{
+    int i;
+
+    if ( !name || !str_cmp( name, "" ) )
+        return -1;
+
+    for ( i = 0; i < MAX_RESOURCE; i++ )
+    {
+        if ( !str_cmp( name, resource_names[i] ) )
+            return i;
+    }
+
+    return -1;
+}
+
+/*
+ * Get profession type by name (case-insensitive)
+ */
+int get_profession_by_name( const char *name )
+{
+    int i;
+
+    if ( !name || !str_cmp( name, "" ) )
+        return PROF_NONE;
+
+    for ( i = 0; i < MAX_PROFESSION; i++ )
+    {
+        if ( !str_cmp( name, profession_names[i] ) )
+            return i;
+        /* Also check partial matches */
+        if ( !str_prefix( name, profession_names[i] ) )
+            return i;
+    }
+
+    return PROF_NONE;
+}
+
+/*
  * Get profession that produces a resource
  */
 int get_profession_for_resource( int resource )

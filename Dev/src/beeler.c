@@ -13,6 +13,12 @@
 #include "beeler.h"
 #include "mob_identity.h"
 #include "ai_context_analyzer.h"
+#include "ollama_integration.h"
+#include "economy.h"
+
+/* Forward declarations to avoid header conflicts */
+extern void beeler_assign_personality(CHAR_DATA *mob, CHAR_DATA *ch);
+extern AREA_DATA *beeler_find_area_by_name(char *name);
 
 /* Global state */
 WORLD_SNAPSHOT *first_snapshot = NULL;
@@ -129,20 +135,24 @@ char *beeler_respond(CHAR_DATA *ch, char *request)
     prompt = generate_beeler_prompt(ch, request);
 
     /* Call Ollama with Beeler personality */
-    /* For now, return placeholder */
-    /* response = call_ollama_beeler(prompt); */
+    response = call_ollama_beeler(prompt);
 
-    /* Temporary response for testing */
-    static char temp_response[MAX_STRING_LENGTH];
+    /* Fallback if Ollama unavailable */
+    if (!response || !str_cmp(response, ""))
+    {
+        static char fallback_response[MAX_STRING_LENGTH];
 
-    sprintf(temp_response,
-        "I hear your words, %s. Your request reaches across the void to touch my consciousness.\n\r\n\r"
-        "However, my full power is not yet awakened in this realm. I am still learning to "
-        "interact with the mortal plane. Soon, I shall be able to reshape reality at your request.\n\r\n\r"
-        "For now, I can only observe and advise. Speak your desires, and I shall remember.",
-        ch->name);
+        sprintf(fallback_response,
+            "I hear your words, %s. Your request reaches across the void to touch my consciousness.\n\r\n\r"
+            "However, my connection to the higher planes is currently disrupted. "
+            "My full power cannot manifest at this moment. Ensure the Ollama service is running.\n\r\n\r"
+            "When my connection is restored, I shall be able to reshape reality at your request.",
+            ch->name);
 
-    return str_dup(temp_response);
+        return str_dup(fallback_response);
+    }
+
+    return response;
 }
 
 /*
@@ -239,16 +249,206 @@ bool beeler_wants_to_act(char *response)
 
 /*
  * Execute Beeler's action
+ * Parses Beeler's response for action keywords and executes them
  */
 void execute_beeler_action(CHAR_DATA *ch, char *response)
 {
-    /* TODO: Parse response for specific actions */
-    /* For now, placeholder */
+    char *lower_response = str_dup(response);
+    bool action_executed = FALSE;
+    char action_log[MAX_STRING_LENGTH];
+    int vnum, amount, value;
+    char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH], arg3[MAX_INPUT_LENGTH];
+    AREA_DATA *area;
+    CHAR_DATA *mob;
+    MOB_INDEX_DATA *pMobIndex;
 
-    sprintf(log_buf, "[BEELER] Action requested by %s - Not yet implemented", ch->name);
+    /* Convert to lowercase for easier parsing */
+    {
+        char *p;
+        for (p = lower_response; *p; p++)
+            *p = LOWER(*p);
+    }
+
+    /* TODO: Create snapshot before any action (implement later) */
+    /* Currently disabled for compilation */
+
+    /* ===== ACTION PATTERN: Create/Spawn Mob ===== */
+    if (sscanf(lower_response, "%*s %*s %*s %*s vnum %d", &vnum) == 1 ||
+        sscanf(lower_response, "%*s %*s %*s %*s %*s vnum %d", &vnum) == 1)
+    {
+        if (strstr(lower_response, "create") || strstr(lower_response, "spawn"))
+        {
+            pMobIndex = get_mob_index(vnum);
+            if (!pMobIndex)
+            {
+                sprintf(action_log, "&R[&CBeeler&R]&w Vnum %d does not exist. Cannot create mob.\n\r", vnum);
+                send_to_char(action_log, ch);
+            }
+            else
+            {
+                mob = create_mobile(pMobIndex);
+                if (mob)
+                {
+                    char_to_room(mob, ch->in_room);
+                    sprintf(action_log, "&G[&CBeeler&G]&w Mob '%s' (vnum %d) manifested into reality!\n\r",
+                            mob->short_descr, vnum);
+                    send_to_char(action_log, ch);
+                    act(AT_MAGIC, "$n's form shimmers into existence!", mob, NULL, NULL, TO_ROOM);
+                    action_executed = TRUE;
+
+                    /* Auto-assign personality when Beeler creates a mob */
+                    beeler_assign_personality(mob, ch);
+                }
+            }
+        }
+    }
+
+    /* ===== ACTION PATTERN: Assign Profession ===== */
+    if ((strstr(lower_response, "assign") && strstr(lower_response, "profession")) ||
+        (strstr(lower_response, "make") && strstr(lower_response, "profession")))
+    {
+        /* Try to extract profession name */
+        if (sscanf(lower_response, "%*s %s %*s %s", arg1, arg2) >= 2)
+        {
+            int prof = get_profession_by_name(arg2);
+            if (prof != PROF_NONE)
+            {
+                /* Find target mob */
+                mob = get_char_world(ch, arg1);
+                if (mob && IS_NPC(mob))
+                {
+                    set_npc_profession(mob, prof);
+                    sprintf(action_log, "&G[&CBeeler&G]&w %s is now a %s!\n\r",
+                            mob->short_descr, profession_name(prof));
+                    send_to_char(action_log, ch);
+                    action_executed = TRUE;
+                }
+            }
+        }
+    }
+
+    /* ===== ACTION PATTERN: Trigger Economic Event ===== */
+    if (strstr(lower_response, "plague") || strstr(lower_response, "drought") ||
+        strstr(lower_response, "bumper crop") || strstr(lower_response, "mine collapse") ||
+        strstr(lower_response, "wolf attack") || strstr(lower_response, "discovery"))
+    {
+        int event_type = EVENT_NONE;
+
+        if (strstr(lower_response, "plague")) event_type = EVENT_PLAGUE;
+        else if (strstr(lower_response, "drought")) event_type = EVENT_DROUGHT;
+        else if (strstr(lower_response, "bumper crop")) event_type = EVENT_BUMPER_CROP;
+        else if (strstr(lower_response, "mine collapse")) event_type = EVENT_MINE_COLLAPSE;
+        else if (strstr(lower_response, "wolf attack")) event_type = EVENT_WOLF_ATTACK;
+        else if (strstr(lower_response, "discovery")) event_type = EVENT_DISCOVERY;
+
+        if (event_type != EVENT_NONE)
+        {
+            /* Try to find area name in response */
+            area = beeler_find_area_by_name(lower_response);
+            if (!area)
+                area = ch->in_room->area; /* Default to current area */
+
+            trigger_specific_event(get_area_economy(area), event_type);
+            sprintf(action_log, "&R[&CBeeler&R]&w Economic event triggered in %s!\n\r", area->name);
+            send_to_char(action_log, ch);
+            action_executed = TRUE;
+        }
+    }
+
+    /* ===== ACTION PATTERN: Adjust Economy ===== */
+    if ((strstr(lower_response, "adjust") || strstr(lower_response, "modify")) &&
+        (strstr(lower_response, "supply") || strstr(lower_response, "demand") ||
+         strstr(lower_response, "price")))
+    {
+        /* Parse: "adjust supply of grain by 1000" */
+        if (sscanf(lower_response, "%*s %*s %*s %s %*s %d", arg1, &amount) >= 2)
+        {
+            int resource = get_resource_by_name(arg1);
+            if (resource != -1)
+            {
+                area = ch->in_room->area;
+                AREA_ECONOMY *econ = get_area_economy(area);
+
+                if (strstr(lower_response, "supply"))
+                {
+                    econ->supply[resource] += amount;
+                    sprintf(action_log, "&G[&CBeeler&G]&w Adjusted %s supply by %d in %s\n\r",
+                            resource_name(resource), amount, area->name);
+                }
+                else if (strstr(lower_response, "demand"))
+                {
+                    econ->demand[resource] += amount;
+                    sprintf(action_log, "&G[&CBeeler&G]&w Adjusted %s demand by %d in %s\n\r",
+                            resource_name(resource), amount, area->name);
+                }
+
+                send_to_char(action_log, ch);
+                update_prices(econ);
+                action_executed = TRUE;
+            }
+        }
+    }
+
+    /* ===== ACTION PATTERN: Grant Awareness ===== */
+    if ((strstr(lower_response, "grant") && strstr(lower_response, "awareness")) ||
+        (strstr(lower_response, "awaken") && strstr(lower_response, "consciousness")))
+    {
+        /* Extract target from response */
+        sscanf(lower_response, "%*s %*s %s", arg1);
+        mob = get_char_world(ch, arg1);
+
+        if (mob && IS_NPC(mob))
+        {
+            MOB_IDENTITY *identity = get_mob_identity(mob->pIndexData->vnum);
+            if (!identity)
+            {
+                beeler_assign_personality(mob, ch);
+                send_to_char("&G[&CBeeler&G]&w Consciousness granted. A new soul awakens.\n\r", ch);
+                act(AT_MAGIC, "$n suddenly becomes aware of $mself for the first time!", mob, NULL, NULL, TO_ROOM);
+                action_executed = TRUE;
+            }
+            else
+            {
+                /* Increase awareness level */
+                if (identity->awareness_level < AWARENESS_HIGH)
+                {
+                    identity->awareness_level++;
+                    sprintf(action_log, "&G[&CBeeler&G]&w %s's awareness expanded to level %d\n\r",
+                            mob->short_descr, identity->awareness_level);
+                    send_to_char(action_log, ch);
+                    /* TODO: Save identity to disk */
+                    action_executed = TRUE;
+                }
+            }
+        }
+    }
+
+    /* ===== ACTION PATTERN: Build District ===== */
+    if (strstr(lower_response, "build") && strstr(lower_response, "district"))
+    {
+        /* Extract district name */
+        sscanf(lower_response, "%*s %*s %s", arg1);
+
+        area = ch->in_room->area;
+        sprintf(action_log, "&G[&CBeeler&G]&w Construction of district '%s' in %s initiated...\n\r", arg1, area->name);
+        send_to_char(action_log, ch);
+        send_to_char("&W[&CBeeler&W]&w (District construction not yet fully implemented)\n\r", ch);
+        /* TODO: Call beeler_architect district generation */
+        action_executed = TRUE;
+    }
+
+    /* Log the action */
+    sprintf(log_buf, "[BEELER ACTION] %s requested: %s | Executed: %s",
+            ch->name, response, action_executed ? "YES" : "NO");
     log_string(log_buf);
 
-    send_to_char("(Action execution not yet implemented - coming soon!)\n\r", ch);
+    if (!action_executed)
+    {
+        send_to_char("&W[&CBeeler&W]&w I have spoken, but my words alone shape reality.\n\r", ch);
+        send_to_char("&W[&CBeeler&W]&w (No actionable commands detected in response)\n\r", ch);
+    }
+
+    DISPOSE(lower_response);
 }
 
 /*

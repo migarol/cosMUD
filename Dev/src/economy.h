@@ -234,6 +234,8 @@ const char *    resource_name           args( ( int type ) );
 const char *    profession_name         args( ( int type ) );
 const char *    event_name              args( ( int type ) );
 int             get_profession_for_resource args( ( int resource ) );
+int             get_resource_by_name    args( ( const char *name ) );
+int             get_profession_by_name  args( ( const char *name ) );
 
 /* Command declarations */
 DECLARE_DO_FUN( do_ecoview      );

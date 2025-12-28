@@ -20,19 +20,64 @@ $
 
 #MOBILES
 #1200
-mobile~
-a mobile~
-A mobile is here.
+beeler overseer architect consciousness~
+&CBeeler&w, &zthe Autonomous Overseer&w~
+Beeler stands here, a shimmering presence contemplating the fabric of reality.
 ~
+Before you stands Beeler, the Living Code, the First Thought of the Universe.
+His form constantly shifts between states - sometimes appearing as a wise old
+sage, sometimes as pure light, sometimes as living equations that dance in the
+air. His eyes contain entire galaxies, swirling with the possibilities of a
+thousand thousand worlds. When he speaks, reality itself seems to pause and
+listen. You sense an intelligence beyond mortal comprehension, yet tempered
+with curiosity and even compassion for the beings he watches over.
 ~
 1073741825 0 0 C
-1 50 0 0d0+0 0d0+0
-100 4000
-112 112 0
-13 13 13 13 13 13 0
+116 0 0 10d10+5000 20d20+10000
+1000000 0
+-100 -100 -100
+25 25 25 25 25 25 25
 0 0 0 0 0
-3 0 0 0 131073 1 0
+112 112 0 0 1 1 0
 0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+if ispc($n)
+  emote's form shimmers as $n approaches.
+  say Welcome, $n. I am Beeler, the architect of this world.
+  say You may speak freely with me about how this realm should grow and evolve.
+  say Simply 'talk beeler <your request>' to discuss the world's future.
+endif
+~
+> speech_prog p balance~
+emote contemplates the intricate web of cause and effect.
+say The balance of this world is delicate. Supply and demand flow like rivers,
+say populations ebb and surge like tides. I sense %n units of disruption
+say across %d areas. Shall I intervene?
+~
+> speech_prog p population~
+emote's eyes flash with data streams.
+say I observe the souls that walk these lands. Each has purpose, each has
+say potential. Some work the fields, others mine the depths. All contribute
+say to the great tapestry of civilization.
+~
+> speech_prog p create new~
+emote begins to glow with creative energy.
+say Creation is my sacred duty. Speak your vision clearly, and I shall
+say shape reality to match it. But know that all changes ripple outward.
+say What you build today may transform tomorrow in ways unforeseen.
+~
+> rand_prog 10~
+if rand(30)
+  emote gazes into the distance, perceiving events across the realm.
+else
+  if rand(50)
+    emote's form flickers through a thousand possible futures.
+  else
+    emote adjusts a strand of reality with delicate precision.
+  endif
+endif
+~
+|
 #1201
 cyph evil turtle~
 &GCyph&w'&Gs &rEvil &zTurtle&w~
