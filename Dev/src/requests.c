@@ -47,7 +47,7 @@ void init_request_pipe( )
   if ( (REQ = open( REQUEST_PIPE, O_RDONLY | O_NONBLOCK )) == -1 )
   {
     bug ( "REQUEST pipe not found", 0 );
-    exit(1);
+    return; /* Don't crash the MUD if pipe doesn't exist */
   }
 #endif
 }

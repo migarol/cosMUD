@@ -4581,7 +4581,7 @@ Level       102
 Log         0
 End
 
-#END
+
 #COMMAND
 Name        ecoview~
 Code        do_ecoview
@@ -4589,6 +4589,7 @@ Position    100
 Level       58
 Log         0
 End
+
 
 #COMMAND
 Name        ecoset~
@@ -4598,6 +4599,7 @@ Level       60
 Log         1
 End
 
+
 #COMMAND
 Name        ecoevent~
 Code        do_ecoevent
@@ -4605,6 +4607,7 @@ Position    100
 Level       60
 Log         1
 End
+
 
 #COMMAND
 Name        ecobalance~
@@ -4614,6 +4617,7 @@ Level       58
 Log         0
 End
 
+
 #COMMAND
 Name        econews~
 Code        do_econews
@@ -4621,6 +4625,7 @@ Position    100
 Level       0
 Log         0
 End
+
 
 #COMMAND
 Name        harvest~
@@ -4630,6 +4635,7 @@ Level       0
 Log         0
 End
 
+
 #COMMAND
 Name        getwater~
 Code        do_getwater
@@ -4637,6 +4643,7 @@ Position    106
 Level       0
 Log         0
 End
+
 
 #COMMAND
 Name        profession~
@@ -4656,7 +4663,14 @@ Log         1
 End
 
 
-#END
+#COMMAND
+Name        beeler~
+Code        do_beeler
+Position    100
+Level       105
+Log         1
+End
+
 
 #COMMAND
 Name        ollama~
@@ -4666,6 +4680,7 @@ Level       105
 Log         1
 End
 
+
 #COMMAND
 Name        mobidentity~
 Code        do_mobidentity
@@ -4673,6 +4688,7 @@ Position    100
 Level       105
 Log         1
 End
+
 
 #COMMAND
 Name        genpersonality~
@@ -4682,6 +4698,7 @@ Level       105
 Log         1
 End
 
+
 #COMMAND
 Name        mobmemory~
 Code        do_mobmemory
@@ -4690,3 +4707,5 @@ Level       105
 Log         1
 End
 
+
+#END
