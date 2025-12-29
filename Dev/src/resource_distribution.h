@@ -27,3 +27,33 @@ void assign_resources_by_geography(AREA_DATA *area);
 int get_resource_abundance(AREA_DATA *area, RESOURCE_TYPE resource);
 
 #endif
+/* Resource node - a source of resources in an area */
+typedef struct resource_node RESOURCE_NODE;
+struct resource_node {
+    AREA_DATA *area;
+    int resource_type;
+    int abundance;              /* 0-100 */
+    int quality;                /* 0-100 */
+
+    /* Depletion tracking */
+    int current_supply;         /* How much left */
+    int max_supply;             /* Original amount */
+    bool renewable;             /* Regenerates? */
+    int regeneration_rate;      /* Per month */
+
+    /* Extraction */
+    int extraction_rate;        /* Per day */
+    int last_harvest;
+    bool depleted;
+
+    /* Economic */
+    int market_price;
+    int demand;                 /* 0-100 */
+
+    RESOURCE_NODE *next;
+};
+
+void init_resource_distribution(void);
+void distribute_resources_by_geography(void);
+void resource_depletion_update(void);
+RESOURCE_NODE *create_resource_node(AREA_DATA *area, int resource_type, int abundance);

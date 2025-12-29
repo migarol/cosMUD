@@ -120,7 +120,8 @@ PERIODICO_PUBLICATION *create_publication(char *city_name, int area_vnum, char *
     first_publication = pub;
     total_publications++;
 
-    log_string("PERIODICOS: Created publication '%s' for %s", publication_name, city_name);
+    sprintf(log_buf, "PERIODICOS: Created publication '%s' for %s", publication_name, city_name);
+        log_string(log_buf);
 
     return pub;
 }
@@ -173,7 +174,8 @@ PERIODICO_ARTICLE *create_article(char *headline, char *body, int category, int 
     recent_articles = article;
     total_articles++;
 
-    log_string("PERIODICOS: Created article #%d: %s", article->article_id, headline);
+    sprintf(log_buf, "PERIODICOS: Created article #%d: %s", article->article_id, headline);
+        log_string(log_buf);
 
     return article;
 }
@@ -187,7 +189,8 @@ void publish_article(PERIODICO_PUBLICATION *pub, PERIODICO_ARTICLE *article)
     article->author = str_dup(pub->publication_name);
     pub->num_articles++;
 
-    log_string("PERIODICOS: Published article in %s: %s", pub->publication_name, article->headline);
+    sprintf(log_buf, "PERIODICOS: Published article in %s: %s", pub->publication_name, article->headline);
+        log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -218,7 +221,8 @@ bool should_announce_in_chat(PERIODICO_ARTICLE *article)
     /* Too many announcements this hour? */
     if (global_filter.announcements_last_hour >= global_filter.max_announcements_per_hour)
     {
-        log_string("PERIODICOS: Rate limit - no chat announcement for: %s", article->headline);
+        sprintf(log_buf, "PERIODICOS: Rate limit - no chat announcement for: %s", article->headline);
+        log_string(log_buf);
         return FALSE;
     }
 
@@ -234,7 +238,8 @@ bool should_announce_in_chat(PERIODICO_ARTICLE *article)
         if (global_filter.recent_topics[i] &&
             strstr(article->headline, global_filter.recent_topics[i]))
         {
-            log_string("PERIODICOS: Duplicate topic - no chat announcement: %s", article->headline);
+            sprintf(log_buf, "PERIODICOS: Duplicate topic - no chat announcement: %s", article->headline);
+        log_string(log_buf);
             return FALSE;
         }
     }
@@ -310,12 +315,14 @@ void announce_article(PERIODICO_ARTICLE *article)
             global_filter.recent_topics[i] = global_filter.recent_topics[i-1];
         global_filter.recent_topics[0] = str_dup(article->headline);
 
-        log_string("PERIODICOS: Announced in chat: %s", article->headline);
+        sprintf(log_buf, "PERIODICOS: Announced in chat: %s", article->headline);
+        log_string(log_buf);
     }
     else
     {
         /* Only in periodicos, no chat */
-        log_string("PERIODICOS: Periodicos only (no chat): %s", article->headline);
+        sprintf(log_buf, "PERIODICOS: Periodicos only (no chat): %s", article->headline);
+        log_string(log_buf);
     }
 }
 

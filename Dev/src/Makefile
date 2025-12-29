@@ -37,9 +37,9 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           interp.o leader_ai.o locker.o magic.o makeobjs.o medit.o medit_ai.o misc.o \
           mob_creation_system.o mob_home.o mob_identity.o motd.o \
           mpxset.o mud_comm.o mud_prog.o oedit.o \
-          ollama_integration.o organic_creation.o periodicos.o persistent_memory.o \
+          ollama_integration.o organic_creation.o periodicos.o # persistent_memory.o \
           planes.o player.o player_world_impact.o \
-          polymorph.o redit.o requests.o reset.o resource_distribution.o save.o services.o \
+          polymorph.o redit.o requests.o reset.o # resource_distribution.o save.o services.o \
           shops.o skills.o special.o stat_obj.o suicide.o tables.o \
           track.o universal_mob_ai.o update.o websvr.o minilzo.o world_context.o \
           world_history_tracker.o \

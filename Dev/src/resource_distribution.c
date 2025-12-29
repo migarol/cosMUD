@@ -40,31 +40,6 @@
 #define MAX_RESOURCE_TYPES     12
 
 /* Resource node - a source of resources in an area */
-typedef struct resource_node RESOURCE_NODE;
-struct resource_node {
-    AREA_DATA *area;
-    int resource_type;
-    int abundance;              /* 0-100 */
-    int quality;                /* 0-100 */
-
-    /* Depletion tracking */
-    int current_supply;         /* How much left */
-    int max_supply;             /* Original amount */
-    bool renewable;             /* Regenerates? */
-    int regeneration_rate;      /* Per month */
-
-    /* Extraction */
-    int extraction_rate;        /* Per day */
-    int last_harvest;
-    bool depleted;
-
-    /* Economic */
-    int market_price;
-    int demand;                 /* 0-100 */
-
-    RESOURCE_NODE *next;
-};
-
 RESOURCE_NODE *first_resource_node = NULL;
 int total_resource_nodes = 0;
 
@@ -176,11 +151,11 @@ RESOURCE_NODE *create_resource_node(AREA_DATA *area, int resource_type, int abun
     first_resource_node = node;
     total_resource_nodes++;
 
-    log_string("RESOURCES: Created %s node in %s (abundance %d, quality %d)",
-               resource_table[resource_type].name,
+    sprintf(log_buf, "RESOURCES: Created %s node in %s (abundance %d, quality %d)", resource_table[resource_type].name,
                area->name,
                node->abundance,
                node->quality);
+    log_string(log_buf);
 
     return node;
 }
@@ -203,8 +178,8 @@ void distribute_resources_by_geography(AREA_DATA *area)
 
     geo_features = ctx->geographic_features;
 
-    log_string("RESOURCES: Distributing resources for %s (features: %d)",
-               area->name, geo_features);
+    sprintf(log_buf, "RESOURCES: Distributing resources for %s (features: %d)", area->name, geo_features);
+    log_string(log_buf);
 
     /* MOUNTAINS - ore, gems, stone, coal */
     if (geo_features & GEO_MOUNTAINS)
@@ -262,8 +237,8 @@ void scan_all_areas_for_resources(void)
         count++;
     }
 
-    log_string("RESOURCES: Scanned %d areas, created %d resource nodes",
-               count, total_resource_nodes);
+    sprintf(log_buf, "RESOURCES: Scanned %d areas, created %d resource nodes", count, total_resource_nodes);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -293,9 +268,9 @@ int harvest_resource(AREA_DATA *area, int resource_type, int amount)
                 node->depleted = TRUE;
                 node->current_supply = 0;
 
-                log_string("RESOURCES: %s depleted in %s!",
-                           resource_table[resource_type].name,
+                sprintf(log_buf, "RESOURCES: %s depleted in %s!", resource_table[resource_type].name,
                            area->name);
+    log_string(log_buf);
 
                 /* Announce depletion */
                 smart_announce(
@@ -363,9 +338,9 @@ void regenerate_resources(void)
             {
                 node->depleted = FALSE;
                 node->current_supply = node->regeneration_rate;
-                log_string("RESOURCES: %s recovering in %s",
-                           resource_table[node->resource_type].name,
+                sprintf(log_buf, "RESOURCES: %s recovering in %s", resource_table[node->resource_type].name,
                            node->area->name);
+    log_string(log_buf);
             }
         }
         else
@@ -468,13 +443,15 @@ void analyze_resource_needs(AREA_DATA *area)
     /* Log needs */
     if (!has_food)
     {
-        log_string("RESOURCES: %s needs food imports", area->name);
+        sprintf(log_buf, "RESOURCES: %s needs food imports", area->name);
+    log_string(log_buf);
         /* This creates trade opportunities */
     }
 
     if (!has_building_materials)
     {
-        log_string("RESOURCES: %s needs building materials", area->name);
+        sprintf(log_buf, "RESOURCES: %s needs building materials", area->name);
+    log_string(log_buf);
     }
 }
 
@@ -488,7 +465,7 @@ void resource_distribution_update(void)
     time_t now = time(NULL);
 
     /* Regenerate monthly */
-    if (difftime(now, last_regen) >= (30 * 86400 / GAME_TIME_MULTIPLIER))
+    if (difftime(now, last_regen) >= (3600))
     {
         last_regen = now;
         log_string("RESOURCES: Monthly regeneration...");

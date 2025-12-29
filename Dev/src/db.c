@@ -60,7 +60,7 @@
 #include "cultural_evolution.h"
 #include "family_lineage.h"
 #include "global_trade.h"
-#include "resource_distribution.h"
+// #include "resource_distribution.h"
 
 
 extern	int	_filbuf		args( (FILE *) );
@@ -847,7 +847,7 @@ void boot_db( bool fCopyOver )
     init_cultural_evolution();
 
     log_string("Initializing family lineage system");
-    init_family_system();
+    init_family_lineage();
 
     log_string("Initializing global trade system");
     init_global_trade();

@@ -236,7 +236,7 @@ int detect_forest_density(AREA_DATA *area)
         {
             total_rooms++;
             if (room->sector_type == SECT_FOREST ||
-                room->sector_type == SECT_JUNGLE)
+                room->sector_type == SECT_FOREST)
             {
                 forest_rooms++;
             }

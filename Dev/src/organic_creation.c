@@ -18,6 +18,8 @@
 #include "world_history_tracker.h"
 #include "ollama_integration.h"
 #include "periodicos.h"
+#define MAX_ROOMS_ADDED_PER_DAY 5
+#define MAX_NPCS_SPAWNED_PER_DAY 10
 
 /* Global state */
 ORGANIC_CREATION_REQUEST *first_creation_request = NULL;
@@ -154,8 +156,8 @@ void record_room_added(AREA_DATA *area)
     RATE_LIMIT_TRACKER *tracker = get_or_create_rate_tracker(area);
     tracker->rooms_added_today++;
 
-    log_string("RATE LIMIT: Room added to %s (%d/%d today)",
-               area->name, tracker->rooms_added_today, MAX_ROOMS_ADDED_PER_DAY);
+    sprintf(log_buf, "RATE LIMIT: Room added to %s (%d/%d today)", area->name, tracker->rooms_added_today, MAX_ROOMS_ADDED_PER_DAY);
+    log_string(log_buf);
 }
 
 void record_npc_spawned(AREA_DATA *area)
@@ -163,8 +165,8 @@ void record_npc_spawned(AREA_DATA *area)
     RATE_LIMIT_TRACKER *tracker = get_or_create_rate_tracker(area);
     tracker->npcs_spawned_today++;
 
-    log_string("RATE LIMIT: NPC spawned in %s (%d/%d today)",
-               area->name, tracker->npcs_spawned_today, MAX_NPCS_SPAWNED_PER_DAY);
+    sprintf(log_buf, "RATE LIMIT: NPC spawned in %s (%d/%d today)", area->name, tracker->npcs_spawned_today, MAX_NPCS_SPAWNED_PER_DAY);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -210,7 +212,8 @@ bool detect_geographic_opportunity(AREA_DATA *area, char **opportunities)
         if (number_percent() < 40)
         {
             *opportunities = str_dup("fishing");
-            log_string("ORGANIC CREATION: Detected fishing opportunity in coastal %s", area->name);
+            sprintf(log_buf, "ORGANIC CREATION: Detected fishing opportunity in coastal %s", area->name);
+    log_string(log_buf);
             return TRUE;
         }
     }
@@ -221,7 +224,8 @@ bool detect_geographic_opportunity(AREA_DATA *area, char **opportunities)
         if (number_percent() < 40)
         {
             *opportunities = str_dup("mining");
-            log_string("ORGANIC CREATION: Detected mining opportunity in mountainous %s", area->name);
+            sprintf(log_buf, "ORGANIC CREATION: Detected mining opportunity in mountainous %s", area->name);
+    log_string(log_buf);
             return TRUE;
         }
     }
@@ -353,7 +357,8 @@ bool validate_creation_request(ORGANIC_CREATION_REQUEST *req)
 {
     bool all_valid = TRUE;
 
-    log_string("ORGANIC CREATION: Validating request: %s", req->what_to_create);
+    sprintf(log_buf, "ORGANIC CREATION: Validating request: %s", req->what_to_create);
+    log_string(log_buf);
 
     if (!validate_geography(req))
         all_valid = FALSE;
@@ -370,11 +375,13 @@ bool validate_creation_request(ORGANIC_CREATION_REQUEST *req)
 
     if (all_valid)
     {
-        log_string("ORGANIC CREATION: Validation PASSED for %s", req->what_to_create);
+        sprintf(log_buf, "ORGANIC CREATION: Validation PASSED for %s", req->what_to_create);
+    log_string(log_buf);
     }
     else
     {
-        log_string("ORGANIC CREATION: Validation FAILED for %s", req->what_to_create);
+        sprintf(log_buf, "ORGANIC CREATION: Validation FAILED for %s", req->what_to_create);
+    log_string(log_buf);
     }
 
     return all_valid;
@@ -403,7 +410,8 @@ char *ai_generate_creation_plan(ORGANIC_CREATION_REQUEST *req)
         plan = ollama_request(prompt, 500);
         if (plan)
         {
-            log_string("ORGANIC CREATION: AI generated plan for %s", req->what_to_create);
+            sprintf(log_buf, "ORGANIC CREATION: AI generated plan for %s", req->what_to_create);
+    log_string(log_buf);
             return plan;
         }
     }
@@ -452,7 +460,8 @@ ORGANIC_CREATION_REQUEST *plan_skill_creation(char *skill_name, char *reason, in
     last_creation_request = req;
     total_creation_requests++;
 
-    log_string("ORGANIC CREATION: Planned skill creation: %s", skill_name);
+    sprintf(log_buf, "ORGANIC CREATION: Planned skill creation: %s", skill_name);
+    log_string(log_buf);
 
     return req;
 }
@@ -481,7 +490,8 @@ ORGANIC_CREATION_REQUEST *plan_resource_creation(char *resource_name, char *reas
     last_creation_request = req;
     total_creation_requests++;
 
-    log_string("ORGANIC CREATION: Planned resource creation: %s", resource_name);
+    sprintf(log_buf, "ORGANIC CREATION: Planned resource creation: %s", resource_name);
+    log_string(log_buf);
 
     return req;
 }
@@ -510,7 +520,8 @@ ORGANIC_CREATION_REQUEST *plan_profession_creation(char *profession_name, char *
     last_creation_request = req;
     total_creation_requests++;
 
-    log_string("ORGANIC CREATION: Planned profession creation: %s", profession_name);
+    sprintf(log_buf, "ORGANIC CREATION: Planned profession creation: %s", profession_name);
+    log_string(log_buf);
 
     return req;
 }
@@ -562,7 +573,8 @@ bool create_dependency_chain(char **dependencies, int num_deps)
 
     for (i = 0; i < num_deps && dependencies[i]; i++)
     {
-        log_string("ORGANIC CREATION: Creating dependency: %s", dependencies[i]);
+        sprintf(log_buf, "ORGANIC CREATION: Creating dependency: %s", dependencies[i]);
+    log_string(log_buf);
         /* Create each dependency */
         /* This would call appropriate creation functions */
     }
@@ -580,16 +592,19 @@ bool execute_organic_creation(ORGANIC_CREATION_REQUEST *req)
 
     if (!req->approved)
     {
-        log_string("ORGANIC CREATION: Request not approved, cannot execute: %s", req->what_to_create);
+        sprintf(log_buf, "ORGANIC CREATION: Request not approved, cannot execute: %s", req->what_to_create);
+    log_string(log_buf);
         return FALSE;
     }
 
-    log_string("ORGANIC CREATION: Executing creation: %s", req->what_to_create);
+    sprintf(log_buf, "ORGANIC CREATION: Executing creation: %s", req->what_to_create);
+    log_string(log_buf);
 
     /* Check rate limits */
     if (req->target_area && !can_add_room_today(req->target_area))
     {
-        log_string("ORGANIC CREATION: Rate limit exceeded for rooms in %s", req->target_area->name);
+        sprintf(log_buf, "ORGANIC CREATION: Rate limit exceeded for rooms in %s", req->target_area->name);
+    log_string(log_buf);
         return FALSE;
     }
 
@@ -597,24 +612,28 @@ bool execute_organic_creation(ORGANIC_CREATION_REQUEST *req)
     {
         case ORGANIC_CREATE_SKILL:
             /* Create skill ecosystem */
-            log_string("ORGANIC CREATION: Creating skill: %s", req->what_to_create);
+            sprintf(log_buf, "ORGANIC CREATION: Creating skill: %s", req->what_to_create);
+    log_string(log_buf);
             success = TRUE;
             break;
 
         case ORGANIC_CREATE_RESOURCE:
             /* Create resource ecosystem */
-            log_string("ORGANIC CREATION: Creating resource: %s", req->what_to_create);
+            sprintf(log_buf, "ORGANIC CREATION: Creating resource: %s", req->what_to_create);
+    log_string(log_buf);
             success = TRUE;
             break;
 
         case ORGANIC_CREATE_PROFESSION:
             /* Create profession ecosystem */
-            log_string("ORGANIC CREATION: Creating profession: %s", req->what_to_create);
+            sprintf(log_buf, "ORGANIC CREATION: Creating profession: %s", req->what_to_create);
+    log_string(log_buf);
             success = TRUE;
             break;
 
         default:
-            log_string("ORGANIC CREATION: Unknown creation type: %d", req->creation_type);
+            sprintf(log_buf, "ORGANIC CREATION: Unknown creation type: %d", req->creation_type);
+    log_string(log_buf);
             break;
     }
 
@@ -634,7 +653,8 @@ bool execute_organic_creation(ORGANIC_CREATION_REQUEST *req)
             req->target_area ? req->target_area->name : "World"
         );
 
-        log_string("ORGANIC CREATION: Successfully created: %s", req->what_to_create);
+        sprintf(log_buf, "ORGANIC CREATION: Successfully created: %s", req->what_to_create);
+    log_string(log_buf);
     }
 
     return success;

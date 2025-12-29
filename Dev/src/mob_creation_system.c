@@ -229,7 +229,7 @@ void record_mob_creation_event(CHAR_DATA *creator)
  * NPC Creation - Create actual CHAR_DATA
  *****************************************************************************/
 
-CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
+CHAR_DATA *mob_create_npc(CHAR_DATA *creator, CREATION_TYPE npc_type, char *reason)
 {
     CHAR_DATA *new_mob;
     MOB_INDEX_DATA *pMobIndex;
@@ -275,10 +275,6 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
             sprintf(short_desc, "a servant");
             sprintf(long_desc, "A servant attends to duties here.");
             break;
-        case CREATION_GUARD:
-            sprintf(short_desc, "a soldier");
-            sprintf(long_desc, "A soldier stands at attention.");
-            break;
         default:
             sprintf(short_desc, "a new NPC");
             sprintf(long_desc, "A new NPC is here.");
@@ -293,7 +289,7 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
     pMobIndex->long_descr = str_dup(long_desc);
     pMobIndex->description = str_dup("This NPC was created dynamically.");
     xSET_BIT(pMobIndex->act, ACT_IS_NPC);
-    pMobIndex->affected_by = 0;
+    xCLEAR_BITS(pMobIndex->affected_by);
     pMobIndex->pShop = NULL;
     pMobIndex->spec_fun = NULL;
     pMobIndex->count = 0;
@@ -397,10 +393,6 @@ OBJ_DATA *mob_create_object(CHAR_DATA *creator, int obj_type, char *name, char *
             pObjIndex->weight = 1;
             break;
 
-        case CREATION_OBJECT:
-            pObjIndex->item_type = ITEM_ARMOR;
-            pObjIndex->cost = 100;
-            pObjIndex->weight = 10;
             break;
 
         default:

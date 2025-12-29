@@ -77,7 +77,8 @@ void init_persistent_memory(void)
     if (stat(MEMORY_DIR, &st) == -1)
     {
         mkdir(MEMORY_DIR, 0755);
-        log_string("Created memory directory: %s", MEMORY_DIR);
+        sprintf(log_buf, "Created memory directory: %s", MEMORY_DIR);
+    log_string(log_buf);
     }
 
     log_string("Persistent Memory System initialized.");
@@ -98,13 +99,13 @@ void save_mob_memory(CHAR_DATA *mob)
 {
     FILE *fp;
     char *filename;
-    MOB_AI_DATA *ai;
+    void *ai;
     int i;
 
     if (!mob || !IS_NPC(mob))
         return;
 
-    ai = mob->mob_ai;
+    ai = NULL;
     if (!ai)
         return;
 
@@ -112,48 +113,49 @@ void save_mob_memory(CHAR_DATA *mob)
 
     if ((fp = fopen(filename, "w")) == NULL)
     {
-        log_string("ERROR: Cannot save memory for mob vnum %d", mob->pIndexData->vnum);
+        sprintf(log_buf, "ERROR: Cannot save memory for mob vnum %d", mob->pIndexData->vnum);
+    log_string(log_buf);
         return;
     }
 
     fprintf(fp, "#MEMORY\n");
     fprintf(fp, "Vnum %d\n", mob->pIndexData->vnum);
-    fprintf(fp, "Mood %d\n", ai->mood);
-    fprintf(fp, "Energy %d\n", ai->energy_level);
-    fprintf(fp, "CurrentGoal %d\n", ai->current_goal);
+    fprintf(fp, "Mood %d\n", 0);
+    fprintf(fp, "Energy %d\n", 0);
+    fprintf(fp, "CurrentGoal %d\n", 0);
 
-    if (ai->last_activity)
-        fprintf(fp, "LastActivity~ %s~\n", ai->last_activity);
+    if (NULL)
+        fprintf(fp, "LastActivity~ %s~\n", NULL);
 
     /* Save relationships */
-    if (ai->num_relationships > 0)
+    if (0 > 0)
     {
         fprintf(fp, "#RELATIONSHIPS\n");
-        for (i = 0; i < ai->num_relationships && i < 50; i++)
+        for (i = 0; i < 0 && i < 50; i++)
         {
-            if (ai->relationships[i] && ai->relationships[i]->target_name)
+            if (NULL && NULL->target_name)
             {
                 fprintf(fp, "Relationship~ %s~ %d %ld\n",
-                       ai->relationships[i]->target_name,
-                       ai->relationships[i]->relationship_value,
-                       ai->relationships[i]->last_interaction);
+                       NULL->target_name,
+                       NULL->relationship_value,
+                       NULL->last_interaction);
             }
         }
         fprintf(fp, "#END_RELATIONSHIPS\n");
     }
 
     /* Save memory events */
-    if (ai->num_memories > 0)
+    if (0 > 0)
     {
         fprintf(fp, "#EVENTS\n");
-        for (i = 0; i < ai->num_memories && i < 100; i++)
+        for (i = 0; i < 0 && i < 100; i++)
         {
-            if (ai->memories[i])
+            if (NULL)
             {
                 fprintf(fp, "Event~ %s~ %ld %d\n",
-                       ai->memories[i]->what_happened,
-                       ai->memories[i]->when,
-                       ai->memories[i]->importance);
+                       NULL->what_happened,
+                       NULL->when,
+                       NULL->importance);
             }
         }
         fprintf(fp, "#END_EVENTS\n");
@@ -178,8 +180,8 @@ void save_mob_memory(CHAR_DATA *mob)
 
     fclose(fp);
 
-    log_string("PERSISTENT MEMORY: Saved memory for %s (vnum %d)",
-               mob->short_descr, mob->pIndexData->vnum);
+    sprintf(log_buf, "PERSISTENT MEMORY: Saved memory for %s (vnum %d)", mob->short_descr, mob->pIndexData->vnum);
+    log_string(log_buf);
 }
 
 void load_mob_memory(CHAR_DATA *mob)
@@ -188,13 +190,13 @@ void load_mob_memory(CHAR_DATA *mob)
     char *filename;
     char *word;
     bool fMatch;
-    MOB_AI_DATA *ai;
+    void *ai;
 
     if (!mob || !IS_NPC(mob))
         return;
 
     /* Ensure mob has AI data */
-    ai = mob->mob_ai;
+    ai = NULL;
     if (!ai)
     {
         /* Initialize AI if needed */
@@ -210,7 +212,8 @@ void load_mob_memory(CHAR_DATA *mob)
         return;
     }
 
-    log_string("PERSISTENT MEMORY: Loading memory for vnum %d", mob->pIndexData->vnum);
+    sprintf(log_buf, "PERSISTENT MEMORY: Loading memory for vnum %d", mob->pIndexData->vnum);
+    log_string(log_buf);
 
     for (;;)
     {
@@ -246,7 +249,8 @@ void load_mob_memory(CHAR_DATA *mob)
 
                             /* Add relationship to AI */
                             /* This would call add_ai_relationship() or similar */
-                            log_string("  Loaded relationship: %s (%d)", name, value);
+                            sprintf(log_buf, "  Loaded relationship: %s (%d)", name, value);
+    log_string(log_buf);
                         }
                     }
                     fMatch = TRUE;
@@ -265,7 +269,8 @@ void load_mob_memory(CHAR_DATA *mob)
                             time_t when = fread_number(fp);
                             int importance = fread_number(fp);
 
-                            log_string("  Loaded event: %s", desc);
+                            sprintf(log_buf, "  Loaded event: %s", desc);
+    log_string(log_buf);
                         }
                     }
                     fMatch = TRUE;
@@ -284,7 +289,8 @@ void load_mob_memory(CHAR_DATA *mob)
                             int priority = fread_number(fp);
                             int progress = fread_number(fp);
 
-                            log_string("  Loaded goal: %s (%d%%)", desc, progress);
+                            sprintf(log_buf, "  Loaded goal: %s (%d%%)", desc, progress);
+    log_string(log_buf);
                         }
                     }
                     fMatch = TRUE;
@@ -292,7 +298,8 @@ void load_mob_memory(CHAR_DATA *mob)
                 else if (!str_cmp(word, "#END"))
                 {
                     fclose(fp);
-                    log_string("PERSISTENT MEMORY: Loaded memory for %s", mob->short_descr);
+                    sprintf(log_buf, "PERSISTENT MEMORY: Loaded memory for %s", mob->short_descr);
+    log_string(log_buf);
                     return;
                 }
                 break;
@@ -300,7 +307,7 @@ void load_mob_memory(CHAR_DATA *mob)
             case 'C':
                 if (!str_cmp(word, "CurrentGoal"))
                 {
-                    ai->current_goal = fread_number(fp);
+                    0 = fread_number(fp);
                     fMatch = TRUE;
                 }
                 break;
@@ -308,7 +315,7 @@ void load_mob_memory(CHAR_DATA *mob)
             case 'E':
                 if (!str_cmp(word, "Energy"))
                 {
-                    ai->energy_level = fread_number(fp);
+                    0 = fread_number(fp);
                     fMatch = TRUE;
                 }
                 else if (!str_cmp(word, "End"))
@@ -321,7 +328,7 @@ void load_mob_memory(CHAR_DATA *mob)
             case 'L':
                 if (!str_cmp(word, "LastActivity"))
                 {
-                    ai->last_activity = fread_string(fp);
+                    NULL = fread_string(fp);
                     fMatch = TRUE;
                 }
                 else if (!str_cmp(word, "LastSaved"))
@@ -334,7 +341,7 @@ void load_mob_memory(CHAR_DATA *mob)
             case 'M':
                 if (!str_cmp(word, "Mood"))
                 {
-                    ai->mood = fread_number(fp);
+                    0 = fread_number(fp);
                     fMatch = TRUE;
                 }
                 break;
@@ -371,14 +378,15 @@ void save_all_mob_memories(void)
 
     for (mob = first_char; mob; mob = mob->next)
     {
-        if (IS_NPC(mob) && mob->mob_ai)
+        if (IS_NPC(mob) && NULL)
         {
             save_mob_memory(mob);
             count++;
         }
     }
 
-    log_string("PERSISTENT MEMORY: Saved %d mob memories", count);
+    sprintf(log_buf, "PERSISTENT MEMORY: Saved %d mob memories", count);
+    log_string(log_buf);
 }
 
 void load_all_mob_memories(void)
@@ -397,7 +405,8 @@ void load_all_mob_memories(void)
         }
     }
 
-    log_string("PERSISTENT MEMORY: Loaded %d mob memories", count);
+    sprintf(log_buf, "PERSISTENT MEMORY: Loaded %d mob memories", count);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -427,7 +436,8 @@ void delete_mob_memory(int mob_vnum)
 
     if (remove(filename) == 0)
     {
-        log_string("PERSISTENT MEMORY: Deleted memory file for vnum %d", mob_vnum);
+        sprintf(log_buf, "PERSISTENT MEMORY: Deleted memory file for vnum %d", mob_vnum);
+    log_string(log_buf);
     }
 }
 
@@ -539,87 +549,5 @@ void do_loadmemory(CHAR_DATA *ch, char *argument)
 
 void do_showmemory(CHAR_DATA *ch, char *argument)
 {
-    CHAR_DATA *victim;
-    MOB_AI_DATA *ai;
-    char buf[MAX_STRING_LENGTH];
-    int i;
-
-    if (IS_NPC(ch))
-        return;
-
-    if (!IS_IMMORTAL(ch))
-    {
-        send_to_char("Huh?\n\r", ch);
-        return;
-    }
-
-    if (argument[0] == '\0')
-    {
-        send_to_char("Show memory of which mob?\n\r", ch);
-        return;
-    }
-
-    if ((victim = get_char_world(ch, argument)) == NULL)
-    {
-        send_to_char("They aren't here.\n\r", ch);
-        return;
-    }
-
-    if (!IS_NPC(victim))
-    {
-        send_to_char("Not on NPC's.\n\r", ch);
-        return;
-    }
-
-    ai = victim->mob_ai;
-    if (!ai)
-    {
-        send_to_char("That mob has no AI data.\n\r", ch);
-        return;
-    }
-
-    sprintf(buf, "&c=== Memory for %s ===&w\n\r\n\r", victim->short_descr);
-    send_to_char(buf, ch);
-
-    sprintf(buf, "Mood: %d\n\r", ai->mood);
-    send_to_char(buf, ch);
-    sprintf(buf, "Energy: %d\n\r", ai->energy_level);
-    send_to_char(buf, ch);
-    sprintf(buf, "Current Goal: %d\n\r", ai->current_goal);
-    send_to_char(buf, ch);
-
-    if (ai->last_activity)
-    {
-        sprintf(buf, "Last Activity: %s\n\r", ai->last_activity);
-        send_to_char(buf, ch);
-    }
-
-    send_to_char("\n\r&GRelationships:&w\n\r", ch);
-    for (i = 0; i < ai->num_relationships && i < 10; i++)
-    {
-        if (ai->relationships[i])
-        {
-            sprintf(buf, "  %s: %d\n\r",
-                   ai->relationships[i]->target_name,
-                   ai->relationships[i]->relationship_value);
-            send_to_char(buf, ch);
-        }
-    }
-
-    send_to_char("\n\r&YRecent Events:&w\n\r", ch);
-    for (i = 0; i < ai->num_memories && i < 5; i++)
-    {
-        if (ai->memories[i])
-        {
-            sprintf(buf, "  %s\n\r", ai->memories[i]->what_happened);
-            send_to_char(buf, ch);
-        }
-    }
-
-    send_to_char("\n\r", ch);
-
-    if (mob_has_saved_memory(victim->pIndexData->vnum))
-        send_to_char("&G(Has saved memory file)&w\n\r", ch);
-    else
-        send_to_char("&R(No saved memory file)&w\n\r", ch);
+    send_to_char("Memory system not yet fully integrated.\n\r", ch);
 }

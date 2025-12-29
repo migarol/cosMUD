@@ -215,10 +215,10 @@ void record_player_action(CHAR_DATA *player, int action_type, void *target, AREA
         record_player_action(player->name, action->action_description, 6);
     }
 
-    log_string("PLAYER IMPACT: %s - %s in %s",
-               player->name,
+    sprintf(log_buf, "PLAYER IMPACT: %s - %s in %s", player->name,
                action->action_description,
                action->area_affected ? action->area_affected->name : "unknown");
+    log_string(log_buf);
 }
 
 void apply_action_to_vital_signs(PLAYER_ACTION_IMPACT *action, AREA_VITAL_SIGNS *vitals)
@@ -282,7 +282,8 @@ void player_donated_gold(CHAR_DATA *player, AREA_DATA *area, int amount)
     action->action_description = str_dup(buf);
     action->significant = (amount >= 1000);
 
-    log_string("PLAYER IMPACT: %s donated %d gold to %s", player->name, amount, area->name);
+    sprintf(log_buf, "PLAYER IMPACT: %s donated %d gold to %s", player->name, amount, area->name);
+    log_string(log_buf);
 }
 
 void player_donated_item(CHAR_DATA *player, AREA_DATA *area, OBJ_DATA *item)
@@ -349,8 +350,8 @@ void update_player_reputation(CHAR_DATA *player, AREA_DATA *area, int change)
 {
     /* Track player reputation in this area */
     /* This would integrate with a reputation tracking system */
-    log_string("REPUTATION: %s's reputation in %s changed by %d",
-               player->name, area->name, change);
+    sprintf(log_buf, "REPUTATION: %s's reputation in %s changed by %d", player->name, area->name, change);
+    log_string(log_buf);
 }
 
 int get_player_reputation(CHAR_DATA *player, AREA_DATA *area)
@@ -422,8 +423,8 @@ GRADUAL_CHANGE *create_gradual_change(AREA_DATA *area, int change_type, int dura
     first_gradual_change = change;
     total_gradual_changes++;
 
-    log_string("GRADUAL CHANGE: Created change #%d in %s (%d hours duration)",
-               change->change_id, area->name, duration_hours);
+    sprintf(log_buf, "GRADUAL CHANGE: Created change #%d in %s (%d hours duration)", change->change_id, area->name, duration_hours);
+    log_string(log_buf);
 
     return change;
 }
@@ -465,7 +466,8 @@ void advance_gradual_change(GRADUAL_CHANGE *change, int hours)
     if (change->progress_percentage > 100)
         change->progress_percentage = 100;
 
-    log_string("GRADUAL CHANGE: #%d advanced to %d%%", change->change_id, change->progress_percentage);
+    sprintf(log_buf, "GRADUAL CHANGE: #%d advanced to %d%%", change->change_id, change->progress_percentage);
+    log_string(log_buf);
 }
 
 void complete_gradual_change(GRADUAL_CHANGE *change)
@@ -473,18 +475,21 @@ void complete_gradual_change(GRADUAL_CHANGE *change)
     if (!change)
         return;
 
-    log_string("GRADUAL CHANGE: #%d COMPLETED in %s", change->change_id, change->area->name);
+    sprintf(log_buf, "GRADUAL CHANGE: #%d COMPLETED in %s", change->change_id, change->area->name);
+    log_string(log_buf);
 
     /* Apply the change */
     if (change->rooms_to_add > 0)
     {
-        log_string("  Adding %d rooms to %s", change->rooms_to_add, change->area->name);
+        sprintf(log_buf, "  Adding %d rooms to %s", change->rooms_to_add, change->area->name);
+    log_string(log_buf);
         /* Would call beeler_execute_growth() */
     }
 
     if (change->npcs_to_spawn > 0)
     {
-        log_string("  Spawning %d NPCs in %s", change->npcs_to_spawn, change->area->name);
+        sprintf(log_buf, "  Spawning %d NPCs in %s", change->npcs_to_spawn, change->area->name);
+    log_string(log_buf);
     }
 
     /* Announce completion */
@@ -531,8 +536,8 @@ void player_contribute_gold(CHAR_DATA *player, GRADUAL_CHANGE *change, int amoun
     if (acceleration > 0)
     {
         advance_gradual_change(change, acceleration);
-        log_string("PLAYER CONTRIBUTION: %s accelerated change by %d hours with %d gold",
-                   player->name, acceleration, amount);
+        sprintf(log_buf, "PLAYER CONTRIBUTION: %s accelerated change by %d hours with %d gold", player->name, acceleration, amount);
+    log_string(log_buf);
     }
 }
 
@@ -559,8 +564,8 @@ void disrupt_gradual_change(GRADUAL_CHANGE *change, char *reason, int setback_ho
 
     change->disruption_events++;
 
-    log_string("GRADUAL CHANGE: #%d disrupted (%s) - setback %d hours",
-               change->change_id, reason, setback_hours);
+    sprintf(log_buf, "GRADUAL CHANGE: #%d disrupted (%s) - setback %d hours", change->change_id, reason, setback_hours);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
