@@ -18,11 +18,13 @@ typedef enum {
 
 /* Functions */
 void init_book_writing_system(void);
-void mob_write_book(CHAR_DATA *author, BOOK_TYPE type, char *topic);
+void mob_write_book(CHAR_DATA *author, int book_type, char *subject);
 void mob_write_poem(CHAR_DATA *poet, char *subject);
-char *generate_book_content(CHAR_DATA *author, BOOK_TYPE type, char *topic);
+char *generate_book_content(int book_type, char *subject, char *author_name, char *author_profession);
 char *generate_poem_content(CHAR_DATA *poet, char *subject);
-OBJ_DATA *create_book_object(char *title, char *author, char *content);
+OBJ_DATA *create_book_object(char *title, char *author, char *content, int *assigned_vnum);
 void book_mention_character(OBJ_DATA *book, char *character_name);
+void book_writing_update(void);
+void queue_book_writing(CHAR_DATA *author, int book_type, char *subject);
 
 #endif

@@ -17,6 +17,9 @@
 #ifndef WORLD_CONTEXT_H
 #define WORLD_CONTEXT_H
 
+/* Forward declarations */
+typedef struct leader_ai_data LEADER_AI_DATA;
+
 /* Context analysis types */
 #define CONTEXT_GEOGRAPHY      0
 #define CONTEXT_POLITICAL      1
@@ -262,6 +265,7 @@ char *suggest_resource_distribution(AREA_CONTEXT *ctx);
 AREA_DATA *suggest_best_location_for(char *what_to_create);
 
 /* EXAMPLES - Congruence Checking in Action */
+#if 0  /* Examples disabled for compilation */
 
 /* Example 1: GOOD - Fishing in coastal city */
 CONGRUENCE_CHECK *example_fishing_in_darkhaven(void)
@@ -431,6 +435,8 @@ bool validate_before_organic_creation(ORGANIC_CREATION_REQUEST *req)
 
     return TRUE;
 }
+
+#endif /* Examples disabled */
 
 /* Commands */
 void do_worldcontext(CHAR_DATA *ch, char *argument);  /* Show world analysis */

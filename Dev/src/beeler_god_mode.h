@@ -22,6 +22,9 @@
 #ifndef BEELER_GOD_MODE_H
 #define BEELER_GOD_MODE_H
 
+/* Forward declarations */
+typedef struct world_context WORLD_CONTEXT;
+
 /* ========================================================================
  * ÁREA VITAL SIGNS - Health of settlements
  * ======================================================================== */
@@ -433,6 +436,7 @@ void example_non_intervention(void)
  * ======================================================================== */
 
 /* God-mode monitoring */
+void init_beeler_god_mode(void);
 void beeler_divine_observation(void);    /* Observe ALL areas constantly */
 void beeler_analyze_vital_signs(AREA_DATA *area);
 AREA_VITAL_SIGNS *beeler_get_area_health(AREA_DATA *area);
@@ -455,7 +459,7 @@ void beeler_evolve_area_stage(AREA_DATA *area, int new_stage);
 
 /* Emergency response */
 void beeler_emergency_intervention(char *crisis);
-void beeler_handle_critical_alert(char *alert);
+void beeler_handle_critical_alert(AREA_VITAL_SIGNS *vitals);
 
 /* Natural processes */
 void beeler_allow_natural_death(AREA_DATA *area);
@@ -487,5 +491,8 @@ void beeler_integrate_player_actions(AREA_DATA *area);
 void beeler_respect_rate_limits(AREA_DATA *area);
 void beeler_create_gradual_change(AREA_DATA *area, int change_type, int duration);
 bool beeler_check_daily_limits(AREA_DATA *area);
+
+/* Global beeler oversight instance */
+extern BEELER_DIVINE_OVERSIGHT *beeler_oversight;
 
 #endif /* BEELER_GOD_MODE_H */

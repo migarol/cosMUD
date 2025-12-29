@@ -20,49 +20,6 @@
 #include "periodicos.h"
 #include "mob_creation_system.h"
 
-/* Family member record */
-typedef struct family_member FAMILY_MEMBER;
-struct family_member {
-    int mob_vnum;
-    char *name;
-    CHAR_DATA *mob_ptr;         /* NULL if not currently loaded */
-
-    /* Relationships */
-    FAMILY_MEMBER *father;
-    FAMILY_MEMBER *mother;
-    FAMILY_MEMBER *spouse;
-    FAMILY_MEMBER **children;
-    int num_children;
-
-    /* Lineage */
-    int generation;             /* 1 = founder, 2 = children, etc */
-    char *family_name;          /* "House Aldric", "Smith Family" */
-    char *bloodline;            /* "Royal Line of DarkHaven" */
-
-    /* Traits inherited */
-    int inherited_strength;
-    int inherited_intelligence;
-    int inherited_charisma;
-    char *inherited_profession;
-
-    /* Life events */
-    time_t born;
-    time_t died;                /* 0 if still alive */
-    bool is_alive;
-
-    FAMILY_MEMBER *next_in_family;
-    FAMILY_MEMBER *next_global;
-};
-
-/* Family tree */
-typedef struct family_tree FAMILY_TREE;
-struct family_tree {
-    char *family_name;
-    FAMILY_MEMBER *founder;     /* First generation */
-    int total_members;
-    int current_generation;
-    FAMILY_TREE *next;
-};
 
 FAMILY_TREE *first_family = NULL;
 FAMILY_MEMBER *first_member = NULL;
@@ -152,7 +109,8 @@ FAMILY_TREE *create_family(char *family_name, FAMILY_MEMBER *founder)
         founder->family_name = str_dup(family_name);
     }
 
-    log_string("FAMILY LINEAGE: Created family '%s'", family_name);
+    sprintf(log_buf, "FAMILY LINEAGE: Created family '%s'", family_name);
+    log_string(log_buf);
 
     return family;
 }
@@ -208,11 +166,11 @@ void set_parents(FAMILY_MEMBER *child, FAMILY_MEMBER *father, FAMILY_MEMBER *mot
     else if (mother && mother->family_name)
         child->family_name = str_dup(mother->family_name);
 
-    log_string("FAMILY LINEAGE: %s is child of %s and %s (Gen %d)",
-               child->name,
+    sprintf(log_buf, "FAMILY LINEAGE: %s is child of %s and %s (Gen %d)", child->name,
                father ? father->name : "unknown",
                mother ? mother->name : "unknown",
                child->generation);
+    log_string(log_buf);
 }
 
 void add_child_to_parent(FAMILY_MEMBER *parent, FAMILY_MEMBER *child)
@@ -241,7 +199,8 @@ void marry(FAMILY_MEMBER *spouse1, FAMILY_MEMBER *spouse2)
     spouse1->spouse = spouse2;
     spouse2->spouse = spouse1;
 
-    log_string("FAMILY LINEAGE: %s married %s", spouse1->name, spouse2->name);
+    sprintf(log_buf, "FAMILY LINEAGE: %s married %s", spouse1->name, spouse2->name);
+    log_string(log_buf);
 
     /* Announce marriage */
     smart_announce(
@@ -307,7 +266,7 @@ FAMILY_MEMBER *birth_child(FAMILY_MEMBER *father, FAMILY_MEMBER *mother, char *c
     {
         sprintf(short_desc, "%s, child of %s", child_name, father->name);
 
-        child_mob = mob_create_npc(father->mob_ptr, CREATE_WORKER, "birth");
+        child_mob = mob_create_npc(father->mob_ptr, CREATION_CHILD, "birth");
         if (child_mob)
         {
             child->mob_vnum = child_mob->pIndexData->vnum;
@@ -315,10 +274,10 @@ FAMILY_MEMBER *birth_child(FAMILY_MEMBER *father, FAMILY_MEMBER *mother, char *c
         }
     }
 
-    log_string("FAMILY LINEAGE: Birth! %s born to %s and %s",
-               child_name,
+    sprintf(log_buf, "FAMILY LINEAGE: Birth! %s born to %s and %s", child_name,
                father ? father->name : "unknown",
                mother ? mother->name : "unknown");
+    log_string(log_buf);
 
     /* Announce significant births (nobles, royalty) */
     if (father && strstr(father->name, "King"))
@@ -350,7 +309,8 @@ void record_death(FAMILY_MEMBER *member)
     member->died = time(NULL);
     member->is_alive = FALSE;
 
-    log_string("FAMILY LINEAGE: Death recorded for %s", member->name);
+    sprintf(log_buf, "FAMILY LINEAGE: Death recorded for %s", member->name);
+    log_string(log_buf);
 
     /* Check for succession needs */
     if (strstr(member->name, "King") && member->num_children > 0)
@@ -358,8 +318,8 @@ void record_death(FAMILY_MEMBER *member)
         /* Find eldest child */
         FAMILY_MEMBER *heir = member->children[0];
 
-        log_string("FAMILY LINEAGE: Succession - %s inherits from %s",
-                   heir->name, member->name);
+        sprintf(log_buf, "FAMILY LINEAGE: Succession - %s inherits from %s", heir->name, member->name);
+    log_string(log_buf);
 
         smart_announce(
             "Royal Succession",
@@ -438,7 +398,8 @@ void establish_dynasty(char *dynasty_name, FAMILY_MEMBER *founder)
         founder->bloodline = str_dup(dynasty_name);
     }
 
-    log_string("FAMILY LINEAGE: Established dynasty '%s'", dynasty_name);
+    sprintf(log_buf, "FAMILY LINEAGE: Established dynasty '%s'", dynasty_name);
+    log_string(log_buf);
 
     smart_announce(
         "New Dynasty Founded",
@@ -460,7 +421,7 @@ void family_lineage_update(void)
     time_t now = time(NULL);
 
     /* Check monthly */
-    if (difftime(now, last_check) < (30 * 86400 / GAME_TIME_MULTIPLIER))
+    if (difftime(now, last_check) < (3600))
         return;
 
     last_check = now;

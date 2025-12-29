@@ -181,7 +181,7 @@ AREA_CLASSIFICATION *classify_area(AREA_DATA *area)
         rooms_count++;
 
         /* Check for shops */
-        if (room->first_exshop)
+        if (FALSE)
             shop_count++;
 
         /* Check for government/important buildings */

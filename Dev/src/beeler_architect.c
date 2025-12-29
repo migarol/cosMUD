@@ -15,6 +15,10 @@
 #include "beeler_architect.h"
 #include "mob_home.h"
 #include "mob_identity.h"
+#include "world_context.h"
+#include "leader_ai.h"
+#include "periodicos.h"
+#include "organic_creation.h"
 
 /* Global context */
 BEELER_CONTEXT beeler_world_context;

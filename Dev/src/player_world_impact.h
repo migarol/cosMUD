@@ -380,7 +380,7 @@ void apply_action_to_vital_signs(PLAYER_ACTION_IMPACT *action, AREA_VITAL_SIGNS 
 
 /* Specific action handlers */
 void player_killed_mob(CHAR_DATA *player, CHAR_DATA *mob);
-void player_completed_quest(CHAR_DATA *player, QUEST_DATA *quest);
+// void player_completed_quest(CHAR_DATA *player, QUEST_DATA *quest);
 void player_donated_gold(CHAR_DATA *player, AREA_DATA *area, int amount);
 void player_donated_item(CHAR_DATA *player, AREA_DATA *area, OBJ_DATA *item);
 void player_helped_npc(CHAR_DATA *player, CHAR_DATA *npc, char *how);
@@ -401,7 +401,7 @@ void complete_gradual_change(GRADUAL_CHANGE *change);
 
 /* Player contribution to gradual changes */
 void player_contribute_gold(CHAR_DATA *player, GRADUAL_CHANGE *change, int amount);
-void player_contribute_quest(CHAR_DATA *player, GRADUAL_CHANGE *change, QUEST_DATA *quest);
+// void player_contribute_quest(CHAR_DATA *player, GRADUAL_CHANGE *change, QUEST_DATA *quest);
 void player_contribute_item(CHAR_DATA *player, GRADUAL_CHANGE *change, OBJ_DATA *item);
 int calculate_acceleration(GRADUAL_CHANGE *change);  /* How much faster due to players */
 

@@ -144,20 +144,16 @@ bool can_mob_create(CHAR_DATA *mob, int what_to_create)
 
     switch (what_to_create)
     {
-        case CREATE_APPRENTICE:
+        case CREATION_APPRENTICE:
             return (power >= POWER_CRAFTSMAN);
-        case CREATE_WORKER:
+        case CREATION_CITIZEN:
             return (power >= POWER_MERCHANT);
-        case CREATE_GUARD:
+        case CREATION_GUARD:
             return (power >= POWER_NOBLE);
-        case CREATE_SERVANT:
+        case CREATION_MERCHANT:
             return (power >= POWER_NOBLE);
-        case CREATE_SOLDIER:
-            return (power >= POWER_KING);
-        case CREATE_ITEM_SIMPLE:
+        case CREATION_OBJECT:
             return (power >= POWER_CRAFTSMAN);
-        case CREATE_ITEM_COMPLEX:
-            return (power >= POWER_GUILD_MASTER);
         default:
             return FALSE;
     }
@@ -215,8 +211,8 @@ bool mob_creation_rate_limited(CHAR_DATA *mob)
 
     if (limit->creations_this_week >= max_per_week)
     {
-        log_string("MOB CREATION: Rate limit - %s has created %d/%d this week",
-                   mob->short_descr, limit->creations_this_week, max_per_week);
+        sprintf(log_buf, "MOB CREATION: Rate limit - %s has created %d/%d this week", mob->short_descr, limit->creations_this_week, max_per_week);
+    log_string(log_buf);
         return TRUE;
     }
 
@@ -247,8 +243,8 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
     /* Check permissions */
     if (!can_mob_create(creator, npc_type))
     {
-        log_string("MOB CREATION: %s lacks power to create type %d",
-                   creator->short_descr, npc_type);
+        sprintf(log_buf, "MOB CREATION: %s lacks power to create type %d", creator->short_descr, npc_type);
+    log_string(log_buf);
         return NULL;
     }
 
@@ -263,23 +259,23 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
     /* Generate description based on type */
     switch (npc_type)
     {
-        case CREATE_APPRENTICE:
+        case CREATION_APPRENTICE:
             sprintf(short_desc, "an apprentice of %s", creator->short_descr);
             sprintf(long_desc, "An apprentice works diligently here.");
             break;
-        case CREATE_WORKER:
+        case CREATION_CITIZEN:
             sprintf(short_desc, "a worker");
             sprintf(long_desc, "A worker toils here.");
             break;
-        case CREATE_GUARD:
+        case CREATION_GUARD:
             sprintf(short_desc, "a guard");
             sprintf(long_desc, "A guard stands watch here.");
             break;
-        case CREATE_SERVANT:
+        case CREATION_MERCHANT:
             sprintf(short_desc, "a servant");
             sprintf(long_desc, "A servant attends to duties here.");
             break;
-        case CREATE_SOLDIER:
+        case CREATION_GUARD:
             sprintf(short_desc, "a soldier");
             sprintf(long_desc, "A soldier stands at attention.");
             break;
@@ -296,7 +292,7 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
     pMobIndex->short_descr = str_dup(short_desc);
     pMobIndex->long_descr = str_dup(long_desc);
     pMobIndex->description = str_dup("This NPC was created dynamically.");
-    pMobIndex->act = ACT_IS_NPC;
+    xSET_BIT(pMobIndex->act, ACT_IS_NPC);
     pMobIndex->affected_by = 0;
     pMobIndex->pShop = NULL;
     pMobIndex->spec_fun = NULL;
@@ -336,11 +332,11 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
     /* Record in world history */
     record_mob_creation(creator->short_descr, new_mob->short_descr, reason);
 
-    log_string("MOB CREATION: %s created %s (vnum %d) - %s",
-               creator->short_descr, new_mob->short_descr, next_mob_vnum, reason);
+    sprintf(log_buf, "MOB CREATION: %s created %s (vnum %d) - %s", creator->short_descr, new_mob->short_descr, next_mob_vnum, reason);
+    log_string(log_buf);
 
     /* Announce significant creations */
-    if (npc_type == CREATE_SOLDIER || npc_type == CREATE_GUARD)
+    if (npc_type == CREATION_GUARD || npc_type == CREATION_GUARD)
     {
         char headline[MAX_STRING_LENGTH];
         char body[MAX_STRING_LENGTH];
@@ -348,7 +344,7 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, int npc_type, char *reason)
         sprintf(headline, "%s Recruits New Forces", creator->short_descr);
         sprintf(body, "%s has recruited additional %s. Reason: %s",
                 creator->short_descr,
-                npc_type == CREATE_SOLDIER ? "soldiers" : "guards",
+                npc_type == CREATION_GUARD ? "soldiers" : "guards",
                 reason);
 
         smart_announce(headline, body, EVENT_CATEGORY_CONSTRUCTION,
@@ -395,13 +391,13 @@ OBJ_DATA *mob_create_object(CHAR_DATA *creator, int obj_type, char *name, char *
     /* Set type and stats based on obj_type */
     switch (obj_type)
     {
-        case CREATE_ITEM_SIMPLE:
+        case CREATION_OBJECT:
             pObjIndex->item_type = ITEM_TRASH;
             pObjIndex->cost = 10;
             pObjIndex->weight = 1;
             break;
 
-        case CREATE_ITEM_COMPLEX:
+        case CREATION_OBJECT:
             pObjIndex->item_type = ITEM_ARMOR;
             pObjIndex->cost = 100;
             pObjIndex->weight = 10;
@@ -446,8 +442,8 @@ OBJ_DATA *mob_create_object(CHAR_DATA *creator, int obj_type, char *name, char *
     first_creation = record;
     total_creations++;
 
-    log_string("MOB CREATION: %s created object '%s' (vnum %d)",
-               creator->short_descr, name, next_obj_vnum);
+    sprintf(log_buf, "MOB CREATION: %s created object '%s' (vnum %d)", creator->short_descr, name, next_obj_vnum);
+    log_string(log_buf);
 
     next_obj_vnum++;
     return obj;
@@ -481,8 +477,9 @@ void trigger_mob_creation_based_on_need(AREA_DATA *area)
             {
                 if (!mob_creation_rate_limited(mob))
                 {
-                    mob_create_npc(mob, CREATE_GUARD, "Increase area security");
-                    log_string("AUTO CREATION: %s hired guard due to low safety", mob->short_descr);
+                    mob_create_npc(mob, CREATION_GUARD, "Increase area security");
+                    sprintf(log_buf, "AUTO CREATION: %s hired guard due to low safety", mob->short_descr);
+    log_string(log_buf);
                     break; /* One per update */
                 }
             }
@@ -501,8 +498,9 @@ void trigger_mob_creation_based_on_need(AREA_DATA *area)
             {
                 if (!mob_creation_rate_limited(mob))
                 {
-                    mob_create_npc(mob, CREATE_WORKER, "Increase workforce");
-                    log_string("AUTO CREATION: %s hired worker due to low population", mob->short_descr);
+                    mob_create_npc(mob, CREATION_CITIZEN, "Increase workforce");
+                    sprintf(log_buf, "AUTO CREATION: %s hired worker due to low population", mob->short_descr);
+    log_string(log_buf);
                     break;
                 }
             }
@@ -565,15 +563,15 @@ void do_mobcreate(CHAR_DATA *ch, char *argument)
     }
 
     if (!str_cmp(arg1, "apprentice"))
-        npc_type = CREATE_APPRENTICE;
+        npc_type = CREATION_APPRENTICE;
     else if (!str_cmp(arg1, "worker"))
-        npc_type = CREATE_WORKER;
+        npc_type = CREATION_CITIZEN;
     else if (!str_cmp(arg1, "guard"))
-        npc_type = CREATE_GUARD;
+        npc_type = CREATION_GUARD;
     else if (!str_cmp(arg1, "servant"))
-        npc_type = CREATE_SERVANT;
+        npc_type = CREATION_MERCHANT;
     else if (!str_cmp(arg1, "soldier"))
-        npc_type = CREATE_SOLDIER;
+        npc_type = CREATION_GUARD;
     else
     {
         send_to_char("Invalid type.\n\r", ch);

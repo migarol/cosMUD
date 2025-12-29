@@ -24,56 +24,6 @@
 #include "ollama_integration.h"
 
 /* Cultural identity for an area */
-typedef struct area_culture AREA_CULTURE;
-struct area_culture {
-    AREA_DATA *area;
-
-    /* Core identity */
-    int primary_culture_type;      /* CULTURE_MEDIEVAL, etc */
-    char *cultural_name;           /* "The Coastal Folk", "Mountain Clans" */
-    char *cultural_identity;       /* AI-generated description */
-
-    /* Values and beliefs */
-    int values[10];                /* What this culture values */
-    char *core_belief;             /* Primary belief system */
-
-    /* Traditions */
-    int num_traditions;
-    struct tradition {
-        char *name;
-        char *description;
-        int age_in_years;          /* How old is this tradition */
-        int importance;            /* 1-10 */
-    } *traditions[20];
-
-    /* Festivals */
-    int num_festivals;
-    struct festival {
-        char *name;
-        char *description;
-        int month;                 /* When celebrated */
-        int day;
-        bool active;
-    } *festivals[10];
-
-    /* Cultural practices */
-    char *greeting_style;          /* How people greet */
-    char *architecture_style;      /* Building style */
-    char *art_style;               /* Artistic preferences */
-    char *music_style;             /* Musical preferences */
-    char *food_culture;            /* Culinary traditions */
-
-    /* Cultural drift */
-    int similarity_to_neighbors;   /* 0-100 */
-    int cultural_isolation;        /* 0-100 (higher = more unique) */
-
-    /* Evolution tracking */
-    time_t last_evolution;
-    int evolution_rate;            /* How fast culture changes */
-
-    AREA_CULTURE *next;
-};
-
 AREA_CULTURE *first_culture = NULL;
 int total_cultures = 0;
 
@@ -141,7 +91,7 @@ void save_cultures(void)
 
     for (culture = first_culture; culture; culture = culture->next)
     {
-        fprintf(fp, "AreaVnum %d\n", culture->area->vnum);
+        fprintf(fp, "AreaName~ %s~\n", culture->area->name);
         fprintf(fp, "CultureType %d\n", culture->primary_culture_type);
         fprintf(fp, "CulturalName~ %s~\n", culture->cultural_name);
         fprintf(fp, "Identity~ %s~\n", culture->cultural_identity);
@@ -248,8 +198,9 @@ AREA_CULTURE *create_area_culture(AREA_DATA *area)
         culture->cultural_identity = str_dup("A unique people with their own customs.");
     }
 
-    log_string("CULTURAL EVOLUTION: Created culture for %s: %s",
-               area->name, culture->cultural_name);
+    sprintf(log_buf, "CULTURAL EVOLUTION: Created culture for %s: %s",
+            area->name, culture->cultural_name);
+    log_string(log_buf);
 
     return culture;
 }
@@ -293,8 +244,9 @@ void create_tradition(AREA_CULTURE *culture, char *name, char *description, int 
 
     culture->num_traditions++;
 
-    log_string("CULTURAL EVOLUTION: New tradition in %s: %s",
-               culture->area->name, name);
+    sprintf(log_buf, "CULTURAL EVOLUTION: New tradition in %s: %s",
+            culture->area->name, name);
+    log_string(log_buf);
 
     /* Announce significant traditions */
     if (importance >= 7)
@@ -334,8 +286,9 @@ void create_festival(AREA_CULTURE *culture, char *name, char *description, int m
 
     culture->num_festivals++;
 
-    log_string("CULTURAL EVOLUTION: New festival in %s: %s",
-               culture->area->name, name);
+    sprintf(log_buf, "CULTURAL EVOLUTION: New festival in %s: %s",
+            culture->area->name, name);
+    log_string(log_buf);
 
     /* Announce festival creation */
     smart_announce(
@@ -363,7 +316,8 @@ void evolve_culture(AREA_CULTURE *culture)
     if (!culture)
         return;
 
-    log_string("CULTURAL EVOLUTION: Evolving culture for %s", culture->area->name);
+    sprintf(log_buf, "CULTURAL EVOLUTION: Evolving culture for %s", culture->area->name);
+    log_string(log_buf);
 
     /* Check recent events in this area */
     events = get_events_by_type(EVENT_PLAYER_ACTION, &num_events);
@@ -466,10 +420,11 @@ void calculate_cultural_drift(AREA_CULTURE *culture)
         culture->cultural_isolation = 100; /* Completely isolated */
     }
 
-    log_string("CULTURAL DRIFT: %s - Isolation: %d, Similarity: %d",
-               culture->area->name,
-               culture->cultural_isolation,
-               culture->similarity_to_neighbors);
+    sprintf(log_buf, "CULTURAL DRIFT: %s - Isolation: %d, Similarity: %d",
+            culture->area->name,
+            culture->cultural_isolation,
+            culture->similarity_to_neighbors);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -482,8 +437,8 @@ void cultural_evolution_update(void)
     static time_t last_evolution = 0;
     time_t now = time(NULL);
 
-    /* Evolve cultures monthly (game time) */
-    if (difftime(now, last_evolution) < (30 * 86400 / GAME_TIME_MULTIPLIER))
+    /* Evolve cultures every hour */
+    if (difftime(now, last_evolution) < 3600)
         return;
 
     last_evolution = now;

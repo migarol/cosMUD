@@ -17,6 +17,9 @@
 /* Global divine oversight */
 BEELER_DIVINE_OVERSIGHT *beeler_oversight = NULL;
 
+/* Forward declarations for internal functions */
+static char *ai_generate_prognosis(AREA_VITAL_SIGNS *vitals);
+
 /* Vital signs for all areas */
 #define MAX_VITAL_SIGNS 100
 AREA_VITAL_SIGNS *vital_signs_list[MAX_VITAL_SIGNS];
@@ -511,7 +514,7 @@ void beeler_prevent_total_collapse(void)
  * AI Integration
  *****************************************************************************/
 
-char *ai_generate_prognosis(AREA_VITAL_SIGNS *vitals)
+static char *ai_generate_prognosis(AREA_VITAL_SIGNS *vitals)
 {
     char prompt[MAX_STRING_LENGTH];
     char *response;

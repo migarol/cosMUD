@@ -33,6 +33,12 @@
 #ifndef BEELER_ARCHITECT_H
 #define BEELER_ARCHITECT_H
 
+/* Forward declarations to avoid circular dependencies */
+typedef struct leader_ai_data LEADER_AI_DATA;
+typedef struct area_context AREA_CONTEXT;
+typedef struct world_context WORLD_CONTEXT;
+typedef struct congruence_check CONGRUENCE_CHECK;
+
 /* Area modification capabilities */
 typedef struct beeler_area_mod {
     int area_vnum;
@@ -250,6 +256,7 @@ bool beeler_should_create_something(char **what, AREA_DATA **where);
 void beeler_execute_autonomous_creation(char *what, AREA_DATA *where);
 
 /* EXAMPLE WORKFLOWS */
+#if 0  /* Examples disabled for compilation - see documentation instead */
 
 /* Example 1: Boot-time world initialization */
 void example_beeler_boot_sequence(void)
@@ -441,5 +448,7 @@ void example_intelligent_resources(void)
         );
     }
 }
+
+#endif /* Examples disabled */
 
 #endif /* BEELER_ARCHITECT_H */

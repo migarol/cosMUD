@@ -18,7 +18,7 @@ typedef enum {
 
 /* Functions */
 void init_mob_creation_system(void);
-bool mob_can_create(CHAR_DATA *creator, CREATION_TYPE type);
+bool mob_can_create_type(CHAR_DATA *creator, CREATION_TYPE type);
 CHAR_DATA *mob_create_npc(CHAR_DATA *creator, CREATION_TYPE type, char *description);
 OBJ_DATA *mob_create_unique_object(CHAR_DATA *crafter, char *description);
 void mob_creation_update(void);

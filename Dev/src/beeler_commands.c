@@ -14,6 +14,13 @@
 #include "universal_mob_ai.h"
 #include "ollama_integration.h"
 
+/* Forward declarations */
+static CHAR_DATA *get_beeler_mob(void);
+static const char *get_status_name(int status);
+static const char *get_health_bar(int percentage);
+static char *beeler_ai_current_thoughts(void);
+static BEELER_DIVINE_OVERSIGHT *get_beeler_oversight(void);
+
 /*****************************************************************************
  * MINVOKE BEELER - Summon Beeler for divine consultation
  *****************************************************************************/
@@ -88,9 +95,9 @@ void show_beeler_status(CHAR_DATA *ch)
     }
 
     /* Count area statuses */
-    for (i = 0; i < num_vital_signs; i++)
+    for (i = 0; i < oversight->num_areas_monitored; i++)
     {
-        AREA_VITAL_SIGNS *vitals = vital_signs_list[i];
+        AREA_VITAL_SIGNS *vitals = oversight->vital_signs[i];
         if (!vitals) continue;
 
         if (vitals->status == AREA_STATUS_THRIVING || vitals->status == AREA_STATUS_PROSPEROUS)
@@ -101,7 +108,7 @@ void show_beeler_status(CHAR_DATA *ch)
 
     ch_printf(ch, "&C║ &WPhilosophy Mode:    &G%-30s &C║\n\r",
               oversight->allow_natural_death ? "Natural Order" : "Interventionist");
-    ch_printf(ch, "&C║ &WAreas Monitored:   &Y%-30d &C║\n\r", num_vital_signs);
+    ch_printf(ch, "&C║ &WAreas Monitored:   &Y%-30d &C║\n\r", oversight->num_areas_monitored);
     ch_printf(ch, "&C║ &GThriving Areas:    &G%-30d &C║\n\r", thriving_count);
     ch_printf(ch, "&C║ &RCritical Areas:    &R%-30d &C║\n\r", critical_count);
     ch_printf(ch, "&C║ &WInterventions:     &Y%-30d &C║\n\r", oversight->interventions_last_day);
@@ -113,9 +120,9 @@ void show_beeler_status(CHAR_DATA *ch)
     /* Show critical alerts */
     if (critical_count > 0)
     {
-        for (i = 0; i < num_vital_signs && i < 5; i++)
+        for (i = 0; i < oversight->num_areas_monitored && i < 5; i++)
         {
-            AREA_VITAL_SIGNS *vitals = vital_signs_list[i];
+            AREA_VITAL_SIGNS *vitals = oversight->vital_signs[i];
             if (!vitals || !vitals->area) continue;
 
             if (vitals->status == AREA_STATUS_DYING || vitals->status == AREA_STATUS_STRUGGLING)

@@ -153,7 +153,7 @@ void save_world_history(void);
 void record_kill_event(char *killer, char *victim, char *method, char *location);
 void record_book_mention(int book_vnum, char *book_title, char *mentioned_character);
 void record_book_written(char *author, char *title, int book_vnum, char *content);
-void record_player_action(char *player, char *action, int importance);
+void record_history_player_action(char *player, char *action, int importance);
 void record_mob_creation(char *creator, char *created, char *what_created);
 void record_area_creation(char *creator, char *area_name, char *reason);
 void record_world_event(EVENT_TYPE type, char *description, int importance);

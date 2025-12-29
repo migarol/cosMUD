@@ -119,7 +119,7 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
 
     switch (book_type)
     {
-        case BOOK_TYPE_POEM:
+        case BOOK_TYPE_POETRY:
             sprintf(prompt,
                 "Write a medieval fantasy poem about %s. "
                 "Author: %s, a %s. "
@@ -139,7 +139,7 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
                 subject, author_name, author_profession);
             break;
 
-        case BOOK_TYPE_STORY:
+        case BOOK_TYPE_FICTION:
             sprintf(prompt,
                 "Write a short fantasy story about %s. "
                 "Author: %s, a %s. "
@@ -148,7 +148,7 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
                 subject, author_name, author_profession);
             break;
 
-        case BOOK_TYPE_JOURNAL:
+        case BOOK_TYPE_BIOGRAPHY:
             sprintf(prompt,
                 "Write a journal entry about %s. "
                 "Author: %s, a %s. "
@@ -158,7 +158,7 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
                 subject, author_name, author_profession);
             break;
 
-        case BOOK_TYPE_TREATISE:
+        case BOOK_TYPE_MANUAL:
             sprintf(prompt,
                 "Write a scholarly treatise about %s. "
                 "Author: %s, a %s. "
@@ -181,7 +181,8 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
         content = ollama_request(prompt, 500);
         if (content && strlen(content) > 50)
         {
-            log_string("BOOK WRITING: AI generated content about '%s'", subject);
+            sprintf(log_buf, "BOOK WRITING: AI generated content about '%s'", subject);
+            log_string(log_buf);
             return content;
         }
     }
@@ -265,8 +266,9 @@ OBJ_DATA *create_book_object(char *title, char *author, char *content, int *assi
     ed->next = book->first_extradesc;
     book->first_extradesc = ed;
 
-    log_string("BOOK CREATION: Created book object vnum %d: '%s' by %s",
-               next_book_vnum, title, author);
+    sprintf(log_buf, "BOOK CREATION: Created book object vnum %d: '%s' by %s",
+            next_book_vnum, title, author);
+    log_string(log_buf);
 
     next_book_vnum++;
     return book;
@@ -310,7 +312,8 @@ void mob_write_book(CHAR_DATA *author, int book_type, char *subject)
         return;
     }
 
-    log_string("BOOK WRITING: %s is writing about '%s'", author->short_descr, subject);
+    sprintf(log_buf, "BOOK WRITING: %s is writing about '%s'", author->short_descr, subject);
+    log_string(log_buf);
 
     /* Generate content */
     content = generate_book_content(book_type, subject, author->short_descr, "scribe");
@@ -323,19 +326,19 @@ void mob_write_book(CHAR_DATA *author, int book_type, char *subject)
     /* Generate title */
     switch (book_type)
     {
-        case BOOK_TYPE_POEM:
+        case BOOK_TYPE_POETRY:
             sprintf(title, "Ode to %s", subject);
             break;
         case BOOK_TYPE_HISTORY:
             sprintf(title, "Chronicle of %s", subject);
             break;
-        case BOOK_TYPE_STORY:
+        case BOOK_TYPE_FICTION:
             sprintf(title, "The Tale of %s", subject);
             break;
-        case BOOK_TYPE_JOURNAL:
+        case BOOK_TYPE_BIOGRAPHY:
             sprintf(title, "Musings on %s", subject);
             break;
-        case BOOK_TYPE_TREATISE:
+        case BOOK_TYPE_MANUAL:
             sprintf(title, "A Treatise Concerning %s", subject);
             break;
         default:
@@ -392,7 +395,8 @@ void mob_write_book(CHAR_DATA *author, int book_type, char *subject)
         );
     }
 
-    log_string("BOOK WRITING: Completed! '%s' by %s (vnum %d)", title, author->short_descr, vnum);
+    sprintf(log_buf, "BOOK WRITING: Completed! '%s' by %s (vnum %d)", title, author->short_descr, vnum);
+    log_string(log_buf);
 }
 
 void queue_book_writing(CHAR_DATA *author, int book_type, char *subject)
@@ -407,8 +411,9 @@ void queue_book_writing(CHAR_DATA *author, int book_type, char *subject)
     task->next = first_task;
     first_task = task;
 
-    log_string("BOOK WRITING: Queued task for %s to write about '%s'",
-               author->short_descr, subject);
+    sprintf(log_buf, "BOOK WRITING: Queued task for %s to write about '%s'",
+            author->short_descr, subject);
+    log_string(log_buf);
 }
 
 /*****************************************************************************
@@ -417,10 +422,11 @@ void queue_book_writing(CHAR_DATA *author, int book_type, char *subject)
 
 void book_writing_update(void)
 {
-    BOOK_WRITING_TASK *task, *task_next;
+    BOOK_WRITING_TASK *task, *task_next, *task_prev;
     time_t now = time(NULL);
     int processed = 0;
 
+    task_prev = NULL;
     for (task = first_task; task && processed < 3; task = task_next)
     {
         task_next = task->next;
@@ -429,7 +435,11 @@ void book_writing_update(void)
         if (!task->author || task->author->position == POS_DEAD)
         {
             /* Remove invalid task */
-            UNLINK(task, first_task, next, BOOK_WRITING_TASK);
+            if (task_prev)
+                task_prev->next = task_next;
+            else
+                first_task = task_next;
+
             DISPOSE(task->subject);
             DISPOSE(task);
             continue;
@@ -440,16 +450,25 @@ void book_writing_update(void)
         {
             mob_write_book(task->author, task->book_type, task->subject);
 
-            UNLINK(task, first_task, next, BOOK_WRITING_TASK);
+            if (task_prev)
+                task_prev->next = task_next;
+            else
+                first_task = task_next;
+
             DISPOSE(task->subject);
             DISPOSE(task);
             processed++;
+        }
+        else
+        {
+            task_prev = task;
         }
     }
 
     if (processed > 0)
     {
-        log_string("BOOK WRITING: Processed %d writing tasks", processed);
+        sprintf(log_buf, "BOOK WRITING: Processed %d writing tasks", processed);
+        log_string(log_buf);
     }
 }
 
@@ -493,7 +512,8 @@ void trigger_book_about_event(HISTORY_EVENT *event)
 
     if (found_writer)
     {
-        log_string("BOOK WRITING: Triggered automatic book about: %s", event->description);
+        sprintf(log_buf, "BOOK WRITING: Triggered automatic book about: %s", event->description);
+        log_string(log_buf);
     }
 }
 
@@ -522,20 +542,22 @@ void do_writebook(CHAR_DATA *ch, char *argument)
     if (arg1[0] == '\0' || arg2[0] == '\0')
     {
         send_to_char("Usage: writebook <type> <subject>\n\r", ch);
-        send_to_char("Types: poem, history, story, journal, treatise\n\r", ch);
+        send_to_char("Types: poetry, history, fiction, biography, manual, lore\n\r", ch);
         return;
     }
 
-    if (!str_cmp(arg1, "poem"))
-        book_type = BOOK_TYPE_POEM;
+    if (!str_cmp(arg1, "poetry") || !str_cmp(arg1, "poem"))
+        book_type = BOOK_TYPE_POETRY;
     else if (!str_cmp(arg1, "history"))
         book_type = BOOK_TYPE_HISTORY;
-    else if (!str_cmp(arg1, "story"))
-        book_type = BOOK_TYPE_STORY;
-    else if (!str_cmp(arg1, "journal"))
-        book_type = BOOK_TYPE_JOURNAL;
-    else if (!str_cmp(arg1, "treatise"))
-        book_type = BOOK_TYPE_TREATISE;
+    else if (!str_cmp(arg1, "fiction") || !str_cmp(arg1, "story"))
+        book_type = BOOK_TYPE_FICTION;
+    else if (!str_cmp(arg1, "biography") || !str_cmp(arg1, "journal"))
+        book_type = BOOK_TYPE_BIOGRAPHY;
+    else if (!str_cmp(arg1, "manual") || !str_cmp(arg1, "treatise"))
+        book_type = BOOK_TYPE_MANUAL;
+    else if (!str_cmp(arg1, "lore"))
+        book_type = BOOK_TYPE_LORE;
     else
     {
         send_to_char("Invalid book type.\n\r", ch);

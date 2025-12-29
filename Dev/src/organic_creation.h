@@ -194,6 +194,7 @@ bool create_profession_fully(PROFESSION_ECOSYSTEM *ecosystem);
 
 /* EXAMPLE: Creating Fishing from Scratch */
 
+#if 0  /* Examples disabled for compilation */
 /* Step 1: Detection */
 void example_detect_fishing_need(void)
 {
@@ -357,6 +358,7 @@ void beeler_autonomous_organic_creation(void)
         }
     }
 }
+#endif /* Examples disabled */
 
 /* Commands */
 void do_organic(CHAR_DATA *ch, char *argument);  /* View/manage organic creations */

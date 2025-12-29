@@ -213,7 +213,7 @@ void record_book_mention(int book_vnum, char *book_title, char *mentioned_charac
  * Player Action Recording
  *****************************************************************************/
 
-void record_player_action(char *player, char *action, int importance)
+void record_history_player_action(char *player, char *action, int importance)
 {
     HISTORY_EVENT *event;
 

@@ -19,64 +19,9 @@
 #include "world_history_tracker.h"
 #include "economy.h"
 #include "periodicos.h"
+#include "beeler_god_mode.h"
+#include "mob_creation_system.h"
 
-/* Trade route between two areas */
-typedef struct trade_route TRADE_ROUTE;
-struct trade_route {
-    AREA_DATA *area_from;
-    AREA_DATA *area_to;
-
-    /* What's being traded */
-    char **exported_goods;
-    char **imported_goods;
-    int num_exports;
-    int num_imports;
-
-    /* Economic data */
-    int trade_volume_daily;     /* Gold value */
-    int established_year;
-    bool active;
-
-    /* Route details */
-    int distance;               /* Rooms between areas */
-    int safety;                 /* 0-100, affects caravans */
-    int travel_time;            /* Hours */
-
-    /* Caravans on this route */
-    int num_active_caravans;
-
-    TRADE_ROUTE *next;
-};
-
-/* Trade caravan (actual mob group) */
-typedef struct trade_caravan TRADE_CARAVAN;
-struct trade_caravan {
-    CHAR_DATA *lead_merchant;
-    CHAR_DATA **guards;
-    int num_guards;
-
-    /* Cargo */
-    OBJ_DATA **cargo_items;
-    int num_cargo_items;
-    int cargo_value;
-
-    /* Journey */
-    TRADE_ROUTE *route;
-    AREA_DATA *origin;
-    AREA_DATA *destination;
-    ROOM_INDEX_DATA *current_location;
-    bool outbound;              /* TRUE = going to destination, FALSE = returning */
-
-    /* Status */
-    bool arrived;
-    bool attacked;
-    int goods_lost;
-
-    time_t departed;
-    time_t expected_arrival;
-
-    TRADE_CARAVAN *next;
-};
 
 TRADE_ROUTE *first_route = NULL;
 TRADE_CARAVAN *first_caravan = NULL;
@@ -134,7 +79,7 @@ void save_trade_routes(void)
     {
         if (route->active)
         {
-            fprintf(fp, "Route %d %d\n", route->area_from->vnum, route->area_to->vnum);
+            fprintf(fp, "Route %d %d\n", route->area_from->name, route->area_to->name);
             fprintf(fp, "Volume %d\n", route->trade_volume_daily);
             fprintf(fp, "Distance %d\n", route->distance);
             fprintf(fp, "Safety %d\n", route->safety);
@@ -164,8 +109,8 @@ TRADE_ROUTE *create_trade_route(AREA_DATA *from, AREA_DATA *to)
         if ((route->area_from == from && route->area_to == to) ||
             (route->area_from == to && route->area_to == from))
         {
-            log_string("TRADE: Route already exists between %s and %s",
-                       from->name, to->name);
+            sprintf(log_buf, "TRADE: Route already exists between %s and %s", from->name, to->name);
+        log_string(log_buf);
             return route;
         }
     }
@@ -214,8 +159,8 @@ TRADE_ROUTE *create_trade_route(AREA_DATA *from, AREA_DATA *to)
     /* Determine traded goods based on area resources */
     determine_trade_goods(route);
 
-    log_string("TRADE: Established route between %s and %s (%d rooms, safety %d)",
-               from->name, to->name, route->distance, route->safety);
+    sprintf(log_buf, "TRADE: Established route between %s and %s (%d rooms, safety %d)", from->name, to->name, route->distance, route->safety);
+        log_string(log_buf);
 
     /* Announce */
     smart_announce(
@@ -292,13 +237,13 @@ TRADE_CARAVAN *spawn_caravan(TRADE_ROUTE *route)
     total_caravans++;
 
     /* Find starting room in origin area */
-    start_room = route->area_from->first_room;
+    start_room = get_room_index(route->area_from->low_r_vnum);
     if (!start_room)
         start_room = get_room_index(ROOM_VNUM_TEMPLE); /* Fallback */
 
     /* Create lead merchant NPC */
     /* This uses mob_creation_system.c */
-    merchant = mob_create_npc(NULL, CREATE_WORKER, "trade caravan");
+    merchant = mob_create_npc(NULL, CREATION_CITIZEN, "trade caravan");
     if (merchant && start_room)
     {
         char_to_room(merchant, start_room);
@@ -312,7 +257,7 @@ TRADE_CARAVAN *spawn_caravan(TRADE_ROUTE *route)
         CREATE(caravan->guards, CHAR_DATA *, caravan->num_guards);
         for (i = 0; i < caravan->num_guards; i++)
         {
-            CHAR_DATA *guard = mob_create_npc(merchant, CREATE_GUARD, "caravan protection");
+            CHAR_DATA *guard = mob_create_npc(merchant, CREATION_GUARD, "caravan protection");
             if (guard && start_room)
             {
                 char_to_room(guard, start_room);
@@ -326,9 +271,9 @@ TRADE_CARAVAN *spawn_caravan(TRADE_ROUTE *route)
 
     route->num_active_caravans++;
 
-    log_string("TRADE: Spawned caravan from %s to %s (%d guards, %d gold value)",
-               route->area_from->name, route->area_to->name,
+    sprintf(log_buf, "TRADE: Spawned caravan from %s to %s (%d guards, %d gold value)", route->area_from->name, route->area_to->name,
                caravan->num_guards, caravan->cargo_value);
+        log_string(log_buf);
 
     return caravan;
 }
@@ -353,7 +298,7 @@ void move_caravan(TRADE_CARAVAN *caravan)
     /* In real implementation, would use pathfinding */
     for (dir = 0; dir < 6; dir++)
     {
-        exit = caravan->lead_merchant->in_room->exit[dir];
+        exit = caravan->lead_merchant->in_room->first_exit;
         if (exit && exit->to_room)
         {
             next_room = exit->to_room;
@@ -396,8 +341,8 @@ void caravan_arrives(TRADE_CARAVAN *caravan)
 
     caravan->arrived = TRUE;
 
-    log_string("TRADE: Caravan arrived at %s from %s",
-               caravan->destination->name, caravan->origin->name);
+    sprintf(log_buf, "TRADE: Caravan arrived at %s from %s", caravan->destination->name, caravan->origin->name);
+        log_string(log_buf);
 
     /* Apply economic impact */
     if (!caravan->attacked)
@@ -408,13 +353,15 @@ void caravan_arrives(TRADE_CARAVAN *caravan)
         /* Update area economies */
         /* This would integrate with economy.c */
 
-        log_string("TRADE: Delivered %d gold worth of goods", caravan->cargo_value);
+        sprintf(log_buf, "TRADE: Delivered %d gold worth of goods", caravan->cargo_value);
+        log_string(log_buf);
     }
     else
     {
         /* Partial delivery */
         int delivered = caravan->cargo_value - caravan->goods_lost;
-        log_string("TRADE: Partial delivery - %d lost to bandits", caravan->goods_lost);
+        sprintf(log_buf, "TRADE: Partial delivery - %d lost to bandits", caravan->goods_lost);
+        log_string(log_buf);
     }
 
     /* Announce significant trade */
@@ -627,8 +574,8 @@ void do_createroute(CHAR_DATA *ch, char *argument)
         return;
     }
 
-    area1 = find_area_by_vnum(atoi(arg1));
-    area2 = find_area_by_vnum(atoi(arg2));
+    area1 = get_area_by_filename(atoi(arg1));
+    area2 = get_area_by_filename(atoi(arg2));
 
     if (!area1 || !area2)
     {

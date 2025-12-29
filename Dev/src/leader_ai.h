@@ -121,6 +121,7 @@ typedef struct leader_ai_data {
     int trade_routes_established;
     int years_in_power;
 
+    struct leader_ai_data *prev;
     struct leader_ai_data *next;
 
 } LEADER_AI_DATA;
@@ -197,6 +198,7 @@ bool beeler_can_fulfill_leader_request(LEADER_AI_DATA *leader, char *request);
 void leader_ai_update(void);  /* Called every game tick */
 
 /* EXAMPLE IMPLEMENTATIONS */
+#if 0  /* Examples disabled for compilation */
 
 /* Example 1: Detecting area types */
 AREA_CLASSIFICATION *example_classify_darkhaven(void)
@@ -349,6 +351,8 @@ void example_trade_route(void)
         "Darkhaven"
     );
 }
+
+#endif /* Examples disabled */
 
 /* Commands */
 void do_leaders(CHAR_DATA *ch, char *argument);     /* List all leaders and their status */
