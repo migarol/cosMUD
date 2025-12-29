@@ -121,7 +121,7 @@ int determine_mob_intelligence_tier(CHAR_DATA *mob)
         return INTELLIGENCE_SOCIAL;
     else if (mob->level >= 5)
         return INTELLIGENCE_SIMPLE;
-    else if (IS_ACT_FLAG(mob, ACT_AGGRESSIVE))
+    else if (xIS_SET(mob->act, ACT_AGGRESSIVE))
         return INTELLIGENCE_INSTINCT;
     else
         return INTELLIGENCE_ANIMAL;

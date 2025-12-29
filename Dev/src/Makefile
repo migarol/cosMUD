@@ -40,7 +40,7 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ollama_integration.o \
           planes.o player.o \
           polymorph.o redit.o requests.o reset.o save.o \
-          shops.o skills.o special.o stat_obj.o suicide.o tables.o \
+          shops.o skills.o special.o stat_obj.o suicide.o system_stubs.o tables.o \
           track.o universal_mob_ai.o update.o websvr.o minilzo.o \
           world_context.o world_history_tracker.o periodicos.o organic_creation.o \
           ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \

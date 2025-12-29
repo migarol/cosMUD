@@ -354,9 +354,9 @@ void load_mob_memory(int vnum)
 }
 
 /*
- * Mob writes a book using AI
+ * Mob writes a book using AI and their identity
  */
-void mob_write_book(CHAR_DATA *mob, char *topic)
+void mob_identity_write_book(CHAR_DATA *mob, char *topic)
 {
     MOB_IDENTITY *identity;
     char prompt[MAX_STRING_LENGTH * 2];

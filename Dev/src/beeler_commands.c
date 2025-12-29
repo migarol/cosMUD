@@ -22,10 +22,10 @@ static char *beeler_ai_current_thoughts(void);
 static BEELER_DIVINE_OVERSIGHT *get_beeler_oversight(void);
 
 /*****************************************************************************
- * MINVOKE BEELER - Summon Beeler for divine consultation
+ * BEELER INVOKE - Summon Beeler for divine consultation
  *****************************************************************************/
 
-void do_minvoke(CHAR_DATA *ch, char *argument)
+void do_beelerinvoke(CHAR_DATA *ch, char *argument)
 {
     char arg[MAX_INPUT_LENGTH];
     CHAR_DATA *beeler;

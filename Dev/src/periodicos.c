@@ -477,7 +477,7 @@ void read_article(CHAR_DATA *ch, int article_id)
  * Commands
  *****************************************************************************/
 
-void do_news(CHAR_DATA *ch, char *argument)
+void do_periodnews(CHAR_DATA *ch, char *argument)
 {
     char arg[MAX_INPUT_LENGTH];
 
@@ -511,7 +511,7 @@ void do_periodicos(CHAR_DATA *ch, char *argument)
 
     if (!IS_IMMORTAL(ch))
     {
-        do_news(ch, argument);
+        do_periodnews(ch, argument);
         return;
     }
 

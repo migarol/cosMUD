@@ -232,7 +232,7 @@ int count_guards_in_area(AREA_DATA *area)
         {
             for (mob = room->first_person; mob; mob = mob->next_in_room)
             {
-                if (IS_NPC(mob) && IS_ACT_FLAG(mob, ACT_SENTINEL))
+                if (IS_NPC(mob) && xIS_SET(mob->act, ACT_SENTINEL))
                 {
                     /* Simple heuristic: Sentinels are often guards */
                     count++;
@@ -260,7 +260,7 @@ int count_aggressive_mobs(AREA_DATA *area)
         {
             for (mob = room->first_person; mob; mob = mob->next_in_room)
             {
-                if (IS_NPC(mob) && IS_ACT_FLAG(mob, ACT_AGGRESSIVE))
+                if (IS_NPC(mob) && xIS_SET(mob->act, ACT_AGGRESSIVE))
                     count++;
             }
         }
