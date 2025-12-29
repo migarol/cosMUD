@@ -40,6 +40,18 @@
 #include "economy.h"
 #include "beeler_god_mode.h"
 #include "universal_mob_ai.h"
+#include "world_history_tracker.h"
+#include "leader_ai.h"
+#include "organic_creation.h"
+#include "periodicos.h"
+#include "player_world_impact.h"
+#include "book_writing_system.h"
+#include "mob_creation_system.h"
+#include "persistent_memory.h"
+#include "cultural_evolution.h"
+#include "family_lineage.h"
+#include "global_trade.h"
+#include "resource_distribution.h"
 
 /* Scion arenacode extern function */
 extern void arena_update(void);
@@ -2145,6 +2157,15 @@ void update_handler( void )
     static  int     pulse_beeler_observation; /* Beeler divine oversight */
     static  int     pulse_beeler_decisions;   /* Beeler decision making */
     static  int     pulse_mob_ai;             /* Universal mob AI autonomous actions */
+    static  int     pulse_history_save;       /* World history auto-save */
+    static  int     pulse_leader_ai;          /* Leader strategic decisions */
+    static  int     pulse_organic_creation;   /* Organic world growth */
+    static  int     pulse_mob_creation;       /* Mobs creating NPCs/objects */
+    static  int     pulse_book_writing;       /* Book/poem generation */
+    static  int     pulse_memory_save;        /* Persistent memory save */
+    static  int     pulse_cultural;           /* Cultural evolution */
+    static  int     pulse_family;             /* Family/lineage updates */
+    static  int     pulse_trade;              /* Global trade caravans */
     struct timeval stime;
     struct timeval etime;
 
@@ -2237,6 +2258,70 @@ void update_handler( void )
     {
 	pulse_mob_ai = PULSE_AREA * 5; /* 5 real minutes */
 	universal_mob_ai_update();
+    }
+
+    /* World history auto-save - every 15 minutes */
+    if ( --pulse_history_save <= 0 )
+    {
+	pulse_history_save = PULSE_AREA * 15; /* 15 real minutes */
+	save_world_history();
+	cleanup_old_events();
+    }
+
+    /* Leader AI strategic decisions - every 10 minutes */
+    if ( --pulse_leader_ai <= 0 )
+    {
+	pulse_leader_ai = PULSE_AREA * 10; /* 10 real minutes */
+	leader_ai_update();
+    }
+
+    /* Organic creation (village growth, skills, professions) - every 30 minutes */
+    if ( --pulse_organic_creation <= 0 )
+    {
+	pulse_organic_creation = PULSE_AREA * 30; /* 30 real minutes */
+	organic_creation_update();
+    }
+
+    /* Mob creation (NPCs creating other NPCs/objects) - every 20 minutes */
+    if ( --pulse_mob_creation <= 0 )
+    {
+	pulse_mob_creation = PULSE_AREA * 20; /* 20 real minutes */
+	mob_creation_update();
+    }
+
+    /* Book/poem writing - every 45 minutes */
+    if ( --pulse_book_writing <= 0 )
+    {
+	pulse_book_writing = PULSE_AREA * 45; /* 45 real minutes */
+	book_writing_update();
+    }
+
+    /* Persistent memory auto-save - every 15 minutes */
+    if ( --pulse_memory_save <= 0 )
+    {
+	pulse_memory_save = PULSE_AREA * 15; /* 15 real minutes */
+	save_all_mob_memories();
+    }
+
+    /* Cultural evolution - every 60 minutes */
+    if ( --pulse_cultural <= 0 )
+    {
+	pulse_cultural = PULSE_AREA * 60; /* 60 real minutes */
+	cultural_evolution_update();
+    }
+
+    /* Family/lineage updates - every 120 minutes */
+    if ( --pulse_family <= 0 )
+    {
+	pulse_family = PULSE_AREA * 120; /* 120 real minutes */
+	family_system_update();
+    }
+
+    /* Global trade caravans - every 10 minutes */
+    if ( --pulse_trade <= 0 )
+    {
+	pulse_trade = PULSE_AREA * 10; /* 10 real minutes */
+	trade_route_update();
     }
 
     tele_update( );

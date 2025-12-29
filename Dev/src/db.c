@@ -49,6 +49,18 @@
 #include "world_context.h"
 #include "beeler_god_mode.h"
 #include "universal_mob_ai.h"
+#include "world_history_tracker.h"
+#include "leader_ai.h"
+#include "organic_creation.h"
+#include "periodicos.h"
+#include "player_world_impact.h"
+#include "book_writing_system.h"
+#include "mob_creation_system.h"
+#include "persistent_memory.h"
+#include "cultural_evolution.h"
+#include "family_lineage.h"
+#include "global_trade.h"
+#include "resource_distribution.h"
 
 
 extern	int	_filbuf		args( (FILE *) );
@@ -802,6 +814,48 @@ void boot_db( bool fCopyOver )
 
     log_string("Initializing universal mob AI");
     init_universal_mob_ai();
+
+    /* Initialize world history tracking system */
+    log_string("Initializing world history tracker");
+    init_world_history();
+    load_world_history();
+
+    /* Initialize TIER 2-6 autonomous world systems */
+    log_string("Initializing leader AI system");
+    init_leader_ai();
+
+    log_string("Initializing organic creation system");
+    init_organic_creation();
+
+    log_string("Initializing smart news/periodicos system");
+    init_periodicos();
+
+    log_string("Initializing player world impact tracking");
+    init_player_world_impact();
+
+    log_string("Initializing book writing system");
+    init_book_writing_system();
+
+    log_string("Initializing mob creation system");
+    init_mob_creation_system();
+
+    log_string("Initializing persistent memory system");
+    init_persistent_memory();
+    load_all_mob_memories();
+
+    log_string("Initializing cultural evolution system");
+    init_cultural_evolution();
+
+    log_string("Initializing family lineage system");
+    init_family_system();
+
+    log_string("Initializing global trade system");
+    init_global_trade();
+
+    log_string("Initializing resource distribution system");
+    init_resource_distribution();
+
+    log_string("All autonomous world systems initialized - world is ALIVE");
 
     /* init_maps ( ); */
 
