@@ -641,6 +641,83 @@ System working when:
 
 All lore, descriptions, announcements reference **Seldeon** as the world.
 
+## CRITICAL: Temporal Pacing & Player Impact
+
+### User's Requirement
+
+> "que todo sea muy cambiante pero no muy rapido no? puede tomar casi medio año en hacerse un nuevo town.. es lento, controlado, balanceado"
+
+> "y lo que hagamos los players tambien influye en el mundo"
+
+**Translation**:
+- Everything very changeable BUT not too fast
+- Can take almost half a year to make a new town
+- Slow, controlled, balanced
+- What players do also influences the world
+
+### Implementation
+
+**New Systems Added**:
+1. **player_world_impact.h** - Player actions affect world
+2. **TEMPORAL_PACING_SYSTEM.md** - Complete pacing guide
+
+**Key Constraints**:
+- Village → Town = **6 GAME MONTHS** (~45 real days at 4x multiplier)
+- Max 3 rooms added per day
+- Max 5 NPCs spawned per day
+- Max ±5 vital sign change per day
+- All major changes are GRADUAL (visible progress over weeks)
+
+**Player Impact**:
+- Kill monsters near village → Safety score ↑
+- Complete quests → Economic/cultural boost
+- Donate gold/items → Speed up construction
+- Kill NPCs → Population decline, safety ↓
+- Destroy buildings → Major setbacks
+- Reputation tracked per area (hero or villain)
+
+**Visibility**:
+- Players can check `progress` to see ongoing changes
+- Players can `contribute` to speed up projects
+- NPCs comment on progress in dialogue
+- Major milestones announced
+
+**Example Timeline - Village → Town**:
+```
+Month 1: Planning (0% → 10%)
+  - Mayor announces expansion
+  - Players can donate to fund
+
+Month 2: Foundation (10% → 25%)
+  - 1-2 rooms/week added
+  - Infrastructure work
+
+Month 3: Construction (25% → 50%)
+  - 2-3 rooms/week added
+  - Buildings going up
+  - Players help with quests
+
+Month 4: Major Structures (50% → 70%)
+  - Town hall, walls, marketplace
+  - Players donate materials
+
+Month 5: Refinement (70% → 90%)
+  - Final buildings, decorations
+  - Cultural development
+
+Month 6: Completion (90% → 100%)
+  - Official ceremony!
+  - VILLAGE → TOWN
+  - Players celebrated if they helped
+```
+
+**Benefits**:
+- World feels REAL (no overnight transformations)
+- Player actions MATTER (visible impact)
+- Changes feel EARNED (months of progress)
+- Balanced (rate limits prevent spam)
+- Story opportunities (ongoing changes create quests)
+
 ## Next Steps
 
 1. Implement .c files for beeler_god_mode.h

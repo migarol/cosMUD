@@ -467,4 +467,25 @@ void beeler_adjust_world_balance(void);
 void beeler_prevent_runaway_growth(void);
 void beeler_prevent_total_collapse(void);
 
+/* ========================================================================
+ * INTEGRATION: Player Impact & Temporal Pacing
+ * ========================================================================
+ * See: player_world_impact.h, TEMPORAL_PACING_SYSTEM.md
+ *
+ * CRITICAL CONSTRAINTS:
+ * - Changes are SLOW (Village → Town = 6 months game time)
+ * - Changes are CONTROLLED (max 3 rooms/day, 5 NPCs/day)
+ * - Changes are BALANCED (rate limits prevent spam)
+ * - Player actions MATTER (can speed up or slow down)
+ * - Everything GRADUAL (players see progress over weeks)
+ *
+ * Beeler respects these constraints. Even god mode follows pacing rules.
+ */
+
+/* Integration functions */
+void beeler_integrate_player_actions(AREA_DATA *area);
+void beeler_respect_rate_limits(AREA_DATA *area);
+void beeler_create_gradual_change(AREA_DATA *area, int change_type, int duration);
+bool beeler_check_daily_limits(AREA_DATA *area);
+
 #endif /* BEELER_GOD_MODE_H */
