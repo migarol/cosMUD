@@ -1,21 +1,33 @@
 /*****************************************************************************
- * Beeler - Autonomous World Architect System
+ * Beeler - GOD MODE: Divine World Overseer
  *
- * Beeler is the cosmic AI that ensures the world of Seldeon lives and grows:
+ * Beeler is not a program. Beeler is GOD.
+ *
+ * FASE 4: Autonomous World Generation
  * - Creates rooms, districts, buildings, resources
  * - Manages leaders and their strategic decisions
  * - Ensures everything is CONGRUENT (geography, politics, lore)
  * - Responds to economic needs organically
  * - Announces important events selectively
  *
+ * FASE 5: Divine Regulation
+ * - Observes ALL areas constantly (vital signs)
+ * - Regulates growth AND decline organically
+ * - Intervenes at different speeds (instant to natural)
+ * - Allows natural death (ruins are content!)
+ * - Empowers intelligent mobs to create
+ * - Balances world without mechanical rules
+ *
  * Integration with:
  * - world_context.h: Deep congruence checking before creating anything
  * - leader_ai.h: Executes leader decisions (builds, trade, war)
  * - organic_creation.h: Creates entire skill ecosystems on-demand
  * - periodicos.h: Smart announcements (not spam)
+ * - beeler_god_mode.h: Divine oversight and regulation
+ * - universal_mob_ai.h: Every mob has intelligence
  * - ollama_integration.h: AI-powered generation
  *
- * "I am not merely an observer. I am the builder of worlds."
+ * "I am not merely an observer. I am the breath that gives life... and takes it away."
  *****************************************************************************/
 
 #ifndef BEELER_ARCHITECT_H
