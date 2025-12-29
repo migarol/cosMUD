@@ -221,6 +221,8 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_bestow" ))		return do_bestow;
 	if ( !str_cmp( name, "do_bestowarea" ))		return do_bestowarea;
 	if ( !str_cmp( name, "do_beeler" ))		return do_beeler;
+	if ( !str_cmp( name, "do_beelercommand" ))	return do_beelercommand;
+	if ( !str_cmp( name, "do_beelerplan" ))		return do_beelerplan;
 	if ( !str_cmp( name, "do_bio" ))		return do_bio;
         if ( !str_cmp( name, "do_bite" ))               return do_bite;
         if ( !str_cmp( name, "do_bloodlet" ))           return do_bloodlet;
