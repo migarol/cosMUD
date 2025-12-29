@@ -112,6 +112,8 @@ char *ai_generate_editorial_response(char *event, char *city_name, char *leader_
 
 /* Announcement examples - Smart filtering in action */
 
+#if 0  /* Example functions - documentation only */
+
 /* Example 1: War Declaration (CRITICAL - immediate chat announcement) */
 void announce_war_declaration(char *aggressor, char *target)
 {
@@ -165,6 +167,8 @@ void log_market_prices(char *city, int resource_id, int price)
     /* Just update internal economy logs */
     return;
 }
+
+#endif  /* End of example functions */
 
 /* Commands */
 void do_news(CHAR_DATA *ch, char *argument);      /* Read recent news */

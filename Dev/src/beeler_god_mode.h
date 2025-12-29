@@ -252,6 +252,8 @@ typedef struct beeler_intervention {
  * EXAMPLES - ORGANIC SCENARIOS
  * ======================================================================== */
 
+#if 0  /* Example functions - documentation only */
+
 /* Example 1: Village THRIVES and grows */
 void example_village_prosperity(void)
 {
@@ -430,6 +432,8 @@ void example_non_intervention(void)
      * ANNOUNCEMENT: None (not important enough)
      */
 }
+
+#endif  /* End of example functions */
 
 /* ========================================================================
  * FUNCTION DECLARATIONS
