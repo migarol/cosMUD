@@ -1,8 +1,19 @@
 /*****************************************************************************
- * Beeler - World Architect System
+ * Beeler - Autonomous World Architect System
  *
- * Beeler can CREATE rooms, modify areas, and build residential districts.
- * He doesn't just assign homes - he BUILDS them.
+ * Beeler is the cosmic AI that ensures the world of Seldeon lives and grows:
+ * - Creates rooms, districts, buildings, resources
+ * - Manages leaders and their strategic decisions
+ * - Ensures everything is CONGRUENT (geography, politics, lore)
+ * - Responds to economic needs organically
+ * - Announces important events selectively
+ *
+ * Integration with:
+ * - world_context.h: Deep congruence checking before creating anything
+ * - leader_ai.h: Executes leader decisions (builds, trade, war)
+ * - organic_creation.h: Creates entire skill ecosystems on-demand
+ * - periodicos.h: Smart announcements (not spam)
+ * - ollama_integration.h: AI-powered generation
  *
  * "I am not merely an observer. I am the builder of worlds."
  *****************************************************************************/
@@ -172,5 +183,251 @@ void do_beeler_build(CHAR_DATA *ch, char *argument);
 void do_beeler_analyze(CHAR_DATA *ch, char *argument);
 void do_beeler_context(CHAR_DATA *ch, char *argument);
 void do_beeler_populate(CHAR_DATA *ch, char *argument);
+
+/* ========================================================================
+ * FASE 4: AUTONOMOUS WORLD GENERATION
+ * ========================================================================
+ * Integration of all advanced systems for fully autonomous world growth
+ */
+
+/* Boot-time initialization - FASE 4A */
+void beeler_initialize_autonomous_world(void);
+void beeler_scan_world_at_boot(void);
+void beeler_detect_missing_infrastructure(void);
+void beeler_analyze_all_areas(void);
+
+/* World analysis integration */
+void beeler_build_full_world_context(void);          /* Uses world_context.h */
+AREA_CONTEXT *beeler_get_area_context(AREA_DATA *area);
+WORLD_CONTEXT *beeler_get_world_context(void);
+
+/* Leader system integration - FASE 4B */
+void beeler_initialize_all_leaders(void);            /* Uses leader_ai.h */
+void beeler_execute_leader_action(LEADER_AI_DATA *leader, int action, char *details);
+bool beeler_can_fulfill_leader_request(LEADER_AI_DATA *leader, char *request);
+void beeler_handle_leader_build_order(LEADER_AI_DATA *leader, char *what_to_build);
+void beeler_handle_leader_war_declaration(LEADER_AI_DATA *attacker, LEADER_AI_DATA *defender);
+
+/* Organic creation integration - FASE 4C */
+void beeler_check_for_world_needs(void);             /* Uses organic_creation.h */
+void beeler_create_missing_infrastructure(AREA_DATA *area);
+bool beeler_create_skill_ecosystem(char *skill_name, AREA_DATA *target_area);
+bool beeler_create_resource_ecosystem(char *resource_name);
+bool beeler_create_profession_ecosystem(char *profession_name);
+
+/* Congruence-checked creation - CRITICAL */
+bool beeler_validate_before_creating(char *what, AREA_DATA *where, char *reason);
+CONGRUENCE_CHECK *beeler_check_congruence(char *what, AREA_DATA *where);
+bool beeler_create_with_validation(char *what, AREA_DATA *where, char *reason);
+
+/* Intelligent resource distribution - FASE 4D */
+void beeler_distribute_resources_intelligently(void);
+void beeler_add_resources_to_area(AREA_DATA *area, AREA_CONTEXT *ctx);
+void beeler_create_satellite_settlement(AREA_DATA *capital, char *settlement_type);
+/* Example: beeler_create_satellite_settlement(darkhaven, "mining village") */
+
+/* Smart announcements - FASE 4E */
+void beeler_announce(char *headline, char *body, int category, int priority, char *location);
+void beeler_announce_creation(char *what_was_created, AREA_DATA *where);
+void beeler_announce_leader_action(LEADER_AI_DATA *leader, int action, char *details);
+
+/* Autonomous decision-making - FASE 4F */
+void beeler_autonomous_think(void);  /* Called every ~30 minutes */
+void beeler_make_autonomous_decision(void);
+bool beeler_should_create_something(char **what, AREA_DATA **where);
+void beeler_execute_autonomous_creation(char *what, AREA_DATA *where);
+
+/* EXAMPLE WORKFLOWS */
+
+/* Example 1: Boot-time world initialization */
+void example_beeler_boot_sequence(void)
+{
+    /* Called from boot_db() after areas loaded */
+
+    log_string("BEELER: Initializing autonomous world...");
+
+    /* Step 1: Build world context (geography, politics, economy) */
+    beeler_build_full_world_context();
+    /* This scans all areas, analyzes terrain, detects resources, etc. */
+
+    /* Step 2: Initialize leader AI for all appropriate areas */
+    beeler_initialize_all_leaders();
+    /* Finds/creates kings, mayors, chieftains (but NOT in wilderness) */
+
+    /* Step 3: Detect missing infrastructure */
+    beeler_detect_missing_infrastructure();
+    /* Finds areas that need homes, mines, wells, shops, etc. */
+
+    /* Step 4: Create critical missing pieces */
+    beeler_create_missing_infrastructure(NULL);  /* NULL = all areas */
+    /* This WON'T create everything - only critical gaps */
+
+    log_string("BEELER: Autonomous world initialized. Life begins.");
+}
+
+/* Example 2: Autonomous decision during runtime */
+void example_beeler_autonomous_action(void)
+{
+    /* Called every ~30 minutes from update.c */
+
+    WORLD_CONTEXT *world = beeler_get_world_context();
+
+    /* Check if economy needs something */
+    char *needed = NULL;
+    AREA_DATA *best_location = NULL;
+
+    if (beeler_should_create_something(&needed, &best_location))
+    {
+        /* needed might be: "fish", "mining village", "fishing skill" */
+
+        /* Validate with deep congruence check */
+        CONGRUENCE_CHECK *check = beeler_check_congruence(needed, best_location);
+
+        if (check->is_congruent && check->confidence > 80)
+        {
+            /* Create the entire ecosystem */
+            beeler_execute_autonomous_creation(needed, best_location);
+
+            /* Announce (intelligently - not spam) */
+            beeler_announce_creation(needed, best_location);
+        }
+        else
+        {
+            /* Log why we didn't create it */
+            log_string("BEELER: Rejected creation - low congruence");
+            log_string(check->ai_analysis);
+        }
+    }
+}
+
+/* Example 3: Leader orders construction */
+void example_king_builds_fortress(void)
+{
+    /* King Aldric decides to build a fortress (from leader_ai.h) */
+    LEADER_AI_DATA *aldric = find_leader_in_area(find_area_by_name("Darkhaven"));
+
+    /* Leader AI makes decision (uses Ollama) */
+    char *decision = ai_generate_leader_decision(aldric);
+    /* decision = "BUILD northern_fortress" */
+
+    /* Parse and delegate to Beeler */
+    beeler_handle_leader_build_order(aldric, "northern fortress");
+
+    /* Beeler validates */
+    AREA_DATA *darkhaven = aldric->controlled_area;
+    if (beeler_validate_before_creating("military fortress", darkhaven, "King Aldric's order"))
+    {
+        /* Generate fortress (10 rooms, guards, armory, etc) */
+        DISTRICT_GENERATION *fortress = beeler_generate_military_district(
+            "Darkhaven Northern Fortress",
+            darkhaven,
+            10  /* num_rooms */
+        );
+
+        beeler_build_district(fortress);
+
+        /* Announce (HIGH priority - goes to chat + periodicos) */
+        beeler_announce(
+            "King Aldric Orders Construction of Northern Fortress",
+            "In response to orc threats, King Aldric has commissioned a military "
+            "fortress at Darkhaven's northern border. Construction begins immediately.",
+            EVENT_CATEGORY_CONSTRUCTION,
+            ANNOUNCE_PRIORITY_HIGH,
+            "Darkhaven"
+        );
+
+        /* Deduct from King's treasury */
+        aldric->treasury -= 5000;
+    }
+}
+
+/* Example 4: Organic skill creation (fishing) */
+void example_create_fishing_from_need(void)
+{
+    /* Economy detects: Cooks need fish, but no source exists */
+
+    /* Organic creation system triggers */
+    ORGANIC_CREATION_REQUEST *req = plan_skill_creation(
+        "fishing",
+        "Cook profession requires fish resource with no source available",
+        TRIGGER_ECONOMIC_NEED
+    );
+
+    /* Validate with world context */
+    if (validate_creation_request(req))
+    {
+        /* Find best location (coastal area) */
+        AREA_DATA *best = suggest_best_location_for("fishing");
+        /* Returns: Darkhaven (has docks, coastal) */
+
+        req->target_area = best;
+
+        /* Double-check congruence */
+        CONGRUENCE_CHECK *check = check_congruence("fishing skill", best, req->reason);
+
+        if (check->is_congruent)
+        {
+            /* Create ENTIRE ecosystem via Beeler */
+            beeler_create_skill_ecosystem("fishing", best);
+            /* This creates:
+             * - Fishing skill
+             * - Fishing rod item
+             * - Fisher profession
+             * - Fish resource
+             * - Fisherman NPCs (teacher, workers, vendor)
+             * - Fishing locations (docks, shore)
+             * - Fish recipes for cooks
+             * All interconnected and balanced */
+
+            /* Announce (MEDIUM - periodicos only) */
+            beeler_announce(
+                "Fishing Industry Established in Darkhaven",
+                "Local fisherfolk have organized a new industry. Citizens can now "
+                "learn fishing from the Old Fisherman at the docks.",
+                EVENT_CATEGORY_ECONOMY,
+                ANNOUNCE_PRIORITY_MEDIUM,
+                "Darkhaven"
+            );
+        }
+    }
+}
+
+/* Example 5: Intelligent resource distribution */
+void example_intelligent_resources(void)
+{
+    /* At boot, Beeler analyzes each area's geography */
+
+    AREA_DATA *mountains = find_area_by_name("Mountain Pass");
+    AREA_CONTEXT *ctx = beeler_get_area_context(mountains);
+
+    /* Geography: Mountains, high elevation, no water */
+    /* Political: Within DarkHaven's sphere (50 rooms away) */
+    /* Economic: No current production */
+
+    /* Beeler decides: Create mining village */
+    if (beeler_validate_before_creating("mining village", mountains, "resource extraction"))
+    {
+        /* Create village with:
+         * - 15 rooms (homes, mine entrance, shop)
+         * - 10 miner NPCs
+         * - 5 DarkHaven guard NPCs (political control!)
+         * - Village Elder (reports to King Aldric)
+         * - Mine produces: iron ore, coal
+         * - Trade route to DarkHaven (daily caravans)
+         */
+
+        beeler_create_satellite_settlement(find_area_by_name("Darkhaven"), "mining village");
+
+        /* Announce (MEDIUM - periodicos) */
+        beeler_announce(
+            "Mining Settlement Established in Mountain Pass",
+            "Under the authority of King Aldric, a new mining village has been "
+            "founded in the Mountain Pass. Iron and coal now flow to the capital.",
+            EVENT_CATEGORY_CONSTRUCTION,
+            ANNOUNCE_PRIORITY_MEDIUM,
+            "Mountain Pass"
+        );
+    }
+}
 
 #endif /* BEELER_ARCHITECT_H */
