@@ -51,7 +51,7 @@
 #include "cultural_evolution.h"
 #include "family_lineage.h"
 #include "global_trade.h"
-#include "resource_distribution.h"
+// #include "resource_distribution.h"  /* Commented out - conflicts with economy.h */
 
 /* Scion arenacode extern function */
 extern void arena_update(void);

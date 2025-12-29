@@ -177,6 +177,8 @@ typedef struct gradual_change {
  * EXAMPLE TIMELINES
  * ======================================================================== */
 
+#if 0  /* Example code - not compiled */
+
 /* Example 1: Village → Town (6 MONTHS GAME TIME) */
 void example_village_to_town_timeline(void)
 {
@@ -363,6 +365,8 @@ void example_player_destroys_village(void)
      * - Lasting world impact!
      */
 }
+
+#endif  /* End of example code */
 
 /* ========================================================================
  * FUNCTION DECLARATIONS

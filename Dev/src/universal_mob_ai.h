@@ -165,6 +165,8 @@ typedef struct dynamic_conversation {
  * EXAMPLES - INTELLIGENT MOBS
  * ======================================================================== */
 
+#if 0  /* Example code - not compiled */
+
 /* Example 1: Farmer with goals and agency */
 void example_intelligent_farmer(void)
 {
@@ -338,6 +340,8 @@ void example_wolf_pack_intelligence(void)
      */
 }
 
+#endif  /* End of example code */
+
 /* ========================================================================
  * FUNCTION DECLARATIONS
  * ======================================================================== */
@@ -350,7 +354,7 @@ int determine_mob_power_level(CHAR_DATA *mob);
 
 /* Personality generation */
 char *ai_generate_mob_personality(CHAR_DATA *mob);
-void assign_personality_traits(CHAR_DATA *mob);
+void assign_personality_traits(UNIVERSAL_MOB_AI *ai);
 void generate_mob_backstory(CHAR_DATA *mob);
 
 /* Memory system */
@@ -370,9 +374,12 @@ void mob_progress_goal(CHAR_DATA *mob, int goal_index, int progress_amount);
 void mob_achieve_goal(CHAR_DATA *mob, int goal_index);
 char *mob_get_current_goal(CHAR_DATA *mob);
 
+/* AI access */
+UNIVERSAL_MOB_AI *get_mob_ai(CHAR_DATA *mob);
+
 /* AI decision-making */
 void mob_ai_think(CHAR_DATA *mob);  /* Called every tick */
-char *mob_ai_decide_action(CHAR_DATA *mob);
+char *mob_ai_decide_action(UNIVERSAL_MOB_AI *ai);
 void mob_execute_decision(CHAR_DATA *mob, char *decision);
 
 /* Dynamic conversation */
