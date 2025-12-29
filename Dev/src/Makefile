@@ -29,7 +29,7 @@ L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC) -lcurl
  
 O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ai_context_analyzer.o axsmaug.o ban.o bank.o base64.o beeler.o \
-          beeler_architect.o beeler_assign.o boards.o build.o clans.o comm.o \
+          beeler_architect.o beeler_assign.o beeler_god_mode.o boards.o build.o clans.o comm.o \
           comments.o const.o db.o deity.o economy.o economy_commands.o \
           fight.o grub.o handler.o hashstr.o \
           hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \
@@ -38,13 +38,13 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           ollama_integration.o planes.o player.o \
           polymorph.o redit.o requests.o reset.o save.o services.o \
           shops.o skills.o special.o stat_obj.o suicide.o tables.o \
-          track.o update.o websvr.o minilzo.o \
+          track.o universal_mob_ai.o update.o websvr.o minilzo.o world_context.o \
           ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \
           imc-interp.o imc-mail.o imc-mercbase.o imc-util.o imc-version.o \
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
           ai_context_analyzer.c axsmaug.c ban.c bank.c base64.c beeler.c \
-          beeler_architect.c beeler_assign.c boards.c build.c clans.c comm.c \
+          beeler_architect.c beeler_assign.c beeler_god_mode.c boards.c build.c clans.c comm.c \
           comments.c const.c db.c deity.c economy.c economy_commands.c \
           fight.c grub.c handler.c hashstr.c \
           hiscores.c hskelter.c i3.c ibuild.c ident.c imm_host.c immscore.c \
@@ -53,12 +53,13 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
           ollama_integration.c planes.c player.c \
           polymorph.c redit.c requests.c reset.c save.c services.c \
           shops.c skills.c special.c stat_obj.c suicide.c tables.c \
-          track.c update.c websvr.c minilzo.c \
+          track.c universal_mob_ai.c update.c websvr.c minilzo.c world_context.c \
           ice.c icec.c icec-mercbase.c imc.c imc-config.c imc-events.c \
           imc-interp.c imc-mail.c imc-mercbase.c imc-util.c imc-version.c \
 
-H_FILES = ai_context_analyzer.h bank.h beeler.h beeler_architect.h bet.h \
+H_FILES = ai_context_analyzer.h bank.h beeler.h beeler_architect.h beeler_god_mode.h bet.h \
           economy.h medit_ai.h mob_ai.h mob_home.h mob_identity.h mud.h olc.h ollama_integration.h \
+          universal_mob_ai.h world_context.h \
           ice.h icec.h icec-mercbase.h imc.h \
           imc-config.h imc-mercbase.h imc-mercdefs.h lzoconf.h minilzo.h \
  
