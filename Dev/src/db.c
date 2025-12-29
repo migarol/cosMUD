@@ -46,6 +46,9 @@
 #endif
 #include "mud.h"
 #include "economy.h"
+#include "world_context.h"
+#include "beeler_god_mode.h"
+#include "universal_mob_ai.h"
 
 
 extern	int	_filbuf		args( (FILE *) );
@@ -786,6 +789,19 @@ void boot_db( bool fCopyOver )
 
     /* Initialize economy system */
     init_economy_system();
+
+    /* Initialize TIER 1 autonomous world systems */
+    log_string("Initializing world context analysis system");
+    init_world_context();
+
+    log_string("Initializing Beeler divine oversight");
+    init_beeler_god_mode();
+
+    log_string("Performing initial world scan");
+    beeler_divine_observation();
+
+    log_string("Initializing universal mob AI");
+    init_universal_mob_ai();
 
     /* init_maps ( ); */
 

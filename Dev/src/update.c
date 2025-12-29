@@ -38,6 +38,8 @@
 #include <time.h>
 #include "mud.h"
 #include "economy.h"
+#include "beeler_god_mode.h"
+#include "universal_mob_ai.h"
 
 /* Scion arenacode extern function */
 extern void arena_update(void);
@@ -2140,6 +2142,9 @@ void update_handler( void )
     static  int     pulse_arena; /* Scion arenacode */
 	static  int     pulse_regen;
     static  int     pulse_economy;
+    static  int     pulse_beeler_observation; /* Beeler divine oversight */
+    static  int     pulse_beeler_decisions;   /* Beeler decision making */
+    static  int     pulse_mob_ai;             /* Universal mob AI autonomous actions */
     struct timeval stime;
     struct timeval etime;
 
@@ -2211,6 +2216,27 @@ void update_handler( void )
     {
 	pulse_economy = PULSE_TICK * 24; /* Once per MUD day */
 	update_economy();
+    }
+
+    /* Beeler divine observation - every 30 minutes */
+    if ( --pulse_beeler_observation <= 0 )
+    {
+	pulse_beeler_observation = PULSE_AREA * 30; /* 30 real minutes */
+	beeler_divine_observation();
+    }
+
+    /* Beeler divine decisions - every hour */
+    if ( --pulse_beeler_decisions <= 0 )
+    {
+	pulse_beeler_decisions = PULSE_AREA * 60; /* 60 real minutes */
+	beeler_make_divine_decisions();
+    }
+
+    /* Universal mob AI autonomous actions - every 5 minutes */
+    if ( --pulse_mob_ai <= 0 )
+    {
+	pulse_mob_ai = PULSE_AREA * 5; /* 5 real minutes */
+	universal_mob_ai_update();
     }
 
     tele_update( );
