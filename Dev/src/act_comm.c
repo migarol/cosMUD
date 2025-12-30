@@ -1331,6 +1331,45 @@ void do_say( CHAR_DATA *ch, char *argument )
 /*    MOBtrigger = FALSE;
     act( AT_SAY, "$n says '$T'", ch, NULL, argument, TO_ROOM );*/
     ch->act = actflags;
+
+    /* === MULTI-TIER AI: NPCs respond based on their AI tier === */
+    for ( vch = ch->in_room->first_person; vch; vch = vch->next_in_room )
+    {
+        char *npc_response;
+
+        if ( vch == ch )
+            continue;
+
+        /* Only NPCs respond */
+        if ( !IS_NPC(vch) )
+            continue;
+
+        /* Skip if NPC has no AI tier or is SIMPLE (template only) */
+        if ( vch->ai_tier == NPC_AI_TIER_SIMPLE )
+            continue;
+
+        /* Only respond if player is addressing them or nearby */
+        /* For now, respond to all speech in the room */
+
+        /* Get AI response based on tier */
+        npc_response = ollama_generate_npc_dialogue( vch, argument );
+
+        if ( npc_response )
+        {
+            /* NPC responds */
+            act( AT_SAY, "$n says '$t'", vch, npc_response, ch, TO_ROOM );
+            DISPOSE( npc_response );
+        }
+        else
+        {
+            /* AI timed out or failed - use simple template */
+            act( AT_SAY, "$n nods thoughtfully.", vch, NULL, ch, TO_ROOM );
+        }
+
+        /* Only one NPC responds to avoid spam */
+        break;
+    }
+
     MOBtrigger = FALSE;
     act( AT_SAY, "You say '$T'", ch, NULL, drunk_speech( argument, ch ), TO_CHAR ); 
     if ( IS_SET( ch->in_room->room_flags, ROOM_LOGSPEECH ) )

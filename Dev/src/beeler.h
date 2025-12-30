@@ -97,6 +97,15 @@ void create_the_void(void);
 void load_beeler_state(void);
 void save_beeler_state(void);
 
+/* Divine Manifestations - Beeler appears in the world */
+CHAR_DATA *beeler_manifest(ROOM_INDEX_DATA *room);
+void beeler_vanish(CHAR_DATA *beeler_avatar);
+void beeler_observation_walk(void);
+void beeler_divine_action(CHAR_DATA *beeler_avatar, ROOM_INDEX_DATA *room);
+void beeler_bless_area(CHAR_DATA *beeler_avatar, AREA_DATA *area);
+void beeler_create_blessing(CHAR_DATA *beeler_avatar, ROOM_INDEX_DATA *room);
+extern CHAR_DATA *beeler_avatar_in_world;
+
 /* Core interaction */
 void do_talk_beeler(CHAR_DATA *ch, char *argument);
 char *beeler_respond(CHAR_DATA *ch, char *request);

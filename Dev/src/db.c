@@ -58,6 +58,7 @@
 #include "mob_creation_system.h"
 #include "persistent_memory.h"
 #include "cultural_evolution.h"
+#include "ollama_integration.h"
 #include "family_lineage.h"
 #include "global_trade.h"
 // #include "resource_distribution.h"
@@ -2760,6 +2761,39 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
         }
     }
 
+    /* === MULTI-TIER AI: Auto-assign AI tier based on level and profession === */
+    mob->ai_tier = NPC_AI_TIER_SIMPLE;  /* Default: templates only */
+    mob->last_think_time = 0;
+    mob->current_strategy = NULL;
+    mob->ai_personality = NULL;
+
+    if ( pMobIndex->vnum < 100 )
+    {
+        /* Special/Quest mobs = Important AI */
+        mob->ai_tier = NPC_AI_TIER_IMPORTANT;
+    }
+    else if ( mob->level >= 90 )
+    {
+        /* Very high level = Leader AI (thinking + speaking) */
+        mob->ai_tier = NPC_AI_TIER_LEADER;
+    }
+    else if ( mob->level >= 60 )
+    {
+        /* High level = Important AI (speaking only) */
+        mob->ai_tier = NPC_AI_TIER_IMPORTANT;
+    }
+    else if ( mob->profession >= 30 && mob->profession <= 45 )
+    {
+        /* Merchants, scholars = Normal AI (templates + AI fallback) */
+        mob->ai_tier = NPC_AI_TIER_NORMAL;
+    }
+    else if ( mob->profession == 46 || mob->profession == 47 )
+    {
+        /* Guards, soldiers = Simple AI (templates only - need fast response) */
+        mob->ai_tier = NPC_AI_TIER_SIMPLE;
+    }
+    /* Everyone else keeps default SIMPLE tier */
+
     return mob;
 }
 
@@ -3007,6 +3041,13 @@ void clear_char( CHAR_DATA *ch )
     ch->inter_editing    	= NULL;              /* BUILD INTERFACE */
     ch->inter_editing_vnum	= -1;                /* BUILD INTERFACE */
     ch->inter_substate    	= SUB_NORTH;         /* BUILD INTERFACE */
+
+    /* Multi-tier AI system */
+    ch->ai_tier                 = NPC_AI_TIER_SIMPLE;
+    ch->last_think_time         = 0;
+    ch->current_strategy        = NULL;
+    ch->ai_personality          = NULL;
+
     return;
 }
 
@@ -3136,6 +3177,13 @@ void free_char( CHAR_DATA *ch )
 	STRFREE( comments->date    );
 	DISPOSE( comments          );
     }
+
+    /* Free multi-tier AI fields */
+    if ( ch->current_strategy )
+        DISPOSE( ch->current_strategy );
+    if ( ch->ai_personality )
+        DISPOSE( ch->ai_personality );
+
     DISPOSE( ch );
     return;
 }

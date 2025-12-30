@@ -1085,8 +1085,14 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Consumption" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_RESOURCE; i++ )
-                                aecon->consumption[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Consumption read before area economy created!");
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    fread_number( fp ); /* Skip data */
+                            } else {
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    aecon->consumption[i] = fread_number( fp );
+                            }
                         }
                         break;
 
@@ -1094,8 +1100,14 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Demand" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_RESOURCE; i++ )
-                                aecon->demand[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Demand read before area economy created!");
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    fread_number( fp ); /* Skip data */
+                            } else {
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    aecon->demand[i] = fread_number( fp );
+                            }
                         }
                         break;
 
@@ -1103,9 +1115,16 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Event" ) )
                         {
                             fMatch = TRUE;
-                            aecon->active_event = fread_number( fp );
-                            aecon->event_duration = fread_number( fp );
-                            aecon->last_event = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Event read before area economy created!");
+                                fread_number( fp );
+                                fread_number( fp );
+                                fread_number( fp );
+                            } else {
+                                aecon->active_event = fread_number( fp );
+                                aecon->event_duration = fread_number( fp );
+                                aecon->last_event = fread_number( fp );
+                            }
                         }
                         if ( !str_cmp( word, "End" ) )
                         {
@@ -1118,7 +1137,12 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Interventions" ) )
                         {
                             fMatch = TRUE;
-                            aecon->interventions = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Interventions read before area economy created!");
+                                fread_number( fp );
+                            } else {
+                                aecon->interventions = fread_number( fp );
+                            }
                         }
                         break;
 
@@ -1126,14 +1150,26 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Production" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_RESOURCE; i++ )
-                                aecon->production[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Production read before area economy created!");
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    fread_number( fp );
+                            } else {
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    aecon->production[i] = fread_number( fp );
+                            }
                         }
                         if ( !str_cmp( word, "Productivity" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_PROFESSION; i++ )
-                                aecon->productivity[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Productivity read before area economy created!");
+                                for ( i = 0; i < MAX_PROFESSION; i++ )
+                                    fread_number( fp );
+                            } else {
+                                for ( i = 0; i < MAX_PROFESSION; i++ )
+                                    aecon->productivity[i] = fread_number( fp );
+                            }
                         }
                         break;
 
@@ -1149,6 +1185,11 @@ void load_economy_data( void )
                             {
                                 aecon = create_area_economy( area, region_name );
                             }
+                            else
+                            {
+                                bug("load_economy: Area '%s' not found, skipping economy data", area_name);
+                                aecon = NULL;
+                            }
                         }
                         break;
 
@@ -1156,8 +1197,14 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Supply" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_RESOURCE; i++ )
-                                aecon->supply[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Supply read before area economy created!");
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    fread_number( fp );
+                            } else {
+                                for ( i = 0; i < MAX_RESOURCE; i++ )
+                                    aecon->supply[i] = fread_number( fp );
+                            }
                         }
                         break;
 
@@ -1165,8 +1212,14 @@ void load_economy_data( void )
                         if ( !str_cmp( word, "Workers" ) )
                         {
                             fMatch = TRUE;
-                            for ( i = 0; i < MAX_PROFESSION; i++ )
-                                aecon->workers[i] = fread_number( fp );
+                            if (!aecon) {
+                                bug("load_economy: Workers read before area economy created!");
+                                for ( i = 0; i < MAX_PROFESSION; i++ )
+                                    fread_number( fp );
+                            } else {
+                                for ( i = 0; i < MAX_PROFESSION; i++ )
+                                    aecon->workers[i] = fread_number( fp );
+                            }
                         }
                         break;
                 }
