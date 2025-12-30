@@ -802,6 +802,9 @@ void boot_db( bool fCopyOver )
     /* Initialize economy system */
     init_economy_system();
 
+    /* Initialize Ollama AI integration */
+    init_ollama();
+
     /* Initialize TIER 1 autonomous world systems */
     log_string("Initializing world context analysis system");
     init_world_context();
