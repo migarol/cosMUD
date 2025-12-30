@@ -175,7 +175,7 @@ char *	const	act_flags [] =
 "wimpy", "pet", "train", "practice", "immortal", "deadly", "polyself",
 "meta_aggr", "guardian", "running", "nowander", "mountable", "mounted",
 "scholar", "secretive", "r10", "mobinvis", "noassist", "autonomous",
-"pacifist", "noattack", "annoying", "r13", "prototype", "r14", "banker",
+"pacifist", "noattack", "annoying", "autocreated", "prototype", "r14", "banker",
 };
 
 char *	const	pc_flags [] =

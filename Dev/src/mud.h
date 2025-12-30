@@ -1431,6 +1431,7 @@ struct	smaug_affect
 #define ACT_PACIFIST         26		/* Doesn't ever fight   */
 #define ACT_NOATTACK		 27		/* No physical attacks */
 #define ACT_ANNOYING		 28		/* Other mobs will attack */
+#define ACT_AUTOCREATED		 29		/* Auto-created by world systems */
 #define ACT_PROTOTYPE		 30		/* A prototype mob	*/
 #define ACT_BANKER		 32		/* Runs banks		*/
 /* 27 acts */
@@ -4210,6 +4211,7 @@ DECLARE_DO_FUN( do_pstat	);
 DECLARE_DO_FUN( do_pull		);
 DECLARE_DO_FUN(	do_punch	);
 DECLARE_DO_FUN(	do_purge	);
+DECLARE_DO_FUN( do_cleanup_autocreated );
 DECLARE_DO_FUN( do_push		);
 DECLARE_DO_FUN(	do_put		);
 DECLARE_DO_FUN( do_qpset	);

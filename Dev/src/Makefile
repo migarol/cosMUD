@@ -42,7 +42,7 @@ O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
           polymorph.o redit.o requests.o reset.o save.o \
           shops.o skills.o special.o stat_obj.o suicide.o system_stubs.o tables.o \
           track.o universal_mob_ai.o update.o websvr.o minilzo.o \
-          world_context.o world_history_tracker.o periodicos.o organic_creation.o \
+          world_context.o world_history_tracker.o world_persistence.o periodicos.o organic_creation.o \
           ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \
           imc-interp.o imc-mail.o imc-mercbase.o imc-util.o imc-version.o \
 
@@ -61,7 +61,7 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
           polymorph.c redit.c requests.c reset.c resource_distribution.c save.c services.c \
           shops.c skills.c special.c stat_obj.c suicide.c tables.c \
           track.c universal_mob_ai.c update.c websvr.c minilzo.c world_context.c \
-          world_history_tracker.c \
+          world_history_tracker.c world_persistence.c \
           ice.c icec.c icec-mercbase.c imc.c imc-config.c imc-events.c \
           imc-interp.c imc-mail.c imc-mercbase.c imc-util.c imc-version.c \
 
@@ -70,7 +70,7 @@ H_FILES = ai_context_analyzer.h bank.h beeler.h beeler_architect.h beeler_god_mo
           leader_ai.h medit_ai.h mob_ai.h mob_creation_system.h mob_home.h mob_identity.h \
           mud.h olc.h ollama_integration.h organic_creation.h periodicos.h persistent_memory.h \
           player_world_impact.h resource_distribution.h \
-          universal_mob_ai.h world_context.h world_history_tracker.h \
+          universal_mob_ai.h world_context.h world_history_tracker.h world_persistence.h \
           ice.h icec.h icec-mercbase.h imc.h \
           imc-config.h imc-mercbase.h imc-mercdefs.h lzoconf.h minilzo.h \
  

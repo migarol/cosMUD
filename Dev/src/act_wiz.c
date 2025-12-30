@@ -40,6 +40,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include "mud.h"
+#include "world_persistence.h"
 
 
 #define RESTORE_INTERVAL 21600
@@ -3359,6 +3360,62 @@ void do_low_purge( CHAR_DATA *ch, char *argument )
     act( AT_IMMORT, "$n purges $N.", ch, NULL, victim, TO_NOTVICT );
     act( AT_IMMORT, "You make $N disappear in a puff of smoke!", ch, NULL, victim, TO_CHAR );
     extract_char( victim, TRUE );
+    return;
+}
+
+/*
+ * Cleanup autocreated mobs - for emergency recovery
+ */
+void do_cleanup_autocreated( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+    int removed;
+    int total;
+
+    if ( IS_NPC(ch) || get_trust(ch) < LEVEL_IMMORTAL )
+    {
+        send_to_char( "Huh?\n\r", ch );
+        return;
+    }
+
+    set_char_color( AT_IMMORT, ch );
+
+    /* Count before cleanup */
+    total = count_autocreated_mobs();
+
+    if ( total == 0 )
+    {
+        send_to_char( "There are no autocreated mobs to cleanup.\n\r", ch );
+        return;
+    }
+
+    sprintf( buf, "Found %d autocreated mob%s in the world.\n\r",
+             total, total == 1 ? "" : "s" );
+    send_to_char( buf, ch );
+
+    if ( !str_cmp( argument, "confirm" ) )
+    {
+        /* Actually do the cleanup */
+        removed = cleanup_autocreated_mobs();
+
+        sprintf( buf, "Removed %d autocreated mob%s from the world.\n\r",
+                 removed, removed == 1 ? "" : "s" );
+        send_to_char( buf, ch );
+
+        /* Also delete .autocreated files */
+        delete_autocreated_files();
+        send_to_char( "Deleted all .autocreated save files.\n\r", ch );
+
+        sprintf( buf, "%s cleaned up %d autocreated mobs.", ch->name, removed );
+        log_string( buf );
+    }
+    else
+    {
+        send_to_char( "\n\rWARNING: This will remove ALL autocreated mobs from the world.\n\r", ch );
+        send_to_char( "This includes workers, guards, and any NPCs created by the autonomous systems.\n\r", ch );
+        send_to_char( "\n\rTo confirm, use: cleanup_autocreated confirm\n\r", ch );
+    }
+
     return;
 }
 

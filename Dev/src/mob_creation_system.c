@@ -306,6 +306,9 @@ CHAR_DATA *mob_create_npc(CHAR_DATA *creator, CREATION_TYPE npc_type, char *reas
         return NULL;
     }
 
+    /* Mark as auto-created for persistence tracking */
+    xSET_BIT(new_mob->act, ACT_AUTOCREATED);
+
     /* Place in same room as creator */
     if (creator->in_room)
         char_to_room(new_mob, creator->in_room);

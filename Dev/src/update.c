@@ -51,6 +51,7 @@
 #include "cultural_evolution.h"
 #include "family_lineage.h"
 #include "global_trade.h"
+#include "world_persistence.h"
 // #include "resource_distribution.h"  /* Commented out - conflicts with economy.h */
 
 /* Scion arenacode extern function */
@@ -2166,6 +2167,7 @@ void update_handler( void )
     static  int     pulse_cultural;           /* Cultural evolution */
     static  int     pulse_family;             /* Family/lineage updates */
     static  int     pulse_trade;              /* Global trade caravans */
+    static  int     pulse_world_save;         /* World persistence auto-save */
     struct timeval stime;
     struct timeval etime;
 
@@ -2324,6 +2326,13 @@ void update_handler( void )
     {
 	pulse_trade = PULSE_AREA * 10; /* 10 real minutes */
 	trade_route_update();
+    }
+
+    /* World persistence (auto-save autocreated mobs) - every 5 minutes */
+    if ( --pulse_world_save <= 0 )
+    {
+	pulse_world_save = PULSE_AREA * 5; /* 5 real minutes */
+	save_autocreated_mobs();
     }
 
     tele_update( );
