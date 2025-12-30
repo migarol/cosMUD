@@ -2304,10 +2304,11 @@ void update_handler( void )
     }
 
     /* Cultural evolution - every 60 minutes */
+    /* TEMPORARILY DISABLED - causes heap corruption */
     if ( --pulse_cultural <= 0 )
     {
 	pulse_cultural = PULSE_AREA * 60; /* 60 real minutes */
-	cultural_evolution_update();
+	/* cultural_evolution_update(); */ /* DISABLED: heap corruption */
     }
 
     /* Family/lineage updates - every 120 minutes */
