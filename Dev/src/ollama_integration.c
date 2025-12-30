@@ -676,9 +676,11 @@ char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
 {
     char *model;
     int timeout;
-    char prompt[1024];
+    char prompt[2048];
     char *response;
     char *role_desc;
+    char *area_name;
+    char *personality;
 
     if (!npc || !player_message)
         return NULL;
@@ -702,18 +704,28 @@ char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
             return NULL;  /* Caller will use template */
     }
 
-    /* Build concise prompt for fast response */
-    role_desc = "person";
-    if (npc->short_descr)
-        role_desc = npc->short_descr;
+    /* Build rich prompt with context for better roleplay */
+    role_desc = npc->short_descr ? npc->short_descr : "a person";
+    area_name = (npc->in_room && npc->in_room->area && npc->in_room->area->name)
+                ? npc->in_room->area->name : "this place";
+    personality = npc->ai_personality ? npc->ai_personality : "helpful and wise";
 
+    /* Rich contextual prompt for in-character roleplay */
     sprintf(prompt,
-        "You are %s. Player: \"%s\" Reply in-character, max 1 sentence.",
-        npc->name ? npc->name : role_desc,
+        "You are %s, %s. "
+        "Location: %s. "
+        "Personality: %s. "
+        "A player says: \"%s\" "
+        "Respond in-character with 1 short sentence (10-15 words max). "
+        "Be helpful, stay in character, and reference your location when relevant.",
+        npc->name ? npc->name : "someone",
+        role_desc,
+        area_name,
+        personality,
         player_message);
 
     /* Use fast model with tight timeout */
-    response = ollama_request_with_model(prompt, 50, model, timeout);
+    response = ollama_request_with_model(prompt, 80, model, timeout);
 
     return response;  /* NULL if timeout or error - caller will use template */
 }

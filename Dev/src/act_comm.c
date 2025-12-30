@@ -1332,6 +1332,10 @@ void do_say( CHAR_DATA *ch, char *argument )
     act( AT_SAY, "$n says '$T'", ch, NULL, argument, TO_ROOM );*/
     ch->act = actflags;
 
+    /* Show "You say" to the player FIRST */
+    MOBtrigger = FALSE;
+    act( AT_SAY, "You say '$T'", ch, NULL, drunk_speech( argument, ch ), TO_CHAR );
+
     /* === MULTI-TIER AI: NPCs respond based on their AI tier === */
     for ( vch = ch->in_room->first_person; vch; vch = vch->next_in_room )
     {
@@ -1356,6 +1360,9 @@ void do_say( CHAR_DATA *ch, char *argument )
 
         if ( npc_response )
         {
+            /* Brief delay for natural conversation feel (~1 second) */
+            /* Note: Ollama request already took time, so NPC response feels instant but natural */
+
             /* NPC responds */
             act( AT_SAY, "$n says '$t'", vch, npc_response, ch, TO_ROOM );
             DISPOSE( npc_response );
@@ -1368,10 +1375,7 @@ void do_say( CHAR_DATA *ch, char *argument )
 
         /* Only one NPC responds to avoid spam */
         break;
-    }
-
-    MOBtrigger = FALSE;
-    act( AT_SAY, "You say '$T'", ch, NULL, drunk_speech( argument, ch ), TO_CHAR ); 
+    } 
     if ( IS_SET( ch->in_room->room_flags, ROOM_LOGSPEECH ) )
     {
 	sprintf( buf, "%s: %s", IS_NPC( ch ) ? ch->short_descr : ch->name,
