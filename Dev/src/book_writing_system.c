@@ -175,8 +175,8 @@ char *generate_book_content(int book_type, char *subject, char *author_name, cha
             break;
     }
 
-    /* Use Ollama for generation */
-    if (ollama_is_available())
+    /* Use Ollama for generation if policy allows */
+    if (ollama_is_available() && OLLAMA_USE_FOR_BOOKS)
     {
         content = ollama_request(prompt, 500);
         if (content && strlen(content) > 50)

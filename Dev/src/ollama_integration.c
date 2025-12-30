@@ -58,12 +58,29 @@ void init_ollama(void)
         log_string("  [Ollama] AI generation ENABLED");
         sprintf(log_buf, "  [Ollama] Connected to %s:%d", OLLAMA_HOST, OLLAMA_PORT);
         log_string(log_buf);
+        sprintf(log_buf, "  [Ollama] Model: %s (timeout: %ds)", OLLAMA_MODEL, OLLAMA_TIMEOUT);
+        log_string(log_buf);
+
+        /* Log usage policy for transparency */
+        log_string("  [Ollama] AI Usage Policy:");
+        sprintf(log_buf, "          NPCs: %s (templates are faster for gameplay)",
+            OLLAMA_USE_FOR_NPCS ? "YES" : "NO");
+        log_string(log_buf);
+        sprintf(log_buf, "          Rooms: %s (templates are faster for gameplay)",
+            OLLAMA_USE_FOR_ROOMS ? "YES" : "NO");
+        log_string(log_buf);
+        sprintf(log_buf, "          Books: %s (quality over speed)",
+            OLLAMA_USE_FOR_BOOKS ? "YES" : "NO");
+        log_string(log_buf);
+        sprintf(log_buf, "          Culture/History: %s (background processing)",
+            OLLAMA_USE_FOR_CULTURE ? "YES" : "NO");
+        log_string(log_buf);
     }
     else
     {
         ollama_enabled = FALSE;
         log_string("  [Ollama] AI generation DISABLED (using templates)");
-        log_string("  [Ollama] To enable: Install Ollama and run 'ollama pull llama3.2'");
+        log_string("  [Ollama] To enable: Install Ollama and run 'ollama pull llama3.2:1b'");
     }
 }
 
@@ -144,8 +161,8 @@ char *ollama_generate_room_description(int home_type, char *owner_name, char *co
     char *result;
     extern char *home_type_name(int home_type);
 
-    /* If Ollama is available, use it */
-    if (ollama_enabled)
+    /* If Ollama is available AND policy allows, use it */
+    if (ollama_enabled && OLLAMA_USE_FOR_ROOMS)
     {
         sprintf(prompt,
             "Describe a %s in a fantasy MUD. Owner: %s. Context: %s. "
@@ -211,7 +228,8 @@ char *ollama_generate_mob_personality(char *mob_name, char *race, int level, cha
     char prompt[MAX_STRING_LENGTH];
     char *result;
 
-    if (ollama_enabled)
+    /* Only use AI if policy allows - NPCs need fast generation */
+    if (ollama_enabled && OLLAMA_USE_FOR_NPCS)
     {
         sprintf(prompt,
             "Create a brief personality for a fantasy MUD NPC: "
@@ -246,7 +264,7 @@ char *ollama_generate_district_description(char *district_name, int home_type, c
     char *result;
     extern char *home_type_name(int home_type);
 
-    if (ollama_enabled)
+    if (ollama_enabled && OLLAMA_USE_FOR_ROOMS)
     {
         sprintf(prompt,
             "Describe a %s district called '%s' in the city of %s (fantasy MUD). "
@@ -279,7 +297,7 @@ char *ollama_generate_inn_description(char *inn_name, char *location, int qualit
     char prompt[MAX_STRING_LENGTH];
     char *result;
 
-    if (ollama_enabled)
+    if (ollama_enabled && OLLAMA_USE_FOR_ROOMS)
     {
         sprintf(prompt,
             "Describe an inn called '%s' in %s (fantasy MUD). Quality: %d/100. "

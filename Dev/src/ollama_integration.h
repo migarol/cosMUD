@@ -13,8 +13,15 @@
 /* Ollama configuration */
 #define OLLAMA_HOST "http://localhost"
 #define OLLAMA_PORT 11434
-#define OLLAMA_MODEL "llama3.2:latest"
-#define OLLAMA_TIMEOUT 5  /* seconds */
+#define OLLAMA_MODEL "llama3.2:1b"  /* Use smallest/fastest model */
+#define OLLAMA_TIMEOUT 2  /* seconds - fast fail for real-time gameplay */
+
+/* AI Usage Policy - when to use AI vs templates */
+#define OLLAMA_USE_FOR_NPCS       FALSE  /* Templates are faster for gameplay */
+#define OLLAMA_USE_FOR_ROOMS      FALSE  /* Templates are faster for gameplay */
+#define OLLAMA_USE_FOR_BOOKS      TRUE   /* Books can wait, use AI for quality */
+#define OLLAMA_USE_FOR_CULTURE    TRUE   /* Background evolution can use AI */
+#define OLLAMA_USE_FOR_HISTORY    TRUE   /* Historical content can use AI */
 
 /* Generation types */
 #define OLLAMA_GEN_ROOM_DESC      0
