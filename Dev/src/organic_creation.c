@@ -259,8 +259,12 @@ bool validate_geography(ORGANIC_CREATION_REQUEST *req)
     if (!req->target_area)
     {
         /* Auto-detect best location */
-        req->target_area = suggest_best_location_for(req->what_to_create);
-        if (!req->target_area)
+        ROOM_INDEX_DATA *room = suggest_best_location_for(req->what_to_create);
+        if (room && room->area)
+        {
+            req->target_area = room->area;
+        }
+        else
         {
             req->validation_notes[VALIDATION_GEOGRAPHY] = str_dup("No suitable location found");
             return FALSE;

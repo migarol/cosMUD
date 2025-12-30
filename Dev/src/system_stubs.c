@@ -77,6 +77,12 @@ AREA_DATA *get_area_by_filename(char *filename)
 
 ROOM_INDEX_DATA *suggest_best_location_for(char *what)
 {
+    ROOM_INDEX_DATA *room;
+
     /* Stub - return first room */
-    return get_room_index(100);
+    room = get_room_index(100);
+    if (!room)
+        room = get_room_index(1);  /* Try room 1 if 100 doesn't exist */
+
+    return room;
 }
