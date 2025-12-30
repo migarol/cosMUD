@@ -2772,6 +2772,11 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
         /* Special/Quest mobs = Important AI */
         mob->ai_tier = NPC_AI_TIER_IMPORTANT;
     }
+    else if ( pMobIndex->vnum >= 10300 && pMobIndex->vnum <= 10499 )
+    {
+        /* Tutorial NPCs (Darkhaven Academy) = Important AI */
+        mob->ai_tier = NPC_AI_TIER_IMPORTANT;
+    }
     else if ( mob->level >= 90 )
     {
         /* Very high level = Leader AI (thinking + speaking) */
@@ -2781,6 +2786,11 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
     {
         /* High level = Important AI (speaking only) */
         mob->ai_tier = NPC_AI_TIER_IMPORTANT;
+    }
+    else if ( mob->level >= 30 )
+    {
+        /* Mid-high level = Normal AI (templates + AI fallback) */
+        mob->ai_tier = NPC_AI_TIER_NORMAL;
     }
     else if ( mob->profession >= 30 && mob->profession <= 45 )
     {
