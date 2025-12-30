@@ -2276,10 +2276,11 @@ void update_handler( void )
     }
 
     /* Organic creation (village growth, skills, professions) - every 30 minutes */
+    /* TEMPORARILY DISABLED - causes SIGSEGV crashes */
     if ( --pulse_organic_creation <= 0 )
     {
 	pulse_organic_creation = PULSE_AREA * 30; /* 30 real minutes */
-	organic_creation_update();
+	/* organic_creation_update(); */ /* DISABLED: SIGSEGV in suggest_best_location_for */
     }
 
     /* Mob creation (NPCs creating other NPCs/objects) - every 20 minutes */
