@@ -676,11 +676,15 @@ char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
 {
     char *model;
     int timeout;
-    char prompt[2048];
+    char prompt[4096];  /* Larger buffer for rich context */
     char *response;
     char *role_desc;
     char *area_name;
+    char *room_name;
     char *personality;
+    char *profession_name;
+    char level_info[128];
+    char context_info[512];
 
     if (!npc || !player_message)
         return NULL;
@@ -704,28 +708,66 @@ char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
             return NULL;  /* Caller will use template */
     }
 
-    /* Build rich prompt with context for better roleplay */
+    /* Build RICH context for professional roleplay */
     role_desc = npc->short_descr ? npc->short_descr : "a person";
     area_name = (npc->in_room && npc->in_room->area && npc->in_room->area->name)
-                ? npc->in_room->area->name : "this place";
-    personality = npc->ai_personality ? npc->ai_personality : "helpful and wise";
+                ? npc->in_room->area->name : "this area";
+    room_name = (npc->in_room && npc->in_room->name)
+                ? npc->in_room->name : "here";
+    personality = npc->ai_personality ? npc->ai_personality : "professional";
 
-    /* Rich contextual prompt for in-character roleplay */
+    /* Profession context */
+    profession_name = "resident";
+    if (npc->profession > 0)
+    {
+        /* TODO: Map profession enum to name - for now use generic */
+        profession_name = "worker";
+    }
+
+    /* Level/importance context */
+    if (npc->level >= 90)
+        sprintf(level_info, "You are extremely powerful and important.");
+    else if (npc->level >= 60)
+        sprintf(level_info, "You are experienced and respected.");
+    else if (npc->level >= 30)
+        sprintf(level_info, "You are competent at your work.");
+    else
+        sprintf(level_info, "You are new but eager to help.");
+
+    /* Build context string */
+    sprintf(context_info,
+        "You work as a %s in %s. You are currently in %s. %s",
+        profession_name,
+        area_name,
+        room_name,
+        level_info);
+
+    /* ULTRA-RICH ROLEPLAY PROMPT */
     sprintf(prompt,
-        "You are %s, %s. "
-        "Location: %s. "
-        "Personality: %s. "
-        "A player says: \"%s\" "
-        "Respond in-character with 1 short sentence (10-15 words max). "
-        "Be helpful, stay in character, and reference your location when relevant.",
+        "ROLEPLAY INSTRUCTIONS - FOLLOW EXACTLY:\n"
+        "Character: You are %s, described as '%s'\n"
+        "Personality: %s\n"
+        "Context: %s\n"
+        "\n"
+        "RULES:\n"
+        "1. ALWAYS respond in English only (never Spanish or other languages)\n"
+        "2. Stay 100%% in-character - you ARE this person\n"
+        "3. Be authentic to your role and location\n"
+        "4. Reference your surroundings when relevant\n"
+        "5. Respond helpfully and naturally\n"
+        "6. Keep responses SHORT (one sentence, 15 words max)\n"
+        "\n"
+        "PLAYER SAYS: \"%s\"\n"
+        "\n"
+        "YOUR RESPONSE (in English, in-character, helpful):",
         npc->name ? npc->name : "someone",
         role_desc,
-        area_name,
         personality,
+        context_info,
         player_message);
 
     /* Use fast model with tight timeout */
-    response = ollama_request_with_model(prompt, 80, model, timeout);
+    response = ollama_request_with_model(prompt, 100, model, timeout);
 
     return response;  /* NULL if timeout or error - caller will use template */
 }
