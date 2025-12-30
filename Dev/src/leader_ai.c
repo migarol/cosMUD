@@ -874,6 +874,7 @@ void beeler_execute_leader_command(LEADER_AI_DATA *leader, char *command)
 void leader_ai_update(void)
 {
     LEADER_AI_DATA *leader;
+    CHAR_DATA *mob;
     static time_t last_update = 0;
 
     /* Only update once per game hour */
@@ -886,6 +887,21 @@ void leader_ai_update(void)
     for (leader = first_leader; leader; leader = leader->next)
     {
         leader_think(leader);
+
+        /* Also update strategic AI thinking for leader mobs */
+        if (leader->mob && leader->mob->ai_tier == NPC_AI_TIER_LEADER)
+        {
+            leader_think_strategically(leader->mob);
+        }
+    }
+
+    /* Also check all mobs for leaders not in the leader system yet */
+    for (mob = first_char; mob; mob = mob->next)
+    {
+        if (IS_NPC(mob) && mob->ai_tier == NPC_AI_TIER_LEADER)
+        {
+            leader_think_strategically(mob);
+        }
     }
 }
 

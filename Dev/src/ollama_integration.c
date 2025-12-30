@@ -474,6 +474,132 @@ char *ollama_request(char *prompt, int max_tokens)
 }
 
 /*
+ * Low-level Ollama request with specific model
+ * Allows choosing model and timeout on a per-request basis
+ */
+char *ollama_request_with_model(char *prompt, int max_tokens, char *model, int timeout)
+{
+    CURL *curl;
+    CURLcode res;
+    char url[256];
+    char *json_payload;
+    struct curl_response response;
+    struct curl_slist *headers = NULL;
+    char *result = NULL;
+
+    if (!ollama_enabled || !prompt || !model)
+        return NULL;
+
+    curl = curl_easy_init();
+    if(!curl)
+    {
+        ollama_last_error = str_dup("Failed to initialize curl");
+        return NULL;
+    }
+
+    /* Prepare JSON payload */
+    json_payload = malloc(MAX_STRING_LENGTH * 2);
+    if(!json_payload)
+    {
+        curl_easy_cleanup(curl);
+        return NULL;
+    }
+
+    sprintf(json_payload,
+        "{\"model\":\"%s\",\"prompt\":%s,\"stream\":false,\"options\":{\"num_predict\":%d}}",
+        model,  /* Use specified model instead of OLLAMA_MODEL */
+        ollama_escape_json(prompt),
+        max_tokens);
+
+    /* Initialize response buffer */
+    response.data = malloc(1);
+    response.size = 0;
+    if(!response.data)
+    {
+        free(json_payload);
+        curl_easy_cleanup(curl);
+        return NULL;
+    }
+
+    sprintf(url, "%s:%d/api/generate", OLLAMA_HOST, OLLAMA_PORT);
+
+    /* Set headers */
+    headers = curl_slist_append(headers, "Content-Type: application/json");
+
+    /* Configure curl */
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_payload);
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, ollama_curl_write_cb);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&response);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, (long)timeout);  /* Use specified timeout */
+
+    /* Perform request */
+    res = curl_easy_perform(curl);
+
+    if(res == CURLE_OK)
+    {
+        long response_code;
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+
+        if(response_code == 200 && response.data)
+        {
+            /* Parse JSON response to extract the "response" field */
+            char *response_start = strstr(response.data, "\"response\":\"");
+            if(response_start)
+            {
+                response_start += 12;  /* Skip past "response":" */
+                char *response_end = strstr(response_start, "\",");
+                if(!response_end)
+                    response_end = strstr(response_start, "\"}");
+
+                if(response_end)
+                {
+                    int len = response_end - response_start;
+                    if(len > 0 && len < MAX_STRING_LENGTH)
+                    {
+                        result = malloc(len + 1);
+                        if(result)
+                        {
+                            strncpy(result, response_start, len);
+                            result[len] = '\0';
+
+                            /* Unescape JSON special characters */
+                            char *src = result, *dst = result;
+                            while(*src)
+                            {
+                                if(*src == '\\' && *(src+1))
+                                {
+                                    src++;  /* Skip backslash */
+                                    if(*src == 'n') *dst++ = '\n';
+                                    else if(*src == 't') *dst++ = '\t';
+                                    else if(*src == 'r') *dst++ = '\r';
+                                    else *dst++ = *src;
+                                    src++;
+                                }
+                                else
+                                {
+                                    *dst++ = *src++;
+                                }
+                            }
+                            *dst = '\0';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Cleanup */
+    curl_slist_free_all(headers);
+    curl_easy_cleanup(curl);
+    free(json_payload);
+    free(response.data);
+
+    return result;
+}
+
+/*
  * Ollama chat interface
  */
 char *ollama_chat(char *system_prompt, char *user_prompt, int max_tokens)
@@ -540,6 +666,117 @@ char *ollama_get_status(void)
     }
 
     return status;
+}
+
+/*
+ * Multi-tier NPC dialogue generation
+ * REAL-TIME function - must be FAST
+ */
+char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
+{
+    char *model;
+    int timeout;
+    char prompt[1024];
+    char *response;
+    char *role_desc;
+
+    if (!npc || !player_message)
+        return NULL;
+
+    /* Choose model based on NPC importance */
+    switch (npc->ai_tier)
+    {
+        case NPC_AI_TIER_LEADER:
+        case NPC_AI_TIER_IMPORTANT:
+            model = OLLAMA_MODEL_SPEAKING;  /* TinyLlama - ultra fast */
+            timeout = OLLAMA_TIMEOUT_SPEAKING;
+            break;
+
+        case NPC_AI_TIER_NORMAL:
+            model = OLLAMA_MODEL_NPC;
+            timeout = OLLAMA_TIMEOUT_NPC;
+            break;
+
+        default:
+            /* Guards, vendors - use templates only */
+            return NULL;  /* Caller will use template */
+    }
+
+    /* Build concise prompt for fast response */
+    role_desc = "person";
+    if (npc->short_descr)
+        role_desc = npc->short_descr;
+
+    sprintf(prompt,
+        "You are %s. Player: \"%s\" Reply in-character, max 1 sentence.",
+        npc->name ? npc->name : role_desc,
+        player_message);
+
+    /* Use fast model with tight timeout */
+    response = ollama_request_with_model(prompt, 50, model, timeout);
+
+    return response;  /* NULL if timeout or error - caller will use template */
+}
+
+/*
+ * Leader strategic thinking - BACKGROUND function
+ * Called every 10 minutes from update_handler
+ */
+void leader_think_strategically(CHAR_DATA *leader)
+{
+    char prompt[MAX_STRING_LENGTH];
+    char *decision;
+    int economy_health;
+
+    if (!leader || leader->ai_tier != NPC_AI_TIER_LEADER)
+        return;
+
+    /* Only think every 10 minutes */
+    if (leader->last_think_time && (current_time - leader->last_think_time < 600))
+        return;
+
+    leader->last_think_time = current_time;
+
+    /* Don't think if not in a valid area */
+    if (!leader->in_room || !leader->in_room->area)
+        return;
+
+    /* Build strategic context prompt */
+    economy_health = 50;  /* TODO: get real economy health from economy system */
+
+    sprintf(prompt,
+        "You are %s, leader of %s. "
+        "Economy: %d/100. "
+        "Decide one strategic action to improve the realm. One brief sentence.",
+        leader->name ? leader->name : "the leader",
+        leader->in_room->area->name ? leader->in_room->area->name : "the realm",
+        economy_health);
+
+    /* Use Phi-3 Mini for better strategic reasoning */
+    decision = ollama_request_with_model(
+        prompt,
+        100,
+        OLLAMA_MODEL_THINKING,
+        OLLAMA_TIMEOUT_THINKING
+    );
+
+    if (decision)
+    {
+        /* Store decision */
+        if (leader->current_strategy)
+            DISPOSE(leader->current_strategy);
+        leader->current_strategy = str_dup(decision);
+
+        /* Log for debugging */
+        sprintf(log_buf, "LEADER AI: %s decided: %s",
+            leader->name, decision);
+        log_string(log_buf);
+
+        /* TODO: Apply decision to world state */
+        /* This could adjust economy, spawn guards, etc. */
+
+        free(decision);
+    }
 }
 
 /*

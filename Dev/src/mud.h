@@ -2437,6 +2437,12 @@ struct	char_data
 
     /* Economy system */
     sh_int		profession; /* NPC profession for economy system */
+
+    /* Multi-tier AI system */
+    sh_int		ai_tier;         /* NPC_AI_TIER_* - determines AI model to use */
+    time_t		last_think_time; /* For leader strategic thinking */
+    char *		current_strategy;/* Leader's current strategic plan */
+    char *		ai_personality;  /* AI-generated personality traits */
 };
 
 
