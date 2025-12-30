@@ -742,32 +742,35 @@ char *ollama_generate_npc_dialogue(CHAR_DATA *npc, char *player_message)
         room_name,
         level_info);
 
-    /* ULTRA-RICH ROLEPLAY PROMPT */
+    /* DIRECT DIALOGUE PROMPT - No narration, just speech */
     sprintf(prompt,
-        "ROLEPLAY INSTRUCTIONS - FOLLOW EXACTLY:\n"
-        "Character: You are %s, described as '%s'\n"
-        "Personality: %s\n"
-        "Context: %s\n"
+        "You are %s (%s) in %s.\n"
+        "\n"
+        "SPEAK DIRECTLY (first person, like real conversation):\n"
+        "✓ GOOD: \"The training hall is north from here.\"\n"
+        "✓ GOOD: \"I teach magic in the eastern wing.\"\n"
+        "✓ GOOD: \"Welcome! I'm the headmistress here.\"\n"
+        "\n"
+        "DO NOT narrate or describe (third person):\n"
+        "✗ BAD: \"As you walk down...\"\n"
+        "✗ BAD: \"The player asks...\"\n"
+        "✗ BAD: \"You proceed through...\"\n"
         "\n"
         "RULES:\n"
-        "1. ALWAYS respond in English only (never Spanish or other languages)\n"
-        "2. Stay 100%% in-character - you ARE this person\n"
-        "3. Be authentic to your role and location\n"
-        "4. Reference your surroundings when relevant\n"
-        "5. Respond helpfully and naturally\n"
-        "6. Keep responses SHORT (one sentence, 15 words max)\n"
+        "- English ONLY\n"
+        "- Maximum 10 words\n"
+        "- Direct speech only\n"
+        "- Be helpful\n"
         "\n"
-        "PLAYER SAYS: \"%s\"\n"
-        "\n"
-        "YOUR RESPONSE (in English, in-character, helpful):",
+        "Player: \"%s\"\n"
+        "You:",
         npc->name ? npc->name : "someone",
         role_desc,
-        personality,
-        context_info,
+        area_name,
         player_message);
 
-    /* Use fast model with tight timeout */
-    response = ollama_request_with_model(prompt, 100, model, timeout);
+    /* Use fast model with VERY short token limit to force concise responses */
+    response = ollama_request_with_model(prompt, 30, model, timeout);
 
     return response;  /* NULL if timeout or error - caller will use template */
 }
