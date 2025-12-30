@@ -26,11 +26,11 @@
 
 /* TIER 2: Leader Speaking - Real-time Dialogue */
 #define OLLAMA_MODEL_SPEAKING    "tinyllama"     /* Ultra fast, <30ms */
-#define OLLAMA_TIMEOUT_SPEAKING  1               /* Must be instant */
+#define OLLAMA_TIMEOUT_SPEAKING  3               /* Forgiving timeout for first load */
 
 /* TIER 3: Normal NPCs - Simple dialogue */
 #define OLLAMA_MODEL_NPC         "tinyllama"     /* Same as speaking */
-#define OLLAMA_TIMEOUT_NPC       1
+#define OLLAMA_TIMEOUT_NPC       3               /* Forgiving timeout */
 
 /* Default model (for backward compatibility) */
 #define OLLAMA_MODEL             OLLAMA_MODEL_SPEAKING
