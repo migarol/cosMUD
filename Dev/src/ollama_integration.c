@@ -531,8 +531,9 @@ char *ollama_get_status(void)
 
 /*
  * Command: ollama - test and configure Ollama
+ * Declared in mud.h with DECLARE_DO_FUN (provides C linkage)
  */
-void do_ollama(CHAR_DATA *ch, char *argument)
+void do_ollama(CHAR_DATA *ch, const char *argument)
 {
     char arg[MAX_INPUT_LENGTH];
 
@@ -625,7 +626,7 @@ char *ollama_analyze_world_context(const char *area_name, const char *context_da
     return NULL; /* Will fall back to simple analysis */
 }
 
-void do_ollama(CHAR_DATA *ch, char *argument) {
+void do_ollama(CHAR_DATA *ch, const char *argument) {
     send_to_char("Ollama AI support was disabled at compile time.\n\r", ch);
     send_to_char("Recompile with libcurl installed to enable AI features.\n\r", ch);
 }

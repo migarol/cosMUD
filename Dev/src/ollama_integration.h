@@ -49,7 +49,7 @@ char *ollama_escape_json(char *str);
 bool ollama_is_available(void);
 char *ollama_get_status(void);
 
-/* Commands */
-void do_ollama(CHAR_DATA *ch, char *argument);
+/* Commands - declared in mud.h with DECLARE_DO_FUN */
+/* void do_ollama(CHAR_DATA *ch, char *argument); */
 
 #endif /* OLLAMA_INTEGRATION_H */

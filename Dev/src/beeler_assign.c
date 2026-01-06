@@ -377,11 +377,11 @@ int beeler_determine_profession( CHAR_DATA *mob, const char *context )
     /* Default to farmer (always useful) */
     return PROF_FARMER;
 }
-
 /*
  * Main beeler command - routes to subcommands
+ * Declared in mud.h with DECLARE_DO_FUN (provides C linkage)
  */
-void do_beeler( CHAR_DATA *ch, char *argument )
+void do_beeler( CHAR_DATA *ch, const char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
 
@@ -403,13 +403,13 @@ void do_beeler( CHAR_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "assign" ) )
     {
-        do_beeler_assign( ch, argument );
+        do_beeler_assign( ch, (char*)argument );
         return;
     }
 
     if ( !str_cmp( arg, "analyze" ) )
     {
-        do_beeler_analyze( ch, argument );
+        do_beeler_analyze( ch, (char*)argument );
         return;
     }
 
@@ -559,7 +559,7 @@ void do_beeler_analyze( CHAR_DATA *ch, char *argument )
 /*
  * Beeler status command - shows system status
  */
-void do_beeler_status(CHAR_DATA *ch, char *argument)
+void do_beeler_status(CHAR_DATA *ch, const char *argument)
 {
     if (IS_NPC(ch))
         return;

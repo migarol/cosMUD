@@ -1,21 +1,22 @@
 #PLAYER
-Version      3
+Version      5
 Name         Migarol~
 Sex          1
 Class        3
 Race         0
-Languages    1 1
+Age          0 0 11 605
+Languages    -1 1
 Level        116
-Played       1
+Played       26
 Room         21003
 HpManaMove   5000 5000 5000 5000 5000 5000
 Gold         1000000
 Exp          99999999
-Height       72
-Weight       180
+Height          61
+Weight          156
 Act          570426952
 Position     112
-Style        2
+Style     2
 Practice     999
 SavingThrows 0 0 0 0 0
 Alignment    0
@@ -25,21 +26,24 @@ MGlory       0
 Hitroll      100
 Damroll      100
 Armor        -100
-ICEListen ~
 Mentalstate  0
-Password     d5316c92b6740bca6aa500da2ed169df6ec89433957cba318a3997b8ba674b07~
+Password     ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae~
 Title         the Supreme Being~
+WizInvis     116
 Flags        32768
 PKills       0
 PDeaths      0
 MKills       0
 MDeaths      0
 IllegalPK    0
+Timezone     0
 AttrPerm     25 25 25 25 25 25 25
 AttrMod      0 0 0 0 0 0 0
 Condition    48 48 48 12
-Site         localhost
+Site         127.0.0.1
 Tongue       100 'common'
+MaxColors    116
+Colors       0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 7 7 12 10 14 15 7 7 11 7 7 7 12 7 7 2 6 7 7 12 7 7 7 9 7 12 13 7 7 11 7 7 3 12 9 7 7 10 2 2 3 7 9 7 2 9 12 9 6 11 13 2 13 15 12 12 12 10 7 10 10 11 8 10 13 2 6 9 15 12 2 6 1 9 2 10 7 10 15 10 10 10 10 
 End
 
 #END
