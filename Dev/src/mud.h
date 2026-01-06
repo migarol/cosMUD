@@ -4113,6 +4113,11 @@ DECLARE_DO_FUN( do_yell );
 DECLARE_DO_FUN( do_zap );
 DECLARE_DO_FUN( do_zones );
 
+/* Autonomous world system commands */
+DECLARE_DO_FUN( do_ollama );
+DECLARE_DO_FUN( do_beeler );
+DECLARE_DO_FUN( do_beeler_status );
+
 /* mob prog stuff */
 DECLARE_DO_FUN( do_mp_close_passage );
 DECLARE_DO_FUN( do_mp_damage );
