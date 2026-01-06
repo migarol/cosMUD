@@ -346,8 +346,8 @@ char *ollama_request(char *prompt, int max_tokens)
         return NULL;
     }
 
-    /* Prepare JSON payload */
-    json_payload = (char *)malloc(MAX_STRING_LENGTH * 2);
+    /* Prepare JSON payload - increased size for large Beeler prompts */
+    json_payload = (char *)malloc(MAX_STRING_LENGTH * 8);
     if(!json_payload)
     {
         curl_easy_cleanup(curl);
@@ -474,10 +474,11 @@ char *ollama_chat(char *system_prompt, char *user_prompt, int max_tokens)
 
 /*
  * Escape JSON strings
+ * Increased buffer size to handle large Beeler prompts
  */
 char *ollama_escape_json(char *str)
 {
-    static char escaped[MAX_STRING_LENGTH * 2];
+    static char escaped[MAX_STRING_LENGTH * 6];
     char *dst = escaped;
     char *src = str;
 
@@ -486,7 +487,7 @@ char *ollama_escape_json(char *str)
 
     *dst++ = '"';
 
-    while (*src && (dst - escaped) < MAX_STRING_LENGTH * 2 - 3)
+    while (*src && (dst - escaped) < MAX_STRING_LENGTH * 6 - 3)
     {
         if (*src == '"' || *src == '\\')
             *dst++ = '\\';
