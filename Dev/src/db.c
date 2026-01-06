@@ -36,6 +36,14 @@
 
 void init_supermob( void );
 
+/* Autonomous world system initializations */
+extern void init_beeler(void);
+extern void init_beeler_god_mode(void);
+extern void init_beeler_architect(void);
+extern void init_world_history(void);
+extern void init_organic_creation(void);
+extern void init_leader_ai(void);
+
 void mprog_read_programs( FILE * fp, MOB_INDEX_DATA * pMobIndex );
 void oprog_read_programs( FILE * fp, OBJ_INDEX_DATA * pObjIndex );
 void rprog_read_programs( FILE * fp, ROOM_INDEX_DATA * pRoomIndex );
@@ -778,9 +786,29 @@ void boot_db( bool fCopyOver )
    MPSilent = FALSE;
 
    /*
-    * Initialize chess board stuff 
+    * Initialize chess board stuff
     */
    init_chess(  );
+
+   /*
+    * Initialize autonomous world systems
+    */
+   log_string( "" );
+   log_string( "=============================================" );
+   log_string( "  Initializing Autonomous World Systems" );
+   log_string( "=============================================" );
+
+   init_beeler();
+   init_beeler_god_mode();
+   init_beeler_architect();
+   init_world_history();
+   init_organic_creation();
+   init_leader_ai();
+
+   log_string( "Autonomous world systems initialized." );
+   log_string( "The world is now ALIVE and self-evolving!" );
+   log_string( "=============================================" );
+   log_string( "" );
 }
 
 /*
