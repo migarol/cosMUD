@@ -123,6 +123,9 @@ void load_all_homes(void);
 void load_all_inns(void);
 void load_all_districts(void);
 
+/* Game loop update */
+void housing_system_update(void);  /* Called from update.c */
+
 /* Home management */
 MOB_HOME *create_mob_home(int mob_vnum, int home_vnum, int home_type);
 MOB_HOME *get_mob_home(int mob_vnum);

@@ -1406,3 +1406,86 @@ void do_homeunassign(CHAR_DATA *ch, char *argument)
         log_string(log_buf);
     }
 }
+
+/*****************************************************************************
+ * Housing System Update - Called from Game Loop
+ *****************************************************************************/
+
+/*
+ * Update housing system - mobs go home at night, wake up in morning
+ * Called from update.c every PULSE_MOBILE
+ */
+void housing_system_update(void)
+{
+    CHAR_DATA *mob;
+    extern TIME_INFO_DATA time_info;
+    static int last_hour = -1;
+    bool is_night_time;
+    bool is_bedtime;
+    bool is_wake_time;
+
+    /* Check time of day (night = 20:00 to 6:00) */
+    is_night_time = (time_info.hour >= 20 || time_info.hour < 6);
+    is_bedtime = (time_info.hour == 20);
+    is_wake_time = (time_info.hour == 6);
+
+    /* Only process on hour changes */
+    if (time_info.hour == last_hour)
+        return;
+    
+    last_hour = time_info.hour;
+
+    /* Process all mobs */
+    for (mob = first_char; mob; mob = mob->next)
+    {
+        MOB_HOME *home;
+
+        /* Only NPCs with homes */
+        if (!IS_NPC(mob))
+            continue;
+
+        home = get_mob_home(mob->pIndexData->vnum);
+        if (!home)
+            continue;
+
+        /* BEDTIME: Go home if it's 20:00 */
+        if (is_bedtime)
+        {
+            /* Not at home? Go home! */
+            if (!is_mob_at_home(mob))
+            {
+                act(AT_ACTION, "$n yawns and heads home for the night.", mob, NULL, NULL, TO_ROOM);
+                mob_go_home(mob);
+            }
+            
+            /* Go to sleep */
+            if (is_mob_at_home(mob))
+            {
+                act(AT_ACTION, "$n lies down and goes to sleep.", mob, NULL, NULL, TO_ROOM);
+                xSET_BIT(mob->act, ACT_SENTINEL); /* Don't wander while sleeping */
+                /* Note: Could add SLEEP position here if you want them actually asleep */
+            }
+        }
+        
+        /* WAKE TIME: Wake up at 6:00 */
+        else if (is_wake_time)
+        {
+            if (is_mob_at_home(mob))
+            {
+                act(AT_ACTION, "$n wakes up and stretches.", mob, NULL, NULL, TO_ROOM);
+                xREMOVE_BIT(mob->act, ACT_SENTINEL); /* Can wander again */
+            }
+        }
+        
+        /* NIGHT TIME: If wandering at night, chance to go home */
+        else if (is_night_time && !is_mob_at_home(mob))
+        {
+            /* 10% chance each hour to go home */
+            if (number_percent() < 10)
+            {
+                act(AT_ACTION, "$n decides to head home.", mob, NULL, NULL, TO_ROOM);
+                mob_go_home(mob);
+            }
+        }
+    }
+}

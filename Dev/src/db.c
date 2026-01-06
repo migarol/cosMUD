@@ -45,6 +45,7 @@ extern void init_world_history(void);
 extern void init_organic_creation(void);
 extern void init_leader_ai(void);
 extern void init_universal_mob_ai(void);
+extern void init_housing_system(void);
 
 void mprog_read_programs( FILE * fp, MOB_INDEX_DATA * pMobIndex );
 void oprog_read_programs( FILE * fp, OBJ_INDEX_DATA * pObjIndex );
@@ -808,6 +809,7 @@ void boot_db( bool fCopyOver )
    init_organic_creation();
    init_leader_ai();
    init_universal_mob_ai();
+   init_housing_system();
 
    log_string( "Autonomous world systems initialized." );
    log_string( "The world is now ALIVE and self-evolving!" );

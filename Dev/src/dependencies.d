@@ -96,7 +96,7 @@ o/tables.o: tables.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
 o/track.o: track.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
  liquids.h
 o/update.o: update.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
- liquids.h hint.h universal_mob_ai.h leader_ai.h
+ liquids.h hint.h universal_mob_ai.h leader_ai.h mob_home.h
 o/variables.o: variables.c mud.h color.h dns.h hotboot.h calendar.h \
  weather.h liquids.h
 o/weather.o: weather.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
