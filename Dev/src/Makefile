@@ -1,71 +1,110 @@
-CC      = gcc
+CC      = g++
 #PROF    = -p
-NOCRYPT =
- 
-# Please read all the documents in the system dir and README.1st in main dir.
-# By default, this MUD will start on port 4100 and IMC on port 4125.
- 
-# Alter the directory below and mud.h to set the debugger
-#DMALLOC = -L/home/ucmm2/rm4/src/dmalloc/lib -ldmalloclp -ldmalloc -ldl
- 
+
+#Uncomment to compile in Cygwin
+#CYGWIN = -DCYGWIN
+
+#Uncomment the line below if you are getting undefined references to dlsym, dlopen, and dlclose.
+#Comment it out if you get errors about ldl not being found.
+NEED_DL = -ldl
+
+#Some systems need this for dynamic linking to work.
+EXPORT_SYMBOLS = -export-dynamic
+
 # Uncomment the two lines below if compiling on a Solaris box
 #SOLARIS_FLAG = -Dsun -DSYSV
 #SOLARIS_LINK = -lnsl -lsocket
- 
-# Uncomment the line below if you are getting undefined crypt errors
-NEED_CRYPT = -lcrypt
- 
-DBUGFLG = -DREQUESTS
 
-# Code support for Intermud-3. Comment out to disable.
-I3 = -DI3 -DI3SMAUG
- 
-# Uncomment the line below if you want a performance increase though beware
-# your core files may not be as much of a benefit if you do.
-#OPT_FLAG = -finline-functions -funroll-loops -fdefer-pop -fstrength-reduce
- 
-C_FLAGS = $(OPT_FLAG) -g3 -O -Wall $(I3) $(PROF) $(NOCRYPT) $(DBUGFLG) -DSMAUG $(SOLARIS_FLAG)
-L_FLAGS = $(OPT_FLAG) $(PROF) $(SOLARIS_LINK) $(NEED_CRYPT) $(DMALLOC)
- 
-O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o arena.o \
-          axsmaug.o ban.o bank.o base64.o boards.o build.o clans.o comm.o \
-          comments.o const.o db.o deity.o fight.o grub.o handler.o hashstr.o \
-          hiscores.o hskelter.o i3.o ibuild.o ident.o imm_host.o immscore.o \
-          interp.o locker.o magic.o makeobjs.o medit.o misc.o motd.o \
-          mpxset.o mud_comm.o mud_prog.o oedit.o planes.o player.o \
-          polymorph.o redit.o requests.o reset.o save.o services.o \
-          shops.o skills.o special.o stat_obj.o suicide.o tables.o \
-          track.o update.o websvr.o minilzo.o \
-          ice.o icec.o icec-mercbase.o imc.o imc-config.o imc-events.o \
-          imc-interp.o imc-mail.o imc-mercbase.o imc-util.o imc-version.o \
- 
-C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c arena.c \
-          axsmaug.c ban.c bank.c base64.c boards.c build.c clans.c comm.c \
-          comments.c const.c db.c deity.c fight.c grub.c handler.c hashstr.c \
-          hiscores.c hskelter.c i3.c ibuild.c ident.c imm_host.c immscore.c \
-          interp.c locker.c magic.c makeobjs.c medit.c misc.c motd.c \
-          mpxset.c mud_comm.c mud_prog.c oedit.c planes.c player.c \
-          polymorph.c redit.c requests.c reset.c save.c services.c \
-          shops.c skills.c special.c stat_obj.c suicide.c tables.c \
-          track.c update.c websvr.c minilzo.c \
-          ice.c icec.c icec-mercbase.c imc.c imc-config.c imc-events.c \
-          imc-interp.c imc-mail.c imc-mercbase.c imc-util.c imc-version.c \
- 
-H_FILES = bank.h bet.h mud.h olc.h ice.h icec.h icec-mercbase.h imc.h \
-          imc-config.h imc-mercbase.h imc-mercdefs.h lzoconf.h minilzo.h \
- 
+#Memory debugging flags. Cygwin lacks libasan support required for this to work.
+ifndef CYGWIN
+M_FLAGS = -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer
+endif
+
+W_FLAGS = -std=c++1z -Wall -Wshadow -Wformat-security -Wpointer-arith -Wcast-align -Wredundant-decls
+
+C_FLAGS = -g2 $(W_FLAGS) $(M_FLAGS) $(SOLARIS_FLAG) $(PROF) $(EXPORT_SYMBOLS)
+L_FLAGS = $(M_FLAGS) $(PROF) $(SOLARIS_LINK) -lz $(NEED_DL) -lhiredis -lcurl
+
+#D_FLAGS : For the DNS Slave process. No need in linking all the extra libs for this.
+D_FLAGS = -g2 -O $(M_FLAGS) $(PROF) $(SOLARIS_LINK)
+
+C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c ban.c boards.c \
+          build.c calendar.c chess.c clans.c color.c comm.c comments.c const.c db.c deity.c \
+          dns.c fight.c handler.c hashstr.c hint.c hotboot.c house.c imm_host.c interp.c \
+          liquids.c magic.c makeobjs.c mapout.c mapper.c mccp.c \
+          misc.c mpxset.c mssp.c mud_comm.c mud_prog.c news.c planes.c player.c polymorph.c \
+          renumber.c reset.c save.c services.c sha256.c shops.c skills.c special.c tables.c \
+          track.c update.c variables.c weather.c \
+          redis_bridge.c world_history_tracker.c world_context.c ollama_integration.c \
+          mob_home.c universal_mob_ai.c ai_context_analyzer.c economy_stub.c \
+          beeler.c beeler_architect.c beeler_assign.c beeler_commands.c beeler_god_mode.c \
+          mob_identity_stubs.c \
+          leader_ai.c organic_creation.c periodicos.c player_world_impact.c \
+          book_writing_system.c \
+          # mob_creation_system.c  # TODO: Fix sed-mangled code \
+          # persistent_memory.c cultural_evolution.c family_lineage.c global_trade.c resource_distribution.c  # TODO: Fix const char* issues
+
+O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
+
+H_FILES = $(wildcard *.h)
+
 all:
-	make rmexe
- 
-rmexe: $(O_FILES)
-	rm -f rmexe
-	$(CC) $(L_FLAGS) -o rmexe $(O_FILES) $(DMALLOC)
-	chmod g+w rmexe
-	chmod a+x rmexe
+	$(info    Using C-Flags: $(C_FLAGS))
+	$(info    Using L-Flags: $(L_FLAGS))
+	$(MAKE) -s smaug
+	$(MAKE) -s dns
+
+# pull in dependency info for *existing* .o files
+-include dependencies.d
+
+ifdef CYGWIN
+smaug: $(O_FILES)
+	rm -f smaug.exe
+	dlltool --export-all --output-def smaug.def $(O_FILES)
+	dlltool --dllname smaug.exe --output-exp smaug.exp --def smaug.def
+	$(CC) -o smaug.exe $(O_FILES) smaug.exp $(L_FLAGS)
+	@echo "Generating dependency file ...";
+	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
+	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
+	@echo "Done compiling mud.";
+	chmod g+w smaug.exe
+	chmod a+x smaug.exe
 	chmod g+w $(O_FILES)
- 
-.c.o: mud.h
-	$(CC) -c $(C_FLAGS) $<
- 
+
 clean:
-	rm -f *.o rmexe *~
+	@rm -f o/*.o smaug.exe dependencies.d resolver.exe resolver.o *~
+
+else
+smaug: $(O_FILES)
+	rm -f smaug
+	$(CC) -export-dynamic -o smaug $(O_FILES) $(L_FLAGS)
+	@echo "Generating dependency file ...";
+	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
+	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
+	@echo "Done compiling mud.";
+	chmod g+w smaug
+	chmod a+x smaug
+	chmod g+w $(O_FILES)
+
+clean:
+	@rm -f o/*.o smaug dependencies.d resolver resolver.o *~
+endif
+
+dns: resolver.o
+	rm -f resolver
+	$(CC) $(D_FLAGS) -o resolver resolver.o
+	@echo "Done compiling DNS resolver.";
+	chmod g+w resolver
+	chmod a+x resolver
+	chmod g+w resolver.o
+
+indent:
+	indent -ts3 -nut -nsaf -nsai -nsaw -npcs -npsl -ncs -nbc -bls -prs -bap -cbi0 -cli3 -bli0 -l125 -lp -i3 -cdb -c1 -cd1 -sc -pmt $(C_FILES)
+	indent -ts3 -nut -nsaf -nsai -nsaw -npcs -npsl -ncs -nbc -bls -prs -bap -cbi0 -cli3 -bli0 -l125 -lp -i3 -cdb -c1 -cd1 -sc -pmt $(H_FILES)
+
+indentclean:
+	rm *.c~ *.h~
+
+o/%.o: %.c
+	echo "  Compiling $@...";
+	$(CC) -c $(C_FLAGS) $< -o $@

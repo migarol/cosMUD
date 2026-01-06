@@ -1,276 +1,275 @@
 /****************************************************************************
- * ResortMUD 4.0 Beta by Ntanel, Garinan, Badastaz, Josh, Digifuzz, Senir,  *
- * Kratas, Scion, Shogar and Tagith.  Special thanks to Thoric, Nivek,      *
- * Altrag, Arlorn, Justice, Samson, Dace, HyperEye and Yakkov.              *
- ****************************************************************************
- * Copyright (C) 1996 - 2001 Haslage Net Electronics: MudWorld              *
- * of Lorain, Ohio - ALL RIGHTS RESERVED                                    *
- * The text and pictures of this publication, or any part thereof, may not  *
- * be reproduced or transmitted in any form or by any means, electronic or  *
- * mechanical, includes photocopying, recording, storage in a information   *
- * retrieval system, or otherwise, without the prior written or e-mail      *
- * consent from the publisher.                                              *
- ****************************************************************************
- * GREETING must mention ResortMUD programmers and the help file named      *
- * CREDITS must remain completely intact as listed in the SMAUG license.    *
+ * [S]imulated [M]edieval [A]dventure multi[U]ser [G]ame      |   \\._.//   *
+ * -----------------------------------------------------------|   (0...0)   *
+ * SMAUG 1.8 (C) 1994, 1995, 1996, 1998  by Derek Snider      |    ).:.(    *
+ * -----------------------------------------------------------|    {o o}    *
+ * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,      |   / ' ' \   *
+ * Scryn, Rennard, Swordbearer, Gorog, Grishnakh, Nivek,      |~'~.VxvxV.~'~*
+ * Tricops, Fireblade, Edmond, Conran                         |             *
+ * ------------------------------------------------------------------------ *
+ * Merc 2.1 Diku Mud improvments copyright (C) 1992, 1993 by Michael        *
+ * Chastain, Michael Quan, and Mitchell Tse.                                *
+ * Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,          *
+ * Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.     *
+ * ------------------------------------------------------------------------ *
+ *                               Planes Module                              *
  ****************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
-#include <string.h>
-#include <time.h>
 #include "mud.h"
 
 PLANE_DATA *first_plane, *last_plane;
 
-void do_plist(CHAR_DATA *ch, char *argument)
+void do_plist( CHAR_DATA* ch, const char* argument )
 {
-  PLANE_DATA *p;
-  
-  send_to_char("Planes:\n\r-------\n\r", ch);
-  for (p = first_plane; p; p = p->next)
-    ch_printf(ch, "%s\n\r", p->name);
-  return;
+   PLANE_DATA *p;
+
+   send_to_char( "Planes:\r\n-------\r\n", ch );
+   for( p = first_plane; p; p = p->next )
+      ch_printf( ch, "%s\r\n", p->name );
 }
 
-void do_pstat(CHAR_DATA *ch, char *argument)
+void do_pstat( CHAR_DATA* ch, const char* argument )
 {
-  PLANE_DATA *p;
-  char arg[MAX_INPUT_LENGTH];
-  
-  argument = one_argument(argument, arg);
-  if (!(p = plane_lookup(arg)))
-  {
-    send_to_char("Stat which plane?\n\r", ch);
-    return;
-  }
-  ch_printf(ch, "Name: %s\n\r", p->name);
-  return;
-}
+   PLANE_DATA *p;
+   char arg[MAX_INPUT_LENGTH];
 
-void do_pset(CHAR_DATA *ch, char *argument)
-{
-  PLANE_DATA *p;
-  char arg[MAX_INPUT_LENGTH];
-  char mod[MAX_INPUT_LENGTH];
-  
-  argument = one_argument(argument, arg);
-  if (!*arg)
-  {
-    send_to_char("Syntax: pset <plane> create\n\r", ch);
-    send_to_char("        pset save\n\r", ch);
-    send_to_char("        pset <plane> delete\n\r", ch);
-    send_to_char("        pset <plane> <field> <value>\n\r", ch);
-    send_to_char("\n\r", ch);
-    send_to_char("  Where <field> is one of:\n\r", ch);
-    send_to_char("    name\n\r", ch);
-    return;
-  }
-  if (!str_cmp(arg, "save"))
-  {
-    save_planes();
-    send_to_char("Planes saved.\n\r", ch);
-    return;
-  }
-  
-  argument = one_argument(argument, mod);
-  p = plane_lookup(arg);
-  
-  if (!str_prefix(mod, "create"))
-  {
-    if (p)
-    {
-      send_to_char("Plane already exists.\n\r", ch);
+   argument = one_argument( argument, arg );
+   if( !( p = plane_lookup( arg ) ) )
+   {
+      send_to_char( "Stat which plane?\r\n", ch );
       return;
-    }
-    CREATE(p, PLANE_DATA, 1);
-    p->name = STRALLOC(arg);
-    LINK(p, first_plane, last_plane, next, prev);
-    send_to_char("Plane created.\n\r", ch);
-    return;
-  }
-  if (!p)
-  {
-    send_to_char("Plane doesn't exist.\n\r", ch);
-    return;
-  }
-  if (!str_prefix(mod, "delete"))
-  {
-    UNLINK(p, first_plane, last_plane, next, prev);
-    STRFREE(p->name);
-    DISPOSE(p);
-    check_planes(p);
-    send_to_char("Plane deleted.\n\r", ch);
-    return;
-  }
-  if (!str_prefix(mod, "name"))
-  {
-    if (plane_lookup(argument))
-    {
-      send_to_char("Another plane has that name.\n\r", ch);
+   }
+   ch_printf( ch, "Name: %s\r\n", p->name );
+}
+
+void do_pset( CHAR_DATA* ch, const char* argument )
+{
+   PLANE_DATA *p;
+   char arg[MAX_INPUT_LENGTH];
+   char mod[MAX_INPUT_LENGTH];
+
+   argument = one_argument( argument, arg );
+   if( !*arg )
+   {
+      send_to_char( "Syntax: pset <plane> create\r\n", ch );
+      send_to_char( "        pset save\r\n", ch );
+      send_to_char( "        pset <plane> delete\r\n", ch );
+      send_to_char( "        pset <plane> <field> <value>\r\n", ch );
+      send_to_char( "\r\n", ch );
+      send_to_char( "  Where <field> is one of:\r\n", ch );
+      send_to_char( "    name\r\n", ch );
       return;
-    }
-    STRFREE(p->name);
-    p->name = STRALLOC(argument);
-    send_to_char("Name changed.\n\r", ch);
-    return;
-  }
-  do_pset(ch, "");
-  return;
-}
+   }
 
-PLANE_DATA *plane_lookup(const char *name)
-{
-  PLANE_DATA *p;
-  
-  for (p = first_plane; p; p = p->next)
-    if (!str_cmp(name, p->name))
-      return p;
-  for (p = first_plane; p; p = p->next)
-    if (!str_prefix(name, p->name))
-      return p;
-  return NULL;
-}
+   if( !str_cmp( arg, "save" ) )
+   {
+      save_planes(  );
+      send_to_char( "Planes saved.\r\n", ch );
+      return;
+   }
 
-void save_planes(void)
-{
-  FILE *fp;
-  PLANE_DATA *p;
-  
-  fclose(fpReserve);
-  
-  if (!(fp = fopen(PLANE_FILE, "w")))
-  {
-    perror(PLANE_FILE);
-    bug("save_planes: can't open plane file");
-    fpReserve = fopen(NULL_FILE, "r");
-    return;
-  }
-  for (p = first_plane; p; p = p->next)
-  {
-    fprintf(fp, "#PLANE\n");
-    fprintf(fp, "Name      %s\n", p->name);
-    fprintf(fp, "End\n\n");
-  }
-  fprintf(fp, "#END\n");
-  fclose(fp);
-  fpReserve = fopen(NULL_FILE, "r");
-  return;
-}
+   argument = one_argument( argument, mod );
+   p = plane_lookup( arg );
 
-#ifdef KEY
-#undef KEY
-#endif
-
-#define KEY( literal, field, value )					\
-				if ( !strcmp( word, literal ) )	\
-				{					\
-				    field  = value;			\
-				    fMatch = TRUE;			\
-				    break;				\
-				}
-
-void read_plane(FILE *fp)
-{
-  PLANE_DATA *p;
-  char *word;
-  bool fMatch;
-  
-  CREATE(p, PLANE_DATA, 1);
-  for (;;)
-  {
-    word = (feof(fp) ? "End" : fread_word(fp));
-    fMatch = FALSE;
-    
-    switch(UPPER(*word))
-    {
-    case 'E':
-      if (!str_cmp(word, "End"))
+   if( !str_prefix( mod, "create" ) )
+   {
+      if( p )
       {
-        if (plane_lookup(p->name))
-        {
-          bug("read_plane: duplicate plane name!");
-          STRFREE(p->name);
-          DISPOSE(p);
-        }
-        else
-          LINK(p, first_plane, last_plane, next, prev);
-        return;
+         send_to_char( "Plane already exists.\r\n", ch );
+         return;
       }
-      break;
-    case 'N':
-      KEY("Name", p->name, fread_string(fp));
-      break;
-    }
-    if (!fMatch)
-    {
-      bug("read_plane: unknown field '%s'", word);
-      fread_to_eol(fp);
-    }
-  }
-  return;
+      CREATE( p, PLANE_DATA, 1 );
+      p->name = STRALLOC( arg );
+      LINK( p, first_plane, last_plane, next, prev );
+      send_to_char( "Plane created.\r\n", ch );
+      return;
+   }
+
+   if( !p )
+   {
+      send_to_char( "Plane doesn't exist.\r\n", ch );
+      return;
+   }
+
+   if( !str_prefix( mod, "delete" ) )
+   {
+      UNLINK( p, first_plane, last_plane, next, prev );
+      STRFREE( p->name );
+      DISPOSE( p );
+      check_planes( p );
+      send_to_char( "Plane deleted.\r\n", ch );
+      return;
+   }
+
+   if( !str_prefix( mod, "name" ) )
+   {
+      if( plane_lookup( argument ) )
+      {
+         send_to_char( "Another plane has that name.\r\n", ch );
+         return;
+      }
+      STRFREE( p->name );
+      p->name = STRALLOC( argument );
+      send_to_char( "Name changed.\r\n", ch );
+      return;
+   }
+   do_pset( ch, "" );
 }
 
-void load_planes(void)
+PLANE_DATA *plane_lookup( const char *name )
 {
-  extern FILE *fpArea;
-  extern char strArea[];
-  char *word;
-  
-  if (!(fpArea = fopen(PLANE_FILE, "r")))
-  {
-    perror(PLANE_FILE);
-    bug("load_planes: can't open plane file for read.");
-    return;
-  }
-  strcpy(strArea, PLANE_FILE);
-  
-  for (;!feof(fpArea);)
-  {
-    if (fread_letter(fpArea) != '#')
-    {
-      bug("load_planes: # not found.");
-      break;
-    }
-    word = fread_word(fpArea);
-    if (!str_cmp(word, "END"))
-      break;
-    else if (!str_cmp(word, "PLANE"))		read_plane(fpArea);
-    else
-    {
-      bug("load_planes: invalid section '%s'.", word);
-      break;
-    }
-  }
-  fclose(fpArea);
-  fpArea = NULL;
-  strcpy(strArea, "$");
-  return;
+   PLANE_DATA *p;
+
+   for( p = first_plane; p; p = p->next )
+      if( !str_cmp( name, p->name ) )
+         return p;
+
+   for( p = first_plane; p; p = p->next )
+      if( !str_prefix( name, p->name ) )
+         return p;
+   return NULL;
 }
 
-void build_prime_plane(void)
+void save_planes( void )
 {
-  PLANE_DATA *p;
-  
-  CREATE(p, PLANE_DATA, 1);
-  memset(p, 0, sizeof(*p));
-  p->name = STRALLOC("Prime Material");
-  LINK(p, first_plane, last_plane, next, prev);
-  return;
+   FILE *fp;
+   PLANE_DATA *p;
+
+   if( !( fp = fopen( PLANE_FILE, "w" ) ) )
+   {
+      perror( PLANE_FILE );
+      bug( "%s: can't open plane file", __func__ );
+      return;
+   }
+
+   for( p = first_plane; p; p = p->next )
+   {
+      fprintf( fp, "#PLANE\n" );
+      fprintf( fp, "Name      %s\n", p->name );
+      fprintf( fp, "End\n\n" );
+   }
+   fprintf( fp, "#END\n" );
+   FCLOSE( fp );
 }
 
-void check_planes(PLANE_DATA *p)
+void read_plane( FILE * fp )
 {
-  extern ROOM_INDEX_DATA *room_index_hash[];
-  int vnum;
-  ROOM_INDEX_DATA *r;
-  
-  if (!first_plane)
-    build_prime_plane();
-  
-  for (vnum = 0; vnum < MAX_KEY_HASH; ++vnum)
-    for (r = room_index_hash[vnum]; r; r = r->next)
-      if (!r->plane || r->plane == p)
-        r->plane = first_plane;
-  return;
+   PLANE_DATA *p;
+   const char *word;
+   bool fMatch;
+
+   CREATE( p, PLANE_DATA, 1 );
+
+   for( ;; )
+   {
+      word = ( feof( fp ) ? "End" : fread_word( fp ) );
+      fMatch = FALSE;
+
+      switch ( UPPER( *word ) )
+      {
+         case 'E':
+            if( !str_cmp( word, "End" ) )
+            {
+               if( plane_lookup( p->name ) )
+               {
+                  bug( "%s: duplicate plane name!", __func__ );
+                  STRFREE( p->name );
+                  DISPOSE( p );
+               }
+               else
+                  LINK( p, first_plane, last_plane, next, prev );
+               return;
+            }
+            break;
+
+         case 'N':
+            KEY( "Name", p->name, fread_string( fp ) );
+            break;
+      }
+
+      if( !fMatch )
+      {
+         bug( "%s: unknown field '%s'", __func__, word );
+         fread_to_eol( fp );
+      }
+   }
+}
+
+void load_planes( void )
+{
+   char *word;
+   FILE *fp;
+
+   if( !( fp = fopen( PLANE_FILE, "r" ) ) )
+   {
+      perror( PLANE_FILE );
+      bug( "%s: can't open plane file for read.", __func__ );
+      return;
+   }
+   for( ; !feof( fp ); )
+   {
+      if( fread_letter( fp ) != '#' )
+      {
+         bug( "%s: # not found.", __func__ );
+         break;
+      }
+
+      word = fread_word( fp );
+      if( !str_cmp( word, "END" ) )
+         break;
+      else if( !str_cmp( word, "PLANE" ) )
+         read_plane( fp );
+      else
+      {
+         bug( "%s: invalid section '%s'", __func__, word );
+         break;
+      }
+   }
+   FCLOSE( fp );
+   fpArea = NULL;
+}
+
+void build_prime_plane( void )
+{
+   PLANE_DATA *p;
+
+   CREATE( p, PLANE_DATA, 1 );
+   p->name = STRALLOC( "Prime Material" );
+   LINK( p, first_plane, last_plane, next, prev );
+}
+
+void check_planes( PLANE_DATA * p )
+{
+   extern ROOM_INDEX_DATA *room_index_hash[];
+   int vnum;
+   ROOM_INDEX_DATA *r;
+
+   if( !first_plane )
+      build_prime_plane(  );
+
+   for( vnum = 0; vnum < MAX_KEY_HASH; ++vnum )
+      for( r = room_index_hash[vnum]; r; r = r->next )
+         if( !r->plane || r->plane == p )
+            r->plane = first_plane;
+}
+
+void free_plane( PLANE_DATA * p )
+{
+   if( !p )
+      return;
+   UNLINK( p, first_plane, last_plane, next, prev );
+   STRFREE( p->name );
+   DISPOSE( p );
+}
+
+void free_all_planes( void )
+{
+   PLANE_DATA *p, *p_next;
+
+   for( p = first_plane; p; p = p_next )
+   {
+      p_next = p->next;
+      free_plane( p );
+   }
 }

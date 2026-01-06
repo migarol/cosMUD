@@ -1,28 +1,11 @@
 /****************************************************************************
- * ResortMUD 4.0 Beta by Ntanel, Garinan, Badastaz, Josh, Digifuzz, Senir,  *
- * Kratas, Scion, Shogar and Tagith.  Special thanks to Thoric, Nivek,      *
- * Altrag, Arlorn, Justice, Samson, Dace, HyperEye and Yakkov.              *
- ****************************************************************************
- * Copyright (C) 1996 - 2001 Haslage Net Electronics: MudWorld              *
- * of Lorain, Ohio - ALL RIGHTS RESERVED                                    *
- * The text and pictures of this publication, or any part thereof, may not  *
- * be reproduced or transmitted in any form or by any means, electronic or  *
- * mechanical, includes photocopying, recording, storage in a information   *
- * retrieval system, or otherwise, without the prior written or e-mail      *
- * consent from the publisher.                                              *
- ****************************************************************************
- * GREETING must mention ResortMUD programmers and the help file named      *
- * CREDITS must remain completely intact as listed in the SMAUG license.    *
- ****************************************************************************/
-
-/****************************************************************************
  * [S]imulated [M]edieval [A]dventure multi[U]ser [G]ame      |   \\._.//   *
  * -----------------------------------------------------------|   (0...0)   *
- * SMAUG 1.4 (C) 1994, 1995, 1996, 1998  by Derek Snider      |    ).:.(    *
+ * SMAUG 1.8 (C) 1994, 1995, 1996, 1998  by Derek Snider      |    ).:.(    *
  * -----------------------------------------------------------|    {o o}    *
  * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,      |   / ' ' \   *
  * Scryn, Rennard, Swordbearer, Gorog, Grishnakh, Nivek,      |~'~.VxvxV.~'~*
- * Tricops and Fireblade                                      |             *
+ * Tricops, Fireblade, Edmond, Conran                         |             *
  * ------------------------------------------------------------------------ *
  * Merc 2.1 Diku Mud improvments copyright (C) 1992, 1993 by Michael        *
  * Chastain, Michael Quan, and Mitchell Tse.                                *
@@ -40,7 +23,6 @@
  *
  * Completely cleaned up by Thoric
  */
-
 
 /*
   util function, converts an 'advanced' ASCII-number-string into a number.
@@ -72,43 +54,57 @@
   function returns 0. It also returns 0 if 'k' or 'm' appear more than
   once.
 */
-
-int advatoi (char *s)
+int advatoi( char *s )
 {
-    int number = 0;	/* number to be returned */
-    int multiplier = 0;	/* multiplier used to get the extra digits right */
+   int number = 0;   /* number to be returned */
+   int multiplier = 0;  /* multiplier used to get the extra digits right */
 
-    /*
-     * as long as the current character is a digit add to current number
-     */
-    while ( isdigit(s[0]) )
-	number = (number * 10) + (*s++ - '0');
+   /*
+    * as long as the current character is a digit add to current number
+    */
+   while( isdigit( s[0] ) )
+      number = ( number * 10 ) + ( *s++ - '0' );
 
-    switch (UPPER(s[0]))
-    {
-	case 'K'  : number *= (multiplier = 1000);	++s; break;
-	case 'M'  : number *= (multiplier = 1000000);	++s; break;
-	case '\0' : break;
-	default   : return 0; /* not k nor m nor NULL - return 0! */
-    }
+   switch ( UPPER( s[0] ) )
+   {
+      case 'K':
+         number *= ( multiplier = 1000 );
+         ++s;
+         break;
+      case 'M':
+         number *= ( multiplier = 1000000 );
+         ++s;
+         break;
+      case '\0':
+         break;
+      default:
+         return 0;   /* not k nor m nor NULL - return 0! */
+   }
 
-    /* if any digits follow k/m, add those too */
-    while ( isdigit(s[0]) && (multiplier > 1))
-    {
-	/* the further we get to right, the less the digit 'worth' */
-	multiplier /= 10;
-	number = number + ((*s++ - '0') * multiplier);
-    }
+   /*
+    * if any digits follow k/m, add those too 
+    */
+   while( isdigit( s[0] ) && ( multiplier > 1 ) )
+   {
+      /*
+       * the further we get to right, the less the digit 'worth' 
+       */
+      multiplier /= 10;
+      number = number + ( ( *s++ - '0' ) * multiplier );
+   }
 
-    /* return 0 if non-digit character was found, other than NULL */
-    if (s[0] != '\0' && !isdigit(s[0]))
-	return 0;
+   /*
+    * return 0 if non-digit character was found, other than NULL 
+    */
+   if( s[0] != '\0' && !isdigit( s[0] ) )
+      return 0;
 
-    /* anything left is likely extra digits (ie: 14k4443  -> 3 is extra) */
+   /*
+    * anything left is likely extra digits (ie: 14k4443  -> 3 is extra) 
+    */
 
-    return number;
+   return number;
 }
-
 
 /*
   This function allows the following kinds of bets to be made:
@@ -130,28 +126,31 @@ int advatoi (char *s)
   The '*' or 'x' bet multiplies the current bet by the number specified,
   defaulting to 2. If the current bet is 1000, bet x  gives 2000, bet x10
   gives 10,000 etc.
-
 */
-int parsebet (const int currentbet, char *s)
+int parsebet( const int currentbet, char *s )
 {
-    /* check to make sure it's not blank */
-    if ( s[0] != '\0' )
-    {
-	/* if first char is a digit, use advatoi */
-	if ( isdigit(s[0]) )
-	    return (advatoi(s));
-	if ( s[0] == '+' )		/* add percent (default 25%) */
-	{
-	    if ( s[1] == '\0' )
-		return (currentbet * 125) / 100;
-	    return (currentbet * (100 + atoi(s+1))) / 100;
-	}
-	if ( s[0] == '*' || s[0] == 'x' ) /* multiply (default is by 2) */
-	{
-	    if (s[1] == '\0')
-		return (currentbet * 2);
-	    return (currentbet * atoi(s+1));
-	}
-    }
-    return 0;
+   /*
+    * check to make sure it's not blank 
+    */
+   if( s[0] != '\0' )
+   {
+      /*
+       * if first char is a digit, use advatoi 
+       */
+      if( isdigit( s[0] ) )
+         return ( advatoi( s ) );
+      if( s[0] == '+' ) /* add percent (default 25%) */
+      {
+         if( s[1] == '\0' )
+            return ( currentbet * 125 ) / 100;
+         return ( currentbet * ( 100 + atoi( s + 1 ) ) ) / 100;
+      }
+      if( s[0] == '*' || s[0] == 'x' ) /* multiply (default is by 2) */
+      {
+         if( s[1] == '\0' )
+            return ( currentbet * 2 );
+         return ( currentbet * atoi( s + 1 ) );
+      }
+   }
+   return 0;
 }
