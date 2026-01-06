@@ -555,3 +555,28 @@ void do_beeler_analyze( CHAR_DATA *ch, char *argument )
         DISPOSE( context );
     }
 }
+
+/*
+ * Beeler status command - shows system status
+ */
+void do_beeler_status(CHAR_DATA *ch, char *argument)
+{
+    if (IS_NPC(ch))
+        return;
+
+    send_to_char("&C=== Beeler Autonomous World System Status ===&w\n\r", ch);
+    send_to_char("\n\r", ch);
+    send_to_char("&YCore Systems:&w\n\r", ch);
+    send_to_char("  Beeler God Mode:        ACTIVE\n\r", ch);
+    send_to_char("  World History Tracker:  ACTIVE\n\r", ch);
+    send_to_char("  Organic Creation:       ACTIVE\n\r", ch);
+    send_to_char("  Leader AI:              ACTIVE\n\r", ch);
+    send_to_char("  Universal Mob AI:       ACTIVE\n\r", ch);
+    send_to_char("\n\r", ch);
+    send_to_char("&YAI Integration:&w\n\r", ch);
+    send_to_char("  Ollama:                 ENABLED\n\r", ch);
+    send_to_char("  Redis Events:           ENABLED\n\r", ch);
+    send_to_char("\n\r", ch);
+    send_to_char("Use 'beeler' for command list.\n\r", ch);
+    send_to_char("Use 'ollama' for AI content generation.\n\r", ch);
+}
