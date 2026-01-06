@@ -9,17 +9,16 @@
 #include "mud.h"
 #include "redis_bridge.h"
 
+/* Configuration - TODO: move to config file */
+#define REDIS_HOST "localhost"
+#define REDIS_PORT 6379
+#define REDIS_PASSWORD "cosmud_redis_password"
+
 #ifdef HAVE_HIREDIS
 #include <hiredis/hiredis.h>
 
 /* Global Redis connection */
 redisContext *redis_ctx = NULL;
-#endif
-
-/* Configuration - TODO: move to config file */
-#define REDIS_HOST "localhost"
-#define REDIS_PORT 6379
-#define REDIS_PASSWORD "cosmud_redis_password"
 
 /**
  * Initialize Redis connection
@@ -207,15 +206,19 @@ void init_redis_bridge(void) {
     /* Redis support disabled at compile time */
 }
 
-void shutdown_redis_bridge(void) {
+void close_redis_bridge(void) {
+    /* No-op */
+}
+
+bool is_redis_connected(void) {
+    return false;
+}
+
+static void redis_publish(const char *channel, const char *message) {
     /* No-op */
 }
 
 void redis_publish_world_event(const char *event_type, const char *json_data) {
-    /* No-op */
-}
-
-void redis_publish_leader_decision(const char *leader_name, const char *decision, const char *reasoning) {
     /* No-op */
 }
 
