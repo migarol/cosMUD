@@ -37,6 +37,7 @@
 void init_supermob( void );
 
 /* Autonomous world system initializations */
+extern void init_ollama(void);
 extern void init_beeler(void);
 extern void init_beeler_god_mode(void);
 extern void init_beeler_architect(void);
@@ -798,6 +799,7 @@ void boot_db( bool fCopyOver )
    log_string( "  Initializing Autonomous World Systems" );
    log_string( "=============================================" );
 
+   init_ollama();
    init_beeler();
    init_beeler_god_mode();
    init_beeler_architect();
