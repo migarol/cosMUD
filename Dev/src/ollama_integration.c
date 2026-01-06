@@ -360,6 +360,12 @@ char *ollama_request(char *prompt, int max_tokens)
         ollama_escape_json(prompt),
         max_tokens);
 
+    {
+        char log_buf[256];
+        sprintf(log_buf, "OLLAMA DEBUG: json_payload size=%d", (int)strlen(json_payload));
+        log_string(log_buf);
+    }
+
     /* Initialize response buffer */
     response.data = (char *)malloc(1);
     response.size = 0;
@@ -386,10 +392,22 @@ char *ollama_request(char *prompt, int max_tokens)
     /* Perform request */
     res = curl_easy_perform(curl);
 
+    {
+        char log_buf[256];
+        sprintf(log_buf, "OLLAMA DEBUG: curl_easy_perform result=%d", res);
+        log_string(log_buf);
+    }
+
     if(res == CURLE_OK)
     {
         long response_code;
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+
+        {
+            char log_buf[256];
+            sprintf(log_buf, "OLLAMA DEBUG: HTTP response_code=%ld, response.size=%d", response_code, (int)response.size);
+            log_string(log_buf);
+        }
 
         if(response_code == 200 && response.data)
         {
@@ -449,6 +467,13 @@ char *ollama_request(char *prompt, int max_tokens)
         char buf[256];
         sprintf(buf, "Request failed: %s", curl_easy_strerror(res));
         ollama_last_error = str_dup(buf);
+        log_string(buf);
+    }
+
+    {
+        char log_buf[256];
+        sprintf(log_buf, "OLLAMA DEBUG: returning result=%s", result ? "SUCCESS" : "NULL");
+        log_string(log_buf);
     }
 
     /* Cleanup */
