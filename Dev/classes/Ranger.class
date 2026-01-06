@@ -1,29 +1,29 @@
 Name        Ranger~
 Class       6
-Attrprime   1
-Alignment   0
+AttrPrime   1
+AttrSecond   0
+AttrDeficient   0
 Weapon      10313
 Guild       3039
 Skilladept  90
 Thac0       18
 Thac32      6
 Hpmin       11
-Hpmax       20
+Hpmax       15
 Mana        1
-Expbase     1165
+Expbase     1125
+Affected    0
+Resist	 0
+Suscept	 0
 Skill 'aqua breath' 24 90
 Skill 'armor' 20 85
-Skill 'barkskin' 37 95
-Skill 'basic shield' 83 95
 Skill 'bless' 18 80
 Skill 'blindness' 40 65
-Skill 'cancelation' 40 95
-Skill 'cat eyes' 84 95
 Skill 'charm person' 37 85
 Skill 'continual light' 35 90
 Skill 'control weather' 32 90
-Skill 'cool breeze' 96 95
 Skill 'create fire' 10 90
+Skill 'create food' 36 85
 Skill 'create spring' 32 90
 Skill 'create water' 8 90
 Skill 'cure blindness' 18 90
@@ -36,7 +36,7 @@ Skill 'detect hidden' 43 90
 Skill 'detect invis' 25 85
 Skill 'detect magic' 24 80
 Skill 'detect poison' 18 90
-Skill 'dispel magic' 83 90
+Skill 'dispel magic' 40 90
 Skill 'dream' 34 90
 Skill 'faerie fire' 35 90
 Skill 'fletch' 20 95
@@ -47,55 +47,50 @@ Skill 'invis' 16 80
 Skill 'kindred strength' 30 90
 Skill 'know alignment' 49 90
 Skill 'locate object' 50 90
-Skill 'ogrish hide' 83 95
 Skill 'pass door' 50 80
-Skill 'plant pass' 75 95
 Skill 'poison' 19 85
 Skill 'refresh' 21 60
 Skill 'remove invis' 19 80
 Skill 'shield' 29 90
 Skill 'sleep' 48 70
 Skill 'stone skin' 39 80
-Skill 'word of recall' 23 95
+Skill 'word of recall' 45 90
+Skill 'aggressive style' 20 90
 Skill 'aid' 14 90
-Skill 'bearhug' 78 95
-Skill 'climb' 2 90
-Skill 'clover' 2 95
+Skill 'berserk style' 25 55
+Skill 'cleave' 50 95
+Skill 'climb' 3 90
 Skill 'cook' 1 95
 Skill 'cuff' 15 95
+Skill 'defensive style' 28 60
 Skill 'detrap' 41 90
 Skill 'dig' 2 95
 Skill 'disarm' 24 90
-Skill 'dodge' 2 50
-Skill 'drowfire' 2 80
-Skill 'dual wield' 2 90
-Skill 'dust' 2 75
+Skill 'dodge' 24 85
+Skill 'dual wield' 10 90
 Skill 'elbow' 20 80
 Skill 'enhanced damage' 30 75
-Skill 'feed' 1 95
-Skill 'fly' 2 95
-Skill 'forestwalk' 2 95
+Skill 'evasive style' 12 70
 Skill 'fourth attack' 40 70
+Skill 'grapple' 50 80
 Skill 'grip' 32 75
 Skill 'hide' 16 90
-Skill 'jump' 2 75
-Skill 'kick' 2 90
-Skill 'lore' 2 30
+Skill 'kick' 3 90
 Skill 'mount' 2 90
 Skill 'parry' 23 90
-Skill 'peek' 2 70
 Skill 'pick lock' 35 60
-Skill 'pigeon' 15 95
-Skill 'punch' 2 60
+Skill 'punch' 42 60
+Skill 'punt' 20 75
 Skill 'rescue' 15 95
 Skill 'roundhouse' 30 65
-Skill 'scan' 2 90
-Skill 'search' 2 90
+Skill 'scan' 11 90
+Skill 'search' 4 90
 Skill 'second attack' 23 90
 Skill 'shoulder' 20 80
 Skill 'sneak' 16 90
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
+Skill 'standard style' 1 90
+Skill 'strike' 2 85
+Skill 'swipe' 12 80
 Skill 'third attack' 30 90
 Skill 'track' 6 90
 Skill 'bludgeons' 1 80
@@ -104,12 +99,12 @@ Skill 'long blades' 1 85
 Skill 'missile weapons' 20 95
 Skill 'pugilism' 1 90
 Skill 'short blades' 1 40
-Skill 'talonous arms' 1 90
+Skill 'talonous arms' 1 95
 Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -120,8 +115,8 @@ Title
 Man~
 Woman~
 Title
-Adventurous Ranger~
-Adventurous Ranger~
+Runner~
+Runner~
 Title
 Strider~
 Strider~
@@ -267,204 +262,51 @@ Title
 Lord of Nature~
 Lady of Nature~
 Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
-Beastmaster~
-Beastmistress~
-Title
 Avatar~
-Avataress~
-Title
 Avatar~
-Avataress~
 Title
-Avatar~
-Avataress~
+Neophyte~
+Neophyte~
 Title
-Avatar~
-Avataress~
+Acolyte~
+Acolyte~
 Title
-Avatar~
-Avataress~
+Creator~
+Creator~
 Title
-Avatar~
-Avataress~
+Savior~
+Savior~
 Title
-Avatar~
-Avataress~
+Demi God~
+Demi Goddess~
 Title
-Avatar~
-Avataress~
+Immortal~
+Immortal~
 Title
-Avatar~
-Avataress~
+Lesser God~
+Lesser Goddess~
 Title
-Avatar~
-Avataress~
+God~
+Goddess~
 Title
-Avatar~
-Avataress~
+Greater God~
+Greater Goddess~
 Title
-Avatar~
-Avataress~
+Ascendant God~
+Acendant Goddess~
 Title
-Avatar~
-Avataress~
+Exalted God~
+Exalted Goddess~
 Title
-Avatar~
-Avataress~
+Ancient One~
+Ancient One~
 Title
-Avatar~
-Avataress~
+Eternal One~
+Eternal One~
 Title
-Avatar~
-Avataress~
+Infinite One~
+Infinite One~
 Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 End

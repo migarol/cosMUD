@@ -1,7 +1,8 @@
 Name        Warrior~
 Class       3
-Attrprime   1
-Alignment   0
+AttrPrime   1
+AttrSecond   0
+AttrDeficient   0
 Weapon      10313
 Guild       3022
 Skilladept  85
@@ -11,63 +12,61 @@ Hpmin       11
 Hpmax       15
 Mana        0
 Expbase     1150
-Skill 'adrenaline' 83 95
+Affected    0
+Resist	 0
+Suscept	 0
+Skill 'aggressive style' 1 95
 Skill 'aid' 6 80
 Skill 'bash' 30 85
-Skill 'bearhug' 58 95
+Skill 'berserk style' 10 95
+Skill 'blitz' 28 80
 Skill 'climb' 2 85
-Skill 'clover' 2 95
 Skill 'cook' 1 95
+Skill 'defensive style' 2 95
 Skill 'dig' 2 95
 Skill 'disarm' 20 85
-Skill 'dodge' 2 100
-Skill 'dominate' 50 75
+Skill 'dodge' 19 70
 Skill 'doorbash' 8 85
-Skill 'drowfire' 2 95
-Skill 'dual wield' 2 100
-Skill 'dust' 2 95
+Skill 'dual wield' 15 85
 Skill 'elbow' 18 90
-Skill 'enhanced damage' 1 100
-Skill 'feed' 1 95
+Skill 'enhanced damage' 1 95
+Skill 'evasive style' 2 95
 Skill 'fifth attack' 42 85
-Skill 'fly' 2 95
-Skill 'forestwalk' 2 95
 Skill 'fourth attack' 32 90
 Skill 'grip' 25 90
 Skill 'headbutt' 25 90
 Skill 'hitall' 50 95
-Skill 'jump' 2 40
-Skill 'kick' 2 95
-Skill 'lore' 2 25
+Skill 'jab' 20 95
+Skill 'kick' 1 85
 Skill 'lunge' 22 90
-Skill 'mount' 2 85
-Skill 'parry' 1 100
-Skill 'peek' 2 25
+Skill 'mount' 3 85
+Skill 'parry' 1 85
 Skill 'pummel' 30 80
-Skill 'punch' 2 90
+Skill 'punch' 25 90
+Skill 'punt' 15 95
 Skill 'rescue' 4 80
 Skill 'roundhouse' 25 70
-Skill 'scan' 2 45
-Skill 'search' 2 85
+Skill 'scan' 46 45
+Skill 'search' 5 85
 Skill 'second attack' 5 95
 Skill 'shoulder' 18 90
-Skill 'spy' 100 30
+Skill 'standard style' 1 95
+Skill 'strike' 2 95
 Skill 'stun' 48 85
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
 Skill 'third attack' 23 95
 Skill 'track' 38 85
-Skill 'bludgeons' 1 100
-Skill 'flexible arms' 1 100
-Skill 'long blades' 1 100
-Skill 'pugilism' 1 100
-Skill 'short blades' 1 100
-Skill 'talonous arms' 1 100
+Skill 'uppercut' 28 80
+Skill 'bludgeons' 1 95
+Skill 'flexible arms' 1 40
+Skill 'long blades' 1 95
+Skill 'pugilism' 1 95
+Skill 'short blades' 1 60
+Skill 'talonous arms' 1 80
 Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -75,354 +74,201 @@ Skill 'orcish' 1 99
 Skill 'pixie' 1 99
 Skill 'trollese' 1 99
 Title
-Avatar~
+Man~
 Woman~
 Title
-Warrior Recruit~
-Warrior Recruit~
+Swordpupil~
+Swordpupil~
 Title
-Private~
-Private~
+Recruit~
+Recruit~
 Title
-Private~
-Private~
+Sentry~
+Sentress~
 Title
-Private~
-Private~
+Fighter~
+Fighter~
 Title
-Private~
-Private~
+Soldier~
+Soldier~
 Title
-Private~
-Private~
+Warrior~
+Warrior~
 Title
-Private~
-Private~
+Veteran~
+Veteran~
 Title
-Private~
-Private~
+Swordsman~
+Swordswoman~
 Title
-Private~
-Private~
+Fencer~
+Fenceress~
 Title
-Private~
-Private~
+Combatant~
+Combatess~
 Title
-Private~
-Private~
+Hero~
+Heroine~
 Title
-Private~
-Private~
+Myrmidon~
+Myrmidon~
 Title
-Private~
-Private~
+Swashbuckler~
+Swashbuckleress~
 Title
-Private~
-Private~
+Mercenary~
+Mercenaress~
 Title
-Private~
-Private~
-Title
-Private~
-Private~
-Title
-Private~
-Private~
-Title
-Private~
-Private~
-Title
-Private~
-Private~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
-Title
-Sergeant~
-Sergeant~
+Swordmaster~
+Swordmistress~
 Title
 Lieutenant~
 Lieutenant~
 Title
-Lieutenant~
-Lieutenant~
+Champion~
+Lady Champion~
 Title
-Lieutenant~
-Lieutenant~
+Dragoon~
+Lady Dragoon~
 Title
-Lieutenant~
-Lieutenant~
+Cavalier~
+Lady Cavalier~
 Title
-Lieutenant~
-Lieutenant~
+Knight~
+Lady Knight~
 Title
-Lieutenant~
-Lieutenant~
+Grand Knight~
+Grand Knight~
 Title
-Lieutenant~
-Lieutenant~
+Master Knight~
+Master Knight~
 Title
-Lieutenant~
-Lieutenant~
+Paladin~
+Paladin~
 Title
-Lieutenant~
-Lieutenant~
+Grand Paladin~
+Grand Paladin~
 Title
-Lieutenant~
-Lieutenant~
+Demon Slayer~
+Demon Slayer~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Greater Demon Slayer~
+Greater Demon Slayer~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Dragon Slayer~
+Dragon Slayer~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Greater Dragon Slayer~
+Greater Dragon Slayer~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Underlord~
+Underlord~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Overlord~
+Overlord~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Master of the Sword~
+Mistress of the Sword~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Master of the Shield~
+Mistress of the Shield~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Master of the Cross~
+Mistress of the Cross~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Master of the Rings~
+Mistress of the Rings~
 Title
-Lieutenant-Commander~
-Lieutenant-Commander~
+Master of the Battle~
+Mistress of the Battle~
 Title
-Commander~
-Commander~
+Baron of Thunder~
+Baroness of Thunder~
 Title
-Commander~
-Commander~
+Baron of Storms~
+Baroness of Storms~
 Title
-Commander~
-Commander~
+Baron of Tornadoes~
+Baroness of Tornadoes~
 Title
-Commander~
-Commander~
+Baron of Hurricanes~
+Baroness of Hurricanes~
 Title
-Commander~
-Commander~
+Baron of Meteors~
+Baroness of Meteors~
 Title
-Commander~
-Commander~
+Duke of Thunder~
+Dutchess of Thunder~
 Title
-Commander~
-Commander~
+Duke of Storms~
+Dutchess of Storms~
 Title
-Commander~
-Commander~
+Duke of Tornadoes~
+Dutchess of Tornadoes~
 Title
-Commander~
-Commander~
+Duke of Hurricanes~
+Dutchess of Hurricanes~
 Title
-Commander~
-Commander~
+Duke of Meteors~
+Dutchess of Meteors~
 Title
-Colonel~
-Colonel~
+King of Courage~
+Queen of Courage~
 Title
-Colonel~
-Colonel~
+King of Honor~
+Queen of Honor~
 Title
-Colonel~
-Colonel~
+King of Strength~
+Queen of Strength~
 Title
-Colonel~
-Colonel~
+King of Humility~
+Queen of Humility~
 Title
-Colonel~
-Colonel~
+Avatar~
+Avatar~
 Title
-Colonel~
-Colonel~
+Neophyte~
+Neophyte~
 Title
-Colonel~
-Colonel~
+Acolyte~
+Acolyte~
 Title
-Colonel~
-Colonel~
+Creator~
+Creator~
 Title
-Colonel~
-Colonel~
+Savior~
+Savior~
 Title
-Colonel~
-Colonel~
+Demi God~
+Demi Goddess~
 Title
-Captain~
-Captain~
+Immortal~
+Immortal~
 Title
-Captain~
-Captain~
+Lesser God~
+Lesser Goddess~
 Title
-Captain~
-Captain~
+God~
+Goddess~
 Title
-Captain~
-Captain~
+Greater God~
+Greater Goddess~
 Title
-Captain~
-Captain~
+Ascendant God~
+Acendant Goddess~
 Title
-Captain~
-Captain~
+Exalted God~
+Exalted Goddess~
 Title
-Captain~
-Captain~
+Ancient One~
+Ancient One~
 Title
-Captain~
-Captain~
+Eternal One~
+Eternal One~
 Title
-Captain~
-Captain~
+Infinite One~
+Infinite One~
 Title
-Captain~
-Captain~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-Corporal~
-Corporal~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-General~
-General~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 End

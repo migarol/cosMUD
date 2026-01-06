@@ -1,22 +1,25 @@
 Name        Paladin~
 Class       8
-Attrprime   1
-Alignment   0
+AttrPrime   1
+AttrSecond   0
+AttrDeficient   0
 Weapon      10313
 Guild       3013
 Skilladept  90
 Thac0       18
 Thac32      6
-Hpmin       11
-Hpmax       20
+Hpmin       12
+Hpmax       15
 Mana        2
-Expbase     1165
+Expbase     1500
+Affected    0
+Resist	 0
+Suscept	 0
 Skill 'aqua breath' 18 85
 Skill 'armor' 1 90
 Skill 'benefic aura' 30 85
 Skill 'bethsaidean touch' 9 75
 Skill 'bless' 5 90
-Skill 'cancelation' 67 95
 Skill 'continual light' 5 85
 Skill 'create food' 2 80
 Skill 'create water' 2 80
@@ -29,8 +32,6 @@ Skill 'expurgation' 13 85
 Skill 'float' 12 75
 Skill 'fortify' 39 75
 Skill 'hezekiahs cure' 13 85
-Skill 'holy armor' 52 95
-Skill 'holy strength' 57 95
 Skill 'identify' 16 75
 Skill 'know alignment' 14 50
 Skill 'refresh' 3 80
@@ -40,38 +41,32 @@ Skill 'sacral divinity' 35 75
 Skill 'shield' 39 85
 Skill 'solomonic invocation' 9 95
 Skill 'stone skin' 42 75
-Skill 'word of recall' 26 95
+Skill 'word of recall' 15 90
+Skill 'aggressive style' 8 95
 Skill 'aid' 10 80
-Skill 'bandage' 37 90
-Skill 'cleanse' 80 95
-Skill 'climb' 2 80
-Skill 'clover' 2 95
+Skill 'berserk style' 46 40
+Skill 'climb' 4 80
 Skill 'cook' 1 95
-Skill 'dig' 2 85
-Skill 'dodge' 2 70
-Skill 'drowfire' 2 95
-Skill 'dual wield' 2 90
-Skill 'dust' 2 95
+Skill 'defensive style' 23 70
+Skill 'dig' 4 85
+Skill 'dodge' 12 75
+Skill 'dual wield' 17 90
 Skill 'enhanced damage' 1 90
-Skill 'feed' 1 95
+Skill 'evasive style' 14 70
 Skill 'fifth attack' 50 49
-Skill 'fly' 2 95
-Skill 'forestwalk' 2 95
 Skill 'fourth attack' 37 75
-Skill 'jump' 2 35
-Skill 'kick' 2 95
-Skill 'lore' 2 25
 Skill 'lunge' 20 95
-Skill 'mount' 2 90
+Skill 'mount' 3 90
 Skill 'parry' 1 90
-Skill 'peek' 2 25
-Skill 'punch' 2 90
+Skill 'punch' 25 90
+Skill 'punt' 15 95
 Skill 'rescue' 9 80
-Skill 'scan' 2 95
-Skill 'search' 2 95
+Skill 'search' 11 95
 Skill 'second attack' 10 90
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
+Skill 'spurn' 10 85
+Skill 'standard style' 1 95
+Skill 'strike' 2 90
+Skill 'tend' 45 90
 Skill 'third attack' 20 90
 Skill 'bludgeons' 1 95
 Skill 'flexible arms' 1 35
@@ -83,7 +78,7 @@ Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -94,8 +89,8 @@ Title
 Man~
 Woman~
 Title
-Holy Squire~
-Holy Squire~
+Keeper~
+Keeper~
 Title
 Keeper of Purity~
 Keeper of Purity~
@@ -238,191 +233,38 @@ Title
 Savior~
 Savior~
 Title
-Avatar~
-Avataress~
+Demi God~
+Demi Goddess~
 Title
-Avatar~
-Avataress~
+Immortal~
+Immortal~
 Title
-Avatar~
-Avataress~
+Lesser God~
+Lesser Goddess~
 Title
-Avatar~
-Avataress~
+God~
+Goddess~
 Title
-Avatar~
-Avataress~
+Greater God~
+Greater Goddess~
 Title
-Avatar~
-Avataress~
+Ascendant God~
+Ascendant Goddess~
 Title
-Avatar~
-Avataress~
+Exalted God~
+Exalted Goddess~
 Title
-Avatar~
-Avataress~
+Ancient One~
+Ancient One~
 Title
-Avatar~
-Avataress~
+Eternal One~
+Eternal One~
 Title
-Avatar~
-Avataress~
+Infinite One~
+Infinite One~
 Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 Title
 (null)~
 (null)~

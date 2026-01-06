@@ -1,23 +1,24 @@
 Name        Augurer~
 Class       7
-Attrprime   4
-Alignment   0
+AttrPrime   4
+AttrSecond   0
+AttrDeficient   0
 Weapon      10312
 Guild       21430
 Skilladept  95
 Thac0       18
 Thac32      7
-Hpmin       7
-Hpmax       12
+Hpmin       9
+Hpmax       14
 Mana        1
-Expbase     1300
+Expbase     1350
+Affected    0
+Resist	 0
+Suscept	 0
 Skill 'aqua breath' 14 80
 Skill 'armor' 2 90
-Skill 'basic shield' 73 95
 Skill 'bless' 16 95
 Skill 'blindness' 30 90
-Skill 'cancelation' 13 95
-Skill 'cat eyes' 72 95
 Skill 'cause critical' 17 95
 Skill 'cause serious' 9 95
 Skill 'charm person' 27 90
@@ -30,16 +31,15 @@ Skill 'cure light' 9 75
 Skill 'detect hidden' 18 95
 Skill 'detect invis' 12 95
 Skill 'detect magic' 8 95
-Skill 'dispel magic' 38 75
+Skill 'dispel magic' 13 75
 Skill 'earthquake' 10 90
 Skill 'enchant weapon' 27 90
 Skill 'energy drain' 14 90
 Skill 'faerie fire' 34 95
 Skill 'fireshield' 40 95
-Skill 'flight' 24 95
 Skill 'float' 11 95
+Skill 'fly' 24 95
 Skill 'harm' 26 95
-Skill 'haste' 90 95
 Skill 'helical flow' 42 85
 Skill 'identify' 16 90
 Skill 'inner warmth' 20 90
@@ -49,63 +49,43 @@ Skill 'locate object' 25 90
 Skill 'midas touch' 14 95
 Skill 'nostrum' 29 95
 Skill 'pass door' 47 95
-Skill 'penetrate defenses' 86 95
 Skill 'poison' 19 90
 Skill 'refresh' 8 85
 Skill 'remove invis' 13 85
-Skill 'revelation' 60 95
 Skill 'sanctuary' 35 95
 Skill 'scorching surge' 28 95
 Skill 'shield' 23 90
 Skill 'shocking grasp' 7 90
-Skill 'shockwave' 65 95
 Skill 'sleep' 18 85
 Skill 'spiral blast' 46 95
 Skill 'stone skin' 37 95
-Skill 'true sight' 55 95
-Skill 'vitalize' 84 95
 Skill 'weaken' 7 80
-Skill 'wizard eye' 78 95
-Skill 'word of recall' 12 95
+Skill 'word of recall' 24 95
+Skill 'aggressive style' 1 60
 Skill 'aid' 16 90
-Skill 'climb' 2 95
-Skill 'clover' 2 95
+Skill 'berserk style' 38 40
+Skill 'climb' 6 95
 Skill 'cook' 1 95
 Skill 'cuff' 10 90
+Skill 'defensive style' 4 85
 Skill 'dig' 2 85
-Skill 'dodge' 2 95
-Skill 'drowfire' 2 95
-Skill 'dual wield' 2 80
-Skill 'dust' 2 95
+Skill 'dual wield' 17 80
 Skill 'enhanced damage' 22 75
-Skill 'feed' 1 95
-Skill 'fifth attack' 58 50
-Skill 'fly' 2 95
-Skill 'forestwalk' 2 95
+Skill 'evasive style' 1 90
 Skill 'fourth attack' 41 95
-Skill 'fourth cast' 40 95
 Skill 'hide' 17 90
-Skill 'jump' 2 60
-Skill 'kick' 2 90
-Skill 'levitate' 65 95
-Skill 'lore' 2 80
+Skill 'kick' 4 90
 Skill 'meditate' 12 95
-Skill 'mount' 2 95
+Skill 'mount' 6 95
 Skill 'parry' 22 95
-Skill 'peek' 2 40
-Skill 'punch' 2 40
 Skill 'rescue' 14 50
-Skill 'scan' 2 85
-Skill 'search' 2 80
+Skill 'scan' 3 85
+Skill 'search' 10 80
 Skill 'second attack' 15 33
-Skill 'second cast' 14 95
 Skill 'sneak' 15 90
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
+Skill 'standard style' 1 70
+Skill 'strike' 2 85
 Skill 'third attack' 31 66
-Skill 'third cast' 25 95
-Skill 'trance' 50 95
-Skill 'vision' 2 95
 Skill 'bludgeons' 1 75
 Skill 'flexible arms' 1 95
 Skill 'long blades' 1 45
@@ -116,7 +96,7 @@ Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -145,7 +125,7 @@ Title
 Surveyor~
 Surveyess~
 Title
-Avatar~
+Gazer~
 Gazer~
 Title
 Entrancer~
@@ -274,204 +254,51 @@ Title
 Soothsayer~
 Soothsayeress~
 Title
-Seeker~
-Seeker~
+Avatar~
+Avatar~
 Title
-Seeker~
-Seeker~
+Neophyte~
+Neophyte~
 Title
-Seeker~
-Seeker~
+Acolyte~
+Acoyte~
 Title
-Seeker~
-Seeker~
+Creator~
+Creator~
 Title
-Seeker~
-Seeker~
+Savior~
+Savior~
 Title
-Seeker~
-Seeker~
+Demi God~
+Demi Goddess~
 Title
-Seeker~
-Seeker~
+Immortal~
+Immortal~
 Title
-Seeker~
-Seeker~
+Lesser God~
+Lesser Goddess~
 Title
-Seeker~
-Seeker~
+God~
+Goddess~
 Title
-Seeker~
-Seeker~
+Greater God~
+Greater Goddess~
 Title
-Visionary~
-Visionary~
+Ascendant God~
+Acendant Goddess~
 Title
-Visionary~
-Visionary~
+Exalted God~
+Exalted Goddess~
 Title
-Visionary~
-Visionary~
+Ancient One~
+Ancient One~
 Title
-Visionary~
-Visionary~
+Eternal One~
+Eternal One~
 Title
-Visionary~
-Visionary~
+Infinite One~
+Infinite One~
 Title
-Visionary~
-Visionary~
-Title
-Visionary~
-Visionary~
-Title
-Visionary~
-Visionary~
-Title
-Visionary~
-Visionary~
-Title
-Visionary~
-Visionary~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Diviner~
-Diviner~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Seer~
-Seeress~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Prophet~
-Prophetess~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 End

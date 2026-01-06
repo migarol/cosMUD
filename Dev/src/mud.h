@@ -245,7 +245,7 @@ extern int MAX_PC_RACE;
 extern int MAX_PC_CLASS;
 extern bool mud_down;
 
-#define MAX_LEVEL		   65
+#define MAX_LEVEL		   100
 #define MAX_CLAN		   50
 #define MAX_DEITY		   50
 #define MAX_CPD			    4 /* Maximum council power level difference */

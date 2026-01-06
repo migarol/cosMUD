@@ -1,5 +1,4 @@
 [*****] BOOT: ---------------------[ Boot Log ]--------------------
-[*****] BOOT: Resetting mud time based on current system time.
 [*****] BOOT: load_resets: gods.are (3) 'M': room 10429 doesn't exist.
 [*****] BOOT: load_resets: gods.are (4) 'M': room 10429 doesn't exist.
 [*****] BOOT: load_resets: gods.are (5) 'O': object 10429 doesn't exist.

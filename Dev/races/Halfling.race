@@ -1,7 +1,6 @@
 Name        Halfling~
 Race        3
-Classes     5226481
-Species     6
+Classes     931
 Str_Plus    -2
 Dex_Plus    1
 Wis_Plus    0
@@ -26,35 +25,36 @@ Height     36
 Weight     65
 Hunger_Mod  0
 Thirst_mod  0
-Mana_Regen  137546872
+Mana_Regen  0
 HP_Regen    0
 Race_Recall 0
-Base_age	15
-WhereName  &B<&cused as light&B>&G     ~
-WhereName  &B<&cworn on finger&B>&G    ~
-WhereName  &B<&cworn on finger&B>&G    ~
-WhereName  &B<&cworn around neck&B>&G  ~
-WhereName  &B<&cworn around neck&B>&G  ~
-WhereName  &B<&cworn on body&B>&G      ~
-WhereName  &B<&cworn on head&B>&G      ~
-WhereName  &B<&cworn on legs&B>&G      ~
-WhereName  &B<&cworn on feet&B>&G      ~
-WhereName  &B<&cworn on hands&B>&G     ~
-WhereName  &B<&cworn on arms&B>&G      ~
-WhereName  &B<&cworn as shield&B>&G    ~
-WhereName  &B<&cworn about body&B>&G   ~
-WhereName  &B<&cworn about waist&B>&G  ~
-WhereName  &B<&cworn around wrist&B>&G ~
-WhereName  &B<&cworn around wrist&B>&G ~
-WhereName  &B<&cwielded&B>&G           ~
-WhereName  &B<&cheld&B>&G              ~
-WhereName  &B<&cdual wielded&B>&G      ~
-WhereName  &B<&cworn on ears&B>&G      ~
-WhereName  &B<&cworn on eyes&B>&G      ~
-WhereName  &B<&cmissile wielded&B>&G   ~
-WhereName  &B<&cworn on back&B>&G      ~
-WhereName  &B<&cworn on face&B>&G      ~
-WhereName  &B<&cworn on ankle&B>&G     ~
-WhereName  &B<&cworn on ankle&B>&G     ~
-WhereName  &B<&cfloating nearby&B>&G   ~
+WhereName  <used as light>     ~
+WhereName  <worn on finger>    ~
+WhereName  <worn on finger>    ~
+WhereName  <worn around neck>  ~
+WhereName  <worn around neck>  ~
+WhereName  <worn on body>      ~
+WhereName  <worn on head>      ~
+WhereName  <worn on legs>      ~
+WhereName  <worn on feet>      ~
+WhereName  <worn on hands>     ~
+WhereName  <worn on arms>      ~
+WhereName  <worn as shield>    ~
+WhereName  <worn about body>   ~
+WhereName  <worn about waist>  ~
+WhereName  <worn around wrist> ~
+WhereName  <worn around wrist> ~
+WhereName  <wielded>           ~
+WhereName  <held>              ~
+WhereName  <dual wielded>      ~
+WhereName  <worn on ears>      ~
+WhereName  <worn on eyes>      ~
+WhereName  <missile wielded>   ~
+WhereName  <worn on back>  ~
+WhereName  <worn over face>  ~
+WhereName  <worn around ankle>  ~
+WhereName  <worn around ankle>  ~
+WhereName  <BUG Inform Nivek>  ~
+WhereName  <BUG Inform Nivek>  ~
+WhereName  <BUG Inform Nivek>  ~
 End

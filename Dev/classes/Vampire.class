@@ -1,93 +1,90 @@
 Name        Vampire~
 Class       4
-Attrprime   2
-Alignment   0
+AttrPrime   2
+AttrSecond   0
+AttrDeficient   0
 Weapon      10312
 Guild       3036
 Skilladept  95
 Thac0       18
 Thac32      7
 Hpmin       9
-Hpmax       15
+Hpmax       14
 Mana        0
 Expbase     1500
-Skill 'cancelation' 25 95
+Affected    0
+Resist	 0
+Suscept	 0
 Skill 'chill touch' 3 95
 Skill 'control weather' 18 95
-Skill 'cover of darkness' 64 95
-Skill 'curse' 57 95
 Skill 'detect magic' 20 85
 Skill 'detect traps' 20 90
-Skill 'devils might' 63 95
-Skill 'dispel magic' 58 95
+Skill 'dispel magic' 25 95
 Skill 'enchant weapon' 40 85
-Skill 'energy drain' 35 95
-Skill 'festering wounds' 50 95
-Skill 'fireball' 28 95
-Skill 'flash' 87 95
-Skill 'flight' 10 95
+Skill 'energy drain' 17 95
 Skill 'float' 1 95
+Skill 'fly' 10 95
 Skill 'harm' 13 95
 Skill 'identify' 15 95
-Skill 'infravision' 2 95
+Skill 'infravision' 1 95
 Skill 'invis' 10 95
 Skill 'kindred strength' 15 95
+Skill 'know alignment' 6 95
+Skill 'lightning bolt' 17 95
 Skill 'locate object' 20 95
 Skill 'poison' 6 95
-Skill 'power word kill' 99 70
 Skill 'scry' 29 95
 Skill 'shield' 27 95
+Skill 'shocking grasp' 12 95
 Skill 'sleep' 12 95
+Skill 'stone skin' 30 95
 Skill 'teleport' 11 95
 Skill 'transport' 45 40
 Skill 'ventriloquate' 9 95
 Skill 'weaken' 6 95
-Skill 'word of recall' 18 95
+Skill 'word of recall' 30 95
+Skill 'aggressive style' 4 95
 Skill 'aid' 21 60
+Skill 'berserk style' 12 80
 Skill 'bite' 11 95
 Skill 'bloodlet' 11 95
 Skill 'broach' 41 60
-Skill 'climb' 2 95
+Skill 'climb' 8 95
+Skill 'cook' 1 95
+Skill 'defensive style' 16 90
 Skill 'dig' 2 95
 Skill 'disarm' 25 95
-Skill 'dodge' 2 75
-Skill 'dominate' 34 95
-Skill 'dual wield' 2 95
-Skill 'enhanced damage' 50 60
-Skill 'fade' 52 95
-Skill 'feed' 1 95
-Skill 'fly' 2 95
+Skill 'dodge' 22 95
+Skill 'dominate' 14 95
+Skill 'dual wield' 35 95
+Skill 'elbow' 15 85
+Skill 'enhanced damage' 5 95
+Skill 'evasive style' 12 90
+Skill 'feed' 3 95
 Skill 'fourth attack' 38 85
-Skill 'frenzy' 30 95
 Skill 'grasp suspiria' 50 95
-Skill 'hide' 32 95
-Skill 'jump' 2 50
-Skill 'kick' 2 55
-Skill 'limber' 80 95
-Skill 'lore' 2 35
-Skill 'mistform' 15 95
-Skill 'mistwalk' 74 90
-Skill 'mount' 2 95
+Skill 'hide' 3 95
+Skill 'knee' 20 60
+Skill 'leap' 18 80
+Skill 'mistform' 18 95
+Skill 'mistwalk' 31 90
+Skill 'mount' 16 95
 Skill 'occulutus visum' 12 95
 Skill 'parry' 11 95
-Skill 'peek' 2 100
-Skill 'punch' 2 40
-Skill 'scan' 2 85
-Skill 'search' 2 95
-Skill 'second attack' 11 90
-Skill 'second cast' 30 95
-Skill 'serenity' 35 95
-Skill 'slit' 84 95
+Skill 'peek' 16 95
+Skill 'pounce' 5 80
+Skill 'scan' 36 85
+Skill 'search' 9 95
+Skill 'second attack' 11 95
+Skill 'shriek' 35 95
 Skill 'sneak' 3 95
-Skill 'spy' 80 40
+Skill 'standard style' 1 90
 Skill 'steal' 6 95
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
+Skill 'strike' 2 90
 Skill 'third attack' 23 95
-Skill 'vision' 50 95
 Skill 'vomica pravus' 13 45
 Skill 'bludgeons' 1 50
-Skill 'flexible arms' 1 80
+Skill 'flexible arms' 1 40
 Skill 'long blades' 1 85
 Skill 'pugilism' 1 95
 Skill 'short blades' 1 95
@@ -96,7 +93,7 @@ Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -107,351 +104,198 @@ Title
 Vampire~
 Vampiress~
 Title
-Fledgling Vampire~
-Fledgling Vampire~
+Apprentice of Blood~
+Apprentice of Blood~
 Title
-Childe~
-Childe~
+Blood Student~
+Blood Student~
 Title
-Childe~
-Childe~
+Scholar of Blood~
+Scholar of Blood~
 Title
-Childe~
-Childe~
+Delver in Blood~
+Delveress in Blood~
 Title
-Childe~
-Childe~
+Medium of Blood~
+Medium of Blood~
 Title
-Childe~
-Childe~
+Scribe of Blood~
+Scribess of Blood~
 Title
-Childe~
-Childe~
+Seer of Blood~
+Seeress of Blood~
 Title
-Childe~
-Childe~
+Blood Sage~
+Blood Sage~
 Title
-Childe~
-Childe~
+Illusionist~
+Illusionist~
 Title
-Childe~
-Childe~
+Abjurer~
+Abjuress~
 Title
-Childe~
-Childe~
+Invoker~
+Invoker~
 Title
-Childe~
-Childe~
+Enchanter~
+Enchantress~
 Title
-Childe~
-Childe~
+Conjurer~
+Conjuress~
 Title
-Childe~
-Childe~
+Magician~
+Witch~
 Title
-Childe~
-Childe~
+Maker~
+Maker~
 Title
-Childe~
-Childe~
+Savant~
+Savant~
 Title
-Childe~
-Childe~
+Magus~
+Craftess~
 Title
-Childe~
-Childe~
+Warlock~
+War Witch~
 Title
-Childe~
-Childe~
+Demi-Sorcerer~
+Demi-Sorceress~
 Title
-Ancilla~
-Ancilla~
+Sorcerer~
+Sorceress~
 Title
-Ancilla~
-Ancilla~
+Elder Sorcerer~
+Elder Sorceress~
 Title
-Ancilla~
-Ancilla~
+Grand Sorcerer~
+Grand Sorceress~
 Title
-Ancilla~
-Ancilla~
+Great Sorcerer~
+Great Sorceress~
 Title
-Ancilla~
-Ancilla~
+Zombie Maker~
+Zombie Maker~
 Title
-Ancilla~
-Ancilla~
+Greater Zombie Maker~
+Greater Zombie Maker~
 Title
-Ancilla~
-Ancilla~
+Maker of Stones~
+Maker of Stones~
 Title
-Ancilla~
-Ancilla~
+Maker of Poisons~
+Maker of Poisons~
 Title
-Ancilla~
-Ancilla~
+Maker of Slaves~
+Maker of Slaves~
 Title
-Ancilla~
-Ancilla~
+Green Wizard~
+Green Wizard~
 Title
-Ancilla~
-Ancilla~
+Brown Wizard~
+Brown Wizard~
 Title
-Ancilla~
-Ancilla~
+Blue Wizard~
+Blue Wizard~
 Title
-Ancilla~
-Ancilla~
+Red Wizard~
+Red Wizard~
 Title
-Ancilla~
-Ancilla~
+Grey Wizard~
+Grey Wizard~
 Title
-Ancilla~
-Ancilla~
+White Wizard~
+White Wizard~
 Title
-Ancilla~
-Ancilla~
+Silver Wizard~
+Silver Wizard~
 Title
-Ancilla~
-Ancilla~
+Gold Wizard~
+Gold Wizard~
 Title
-Ancilla~
-Ancilla~
+Platinum Wizard~
+Platinum Wizard~
 Title
-Ancilla~
-Ancilla~
+Diamond Wizard~
+Diamond Wizard~
 Title
-Ancilla~
-Ancilla~
+Archmage of Rods~
+Archmage of Rods~
 Title
-Elder Vampire~
-Elder Vampiress~
+Archmage of Wands~
+Archmage of Wands~
 Title
-Elder Vampire~
-Elder Vampiress~
+Archmage of Staves~
+Archmage of Staves~
 Title
-Elder Vampire~
-Elder Vampiress~
+Archmage of Orbs~
+Archmage of Orbs~
 Title
-Elder Vampire~
-Elder Vampiress~
+Demon Summoner~
+Demon Summoner~
 Title
-Elder Vampire~
-Elder Vampiress~
+Greater Demon Summoner~
+Greater Demon Summoner~
 Title
-Elder Vampire~
-Elder Vampiress~
+Dragon Charmer~
+Dragon Charmer~
 Title
-Elder Vampire~
-Elder Vampiress~
+Greater Dragon Charmer~
+Greater Dragon Charmer~
 Title
-Elder Vampire~
-Elder Vampiress~
+Master of Demons~
+Mistress of Demons~
 Title
-Elder Vampire~
-Elder Vampiress~
+Master of Dragons~
+Mistress of Dragons~
 Title
-Elder Vampire~
-Elder Vampiress~
+Master of all Magic~
+Mistress of all Magic~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Avatar~
+Avatar~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Neophyte~
+Neophyte~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Acolyte~
+Acolyte~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Creator~
+Creator~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Savior~
+Savior~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Demi God~
+Demi Goddess~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Immortal~
+Immortal~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Lesser God~
+Lesser Goddess~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+God~
+Goddess~
 Title
-Ancient Vampire~
-Ancient Vampiress~
+Greater God~
+Greater Goddess~
 Title
-Vampire Lord~
-Vampire Lady~
+Ascendant God~
+Acendant Goddess~
 Title
-Vampire Lord~
-Vampire Lady~
+Exalted God~
+Exalted Goddess~
 Title
-Vampire Lord~
-Vampire Lady~
+Ancient One~
+Ancient One~
 Title
-Vampire Lord~
-Vampire Lady~
+Eternal One~
+Eternal One~
 Title
-Vampire Lord~
-Vampire Lady~
+Infinite One~
+Infinite One~
 Title
-Vampire Lord~
-Vampire Lady~
-Title
-Vampire Lord~
-Vampire Lady~
-Title
-Vampire Lord~
-Vampire Lady~
-Title
-Vampire Lord~
-Vampire Lady~
-Title
-Vampire Lord~
-Vampire Lady~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Methuselah~
-Methuselah~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Antidiluvian~
-Antidiluvian~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Sire of all Kindred~
-Sire of all Kindred~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 End

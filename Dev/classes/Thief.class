@@ -1,78 +1,71 @@
 Name        Thief~
 Class       2
-Attrprime   2
-Alignment   0
+AttrPrime   2
+AttrSecond   0
+AttrDeficient   0
 Weapon      10312
 Guild       3028
 Skilladept  85
 Thac0       18
 Thac32      8
-Hpmin       7
-Hpmax       12
+Hpmin       8
+Hpmax       13
 Mana        0
-Expbase     850
+Expbase     750
+Affected    0
+Resist	 0
+Suscept	 0
+Skill 'aggressive style' 1 80
 Skill 'aid' 18 70
 Skill 'backstab' 1 95
 Skill 'bash' 49 60
+Skill 'berserk style' 33 45
 Skill 'circle' 25 95
-Skill 'climb' 2 85
-Skill 'clover' 2 90
+Skill 'climb' 1 85
 Skill 'cook' 1 95
+Skill 'defensive style' 1 95
 Skill 'detrap' 16 85
 Skill 'dig' 2 90
-Skill 'dirt throw' 42 95
 Skill 'disarm' 10 90
-Skill 'discern' 8 95
-Skill 'dodge' 2 100
-Skill 'dominate' 90 95
-Skill 'drowfire' 2 85
-Skill 'dual wield' 2 85
-Skill 'dust' 2 95
+Skill 'dodge' 1 95
+Skill 'dual wield' 40 85
 Skill 'enhanced damage' 44 55
-Skill 'feed' 1 95
-Skill 'fly' 2 95
-Skill 'forestwalk' 2 95
+Skill 'evasive style' 2 95
 Skill 'fourth attack' 47 30
-Skill 'garrote' 50 95
 Skill 'gouge' 20 95
 Skill 'headbutt' 20 60
 Skill 'hide' 1 85
-Skill 'jump' 2 95
-Skill 'kick' 2 80
 Skill 'knee' 15 70
-Skill 'limber' 40 95
-Skill 'lore' 2 50
-Skill 'mount' 2 85
-Skill 'parry' 16 70
-Skill 'peek' 2 100
+Skill 'leap' 20 95
+Skill 'mount' 5 85
+Skill 'peek' 1 95
 Skill 'pick lock' 1 95
-Skill 'poison weapon' 10 85
-Skill 'punch' 2 50
-Skill 'scan' 2 90
-Skill 'search' 2 85
+Skill 'poison weapon' 27 85
+Skill 'punch' 30 50
+Skill 'scan' 7 90
+Skill 'search' 3 85
 Skill 'second attack' 10 90
-Skill 'slit' 75 95
 Skill 'sneak' 1 95
 Skill 'spinkick' 19 90
-Skill 'spy' 60 60
+Skill 'standard style' 1 85
 Skill 'steal' 1 95
-Skill 'talonslash' 2 95
-Skill 'taunt' 2 95
+Skill 'strike' 2 90
+Skill 'swipe' 10 85
 Skill 'third attack' 33 70
 Skill 'track' 15 85
 Skill 'tumble' 46 95
+Skill 'vault' 25 90
 Skill 'bludgeons' 1 40
 Skill 'flexible arms' 1 95
 Skill 'long blades' 1 80
-Skill 'missile weapons' 50 95
 Skill 'pugilism' 1 85
-Skill 'short blades' 1 100
+Skill 'short blades' 1 95
 Skill 'talonous arms' 1 80
 Skill 'common' 1 99
 Skill 'dwarven' 1 99
 Skill 'elvish' 1 99
 Skill 'gith' 1 99
-Skill 'gnome' 1 99
+Skill 'gnomish' 1 99
 Skill 'goblin' 1 99
 Skill 'halfling' 1 99
 Skill 'ogre' 1 99
@@ -83,8 +76,8 @@ Title
 Man~
 Woman~
 Title
-Fledgling Thief~
-Fledgling Thief~
+Pilferer~
+Pilferess~
 Title
 Footpad~
 Footpad~
@@ -231,203 +224,50 @@ Godfather~
 Godmother~
 Title
 Avatar~
-Avataress~
-Title
 Avatar~
-Avataress~
 Title
-Avatar~
-Avataress~
+Neophyte~
+Neophyte~
 Title
-Avatar~
-Avataress~
+Acolyte~
+Acolyte~
 Title
-Avatar~
-Avataress~
+Creator~
+Creator~
 Title
-Avatar~
-Avataress~
+Savior~
+Savior~
 Title
-Avatar~
-Avataress~
+Demi God~
+Demi Goddess~
 Title
-Avatar~
-Avataress~
+Immortal~
+Immortal~
 Title
-Avatar~
-Avataress~
+Lesser God~
+Lesser Goddess~
 Title
-Avatar~
-Avataress~
+God~
+Goddess~
 Title
-Avatar~
-Avataress~
+Greater God~
+Greater Goddess~
 Title
-Avatar~
-Avataress~
+Ascendant God~
+Acendant Goddess~
 Title
-Avatar~
-Avataress~
+Exalted God~
+Exalted Goddess~
 Title
-Avatar~
-Avataress~
+Ancient One~
+Ancient One~
 Title
-Avatar~
-Avataress~
+Eternal One~
+Eternal One~
 Title
-Avatar~
-Avataress~
+Infinite One~
+Infinite One~
 Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Avatar~
-Avataress~
-Title
-Demi-God~
-Demi-Goddess~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
-Title
-(null)~
-(null)~
+Supreme Entity~
+Supreme Entity~
 End
