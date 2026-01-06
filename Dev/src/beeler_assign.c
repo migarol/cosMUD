@@ -20,6 +20,7 @@
 #include "economy.h"
 #include "ai_context_analyzer.h"
 #include "ollama_integration.h"
+#include "universal_mob_ai.h"
 
 /* Forward declarations */
 char * beeler_analyze_mob_context( CHAR_DATA *mob );
@@ -74,7 +75,10 @@ void beeler_assign_personality( CHAR_DATA *mob, CHAR_DATA *ch )
     profession = beeler_determine_profession( mob, context );
     set_npc_profession( mob, profession );
 
-    /* Step 5: Save */
+    /* Step 5: Initialize Universal Mob AI for conversations */
+    assign_mob_intelligence( mob );
+
+    /* Step 6: Save */
     {
         MOB_IDENTITY *identity = get_mob_identity( mob->pIndexData->vnum );
         if ( identity )

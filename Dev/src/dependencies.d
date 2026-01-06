@@ -127,7 +127,7 @@ o/beeler_architect.o: beeler_architect.c mud.h color.h dns.h hotboot.h \
  organic_creation.h
 o/beeler_assign.o: beeler_assign.c mud.h color.h dns.h hotboot.h calendar.h \
  weather.h liquids.h beeler.h mob_identity.h economy.h \
- ai_context_analyzer.h ollama_integration.h
+ ai_context_analyzer.h ollama_integration.h universal_mob_ai.h
 o/beeler_commands.o: beeler_commands.c mud.h color.h dns.h hotboot.h \
  calendar.h weather.h liquids.h beeler_god_mode.h world_context.h \
  universal_mob_ai.h ollama_integration.h
