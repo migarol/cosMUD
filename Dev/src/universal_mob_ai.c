@@ -627,6 +627,16 @@ void mob_queue_speech_response(CHAR_DATA *mob, CHAR_DATA *speaker, char *what_sa
         first_pending_response = pending;
     last_pending_response = pending;
 
+    /* Debug logging */
+    {
+        char log_buf[256];
+        sprintf(log_buf, "ASYNC SPEECH: Queued response for %s (speaker: %s, said: %s)",
+                mob->short_descr ? mob->short_descr : "unknown",
+                speaker->name ? speaker->name : "unknown",
+                what_said);
+        log_string(log_buf);
+    }
+
     /* Visual feedback that mob is thinking */
     act(AT_ACTION, "$n pauses thoughtfully...", mob, NULL, NULL, TO_ROOM);
 }
@@ -637,6 +647,13 @@ void mob_queue_speech_response(CHAR_DATA *mob, CHAR_DATA *speaker, char *what_sa
 void mob_process_pending_responses(void)
 {
     struct pending_speech_response *pending;
+    char log_buf[256];
+
+    /* Debug: Check if there are pending responses */
+    if (first_pending_response)
+    {
+        log_string("ASYNC SPEECH: Processing pending responses...");
+    }
 
     /* Find first unprocessed response */
     for (pending = first_pending_response; pending; pending = pending->next)
@@ -646,8 +663,16 @@ void mob_process_pending_responses(void)
             /* Mark as processing */
             pending->processing = TRUE;
 
+            sprintf(log_buf, "ASYNC SPEECH: Processing request for %s",
+                    pending->mob ? (pending->mob->short_descr ? pending->mob->short_descr : "unknown") : "NULL");
+            log_string(log_buf);
+
             /* Request from Ollama (this blocks, but only ONE per tick) */
             pending->response = ollama_request(pending->prompt, 150);
+
+            sprintf(log_buf, "ASYNC SPEECH: Got response: %s",
+                    pending->response ? "SUCCESS" : "NULL");
+            log_string(log_buf);
 
             break; /* Only process ONE per tick */
         }
@@ -660,6 +685,7 @@ void mob_process_pending_responses(void)
 void mob_deliver_pending_responses(void)
 {
     struct pending_speech_response *pending, *next_pending, *prev;
+    char log_buf[256];
 
     prev = NULL;
     for (pending = first_pending_response; pending; pending = next_pending)
@@ -669,9 +695,15 @@ void mob_deliver_pending_responses(void)
         /* Is response ready? */
         if (pending->response && pending->response[0] != '\0')
         {
+            sprintf(log_buf, "ASYNC SPEECH: Delivering response from %s",
+                    pending->mob ? (pending->mob->short_descr ? pending->mob->short_descr : "unknown") : "NULL");
+            log_string(log_buf);
+
             /* Validate mob and speaker still exist */
             if (pending->mob && pending->speaker)
             {
+                log_string("ASYNC SPEECH: Mob and speaker valid, delivering...");
+
                 /* Mob responds! */
                 act(AT_SAY, "$n says '$t'", pending->mob, pending->response, pending->speaker, TO_VICT);
                 act(AT_SAY, "$n says '$t'", pending->mob, pending->response, pending->speaker, TO_NOTVICT);
