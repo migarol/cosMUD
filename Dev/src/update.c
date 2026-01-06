@@ -20,6 +20,7 @@
 #include <sys/time.h>
 #include "mud.h"
 #include "hint.h"
+#include "universal_mob_ai.h"
 
 /*
  * Local functions.
@@ -2049,6 +2050,7 @@ void update_handler( void )
    {
       pulse_mobile = PULSE_MOBILE;
       mobile_update(  );
+      universal_mob_ai_update(  );  /* Process async speech responses */
    }
 
    if( --pulse_violence <= 0 )
