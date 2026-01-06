@@ -22,8 +22,30 @@ endif
 
 W_FLAGS = -std=c++1z -Wall -Wshadow -Wformat-security -Wpointer-arith -Wcast-align -Wredundant-decls
 
-C_FLAGS = -g2 $(W_FLAGS) $(M_FLAGS) $(SOLARIS_FLAG) $(PROF) $(EXPORT_SYMBOLS)
-L_FLAGS = $(M_FLAGS) $(PROF) $(SOLARIS_LINK) -lz $(NEED_DL) -lhiredis -lcurl
+# Optional libraries - auto-detect
+HIREDIS_EXISTS := $(shell pkg-config --exists hiredis && echo yes || echo no)
+CURL_EXISTS := $(shell pkg-config --exists libcurl && echo yes || echo no)
+
+ifeq ($(HIREDIS_EXISTS),yes)
+    REDIS_FLAGS = -DHAVE_HIREDIS
+    REDIS_LIBS = -lhiredis
+else
+    $(warning Warning: hiredis not found - Redis support disabled. Install with: apt-get install libhiredis-dev)
+    REDIS_FLAGS =
+    REDIS_LIBS =
+endif
+
+ifeq ($(CURL_EXISTS),yes)
+    CURL_FLAGS = -DHAVE_CURL
+    CURL_LIBS = -lcurl
+else
+    $(warning Warning: libcurl not found - Ollama AI support disabled. Install with: apt-get install libcurl4-openssl-dev)
+    CURL_FLAGS =
+    CURL_LIBS =
+endif
+
+C_FLAGS = -g2 $(W_FLAGS) $(M_FLAGS) $(SOLARIS_FLAG) $(PROF) $(EXPORT_SYMBOLS) $(REDIS_FLAGS) $(CURL_FLAGS)
+L_FLAGS = $(M_FLAGS) $(PROF) $(SOLARIS_LINK) -lz $(NEED_DL) $(REDIS_LIBS) $(CURL_LIBS)
 
 #D_FLAGS : For the DNS Slave process. No need in linking all the extra libs for this.
 D_FLAGS = -g2 -O $(M_FLAGS) $(PROF) $(SOLARIS_LINK)

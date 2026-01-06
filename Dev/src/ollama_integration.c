@@ -9,10 +9,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <curl/curl.h>
 #include "mud.h"
 #include "ollama_integration.h"
 #include "mob_home.h"
+
+#ifdef HAVE_CURL
+#include <curl/curl.h>
 
 /* Response buffer for curl */
 struct curl_response {
@@ -606,3 +608,26 @@ void do_ollama(CHAR_DATA *ch, char *argument)
     send_to_char("ollama test     - Test connection\n\r", ch);
     send_to_char("ollama generate - Test generation\n\r\n\r", ch);
 }
+
+#else /* !HAVE_CURL */
+
+/* Stub implementations when Ollama/CURL is not available */
+
+char *ollama_generate_room_description(ROOM_INDEX_DATA *room, const char *context) {
+    return NULL; /* Will fall back to template */
+}
+
+char *ollama_generate_mob_description(CHAR_DATA *mob, const char *context) {
+    return NULL; /* Will fall back to template */
+}
+
+char *ollama_analyze_world_context(const char *area_name, const char *context_data) {
+    return NULL; /* Will fall back to simple analysis */
+}
+
+void do_ollama(CHAR_DATA *ch, char *argument) {
+    send_to_char("Ollama AI support was disabled at compile time.\n\r", ch);
+    send_to_char("Recompile with libcurl installed to enable AI features.\n\r", ch);
+}
+
+#endif /* HAVE_CURL */

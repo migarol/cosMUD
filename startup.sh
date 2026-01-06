@@ -15,7 +15,8 @@
 
 # Configuration
 PORT=${1:-4000}
-MUD_DIR="/home/user/cosMUD/Dev"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MUD_DIR="${SCRIPT_DIR}/Dev"
 LOG_DIR="${MUD_DIR}/log"
 PID_FILE="${MUD_DIR}/smaug.pid"
 

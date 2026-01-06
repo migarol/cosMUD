@@ -6,12 +6,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <hiredis/hiredis.h>
 #include "mud.h"
 #include "redis_bridge.h"
 
+#ifdef HAVE_HIREDIS
+#include <hiredis/hiredis.h>
+
 /* Global Redis connection */
 redisContext *redis_ctx = NULL;
+#endif
 
 /* Configuration - TODO: move to config file */
 #define REDIS_HOST "localhost"
@@ -196,3 +199,36 @@ void redis_publish_system_update(const char *update_type, const char *details)
 
     redis_publish("system.updates", buffer);
 }
+
+#else /* !HAVE_HIREDIS */
+
+/* Stub implementations when Redis is not available */
+void init_redis_bridge(void) {
+    /* Redis support disabled at compile time */
+}
+
+void shutdown_redis_bridge(void) {
+    /* No-op */
+}
+
+void redis_publish_world_event(const char *event_type, const char *json_data) {
+    /* No-op */
+}
+
+void redis_publish_leader_decision(const char *leader_name, const char *decision, const char *reasoning) {
+    /* No-op */
+}
+
+void redis_publish_ai_decision(const char *leader_name, const char *decision, const char *reasoning) {
+    /* No-op */
+}
+
+void redis_publish_player_action(const char *player_name, const char *action, int importance) {
+    /* No-op */
+}
+
+void redis_publish_system_update(const char *update_type, const char *details) {
+    /* No-op */
+}
+
+#endif /* HAVE_HIREDIS */

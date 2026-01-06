@@ -3,7 +3,8 @@
 # cosMUD Autonomous World System - Shutdown Script
 ################################################################################
 
-MUD_DIR="/home/user/cosMUD/Dev"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MUD_DIR="${SCRIPT_DIR}/Dev"
 PID_FILE="${MUD_DIR}/smaug.pid"
 
 # Colors
