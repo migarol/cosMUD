@@ -3943,4 +3943,29 @@ Level       55
 Log         0
 End
 
+
+#COMMAND
+Name        ollama~
+Code        do_ollama
+Position    100
+Level       55
+Log         0
+End
+
+#COMMAND
+Name        beeler~
+Code        do_beeler
+Position    100
+Level       60
+Log         0
+End
+
+#COMMAND
+Name        beelerstatus~
+Code        do_beeler_status
+Position    100
+Level       55
+Log         0
+End
+
 #END

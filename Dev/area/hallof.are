@@ -145,20 +145,6 @@ before a small gathering of puzzled onlookers and small bunnies. A small
 plaque depics the importance of this event, but its words have been worn    
 off with time.
 ~
-#48704
-statue zaldine~
-a statue of Zaldine~
-A statue dedicated to the late Zaldine sits here.~
-~
-13 0 0
-0 0 0 0
-1 0 0
-E
-statue zaldine~
-This seasoned veteran shows his experience through the many scars
-and bumps on his haggard face. A gleam of intelligence can almost be
-felt through his stone eyes.
-~
 #48799
 last object~
 last object~
@@ -801,10 +787,8 @@ D1
 0 -1 48738
 S
 #48740
-The Cell of the late Zaldine~
-Dark, cold and drafty is this cramped little space. There isn't much
-here besides  than aging cracked stone, dust and a grate in the floor.
-A faint, warm draft is gently wafting up from the floor grate.
+An Empty Cell~
+This cell is empty, until some dark soul is thrown in here.
 ~
 0 1073741833 1
 D3

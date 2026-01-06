@@ -15,7 +15,7 @@ $
 #FLAGS
 0
 
-#ECONOMY 0 654780
+#ECONOMY 0 13527200
 
 #CLIMATE 2 2 2
 
@@ -31,7 +31,7 @@ his breastplate of iron with its wings. Its long body
 ends in a scorpion stinger.
 ~
 65 524840 0 C
-73 0 -75 0d0+0 0d0+0
+41 0 -75 0d0+0 0d0+0
 0 0
 112 112 1
 18 13 13 13 13 13 13
@@ -91,7 +91,7 @@ come. His appearance is to your liking, whatever that may be,
 and you find his voice pleasant and reasonable.
 ~
 67 373301928 -1000 C
-99 0 -300 5d100+16500 8d12+66
+55 0 -300 5d100+16500 8d12+66
 7500000 0
 112 112 1
 25 25 25 25 25 1 1
@@ -121,10 +121,10 @@ smirk
 mea $n Abaddon raises one unusually clawed hand and smites you!
 mpechoar $n Abaddon raises one clawed hand and smites $n!
 mpslay $n
+mppurge corpse
 say Such is the penalty for your foolishness!
 shout I am FREE! $n has FREED me from my bindings!
-mpat testdude mpforce testdude shout Alas and Alack!
-What hath thou wrought, $n
+mpat testdude mpforce testdude shout Alas and Alack! What hath thou wrought, $n
 mpe With a blinding flash of light and the stench of brimstone, $I is gone!
 mpgoto 2
 ~
@@ -199,8 +199,8 @@ MYSTERY BABYLON THE GREAT. THE MOTHER
 OF HARLOTS AND ABOMINATIONS OF THE EARTH.
 ~
 67 67633832 -400 C
-88 0 0 0d0+0 0d0+0
-50000 0
+50 0 0 0d0+0 0d0+0
+0 0
 112 112 2
 18 13 13 18 13 18 13
 0 0 0 0 0
@@ -264,8 +264,8 @@ The angel looks you over and tells you that you are too late.
 He has already cast the second vial of wrath into the sea.
 ~
 67 340271276 1000 C
-95 0 -300 0d0+0 10d8+50
-10000 0
+53 0 -300 1d1000+4000 10d8+50
+0 0
 112 112 1
 17 13 13 13 13 25 13
 0 0 0 0 0
@@ -323,7 +323,7 @@ The angel looks you over and tells you that you are too late.
 The 6th seal already has been broken.
 ~
 67 340271276 1000 C
-95 0 -300 0d0+0 10d8+50
+53 0 -300 1d1000+4000 10d8+50
 0 0
 112 112 1
 17 13 13 13 13 25 13
@@ -382,7 +382,7 @@ The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
 ~
 67 340271276 1000 C
-93 0 -300 0d0+0 10d8+50
+53 0 -300 1d1000+4000 10d8+50
 0 0
 112 112 1
 17 13 13 13 13 25 13
@@ -441,7 +441,7 @@ The angel looks you over and tells you that you are too late.
 He has already poured the fourth vial of wrath upon the sun.
 ~
 67 340271276 1000 C
-96 0 -300 0d0+0 10d8+50
+53 0 -300 1d1000+4000 10d8+50
 0 0
 112 112 1
 17 13 13 13 13 25 13
@@ -499,7 +499,7 @@ An angel is here, harvesting sinners with his sickle.
 The angel has no mercy for those without seals.
 ~
 67 524968 1000 C
-97 0 0 0d0+0 0d0+0
+53 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 20 13 13 20 13 13 13
@@ -531,7 +531,7 @@ The army of heaven is approximately 50 troops, lightly
 armed with simple spears and shields.
 ~
 99 512 1000 C
-81 0 0 0d0+0 0d0+0
+45 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 25 13 13 13 13 13 13
@@ -556,7 +556,7 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 67 34087592 0 C
-91 0 0 0d0+0 0d0+0
+52 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 22 22 22 22 22 22 22
@@ -623,7 +623,7 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 67 50 0 S
-95 0 0 0d0+0 0d0+0
+52 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24511
@@ -635,7 +635,7 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 67 40 0 S
-95 0 0 0d0+0 0d0+0
+52 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24512
@@ -647,7 +647,7 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 67 335545000 0 C
-95 0 -120 0d0+0 0d0+0
+52 0 -120 0d0+0 0d0+0
 0 0
 112 112 1
 19 13 13 18 13 13 13
@@ -680,6 +680,7 @@ if rand(50)
 mpforce $n e
 else
 mpforce $n w
+else
 endif
 endif
 ~
@@ -692,14 +693,14 @@ Michael, Archangel of war is here, fighting the dragon.
 Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep bass laugh.
 ~
-16777283 373825708 1000 C
-80 0 -300 1d1+14999 10d10+100
+67 373825708 1000 C
+55 0 -300 1d1+14999 10d10+100
 0 0
 112 112 1
 25 25 25 25 25 25 25
 0 0 0 0 0
 84 1 0 0 4097 1 6
-0 0 34559 1057431 1056512 0 203448576 2621575
+0 0 34559 8447 3153664 0 203448576 2621575
 > fight_prog 100~
 >fight_prog 100
 disarm
@@ -767,8 +768,8 @@ The dragon has seven heads and ten horns. Upon the
 ten horns are ten crowns, and upon the 7 heads are
 blasphemy.
 ~
-16777283 373817512 -1000 C
-99 0 -300 1d1+14999 10d10+125
+67 373817512 -1000 C
+55 0 -300 1d1+14999 10d10+125
 1000000 0
 112 112 1
 13 13 13 13 13 13 13
@@ -846,7 +847,7 @@ and the eating of food sacrificed to idols. She will
 gladly try to sway you to her point of view.
 ~
 67 0 -400 C
-77 0 0 0d0+0 0d0+0
+44 0 0 0d0+0 0d0+0
 0 0
 112 112 2
 13 13 13 13 13 25 13
@@ -872,7 +873,7 @@ on the merits of eating food sacrificed to idols. His
 rapt audience pays you no heed.
 ~
 67 40 -400 C
-77 0 0 0d0+0 0d0+0
+44 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 13 13 13 13 13 13 13
@@ -895,7 +896,7 @@ fanatical speech on how life has no meaning unless you
 fornicate freely and eat sacrificed food.
 ~
 67 552 -400 C
-73 0 0 0d0+0 0d0+0
+41 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 16 13 13 16 13 13 13
@@ -924,7 +925,7 @@ with its power and sway you to fight on the
 side of the dragon.
 ~
 67 40 -400 S
-77 0 0 0d0+0 0d0+0
+43 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24519
@@ -942,7 +943,7 @@ If you will worship as he says, step forward and
 receive the mark.
 ~
 67 40 -400 S
-95 0 0 0d0+0 0d0+0
+52 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24520
@@ -956,7 +957,7 @@ to behold. She tells you to run, for a
 great dragon is hunting her.
 ~
 67 34087080 400 C
-95 0 -300 1000d2+18000 13d8+99
+53 0 -300 1000d2+18000 13d8+99
 1221111 0
 112 112 2
 13 13 13 13 13 13 13
@@ -1017,13 +1018,51 @@ fierceness and wrath of The Almighty Gods. On his
 thigh is written King of Kings and Lord of Lords.
 ~
 67 373826216 1000 C
-98 0 -300 750d2+9675 100d1+50
-1250000 0
+55 0 -300 750d2+9675 100d1+50
+0 0
 112 112 1
 25 25 25 25 25 25 25
 -10 -10 -10 -10 -10
 90 1 0 0 1 1 4
-0 0 47 2097248 1056514 0 75587584 2621575
+0 0 47 2097248 3153675 0 209805568 2621575
+> fight_prog 100~
+if rand(20)
+mpat 3 c heal
+endif
+if rand(10)
+mpecho $I opens his mouth, and holy magicks spew forth!
+mpechoat $n you cower as the magicks surge towards you!.
+mpechoar $n $n cowers as the magicks surge towards $m!.
+if isnpc($n)
+c 'cure blindness' self
+mpecho $N is struck by the Word of the Gods!
+mpdamage $n 12000
+else
+c 'lightning breath' $n
+c 'frost breath' $r
+endif
+else
+if isgood($n)
+t $n You dare raise a hand against the Word of the Gods?!?
+mpechoar $n $n is assaulted by the enraged messenger of the Gods!
+mpdamage $n 300
+else
+mpecho $I unleashes a torrent of magical attacks!
+c unravel $n
+c blazebane $r
+c winter $r
+c 'fire breath' $r
+c 'frost breath' $n
+disarm
+endif
+endif
+mpe $I hurls himself into the fray, screaming in divine rage!
+c kin
+c 'eldritch sphere'
+c shadowform
+c antimagic
+stun
+~
 > rand_prog 100~
 mpat 3 c heal
 wield sword
@@ -1048,43 +1087,6 @@ snarl $n
 , brandishes an eighteen foot long sword menacingly at you.
 endif
 ~
-> fight_prog 100~
-fight_prog 100
-if rand(20)
-mpat 3 c heal
-endif
-if rand(10)
-mpecho $I opens his mouth, and holy magicks spew forth!
-mpechoat $n you cower as the magicks surge towards you!.
-mpechoar $n $n cowers as the magicks surge towards $m!.
-if isnpc($n)
-c 'cure blindness' self
-mpecho $N is struck by the Word of the Gods!
-mpdamage $n 12000
-else
-c 'lightning breath' $n
-c 'frost breath' $r
-endif
-else
-if isgood($n)
-t $n You dare raise a hand against the Word of the Gods?!?
-mpechoar $n $n is assaulted by the enraged messenger of the Gods!
-mpdamage $n 175
-else
-mpecho $I unleashes a torrent of magical attacks!
-c unravel $n
-c blazebane $r
-c winter $r
-c 'fire breath' $r
-c 'frost breath' $n
-disarm
-endif
-endif
-mpe $I hurls himself into the fray, screaming in divine rage!
-c kin
-c 'eldritch sphere'
-c antimagic
-~
 |
 #24522
 one sealed~
@@ -1096,7 +1098,7 @@ All of the tribes were marked with a seal so as
 to spare them from the wrath of The Gods.
 ~
 67 533160 400 C
-70 0 0 0d0+0 0d0+0
+43 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 13 13 13 13 13 13 13
@@ -1122,7 +1124,7 @@ The marked one has chosen the side of evil for
 the final conflict. He seems to be suffering from a pox.
 ~
 67 2097192 400 S
-70 0 0 0d0+0 0d0+0
+62 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24524
@@ -1137,7 +1139,7 @@ scar runs across one head, where it was mortally
 wounded and healed.
 ~
 67 40 -400 S
-75 0 0 0d0+0 0d0+0
+63 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24525
@@ -1149,7 +1151,7 @@ The idolator is engrossed in his worship, and
 does not see you.
 ~
 67 40 -400 S
-85 0 0 0d0+0 0d0+0
+61 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24526
@@ -1208,7 +1210,7 @@ is dressed in rags and carries a bloody
 knife.
 ~
 99 512 -800 C
-65 0 0 0d0+0 0d0+0
+41 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 22 13 13 22 13 13 13
@@ -1247,7 +1249,7 @@ having bathed in the last week.
 ~
 67 512 -400 C
 42 0 0 0d0+0 0d0+0
-12000 0
+0 0
 112 112 2
 13 13 13 13 13 20 13
 0 0 0 0 0
@@ -1292,8 +1294,8 @@ carrying a lot of gawdy babbles. He blames
 his sins on the greedy poor.
 ~
 67 0 -400 S
-75 0 0 0d0+0 0d0+0
-8100000 0
+62 0 0 0d0+0 0d0+0
+0 0
 112 112 1
 #24531
 man mighty~
@@ -1306,7 +1308,7 @@ has a harried look. He blames his sins on
 his rivals.
 ~
 67 512 -400 C
-90 0 0 0d0+0 0d0+0
+42 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 25 13 13 13 13 13 13
@@ -1379,19 +1381,19 @@ on the king, who ordered him to commit atrocities.
 ~
 67 0 -400 S
 62 0 0 0d0+0 0d0+0
-150523 0
+0 0
 112 112 1
 #24536
 he sits~
 He who sits at the throne~
-He who sits is siting here.
+He who sits says "I am the alpha and the omega".
 ~
 He is like jasper and carnelian. You better do as
 he says.
 ~
 67 369623740 1000 C
-85 0 -300 1000d2+9500 18d5+60
-502000 0
+55 0 -300 1000d2+9500 18d5+60
+0 0
 112 112 1
 25 25 25 25 25 25 25
 0 0 0 0 0
@@ -1493,7 +1495,7 @@ The elders are in white robes with golden crowns. They
 play harps, and swing golden bowls filled with incense.
 ~
 67 268435644 1000 C
-65 0 0 0d0+0 0d0+0
+43 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 13 13 13 13 13 13 13
@@ -1521,7 +1523,7 @@ The ox creature is full of eyes in front and behind.
 It has 6 wings, and eleven eyes inside.
 ~
 67 0 400 S
-70 0 0 0d0+0 0d0+0
+63 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24541
@@ -1533,7 +1535,7 @@ The human faced creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
 67 0 400 S
-70 0 0 0d0+0 0d0+0
+63 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 #24542
@@ -1545,7 +1547,7 @@ The eagle creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
 67 533120 400 C
-55 0 0 0d0+0 0d0+0
+43 0 0 0d0+0 0d0+0
 0 0
 112 112 1
 13 13 13 13 13 13 13
