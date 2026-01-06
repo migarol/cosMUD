@@ -31,14 +31,6 @@ Log         0
 End
 
 #COMMAND
-Name        0~
-Code        do_tech
-Position    100
-Level       100
-Log         0
-End
-
-#COMMAND
 Name        :~
 Code        do_immtalk
 Position    100
@@ -146,7 +138,7 @@ End
 Name        advance~
 Code        do_advance
 Position    100
-Level       115
+Level       113
 Log         1
 End
 
@@ -1050,7 +1042,7 @@ End
 Name        fixed~
 Code        do_fixed
 Position    100
-Level       106
+Level       109
 Log         0
 End
 
@@ -1216,7 +1208,7 @@ End
 
 #COMMAND
 Name        guestlist~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       2
 Log         0
@@ -1320,7 +1312,7 @@ End
 
 #COMMAND
 Name        hskelter~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       115
 Log         1
@@ -1328,7 +1320,7 @@ End
 
 #COMMAND
 Name        hometowns~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       111
 Log         0
@@ -1736,7 +1728,7 @@ End
 
 #COMMAND
 Name        logout~
-Code        do_qui
+Code        do_quit
 Position    100
 Level       0
 Log         0
@@ -2010,7 +2002,7 @@ End
 Name        makeboard~
 Code        do_makeboard
 Position    100
-Level       114
+Level       112
 Log         1
 End
 
@@ -2056,7 +2048,7 @@ End
 
 #COMMAND
 Name        map~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       2
 Log         0
@@ -2064,7 +2056,7 @@ End
 
 #COMMAND
 Name        mapout~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       107
 Log         0
@@ -2200,7 +2192,7 @@ End
 
 #COMMAND
 Name        muse~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       104
 Log         0
@@ -2469,7 +2461,7 @@ End
 
 #COMMAND
 Name        motd~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       0
 Log         0
@@ -2781,7 +2773,7 @@ End
 
 #COMMAND
 Name        opentourney~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       109
 Log         1
@@ -3008,30 +3000,6 @@ Name        polymorph~
 Code        do_imm_morph
 Position    100
 Level       109
-Log         0
-End
-
-#COMMAND
-Name        pset~
-Code        do_pset
-Position    100
-Level       116
-Log         0
-End
-
-#COMMAND
-Name        pstat~
-Code        do_pstat
-Position    100
-Level       116
-Log         0
-End
-
-#COMMAND
-Name        plist~
-Code        do_plist
-Position    100
-Level       116
 Log         0
 End
 
@@ -3632,7 +3600,7 @@ End
 Name        races~
 Code        do_races
 Position    100
-Level       112
+Level       115
 Log         0
 End
 
@@ -4158,7 +4126,7 @@ End
 
 #COMMAND
 Name        sethtown~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       115
 Log         0
@@ -4253,14 +4221,6 @@ Log         0
 End
 
 #COMMAND
-Name        tech~
-Code        do_tech
-Position    100
-Level       10
-Log         0
-End
-
-#COMMAND
 Name        up~
 Code        do_up
 Position    112
@@ -4326,7 +4286,7 @@ End
 
 #COMMAND
 Name        unalias~
-Code        (0x129b08)
+Code        (0x127978)
 Position    100
 Level       1
 Log         0

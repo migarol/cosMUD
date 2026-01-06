@@ -85,9 +85,11 @@ echo ""
 echo -e "${BLUE}Starting MUD server on port ${PORT}...${NC}"
 echo ""
 
-# Start the MUD in background
-nohup src/smaug $PORT > "${LOG_DIR}/smaug.log" 2>&1 &
+# Start the MUD in background (must run from area/ directory)
+cd area || exit 1
+nohup ../src/smaug $PORT > "${LOG_DIR}/smaug.log" 2>&1 &
 MUD_PID=$!
+cd ..
 
 # Save PID
 echo $MUD_PID > "$PID_FILE"
