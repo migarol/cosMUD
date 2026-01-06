@@ -1,5 +1,5 @@
 o/act_comm.o: act_comm.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
- liquids.h
+ liquids.h universal_mob_ai.h
 o/act_info.o: act_info.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
  liquids.h mapper.h sha256.h
 o/act_move.o: act_move.c mud.h color.h dns.h hotboot.h calendar.h weather.h \

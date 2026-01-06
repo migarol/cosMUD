@@ -20,6 +20,7 @@
 #include <string.h>
 #include <time.h>
 #include "mud.h"
+#include "universal_mob_ai.h"
 
 bool in_same_house( CHAR_DATA * ch, CHAR_DATA * vch );
 
@@ -1235,6 +1236,18 @@ void do_say( CHAR_DATA* ch, const char* argument )
         default:
             act( AT_SAY, "$n says '$t'", ch, sbuf, vch, TO_VICT );
             break;
+      }
+
+      /* Universal Mob AI: NPCs respond to speech */
+      if (IS_NPC(vch) && !IS_NPC(ch))
+      {
+          char *ai_response = mob_ai_respond_to_speech(vch, ch, (char*)sbuf);
+          if (ai_response && ai_response[0] != '\0')
+          {
+              act(AT_SAY, "$n says '$t'", vch, ai_response, ch, TO_VICT);
+              act(AT_SAY, "$n says '$t'", vch, ai_response, ch, TO_NOTVICT);
+              DISPOSE(ai_response);
+          }
       }
    }
 
