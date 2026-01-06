@@ -458,8 +458,17 @@ char *ollama_request(char *prompt, int max_tokens)
         else
         {
             char buf[256];
+            char log_buf[512];
             sprintf(buf, "Ollama returned HTTP %ld", response_code);
             ollama_last_error = str_dup(buf);
+
+            /* Log the error response from Ollama */
+            if(response.data && response.size > 0)
+            {
+                int copy_len = response.size < 400 ? response.size : 400;
+                sprintf(log_buf, "OLLAMA ERROR: %.*s", copy_len, response.data);
+                log_string(log_buf);
+            }
         }
     }
     else
