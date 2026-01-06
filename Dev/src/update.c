@@ -21,6 +21,7 @@
 #include "mud.h"
 #include "hint.h"
 #include "universal_mob_ai.h"
+#include "leader_ai.h"
 
 /*
  * Local functions.
@@ -2051,6 +2052,7 @@ void update_handler( void )
       pulse_mobile = PULSE_MOBILE;
       mobile_update(  );
       universal_mob_ai_update(  );  /* Process async speech responses */
+      leader_ai_update(  );  /* Leader AI strategic decisions */
    }
 
    if( --pulse_violence <= 0 )

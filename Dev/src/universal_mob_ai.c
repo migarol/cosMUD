@@ -699,8 +699,22 @@ void mob_deliver_pending_responses(void)
                     pending->mob ? (pending->mob->short_descr ? pending->mob->short_descr : "unknown") : "NULL");
             log_string(log_buf);
 
-            /* Validate mob and speaker still exist */
-            if (pending->mob && pending->speaker)
+            /* Validate mob and speaker still exist in char list */
+            CHAR_DATA *ch;
+            bool mob_valid = FALSE;
+            bool speaker_valid = FALSE;
+
+            for (ch = first_char; ch; ch = ch->next)
+            {
+                if (ch == pending->mob)
+                    mob_valid = TRUE;
+                if (ch == pending->speaker)
+                    speaker_valid = TRUE;
+                if (mob_valid && speaker_valid)
+                    break;
+            }
+
+            if (mob_valid && speaker_valid)
             {
                 log_string("ASYNC SPEECH: Mob and speaker valid, delivering...");
 
