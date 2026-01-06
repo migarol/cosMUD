@@ -509,6 +509,7 @@ char *ollama_chat(char *system_prompt, char *user_prompt, int max_tokens)
 /*
  * Escape JSON strings
  * Increased buffer size to handle large Beeler prompts
+ * Now properly escapes newlines, tabs, and other special characters
  */
 char *ollama_escape_json(char *str)
 {
@@ -521,12 +522,40 @@ char *ollama_escape_json(char *str)
 
     *dst++ = '"';
 
-    while (*src && (dst - escaped) < MAX_STRING_LENGTH * 6 - 3)
+    while (*src && (dst - escaped) < MAX_STRING_LENGTH * 6 - 4)
     {
-        if (*src == '"' || *src == '\\')
-            *dst++ = '\\';
-
-        *dst++ = *src++;
+        switch (*src)
+        {
+            case '"':
+            case '\\':
+                *dst++ = '\\';
+                *dst++ = *src;
+                break;
+            case '\n':
+                *dst++ = '\\';
+                *dst++ = 'n';
+                break;
+            case '\r':
+                *dst++ = '\\';
+                *dst++ = 'r';
+                break;
+            case '\t':
+                *dst++ = '\\';
+                *dst++ = 't';
+                break;
+            case '\b':
+                *dst++ = '\\';
+                *dst++ = 'b';
+                break;
+            case '\f':
+                *dst++ = '\\';
+                *dst++ = 'f';
+                break;
+            default:
+                *dst++ = *src;
+                break;
+        }
+        src++;
     }
 
     *dst++ = '"';
