@@ -214,7 +214,7 @@ bool is_redis_connected(void) {
     return false;
 }
 
-static void redis_publish(const char *channel, const char *message) {
+void redis_publish(const char *channel, const char *message) {
     /* No-op */
 }
 
