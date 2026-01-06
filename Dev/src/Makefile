@@ -16,9 +16,11 @@ EXPORT_SYMBOLS = -export-dynamic
 #SOLARIS_LINK = -lnsl -lsocket
 
 #Memory debugging flags. Cygwin lacks libasan support required for this to work.
-ifndef CYGWIN
-M_FLAGS = -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer
-endif
+#Commented out for production - sanitizers kill the process on memory leaks
+#ifndef CYGWIN
+#M_FLAGS = -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer
+#endif
+M_FLAGS =
 
 W_FLAGS = -std=c++1z -Wall -Wshadow -Wformat-security -Wpointer-arith -Wcast-align -Wredundant-decls
 
