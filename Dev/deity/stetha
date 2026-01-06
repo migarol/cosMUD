@@ -1,11 +1,14 @@
 #DEITY
 Filename		../deity/stetha~
 Name		Hanali~
-Detitle	Celanil, Goddess of Romantic Love and Beauty~
-Domains	Romance, Beauty, Charm~
-Description	A beautiful young woman.
+Description	Hanali Celanil, Goddess of Romantic Love and Beauty
+
+Domains  Romance, Beauty, Charm      Alignment  Noble
+
+A beautiful young woman.
 The queen of the elves. She watches over and protects
 the wellbeing of the Sylvan races.
+ 
 ~
 Alignment		700
 Worshippers	0
@@ -31,8 +34,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		1
 Class		-1
 Element		0

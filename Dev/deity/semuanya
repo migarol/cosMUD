@@ -1,17 +1,22 @@
 #DEITY
 Filename		../deity/semuanya~
 Name		Semuanya~
-Detitle	Master of Propagation and Survival~
-Domains	Lizardman, Survival, Propagation~
-Description	Semuanya is the unemotional and amoral reptilian ideal. Neither good
+Description	Semuanya, Master of Propagation and Survival
+ 
+Domains   Lizardman, Survival, Propagation   Alignment  Neutral
+ 
+Semuanya is the unemotional and amoral reptilian ideal. Neither good
 nor evil, neither chaotic nor lawful, Semuanya merely exists and
 existance is his purpose. Live long, reproduce, ensure the safety of
 yourself and the race. This is the entire creed of Semuanya. Nothing
 else is of real importance, unless it bears directly on survival and
 propagation.
+ 
+Favored Race  Lizardman          Hated Race  Pixie
+ 
 ~
 Alignment		0
-Worshippers	0
+Worshippers	2
 Flee		-35
 Flee_npcrace	-10
 Flee_npcfoe	-35
@@ -34,8 +39,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		13
 Class		-1
 Element		0

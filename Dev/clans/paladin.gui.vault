@@ -610,13 +610,6 @@ End
 
 #OBJECT
 Nest         1
-Vnum         12561
-Level        47
-Values       11 11 0 0 0 0
-End
-
-#OBJECT
-Nest         1
 Vnum         12560
 Level        47
 Values       6 6 0 0 0 0
@@ -1759,13 +1752,6 @@ Level        94
 Values       11 69 138 4 0 0
 Affect       -1 -1 6 18 0
 Affect       -1 -1 6 19 0
-End
-
-#OBJECT
-Nest         1
-Vnum         70044
-Level        93
-Values       11 12 0 0 0 0
 End
 
 #OBJECT

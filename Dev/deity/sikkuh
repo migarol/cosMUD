@@ -1,16 +1,21 @@
 #DEITY
 Filename		../deity/sikkuh~
 Name		Sikkuh~
-Detitle	Killer of Many Things~
-Domains	Strength, Hunting, Trophies~
-Description	Sikkuh was a mighty hunter amoung the Lizardman race. He collected
+Description	Sikkuh, Killer of Many Things
+ 
+Domains  Strength, Hunting, Trophies         Alignment  Base
+ 
+Sikkuh was a mighty hunter amoung the Lizardman race. He collected
 many trophies and fought many battles. He became a deity when his
 life was threatened by a Dragon horde. He did not survive but neither
 did the leader of the Dragons. The memory of his conflicts rose him
 to deityhood.
+ 
+Favored Race  Lizardman             Hated Race  Dragon
+ 
 ~
 Alignment		0
-Worshippers	0
+Worshippers	1
 Flee		-35
 Flee_npcrace	-25
 Flee_npcfoe	-50
@@ -33,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		13
 Class		-1
 Element		0

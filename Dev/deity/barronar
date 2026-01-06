@@ -1,17 +1,22 @@
 #DEITY
 Filename		../deity/barronar~
 Name		Berronar~
-Detitle	Truesilver, Mother of Safety, Truth, and Home~
-Domains	Safety, Truth, Family~
-Description	Wife of Moradin, patroness of marriage and love. Berronar is
+Description	Berronar Truesilver, Mother of Safety, Truth, and Home
+
+Domains  Safety, Truth, Family      Alignment  Devout
+
+Wife of Moradin, patroness of marriage and love. Berronar is
 the greatest of all Dwarf goddesses. Her name is often invoked
 in small home rituals, for protection from thieves and duplicity.
 But Berronar is not a passive homebody, her efforts to preserve
 and protect dwarven culture and civilization have spanned many
 universes.
+ 
+Favored Race  Dwarves          Hated Race  Orcs
+ 
 ~
 Alignment		900
-Worshippers	0
+Worshippers	19
 Flee		-25
 Flee_npcrace	-35
 Flee_npcfoe	-35
@@ -34,8 +39,6 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
 Race		2
 Class		-1
 Element		0

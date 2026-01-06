@@ -1,12 +1,17 @@
 #DEITY
 Filename		../deity/moradin~
 Name		Moradin~
-Detitle	The Soul Forger~
-Domains	Dwarves, Smithing, Creation, Protection~
-Description	Head of the Dwarven Pantheon and the creator of the Dwarven race.
+Description	Moradin, The Soul Forger
+ 
+Domains  Dwarves, Smithing, Creation, Protection   Alignment Devout
+ 
+Head of the Dwarven Pantheon and the creator of the Dwarven race.
 Moradin forged the race from mitheral and then blew on them to give
 his creations life. He is the protector of the Dwarves and their
 patron deity of Smiths.
+ 
+Favored Race  Dwarves         Hated Race  Giants
+ 
 ~
 Alignment		900
 Worshippers	0
@@ -32,8 +37,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		2
 Class		-1
 Element		0

@@ -1,13 +1,16 @@
 #DEITY
 Filename		../deity/soleran~
 Name		Soleran~
-Detitle	Bitch Queen from the Nine Hells~
-Domains	Evil, Hate, Corruption~
-Description	Hater of all things that are good. She seems to despise all living thins
+Description	Soleran, Bitch Queen from the Nine Hells
+
+Domains  Evil, Hate, Corruption      Alignment  Fiendish
+
+Hater of all things that are good. She seems to despise all living thins
 except for that whitch serves her.
+ 
 ~
 Alignment		-900
-Worshippers	0
+Worshippers	82
 Flee		-50
 Flee_npcrace	-35
 Flee_npcfoe	-50
@@ -30,8 +33,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		-1
 Class		-1
 Element		0

@@ -1,15 +1,21 @@
 #DEITY
 Filename		../deity/thirian~
 Name		Thirian~
-Detitle	Master of Thieves and Protector of the Unwanted~
-Domains	Thieves, Freedom, The Poor~
-Description	Thirian is master thief, and protector of the unwanted.
+Description	Thirian, Master of Thieves and Protector of the Unwanted
+
+Domains  Thieves, Freedom, The Poor      Alignment  Neutral
+
+Thirian is master thief, and protector of the unwanted.
 His followers are the thieves and other lovers of freedom, his people though
 are the beggers and poor, it is therefore given to his followers to protect
 them.
+ 
+He has a dislike of Humans, but accepts them, and a major distaste for
+vampires.
+ 
 ~
 Alignment		0
-Worshippers	0
+Worshippers	13
 Flee		-5
 Flee_npcrace	-20
 Flee_npcfoe	-10
@@ -32,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		-1
 Class		2
 Element		0

@@ -25,12 +25,6 @@ Spell 3      'magic missile'
 End
 
 #OBJECT
-Vnum         24825
-Level        44
-Values       12 12 0 0 0 0
-End
-
-#OBJECT
 Vnum         14745
 Level        46
 Values       12 11 40 3 0 0
@@ -50,12 +44,6 @@ Values       12 17 48 11 0 0
 End
 
 #OBJECT
-Vnum         6114
-Level        9
-Values       1 1 0 0 0 0
-End
-
-#OBJECT
 Vnum         1532
 Level        25
 Values       26 74 22 170 0 0
@@ -68,25 +56,6 @@ End
 Vnum         1535
 Level        12
 Values       12 4 12 3 0 0
-End
-
-#OBJECT
-Vnum         1536
-Level        10
-Values       6 9 0 0 0 0
-End
-
-#OBJECT
-Vnum         21057
-Level        9
-Values       5 5 0 0 0 0
-End
-
-#OBJECT
-Count        2
-Vnum         14700
-Level        64
-Values       18 18 0 0 0 0
 End
 
 #OBJECT
@@ -176,13 +145,6 @@ Values       1 3 0 0 0 0
 End
 
 #OBJECT
-Vnum         46921
-ExtraFlags   25395264
-Level        54
-Values       32 32 0 0 0 0
-End
-
-#OBJECT
 Vnum         9852
 Level        11
 Values       5 5 0 0 0 0
@@ -234,39 +196,6 @@ Vnum         9862
 Level        12
 Values       20 1 1 79 0 0
 Spell 3      'dragonskin'
-End
-
-#OBJECT
-Vnum         21060
-Level        6
-Values       4 4 0 0 0 0
-End
-
-#OBJECT
-Vnum         1537
-Level        9
-Values       19 22 58 175 0 0
-Spell 1      'bless'
-Spell 2      'cure critical'
-Spell 3      'refresh'
-End
-
-#OBJECT
-Vnum         42944
-Level        25
-Values       12 6 23 8 0 0
-End
-
-#OBJECT
-Vnum         42933
-Level        31
-Values       12 8 31 0 0 0
-End
-
-#OBJECT
-Vnum         14755
-Level        48
-Values       15 15 0 0 0 0
 End
 
 #OBJECT
@@ -327,18 +256,6 @@ End
 Vnum         24824
 Level        44
 Values       1 -50 0 0 0 0
-End
-
-#OBJECT
-Vnum         21082
-Level        15
-Values       7 4 17 0 0 0
-End
-
-#OBJECT
-Vnum         42944
-Level        25
-Values       12 8 25 8 0 0
 End
 
 #OBJECT
@@ -531,18 +448,13 @@ Values       100 1 -1 0 0 0
 End
 
 #OBJECT
-Vnum         24888
-ExtraFlags   1024
-Level        39
-Values       12 14 42 8 0 0
-Affect       -1 -1 2 18 0
-Affect       -1 -1 2 19 0
-End
-
-#OBJECT
-Vnum         6508
-Level        6
-Values       12 2 12 8 0 0
+Nest         1
+Vnum         9832
+ExtraFlags   528
+Level        11
+Values       12 5 15 11 0 0
+Affect       -1 -1 3 18 0
+Affect       -1 -1 3 19 0
 End
 
 #OBJECT
@@ -576,6 +488,88 @@ End
 Vnum         42946
 Level        26
 Values       8 8 0 0 0 0
+End
+
+#OBJECT
+Vnum         24805
+Level        39
+Values       12 10 36 5 0 0
+End
+
+#OBJECT
+Vnum         24888
+ExtraFlags   1024
+Level        39
+Values       12 14 42 8 0 0
+Affect       -1 -1 2 18 0
+Affect       -1 -1 2 19 0
+End
+
+#OBJECT
+Vnum         6114
+Level        9
+Values       1 1 0 0 0 0
+End
+
+#OBJECT
+Vnum         21057
+Level        9
+Values       5 5 0 0 0 0
+End
+
+#OBJECT
+Vnum         42944
+Level        25
+Values       12 6 23 8 0 0
+End
+
+#OBJECT
+Vnum         42944
+Level        25
+Values       12 8 25 8 0 0
+End
+
+#OBJECT
+Vnum         6508
+Level        6
+Values       12 2 12 8 0 0
+End
+
+#OBJECT
+Vnum         21060
+Level        6
+Values       4 4 0 0 0 0
+End
+
+#OBJECT
+Count        2
+Vnum         14700
+Level        64
+Values       18 18 0 0 0 0
+End
+
+#OBJECT
+Vnum         24825
+Level        44
+Values       12 12 0 0 0 0
+End
+
+#OBJECT
+Vnum         42933
+Level        31
+Values       12 8 31 0 0 0
+End
+
+#OBJECT
+Vnum         14755
+Level        48
+Values       15 15 0 0 0 0
+End
+
+#OBJECT
+Vnum         1536
+Level        10
+Values       6 9 0 0 0 0
 End
 
 #END

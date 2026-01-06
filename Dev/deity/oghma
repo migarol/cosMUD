@@ -1,8 +1,6 @@
 #DEITY
 Filename		../deity/oghma~
 Name		Oghma~
-Detitle	~
-Domains	Charm, Knowledge, Luck, Travel, Trickery~
 Description	~
 Alignment		0
 Worshippers	0
@@ -28,8 +26,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		2000
 Srecall		500
-Suplift		250
-Sdtrap		2300
+Suplift		300
 Race		0
 Class		0
 Element		0

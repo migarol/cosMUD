@@ -1,19 +1,21 @@
 #DEITY
 Filename		test.dty~
 Name		Teston~
-Detitle	Deity of the Vampires~
-Domains	Vampires, Blood~
-Description	Test, Deity of the Vampire, bares his pearly white fangs in pleasure as
-his followers drain the blood of their foes. Test praises his vampires
-for the use of their gothic spells while in combat, and delights in seeing them
-drain the blood of fallen foes. Created by Vl'arescht to rule over the evil
-Vampire, Test has adapted to the changing way of the vampire and honours
-the neutral and good-aligned vampires as well as his evil followers.  Believing
-that the Vampire should be the only un-dead, immortal class, Test hates the
-gods and their representations.
-~
+Description	Teston, Deity of the Vampires
+
+Domains  Vampires, Blood           Alignment  Base
+
+Teston, Deity of the Vampire, bares his pearly white fangs in pleasure as
+his followers drain the blood of their foes. Test praises his vampires
+for the use of their gothic spells while in combat, and delights in seeing them
+drain the blood of fallen foes. Created by Vl'arescht to rule over the evil
+Vampire, Test has adapted to the changing way of the vampire and honours
+the neutral and good-aligned vampires as well as his evil followers.  Believing
+that the Vampire should be the only un-dead, Teston hates the other gods and
+their representations.
+~
 Alignment		-350
-Worshippers	0
+Worshippers	4
 Flee		-25
 Flee_npcrace	-20
 Flee_npcfoe	-20
@@ -36,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		1000
 Race		-1
 Class		4
 Element		0

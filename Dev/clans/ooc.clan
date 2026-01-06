@@ -4,10 +4,10 @@ Filename     ooc.clan~
 Motto        Death is to kind for the good.~
 Deity        Soleran~
 Leader       Argon~
-PKillRangeNew   0 2 0 3 6 2 8
-PDeathRangeNew  0 0 0 0 1 1 6
-MKills       8010
-MDeaths      91
+PKillRangeNew   0 2 0 3 6 3 8
+PDeathRangeNew  0 0 0 0 1 1 8
+MKills       9039
+MDeaths      128
 IllegalPK    1
 Score        0
 Type         0

@@ -1,11 +1,15 @@
 #DEITY
 Filename		../deity/azuth~
 Name		Azuth~
-Detitle	The old Staff~
-Domains	Illusion, Magic, Knowledge, Law, Spell~
-Description	~
+Description	Azuth, The old Staff
+
+Domains Illusion, Magic, Knowledge, Law, Spell
+Alignment  Lawful
+
+Info 
+~
 Alignment		0
-Worshippers	0
+Worshippers	24
 Flee		-5
 Flee_npcrace	10
 Flee_npcfoe	-10
@@ -28,8 +32,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		-1
 Class		-1
 Element		0

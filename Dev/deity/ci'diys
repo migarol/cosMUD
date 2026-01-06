@@ -1,14 +1,17 @@
 #DEITY
 Filename		../deity/ci'diys~
 Name		Ci'Diys~
-Detitle	Protector of the Wilderness~
-Domains	Wilderness, Seasons, Plants~
-Description	A thin aged pixie with skin the color of bark and hair the tint of leaves,
+Description	Ci'Diys, Protector of the Wilderness Areas
+
+Domains  Wilderness, Seasons, Plants     Alignment  Honorable
+
+A thin aged pixie with skin the color of bark and hair the tint of leaves,
 which changes with the seasons. The protector of the wilderness
 areas.
+ 
 ~
 Alignment		350
-Worshippers	0
+Worshippers	3
 Flee		-5
 Flee_npcrace	10
 Flee_npcfoe	-20
@@ -31,8 +34,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		4
 Class		-1
 Element		0

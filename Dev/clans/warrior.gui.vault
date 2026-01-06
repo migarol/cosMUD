@@ -54,13 +54,6 @@ Values       12 3 9 7 0 0
 End
 
 #OBJECT
-Count        2
-Vnum         21059
-Level        15
-Values       5 5 0 0 0 0
-End
-
-#OBJECT
 Vnum         24892
 Level        29
 Values       8 9 0 0 0 0
@@ -114,18 +107,6 @@ End
 Vnum         21058
 Level        14
 Values       6 6 0 0 0 0
-End
-
-#OBJECT
-Vnum         15166
-Level        35
-Values       10 10 0 0 0 0
-End
-
-#OBJECT
-Vnum         14717
-Level        45
-Values       14 14 0 0 0 0
 End
 
 #OBJECT
@@ -198,21 +179,9 @@ Spell 3      'refresh'
 End
 
 #OBJECT
-Vnum         15166
-Level        32
-Values       9 11 0 0 0 0
-End
-
-#OBJECT
 Vnum         2442
 Level        10
 Values       2 4 0 0 0 0
-End
-
-#OBJECT
-Vnum         21059
-Level        12
-Values       3 5 0 0 0 0
 End
 
 #OBJECT
@@ -275,13 +244,9 @@ Values       15 12 0 0 0 0
 End
 
 #OBJECT
+Count        2
 Vnum         10314
 Values       15 10 0 0 0 0
-End
-
-#OBJECT
-Vnum         10314
-Values       15 11 0 0 0 0
 End
 
 #OBJECT
@@ -432,19 +397,6 @@ Values       12 12 43 3 0 0
 End
 
 #OBJECT
-Vnum         9834
-Level        16
-Values       5 5 0 0 0 0
-End
-
-#OBJECT
-Count        2
-Vnum         46942
-Level        46
-Values       11 11 0 0 0 0
-End
-
-#OBJECT
 Vnum         24827
 Level        44
 Values       1 13 0 0 0 0
@@ -480,6 +432,12 @@ End
 Vnum         620
 Level        28
 Values       6 6 0 0 0 0
+End
+
+#OBJECT
+Vnum         21059
+Level        15
+Values       5 5 0 0 0 0
 End
 
 #END

@@ -1,11 +1,15 @@
 #DEITY
 Filename		../deity/auril~
 Name		Auril~
-Detitle	The Ice Queen~
-Domains	Air, Evil, Storm, Water~
-Description	~
+Description	Auril, The Ice queen
+
+Domains Air, Evil, Storm, Water
+Alignment  Evil
+
+Info 
+~
 Alignment		-350
-Worshippers	0
+Worshippers	27
 Flee		-5
 Flee_npcrace	10
 Flee_npcfoe	-10
@@ -28,8 +32,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		-1
 Class		-1
 Element		0

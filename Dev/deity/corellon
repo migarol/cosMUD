@@ -1,16 +1,21 @@
 #DEITY
 Filename		../deity/corellon~
 Name		Corellon~
-Detitle	Larethian, Greater God of Music, Poetry, and Magic~
-Domains	Magic, Music, Elves, War~
-Description	Corellon Larethian represents the highest ideals of elvenkind. He is
+Description	Corellon Larethian, Greater God of Music, Poetry, and Magic
+ 
+Domains  Magic, Music, Elves, War     Alignment  Noble
+ 
+Corellon Larethian represents the highest ideals of elvenkind. He is
 skilled in all arts and crafts. Corellon is alternately male and
 female, neither or both. He has personally banished such demons as
 Lolth from the sunlit Upperworld. It is said that the elven race
 sprang from drops of his blood shed in an epic battle.
+ 
+Favored Race   Elf               Hated Race   Drow
+ 
 ~
 Alignment		700
-Worshippers	0
+Worshippers	4
 Flee		-25
 Flee_npcrace	-35
 Flee_npcfoe	-35
@@ -33,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		1
 Class		-1
 Element		0

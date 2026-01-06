@@ -1,18 +1,21 @@
 #DEITY
 Filename		../deity/mystra~
 Name		Mystra~
-Detitle	Our Lady of Magic~
-Domains	Magic, Possibilities, Spellcasters~
-Description	Mystra, our lady of magic. Mystra is the goddess of magic and with that
+Description	Mystra, Our Lady of Magic
+
+Domains  Magic, Possibilities, Spellcasters     Alignment  Honorable
+
+Mystra, our lady of magic. Mystra is the goddess of magic and with that
 the goddess of possibilities, whitch makes her arguably the most powerful of
 deity in the realms. She is said to have taught the first spellcaster, and
 to have anabled many races to use magic. She supposedly wieghs and judges
 each new spell or magical item to determine weather it should be permitted
 into the realms. She is mostly venerated by Mages and those who use magic
 or magical items in their daily use.
+ 
 ~
 Alignment		350
-Worshippers	0
+Worshippers	45
 Flee		-5
 Flee_npcrace	10
 Flee_npcfoe	-10
@@ -35,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		-1
 Class		-1
 Element		0

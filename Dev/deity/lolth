@@ -1,16 +1,21 @@
 #DEITY
 Filename		../deity/lolth~
 Name		Lolth~
-Detitle	Demon Queen of Spiders~
-Domains	Spiders, Drow, Chaos, Evil~
-Description	The Demoness Lolth is a very powerful and feared Demon Lord. She
+Description	Lolth, Demon Queen of Spiders
+ 
+Domains  Spiders, Drow, Chaos, Evil       Alignment  Evil
+ 
+The Demoness Lolth is a very powerful and feared Demon Lord. She
 usually takes the form of a giant spider. Lolth enjoys to watch her
 followers fight for her favor and despises all surface dwelling elves.
 She is rumored to be the creator of the Drow race. Only female Drows
 may worship her and gain her favor.
+ 
+Favored Race  Drow           Hated Race  Elf
+ 
 ~
 Alignment		-700
-Worshippers	0
+Worshippers	2
 Flee		-35
 Flee_npcrace	-35
 Flee_npcfoe	-40
@@ -33,8 +38,7 @@ Scorpse		250
 Savatar		2000
 Sdeityobj		1500
 Srecall		1000
-Suplift		250
-Sdtrap		2300
+Suplift		0
 Race		11
 Class		-1
 Element		0
