@@ -3,55 +3,55 @@
 #CELL		0 0
 Climate     steppe~
 Hemisphere  southern~
-State       32 3 23 19 100 55 52 57
+State       36 9 23 21 100 55 53 58
 End
 
 #CELL		1 0
 Climate     taiga~
 Hemisphere  southern~
-State       40 2 37 25 100 40 78 33
+State       47 0 39 28 100 41 88 34
 End
 
 #CELL		2 0
 Climate     rainforest~
 Hemisphere  southern~
-State       15 88 35 99 58 72 100 -100
+State       12 97 31 97 59 73 100 -100
 End
 
 #CELL		0 1
 Climate     alpine~
 Hemisphere  northern~
-State       63 25 27 64 100 21 -22 48
+State       62 16 24 66 100 21 -19 50
 End
 
 #CELL		1 1
 Climate     alpine~
 Hemisphere  southern~
-State       72 82 23 59 94 29 85 -18
+State       73 87 21 59 88 28 97 -24
 End
 
 #CELL		2 1
 Climate     taiga~
 Hemisphere  southern~
-State       26 69 35 24 100 31 -85 78
+State       33 59 36 27 100 30 -88 73
 End
 
 #CELL		0 2
 Climate     desert~
 Hemisphere  southern~
-State       48 46 30 18 100 27 77 -70
+State       54 52 30 21 100 29 80 -66
 End
 
 #CELL		1 2
 Climate     steppe~
 Hemisphere  northern~
-State       57 68 25 65 89 33 -12 47
+State       57 54 22 63 93 31 -10 52
 End
 
 #CELL		2 2
 Climate     steppe~
 Hemisphere  northern~
-State       50 45 36 65 88 30 18 77
+State       50 54 33 68 89 26 19 81
 End
 
 
