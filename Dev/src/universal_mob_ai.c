@@ -11,11 +11,16 @@
 #include "mud.h"
 #include "universal_mob_ai.h"
 #include "ollama_integration.h"
+#include "mob_identity.h"
 
 /* Mob AI data storage */
 #define MAX_MOB_AI 500
 UNIVERSAL_MOB_AI *mob_ai_list[MAX_MOB_AI];
 int num_mob_ai = 0;
+
+/* Asynchronous speech response queue */
+struct pending_speech_response *first_pending_response = NULL;
+struct pending_speech_response *last_pending_response = NULL;
 
 /* Personality types */
 const char *personality_types[] = {
@@ -49,6 +54,7 @@ void init_universal_mob_ai(void)
 void assign_mob_intelligence(CHAR_DATA *mob)
 {
     UNIVERSAL_MOB_AI *ai;
+    MOB_IDENTITY *identity;
 
     if (!mob || !IS_NPC(mob))
         return;
@@ -69,8 +75,25 @@ void assign_mob_intelligence(CHAR_DATA *mob)
     ai->intelligence_tier = determine_mob_intelligence_tier(mob);
     ai->power_level = determine_mob_power_level(mob);
 
-    /* Generate personality */
-    assign_personality_traits(ai);
+    /* Check if Beeler already assigned identity */
+    identity = get_mob_identity(mob->pIndexData->vnum);
+    if (identity && identity->ai_prompt)
+    {
+        /* Use Beeler's personality instead of random */
+        if (identity->who_am_i)
+            ai->personality_type = strdup(identity->who_am_i);
+        else
+            ai->personality_type = strdup("unique individual");
+
+        /* Store the full AI personality description from Beeler */
+        if (identity->ai_prompt)
+            ai->ai_personality_desc = strdup(identity->ai_prompt);
+    }
+    else
+    {
+        /* Generate personality (original behavior) */
+        assign_personality_traits(ai);
+    }
 
     /* Initialize state */
     ai->mood = 50; /* Neutral */
@@ -506,6 +529,10 @@ void universal_mob_ai_update(void)
 {
     CHAR_DATA *mob;
 
+    /* Process asynchronous speech responses */
+    mob_process_pending_responses();  /* Process ONE response per tick */
+    mob_deliver_pending_responses();  /* Deliver ready responses */
+
     /* Update all mobs in world */
     for (mob = first_char; mob; mob = mob->next)
     {
@@ -534,4 +561,156 @@ UNIVERSAL_MOB_AI *get_mob_ai(CHAR_DATA *mob)
     }
 
     return NULL;
+}
+
+/*****************************************************************************
+ * Asynchronous Speech Response System
+ *
+ * Queue speech responses instead of blocking the game while Ollama thinks.
+ * Player says something -> instant feedback, mob responds when ready.
+ *****************************************************************************/
+
+/*
+ * Queue a speech response for processing (no lag!)
+ */
+void mob_queue_speech_response(CHAR_DATA *mob, CHAR_DATA *speaker, char *what_said)
+{
+    struct pending_speech_response *pending;
+    UNIVERSAL_MOB_AI *ai;
+    char prompt[MAX_STRING_LENGTH * 2];
+
+    if (!mob || !speaker || !what_said)
+        return;
+
+    ai = get_mob_ai(mob);
+    if (!ai)
+        return;
+
+    /* Need at least SIMPLE intelligence to converse */
+    if (ai->intelligence_tier < INTELLIGENCE_SIMPLE)
+        return;
+
+    /* Allocate pending response */
+    pending = (struct pending_speech_response *)calloc(1, sizeof(struct pending_speech_response));
+    if (!pending)
+        return;
+
+    pending->mob = mob;
+    pending->speaker = speaker;
+    pending->what_was_said = strdup(what_said);
+    pending->requested_at = time(NULL);
+    pending->processing = FALSE;
+    pending->response = NULL;
+
+    /* Build conversation context */
+    sprintf(prompt,
+        "You are %s, a %s.\n"
+        "Personality: %s\n"
+        "Mood: %d/100 (0=miserable, 100=happy)\n"
+        "%s says to you: \"%s\"\n\n"
+        "Respond in character (1-2 sentences):",
+        mob->short_descr ? mob->short_descr : "someone",
+        ai->personality_type ? ai->personality_type : "ordinary person",
+        ai->ai_personality_desc ? ai->ai_personality_desc : "ordinary",
+        ai->mood,
+        speaker->name ? speaker->name : "Someone",
+        what_said
+    );
+
+    pending->prompt = strdup(prompt);
+
+    /* Add to queue */
+    pending->next = NULL;
+    if (last_pending_response)
+        last_pending_response->next = pending;
+    else
+        first_pending_response = pending;
+    last_pending_response = pending;
+
+    /* Visual feedback that mob is thinking */
+    act(AT_ACTION, "$n pauses thoughtfully...", mob, NULL, NULL, TO_ROOM);
+}
+
+/*
+ * Process ONE pending response per tick (background processing)
+ */
+void mob_process_pending_responses(void)
+{
+    struct pending_speech_response *pending;
+
+    /* Find first unprocessed response */
+    for (pending = first_pending_response; pending; pending = pending->next)
+    {
+        if (!pending->processing && !pending->response)
+        {
+            /* Mark as processing */
+            pending->processing = TRUE;
+
+            /* Request from Ollama (this blocks, but only ONE per tick) */
+            pending->response = ollama_request(pending->prompt, 150);
+
+            break; /* Only process ONE per tick */
+        }
+    }
+}
+
+/*
+ * Deliver ready responses to players
+ */
+void mob_deliver_pending_responses(void)
+{
+    struct pending_speech_response *pending, *next_pending, *prev;
+
+    prev = NULL;
+    for (pending = first_pending_response; pending; pending = next_pending)
+    {
+        next_pending = pending->next;
+
+        /* Is response ready? */
+        if (pending->response && pending->response[0] != '\0')
+        {
+            /* Validate mob and speaker still exist */
+            if (pending->mob && pending->speaker)
+            {
+                /* Mob responds! */
+                act(AT_SAY, "$n says '$t'", pending->mob, pending->response, pending->speaker, TO_VICT);
+                act(AT_SAY, "$n says '$t'", pending->mob, pending->response, pending->speaker, TO_NOTVICT);
+
+                /* Remember this conversation */
+                char memory[MAX_STRING_LENGTH];
+                sprintf(memory, "Spoke with %s about %s",
+                        pending->speaker->name ? pending->speaker->name : "someone",
+                        pending->what_was_said);
+                mob_remember_event(pending->mob, memory, 10);
+
+                /* Update relationship */
+                mob_update_relationship(pending->mob, pending->speaker, 5);
+            }
+
+            /* Remove from queue */
+            if (prev)
+                prev->next = next_pending;
+            else
+                first_pending_response = next_pending;
+
+            if (pending == last_pending_response)
+                last_pending_response = prev;
+
+            /* Free memory */
+            if (pending->what_was_said)
+                free(pending->what_was_said);
+            if (pending->prompt)
+                free(pending->prompt);
+            if (pending->response)
+                DISPOSE(pending->response);
+            free(pending);
+
+            /* Don't update prev, we removed this node */
+        }
+        else
+        {
+            /* Keep in queue */
+            prev = pending;
+        }
+    }
 }

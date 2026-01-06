@@ -112,7 +112,8 @@ o/ollama_integration.o: ollama_integration.c mud.h color.h dns.h hotboot.h \
 o/mob_home.o: mob_home.c mud.h color.h dns.h hotboot.h calendar.h weather.h \
  liquids.h mob_home.h mob_identity.h
 o/universal_mob_ai.o: universal_mob_ai.c mud.h color.h dns.h hotboot.h \
- calendar.h weather.h liquids.h universal_mob_ai.h ollama_integration.h
+ calendar.h weather.h liquids.h universal_mob_ai.h ollama_integration.h \
+ mob_identity.h
 o/ai_context_analyzer.o: ai_context_analyzer.c mud.h color.h dns.h \
  hotboot.h calendar.h weather.h liquids.h mob_identity.h \
  ai_context_analyzer.h

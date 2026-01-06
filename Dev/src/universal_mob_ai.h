@@ -61,6 +61,18 @@ struct mob_goal {
     bool achieved;
 };
 
+/* Asynchronous speech response queue */
+struct pending_speech_response {
+    CHAR_DATA *mob;           /* Mob who will respond */
+    CHAR_DATA *speaker;       /* Player who spoke */
+    char *what_was_said;      /* What the player said */
+    char *prompt;             /* Ollama prompt */
+    char *response;           /* Response (NULL until ready) */
+    time_t requested_at;      /* When request was made */
+    bool processing;          /* Currently being processed */
+    struct pending_speech_response *next;
+};
+
 typedef struct universal_mob_ai {
     CHAR_DATA *mob;
     int intelligence_tier;
@@ -387,6 +399,11 @@ void mob_execute_decision(CHAR_DATA *mob, char *decision);
 char *mob_ai_respond_to_speech(CHAR_DATA *mob, CHAR_DATA *speaker, char *what_said);
 char *mob_ai_start_conversation(CHAR_DATA *mob, CHAR_DATA *target);
 void mob_remember_conversation(CHAR_DATA *mob, char *conversation_summary);
+
+/* Asynchronous speech response system */
+void mob_queue_speech_response(CHAR_DATA *mob, CHAR_DATA *speaker, char *what_said);
+void mob_process_pending_responses(void);  /* Called in update loop */
+void mob_deliver_pending_responses(void);  /* Deliver ready responses */
 
 /* Mob creation ability */
 bool mob_can_create(CHAR_DATA *mob);

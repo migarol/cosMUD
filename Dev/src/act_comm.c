@@ -1238,16 +1238,10 @@ void do_say( CHAR_DATA* ch, const char* argument )
             break;
       }
 
-      /* Universal Mob AI: NPCs respond to speech */
+      /* Universal Mob AI: NPCs respond to speech (asynchronously - no lag!) */
       if (IS_NPC(vch) && !IS_NPC(ch))
       {
-          char *ai_response = mob_ai_respond_to_speech(vch, ch, (char*)sbuf);
-          if (ai_response && ai_response[0] != '\0')
-          {
-              act(AT_SAY, "$n says '$t'", vch, ai_response, ch, TO_VICT);
-              act(AT_SAY, "$n says '$t'", vch, ai_response, ch, TO_NOTVICT);
-              DISPOSE(ai_response);
-          }
+          mob_queue_speech_response(vch, ch, (char*)sbuf);
       }
    }
 
