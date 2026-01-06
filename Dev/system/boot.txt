@@ -1,12 +1,13 @@
 [*****] BOOT: ---------------------[ Boot Log ]--------------------
-[*****] BOOT: load_resets: gods.are (3) 'M': room 10429 doesn't exist.
-[*****] BOOT: load_resets: gods.are (4) 'M': room 10429 doesn't exist.
+[*****] BOOT: load_resets: limbo.are (3) 'P': object 10311 doesn't exist.
+[*****] BOOT: load_resets: limbo.are (4) 'P': object 123 doesn't exist.
+[*****] BOOT: load_resets: limbo.are (5) 'M': mobile 100 doesn't exist.
+[*****] BOOT: load_resets: limbo.are (6) 'O': object 50163 doesn't exist.
+[*****] BOOT: load_resets: limbo.are (7) 'O': object 21042 doesn't exist.
 [*****] BOOT: load_resets: gods.are (5) 'O': object 10429 doesn't exist.
-[*****] BOOT: load_resets: gods.are (5) 'O': room 10429 doesn't exist.
 [*****] BOOT: load_resets: gods.are (6) 'O': object 49998 doesn't exist.
 [*****] BOOT: load_resets: gods.are (7) 'O': object 6003 doesn't exist.
 [*****] BOOT: load_resets: gods.are (8) 'O': object 457 doesn't exist.
-[*****] BOOT: load_resets: gods.are (17) 'E': object 21067 doesn't exist.
 [*****] BOOT: load_resets: gods.are (18) 'O': object 457 doesn't exist.
 [*****] BOOT: load_resets: gods.are (19) 'O': object 50163 doesn't exist.
 [*****] BOOT: load_resets: gods.are (21) 'M': mobile 100097 doesn't exist.
@@ -16,181 +17,20 @@
 [*****] BOOT: load_resets: gods.are (26) 'M': mobile 100098 doesn't exist.
 [*****] BOOT: load_resets: gods.are (27) 'O': object 100005 doesn't exist.
 [*****] BOOT: load_resets: gods.are (29) 'O': object 457 doesn't exist.
-[*****] BOOT: load_resets: gods.are (30) 'O': object 22 doesn't exist.
 [*****] BOOT: load_resets: gods.are (33) 'O': object 50163 doesn't exist.
-[*****] BOOT: load_resets: limbo.are (3) 'P': object 10311 doesn't exist.
-[*****] BOOT: load_resets: limbo.are (4) 'P': object 123 doesn't exist.
-[*****] BOOT: load_resets: limbo.are (5) 'M': mobile 100 doesn't exist.
-[*****] BOOT: load_resets: limbo.are (6) 'O': object 50163 doesn't exist.
-[*****] BOOT: load_resets: limbo.are (7) 'O': object 21042 doesn't exist.
-[*****] BOOT: load_resets: dwarven.are (104) 'O': object 21086 doesn't exist.
-[*****] BOOT: load_resets: dwarven.are (106) 'O': object 21086 doesn't exist.
-[*****] BOOT: load_resets: dwarven.are (107) 'O': object 21086 doesn't exist.
-[*****] BOOT: load_resets: dwarven.are (108) 'O': object 21086 doesn't exist.
-[*****] BOOT: load_resets: dwarven.are (111) 'O': object 21086 doesn't exist.
-[*****] BOOT: load_resets: cleric_guild.are (10) 'G': object 21005 doesn't exist.
-[*****] BOOT: load_resets: eastern.are (65) 'G': object 667 doesn't exist.
-[*****] BOOT: load_resets: eastern.are (66) 'P': object 5033 doesn't exist.
-[*****] BOOT: load_resets: hallof.are (15) 'O': object 50163 doesn't exist.
-[*****] BOOT: load_resets: brave.are (3) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (4) 'E': object 100004 doesn't exist.
-[*****] BOOT: load_resets: brave.are (7) 'E': object 280 doesn't exist.
-[*****] BOOT: load_resets: brave.are (8) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (9) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (10) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (11) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (15) 'M': mobile 60897 doesn't exist.
-[*****] BOOT: load_resets: brave.are (18) 'E': object 3051 doesn't exist.
-[*****] BOOT: load_resets: brave.are (19) 'E': object 14747 doesn't exist.
-[*****] BOOT: load_resets: brave.are (20) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (21) 'O': object 100021 doesn't exist.
-[*****] BOOT: load_resets: brave.are (25) 'E': object 622 doesn't exist.
-[*****] BOOT: load_resets: brave.are (26) 'E': object 623 doesn't exist.
-[*****] BOOT: load_resets: brave.are (27) 'G': object 60899 doesn't exist.
-[*****] BOOT: load_resets: brave.are (28) 'E': object 276 doesn't exist.
-[*****] BOOT: load_resets: brave.are (30) 'E': object 15178 doesn't exist.
-[*****] BOOT: load_resets: brave.are (31) 'E': object 237 doesn't exist.
-[*****] BOOT: load_resets: brave.are (33) 'E': object 42933 doesn't exist.
-[*****] BOOT: load_resets: brave.are (37) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (38) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (41) 'E': object 280 doesn't exist.
-[*****] BOOT: load_resets: brave.are (42) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (43) 'E': object 46291 doesn't exist.
-[*****] BOOT: load_resets: brave.are (44) 'E': object 60883 doesn't exist.
-[*****] BOOT: load_resets: brave.are (45) 'E': object 3012 doesn't exist.
-[*****] BOOT: load_resets: brave.are (47) 'E': object 2433 doesn't exist.
-[*****] BOOT: load_resets: brave.are (48) 'E': object 25554 doesn't exist.
-[*****] BOOT: load_resets: brave.are (55) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (57) 'E': object 21076 doesn't exist.
-[*****] BOOT: load_resets: brave.are (58) 'E': object 60883 doesn't exist.
-[*****] BOOT: load_resets: brave.are (59) 'G': object 45318 doesn't exist.
-[*****] BOOT: load_resets: brave.are (62) 'E': object 60899 doesn't exist.
-[*****] BOOT: load_resets: brave.are (65) 'E': object 2423 doesn't exist.
-[*****] BOOT: load_resets: brave.are (66) 'G': object 46267 doesn't exist.
-[*****] BOOT: load_resets: brave.are (67) 'E': object 48504 doesn't exist.
-[*****] BOOT: load_resets: brave.are (69) 'G': object 1536 doesn't exist.
-[*****] BOOT: load_resets: brave.are (71) 'E': object 15179 doesn't exist.
-[*****] BOOT: load_resets: brave.are (72) 'E': object 4152 doesn't exist.
-[*****] BOOT: load_resets: brave.are (76) 'E': object 1536 doesn't exist.
-[*****] BOOT: load_resets: brave.are (79) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (84) 'E': object 2388 doesn't exist.
-[*****] BOOT: load_resets: brave.are (87) 'E': object 4152 doesn't exist.
-[*****] BOOT: load_resets: brave.are (90) 'E': object 60899 doesn't exist.
-[*****] BOOT: load_resets: brave.are (91) 'E': object 21080 doesn't exist.
-[*****] BOOT: load_resets: brave.are (92) 'E': object 15179 doesn't exist.
-[*****] BOOT: load_resets: brave.are (94) 'E': object 2423 doesn't exist.
-[*****] BOOT: load_resets: brave.are (95) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (96) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (97) 'G': object 60899 doesn't exist.
-[*****] BOOT: load_resets: brave.are (98) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (111) 'E': object 1536 doesn't exist.
-[*****] BOOT: load_resets: brave.are (112) 'O': object 100021 doesn't exist.
-[*****] BOOT: load_resets: brave.are (114) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (115) 'O': object 100021 doesn't exist.
-[*****] BOOT: load_resets: brave.are (116) 'M': mobile 100026 doesn't exist.
-[*****] BOOT: load_resets: brave.are (117) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (120) 'E': object 2336 doesn't exist.
-[*****] BOOT: load_resets: brave.are (121) 'E': object 2332 doesn't exist.
-[*****] BOOT: load_resets: brave.are (122) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (124) 'E': object 2433 doesn't exist.
-[*****] BOOT: load_resets: brave.are (126) 'E': object 7962 doesn't exist.
-[*****] BOOT: load_resets: brave.are (127) 'E': object 3012 doesn't exist.
-[*****] BOOT: load_resets: brave.are (130) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (135) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (138) 'E': object 2336 doesn't exist.
-[*****] BOOT: load_resets: brave.are (139) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (141) 'E': object 2332 doesn't exist.
-[*****] BOOT: load_resets: brave.are (151) 'E': object 2332 doesn't exist.
-[*****] BOOT: load_resets: brave.are (152) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (154) 'E': object 2327 doesn't exist.
-[*****] BOOT: load_resets: brave.are (156) 'E': object 2322 doesn't exist.
-[*****] BOOT: load_resets: brave.are (158) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (159) 'G': object 60924 doesn't exist.
-[*****] BOOT: load_resets: brave.are (162) 'E': object 5222 doesn't exist.
-[*****] BOOT: load_resets: brave.are (163) 'O': object 100021 doesn't exist.
-[*****] BOOT: load_resets: brave.are (164) 'O': object 26539 doesn't exist.
-[*****] BOOT: load_resets: brave.are (169) 'E': object 1536 doesn't exist.
-[*****] BOOT: load_resets: brave.are (171) 'E': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (175) 'O': object 26539 doesn't exist.
-[*****] BOOT: load_resets: brave.are (176) 'O': object 42973 doesn't exist.
-[*****] BOOT: load_resets: brave.are (182) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (186) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (187) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (188) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (189) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (190) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (191) 'O': object 26539 doesn't exist.
-[*****] BOOT: load_resets: brave.are (196) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (201) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (207) 'G': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (209) 'E': object 25066 doesn't exist.
-[*****] BOOT: load_resets: brave.are (214) 'E': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (216) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (217) 'E': object 2392 doesn't exist.
-[*****] BOOT: load_resets: brave.are (218) 'E': object 2432 doesn't exist.
-[*****] BOOT: load_resets: brave.are (220) 'O': object 26539 doesn't exist.
-[*****] BOOT: load_resets: brave.are (221) 'O': object 60503 doesn't exist.
-[*****] BOOT: load_resets: brave.are (226) 'E': object 2332 doesn't exist.
-[*****] BOOT: load_resets: brave.are (227) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (228) 'E': object 1536 doesn't exist.
-[*****] BOOT: load_resets: brave.are (233) 'O': object 26539 doesn't exist.
-[*****] BOOT: load_resets: brave.are (240) 'E': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (255) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (256) 'G': object 21008 doesn't exist.
-[*****] BOOT: load_resets: brave.are (265) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (267) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (268) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (269) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (270) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (271) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (272) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (276) 'E': object 100095 doesn't exist.
-[*****] BOOT: load_resets: brave.are (278) 'E': object 2338 doesn't exist.
-[*****] BOOT: load_resets: brave.are (280) 'E': object 2102 doesn't exist.
-[*****] BOOT: load_resets: brave.are (281) 'G': object 278 doesn't exist.
-[*****] BOOT: load_resets: brave.are (282) 'G': object 2449 doesn't exist.
-[*****] BOOT: load_resets: brave.are (283) 'E': object 60863 doesn't exist.
-[*****] BOOT: load_resets: brave.are (284) 'E': object 2336 doesn't exist.
-[*****] BOOT: load_resets: brave.are (285) 'E': object 12557 doesn't exist.
-[*****] BOOT: load_resets: brave.are (286) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (287) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (288) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (289) 'M': mobile 1515 doesn't exist.
-[*****] BOOT: load_resets: brave.are (294) 'E': object 21061 doesn't exist.
-[*****] BOOT: load_resets: ass.are (3) 'O': object 191 doesn't exist.
-[*****] BOOT: Fix_exits: room 2, exit down leads to bad vnum (21194)
-[*****] BOOT: Fix_exits: room 5, exit east leads to bad vnum (10300)
 [*****] BOOT: Fix_exits: room 6151, exit north leads to bad vnum (28046)
-[*****] BOOT: Fix_exits: room 24800, exit south leads to bad vnum (21021)
-[*****] BOOT: Fix_exits: room 6500, exit southwest leads to bad vnum (3502)
-[*****] BOOT: Fix_exits: room 70000, exit north leads to bad vnum (70114)
-[*****] BOOT: Fix_exits: room 41447, exit north leads to bad vnum (5267)
-[*****] BOOT: Fix_exits: room 8904, exit west leads to bad vnum (3502)
-[*****] BOOT: Fix_exits: room 2800, exit south leads to bad vnum (5280)
-[*****] BOOT: Fix_exits: room 15100, exit south leads to bad vnum (21101)
-[*****] BOOT: Fix_exits: room 800, exit down leads to bad vnum (21338)
-[*****] BOOT: Fix_exits: room 41800, exit down leads to bad vnum (21109)
-[*****] BOOT: Fix_exits: room 41827, exit west leads to bad vnum (45839)
-[*****] BOOT: Fix_exits: room 5025, exit southwest leads to bad vnum (2002024)
-[*****] BOOT: Fix_exits: room 46000, exit north leads to bad vnum (21121)
-[*****] BOOT: Fix_exits: room 46004, exit west leads to bad vnum (100036)
-[*****] BOOT: Fix_exits: room 5100, exit up leads to bad vnum (5270)
-[*****] BOOT: Fix_exits: room 1200, exit west leads to bad vnum (10399)
 [*****] BOOT: Fix_exits: room 1200, exit up leads to bad vnum (40006)
 [*****] BOOT: Fix_exits: room 1200, exit down leads to bad vnum (7957)
-[*****] BOOT: Fix_exits: room 2002100, exit north leads to bad vnum (2002008)
 [*****] BOOT: Fix_exits: room 1209, exit up leads to bad vnum (30232)
 [*****] BOOT: Fix_exits: room 1210, exit north leads to bad vnum (429)
-[*****] BOOT: Fix_exits: room 5600, exit east leads to bad vnum (21011)
-[*****] BOOT: Fix_exits: room 3600, exit north leads to bad vnum (21293)
-[*****] BOOT: Fix_exits: room 20000, exit south leads to bad vnum (5278)
-[*****] BOOT: Fix_exits: room 9850, exit south leads to bad vnum (21019)
 [*****] BOOT: Fix_exits: room 6000, exit north leads to bad vnum (100000)
-[*****] BOOT: Fix_exits: room 6000, exit east leads to bad vnum (21087)
 [*****] BOOT: Fix_exits: room 6003, exit north leads to bad vnum (60658)
-[*****] BOOT: Fix_exits: room 3000200, exit south leads to bad vnum (21499)
 [*****] BOOT: Fix_exits: room 6120, exit east leads to bad vnum (260)
 [*****] BOOT: Fix_exits: room 6124, exit south leads to bad vnum (48500)
 [*****] BOOT: Fix_exits: room 6125, exit south leads to bad vnum (8301)
+[*****] BOOT: Fix_exits: room 6132, exit up leads to bad vnum (44904)
+[*****] BOOT: Fix_exits: room 6133, exit north leads to bad vnum (44900)
+[*****] BOOT: Fix_exits: room 6134, exit south leads to bad vnum (44901)
+[*****] BOOT: Fix_exits: room 6134, exit west leads to bad vnum (44902)
 [*****] BOOT: Fix_exits: room 6137, exit north leads to bad vnum (46200)
 [*****] BOOT: Load_loginmsg: Cannot open login message file.

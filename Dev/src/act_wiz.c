@@ -468,7 +468,8 @@ void do_wizhelp( CHAR_DATA* ch, const char* argument )
    set_pager_color( AT_PLAIN, ch );
    for( hash = 0; hash < 126; hash++ )
       for( cmd = command_hash[hash]; cmd; cmd = cmd->next )
-         if( cmd->level >= LEVEL_HERO && cmd->level <= get_trust( ch ) )
+         /* Changed to level 50+ to support legacy command levels from 65-level system */
+         if( cmd->level >= 50 && cmd->level <= get_trust( ch ) )
          {
             pager_printf( ch, "%-12s", cmd->name );
             if( ++col % 6 == 0 )
