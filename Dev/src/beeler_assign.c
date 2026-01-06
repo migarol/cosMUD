@@ -210,11 +210,19 @@ char * beeler_generate_identity( CHAR_DATA *mob, const char *context )
 {
     char prompt[MAX_STRING_LENGTH * 5];
     char *response;
+    char log_buf[256];
 
     sprintf( prompt, "You are Beeler, an autonomous AI overseer. Analyze this NPC and create a complete identity.\n\n%s\n\nGenerate a structured identity in this EXACT format:\n\nWHO_AM_I: [First person, 1 sentence - who they are]\nWHAT_I_DO: [First person, 1 sentence - what they do]\nHOW_I_DO_IT: [First person, 1 sentence - their methods/style]\nWHERE_I_LIVE: [First person, 1 sentence - where they live]\nWHERE_I_GO: [First person, 1 sentence - where they go]\nMY_PURPOSE: [First person, 1 sentence - their life purpose]\nSCHEDULE: [Format: SLEEP 22-6, WORK 6-18, FREE 18-22]\nPERSONALITY: [3-4 personality traits]\n\nBe creative, consider the economic context, area theme, and mob role. Use Spanish for identity fields if area/mob has Spanish context, otherwise English.", context );
 
+    /* Debug logging */
+    sprintf(log_buf, "BEELER DEBUG: prompt size=%d, ollama_enabled=%d", (int)strlen(prompt), ollama_enabled);
+    log_string(log_buf);
+
     /* Call Ollama */
     response = ollama_request( prompt, 500 );
+
+    sprintf(log_buf, "BEELER DEBUG: ollama_request returned %s", response ? "data" : "NULL");
+    log_string(log_buf);
 
     return response;
 }
