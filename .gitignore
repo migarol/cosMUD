@@ -1,1 +1,18 @@
 Dev/log/*.log
+
+# Compiled binaries
+Dev/src/*.o
+Dev/src/o/*.o
+Dev/src/smaug
+
+# Runtime system state files
+Dev/system/time.dat
+Dev/system/weathermap.dat
+Dev/system/shutdown.txt
+Dev/system/sysdata.txt
+
+# Generated personality data (can be regenerated)
+Dev/data/mob_personalities/
+
+# Runtime logs
+Dev/system/boot.txt
