@@ -18,6 +18,9 @@
 UNIVERSAL_MOB_AI *mob_ai_list[MAX_MOB_AI];
 int num_mob_ai = 0;
 
+/* Persistence */
+#define MOB_PERSONALITY_DIR "../data/mob_personalities/"
+
 /* Asynchronous speech response queue */
 struct pending_speech_response *first_pending_response = NULL;
 struct pending_speech_response *last_pending_response = NULL;
@@ -48,7 +51,112 @@ void init_universal_mob_ai(void)
 
     num_mob_ai = 0;
 
+    /* Create persistence directory */
+    system("mkdir -p " MOB_PERSONALITY_DIR);
+
     log_string("UNIVERSAL MOB AI: Initialized");
+}
+
+/*****************************************************************************
+ * Persistence - Save/Load Personalities
+ *****************************************************************************/
+
+/*
+ * Save mob AI personality to file - CALLED AFTER OLLAMA GENERATION
+ */
+void save_mob_ai_personality(int vnum, const char *personality_type, const char *ai_desc, int tier, int power)
+{
+    char filename[256];
+    FILE *fp;
+
+    sprintf(filename, "%s%d.txt", MOB_PERSONALITY_DIR, vnum);
+
+    fp = fopen(filename, "w");
+    if (!fp)
+    {
+        bug("save_mob_ai_personality: Cannot open %s for writing", filename);
+        return;
+    }
+
+    fprintf(fp, "VNUM %d\n", vnum);
+    fprintf(fp, "PERSONALITY %s\n", personality_type ? personality_type : "friendly");
+    fprintf(fp, "TIER %d\n", tier);
+    fprintf(fp, "POWER %d\n", power);
+
+    if (ai_desc && ai_desc[0])
+    {
+        fprintf(fp, "AI_DESC\n%s\nEND_AI_DESC\n", ai_desc);
+    }
+
+    fclose(fp);
+}
+
+/*
+ * Load mob AI personality from file - CALLED AT STARTUP/ASSIGNMENT
+ * Returns 1 if loaded, 0 if not found
+ */
+int load_mob_ai_personality(int vnum, char **personality_type_out, char **ai_desc_out, int *tier_out, int *power_out)
+{
+    char filename[256];
+    FILE *fp;
+    char line[MAX_STRING_LENGTH];
+    char ai_desc_buffer[MAX_STRING_LENGTH * 2];
+    bool reading_ai_desc = FALSE;
+
+    sprintf(filename, "%s%d.txt", MOB_PERSONALITY_DIR, vnum);
+
+    fp = fopen(filename, "r");
+    if (!fp)
+        return 0; /* File doesn't exist - not an error */
+
+    ai_desc_buffer[0] = '\0';
+
+    while (fgets(line, sizeof(line), fp))
+    {
+        /* Remove newline */
+        line[strcspn(line, "\n")] = '\0';
+
+        if (reading_ai_desc)
+        {
+            if (strcmp(line, "END_AI_DESC") == 0)
+            {
+                reading_ai_desc = FALSE;
+            }
+            else
+            {
+                /* Append to buffer */
+                if (strlen(ai_desc_buffer) + strlen(line) + 2 < sizeof(ai_desc_buffer))
+                {
+                    if (ai_desc_buffer[0])
+                        strcat(ai_desc_buffer, "\n");
+                    strcat(ai_desc_buffer, line);
+                }
+            }
+        }
+        else if (strncmp(line, "PERSONALITY ", 12) == 0)
+        {
+            *personality_type_out = strdup(line + 12);
+        }
+        else if (strncmp(line, "TIER ", 5) == 0)
+        {
+            *tier_out = atoi(line + 5);
+        }
+        else if (strncmp(line, "POWER ", 6) == 0)
+        {
+            *power_out = atoi(line + 6);
+        }
+        else if (strcmp(line, "AI_DESC") == 0)
+        {
+            reading_ai_desc = TRUE;
+        }
+    }
+
+    fclose(fp);
+
+    if (ai_desc_buffer[0])
+        *ai_desc_out = strdup(ai_desc_buffer);
+
+    return 1; /* Successfully loaded */
 }
 
 void assign_mob_intelligence(CHAR_DATA *mob)
@@ -75,7 +183,7 @@ void assign_mob_intelligence(CHAR_DATA *mob)
     ai->intelligence_tier = determine_mob_intelligence_tier(mob);
     ai->power_level = determine_mob_power_level(mob);
 
-    /* Check if Beeler already assigned identity */
+    /* PRIORITY 1: Check if Beeler already assigned identity */
     identity = get_mob_identity(mob->pIndexData->vnum);
     if (identity && identity->ai_prompt)
     {
@@ -89,10 +197,33 @@ void assign_mob_intelligence(CHAR_DATA *mob)
         if (identity->ai_prompt)
             ai->ai_personality_desc = strdup(identity->ai_prompt);
     }
+    /* PRIORITY 2: Try to load from saved file (FAST - no Ollama call!) */
     else
     {
-        /* Generate personality (original behavior) */
-        assign_personality_traits(ai);
+        char *saved_personality = NULL;
+        char *saved_ai_desc = NULL;
+        int saved_tier = 0;
+        int saved_power = 0;
+
+        if (load_mob_ai_personality(mob->pIndexData->vnum, &saved_personality, &saved_ai_desc, &saved_tier, &saved_power))
+        {
+            /* Found saved personality - use it! */
+            ai->personality_type = saved_personality;
+            ai->ai_personality_desc = saved_ai_desc;
+            /* Note: tier and power are already set above, saved values are just for reference */
+        }
+        else
+        {
+            /* PRIORITY 3: Generate NEW personality and SAVE it for next time */
+            assign_personality_traits(ai);
+
+            /* Save to file so we don't have to generate again */
+            save_mob_ai_personality(mob->pIndexData->vnum,
+                                   ai->personality_type,
+                                   ai->ai_personality_desc,
+                                   ai->intelligence_tier,
+                                   ai->power_level);
+        }
     }
 
     /* Initialize state */
