@@ -16,3 +16,6 @@ Dev/data/mob_personalities/
 
 # Runtime logs
 Dev/system/boot.txt
+Dev/src/dependencies.d
+Dev/system/WIZLIST
+Dev/area/boot.txt
