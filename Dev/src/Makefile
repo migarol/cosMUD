@@ -59,14 +59,8 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c ban.c boards.c \
           misc.c mpxset.c mssp.c mud_comm.c mud_prog.c news.c planes.c player.c polymorph.c \
           renumber.c reset.c save.c services.c sha256.c shops.c skills.c special.c tables.c \
           track.c update.c variables.c weather.c \
-          redis_bridge.c world_history_tracker.c world_context.c ollama_integration.c \
-          mob_home.c universal_mob_ai.c ai_context_analyzer.c economy_stub.c \
-          beeler.c beeler_architect.c beeler_assign.c beeler_commands.c beeler_god_mode.c \
-          mob_identity_stubs.c \
-          leader_ai.c organic_creation.c periodicos.c player_world_impact.c \
-          book_writing_system.c \
-          # mob_creation_system.c  # TODO: Fix sed-mangled code \
-          # persistent_memory.c cultural_evolution.c family_lineage.c global_trade.c resource_distribution.c  # TODO: Fix const char* issues
+          ollama_integration.c universal_mob_ai.c mob_home.c leader_ai.c \
+          beeler_assign.c beeler_commands.c mob_identity.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
 

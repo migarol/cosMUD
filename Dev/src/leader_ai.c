@@ -21,6 +21,10 @@
 #include "world_context.h"
 #include "ollama_integration.h"
 
+/* Stubs for removed systems */
+void record_world_event(EVENT_TYPE type, char *desc, int importance) { }
+void smart_announce(char *title, char *body, int cat, int prio, char *area) { }
+
 /* Global leader list */
 LEADER_AI_DATA *first_leader = NULL;
 LEADER_AI_DATA *last_leader = NULL;

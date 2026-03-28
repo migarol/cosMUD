@@ -14,6 +14,13 @@
 #include "universal_mob_ai.h"
 #include "ollama_integration.h"
 
+/* Stubs for removed systems */
+WORLD_CONTEXT *get_world_context(void) { return NULL; }
+void beeler_analyze_vital_signs(AREA_DATA *a) { }
+AREA_VITAL_SIGNS *beeler_get_area_health(AREA_DATA *a) { return NULL; }
+void beeler_divine_observation(void) { }
+void beeler_adjust_world_balance(void) { }
+
 /* Forward declarations */
 static CHAR_DATA *get_beeler_mob(void);
 static const char *get_status_name(int status);
@@ -481,8 +488,10 @@ char *beeler_ai_current_thoughts(void)
  * Utility Functions
  *****************************************************************************/
 
+/* Global stub for removed beeler god mode */
+BEELER_DIVINE_OVERSIGHT *beeler_oversight = NULL;
+
 BEELER_DIVINE_OVERSIGHT *get_beeler_oversight(void)
 {
-    extern BEELER_DIVINE_OVERSIGHT *beeler_oversight;
     return beeler_oversight;
 }

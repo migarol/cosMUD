@@ -22,6 +22,13 @@
 #include "ollama_integration.h"
 #include "universal_mob_ai.h"
 
+/* Stubs for removed economy system */
+void set_npc_profession(CHAR_DATA *mob, int prof) { }
+const char *profession_name(int prof) { return "worker"; }
+AREA_ECONOMY *get_area_economy(AREA_DATA *area) { return NULL; }
+int get_profession_for_resource(int res) { return 0; }
+const char *resource_name(int res) { return "general"; }
+
 /* Forward declarations */
 char * beeler_analyze_mob_context( CHAR_DATA *mob );
 char * beeler_generate_identity( CHAR_DATA *mob, const char *context );

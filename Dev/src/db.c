@@ -38,11 +38,6 @@ void init_supermob( void );
 
 /* Autonomous world system initializations */
 extern void init_ollama(void);
-extern void init_beeler(void);
-extern void init_beeler_god_mode(void);
-extern void init_beeler_architect(void);
-extern void init_world_history(void);
-extern void init_organic_creation(void);
 extern void init_leader_ai(void);
 extern void init_universal_mob_ai(void);
 extern void init_housing_system(void);
@@ -802,17 +797,11 @@ void boot_db( bool fCopyOver )
    log_string( "=============================================" );
 
    init_ollama();
-   init_beeler();
-   init_beeler_god_mode();
-   init_beeler_architect();
-   init_world_history();
-   init_organic_creation();
    init_leader_ai();
    init_universal_mob_ai();
    init_housing_system();
 
    log_string( "Autonomous world systems initialized." );
-   log_string( "The world is now ALIVE and self-evolving!" );
    log_string( "=============================================" );
    log_string( "" );
 }
